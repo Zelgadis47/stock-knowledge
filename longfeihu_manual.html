@@ -4,34 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>龙飞虎交易体系 — 6倍收益交割单</title>
-<style>
-  :root { --bg:#0d1117; --bg2:#161b22; --bg3:#1c2333; --bg4:#21262d; --border:#30363d; --text:#e6edf3; --text2:#8b949e; --accent:#58a6ff; --green:#3fb950; --orange:#d29922; --red:#f85149; --purple:#bc8cff; --pink:#f778ba; --gold:#ffd700; --card-bg:#1c2333; --shadow:0 4px 16px rgba(0,0,0,0.3); }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; padding:20px; max-width:800px; margin:0 auto; padding-bottom:70px; }
-  h1 { font-size:1.5rem; margin-bottom:4px; background:linear-gradient(135deg,var(--gold),var(--purple)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-  .sub { color:var(--text2); font-size:0.85rem; margin-bottom:16px; }
-  .section { background:var(--bg2); border:1px solid var(--border); border-radius:10px; padding:16px; margin-bottom:14px; }
-  .section h2 { font-size:1rem; color:var(--gold); margin-bottom:10px; padding-bottom:4px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:6px; }
-  .quote { background:var(--bg3); border-left:3px solid var(--purple); padding:8px 12px; margin:8px 0; border-radius:0 6px 6px 0; color:var(--text); font-size:0.85rem; }
-  .quote .src { color:var(--text2); font-size:0.72rem; margin-top:4px; display:block; }
-  .highlight { color:var(--orange); font-weight:600; }
-  .tag { display:inline-block; padding:2px 8px; border-radius:8px; font-size:0.7rem; background:rgba(88,166,255,0.1); color:var(--accent); border:1px solid rgba(88,166,255,0.15); }
-  ul { padding-left:18px; font-size:0.85rem; }
-  ul li { margin-bottom:6px; }
-  .card-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:8px; }
-  .card { background:var(--bg3); border:1px solid var(--border); border-radius:8px; padding:12px; }
-  .card .title { font-weight:600; font-size:0.85rem; margin-bottom:4px; color:var(--purple); }
-  .card p { font-size:0.78rem; color:var(--text2); }
-  .rule-box { background:var(--bg3); border:1px solid var(--purple); border-radius:8px; padding:12px; margin:6px 0; }
-  .rule-box .rule-title { font-weight:600; font-size:0.82rem; color:var(--purple); margin-bottom:4px; }
-  .rule-box p { font-size:0.78rem; color:var(--text2); }
-  table { width:100%; border-collapse:collapse; font-size:0.8rem; margin:8px 0; }
-  th, td { border:1px solid var(--border); padding:6px 8px; text-align:left; }
-  th { background:var(--bg3); color:var(--accent); font-weight:600; }
-</style>
+<link rel="stylesheet" href="theme.css">
 </head>
 <body>
-
 <h1>🐉 龙飞虎交易体系</h1>
 <div class="sub">淘股吧百万实盘赛 · 2009年50万到300万 · 经典交割单分析</div>
 <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:14px;">
@@ -160,39 +135,9 @@
 </div>
 
 <script src="tracker.js"></script>
-<script>
-(function() {
-  var itemId = 'longfeihu_manual';
-  if (typeof KG === 'undefined') return;
-  var bar = document.createElement('div');
-  bar.id = 'kg-status-bar';
-  bar.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#161b22;border-top:1px solid #30363d;padding:8px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:0.8rem;color:#e6edf3;backdrop-filter:blur(8px);';
-  var status = KG.getStatus(itemId);
-  var statusIcon = status === 'completed' ? '✅' : '📖';
-  var statusText = status === 'completed' ? '已读完' : '阅读中';
-  var notes = KG.getNotes(itemId);
-  var noteCount = notes ? notes.length : 0;
-  bar.innerHTML =
-    '<span>🐉 龙飞虎交易体系</span>' +
-    '<span>' + statusIcon + ' ' + statusText + '</span>' +
-    '<span style="color:#8b949e;">|</span>' +
-    '<span>👁️ ' + (KG.getStats(itemId).visits || 0) + '次</span>' +
-    '<span style="color:#8b949e;">|</span>' +
-    '<span>📝 ' + noteCount + '条</span>' +
-    '<span style="margin-left:auto;display:flex;gap:6px;">' +
-      '<button onclick="KG_toggleRead(\'' + itemId + '\')" style="padding:4px 10px;border-radius:6px;border:1px solid #30363d;background:#21262d;color:#e6edf3;cursor:pointer;font-size:0.75rem;">' + (status === 'completed' ? '🔄 重读' : '✅ 读完') + '</button>' +
-      '<button onclick="KG_showNoteDialog(\'' + itemId + '\')" style="padding:4px 10px;border-radius:6px;border:1px solid #30363d;background:#21262d;color:#e6edf3;cursor:pointer;font-size:0.75rem;">📝 笔记</button>' +
-      '<a href="index.html" style="padding:4px 10px;border-radius:6px;border:1px solid #30363d;background:#21262d;color:#e6edf3;text-decoration:none;font-size:0.75rem;">← 返回</a>' +
-    '</span>';
-  document.body.style.paddingBottom = '56px';
-  document.body.appendChild(bar);
-  var startTime = Date.now();
-  window.addEventListener('beforeunload', function() {
-    if (KG.logTime) KG.logTime(itemId, Date.now() - startTime);
-  });
-  if (typeof KG_initAnnotation === 'function') KG_initAnnotation(itemId);
-})();
-</script>
-
+<div class="footer">
+<span>📖 龙飞虎交易体系 — 6倍收益交割单</span>
+<a href="index.html">⬆ 返回首页</a>
+</div>
 </body>
 </html>

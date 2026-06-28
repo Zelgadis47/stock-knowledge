@@ -1,0 +1,27 @@
+:root{--bg:#0d1117;--bg2:#161b22;--bg3:#1c2333;--bg4:#21262d;--border:#30363d;--text:#e6edf3;--text2:#8b949e;--accent:#58a6ff;--green:#3fb950;--orange:#d29922;--red:#f85149;--purple:#bc8cff;--gold:#ffd700;--pink:#f778ba;--teal:#56d4dd}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:20px;max-width:800px;margin:0 auto;padding-bottom:70px}
+h1{font-size:clamp(1.3rem,4vw,1.8rem);margin:20px 0 6px;color:var(--gold)}
+h2{font-size:1.15rem;margin:18px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--border);color:var(--accent)}
+h3{font-size:1rem;margin:14px 0 6px;color:var(--green)}
+p{margin:8px 0;color:var(--text2)}
+a{color:var(--accent)}
+a:hover{text-decoration:underline}
+blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--bg2);border-radius:0 6px 6px 0;font-style:italic;color:var(--text2)}
+code{background:var(--bg3);padding:2px 6px;border-radius:4px;font-size:0.85em;color:var(--orange)}
+pre{background:var(--bg2);padding:12px;border-radius:6px;overflow-x:auto;border:1px solid var(--border);margin:10px 0;font-size:0.82rem}
+pre code{background:transparent;padding:0;color:var(--text)}
+ul,ol{margin:6px 0;padding-left:22px;color:var(--text2)}
+li{margin:3px 0}
+strong{color:var(--text)}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:0.85rem}
+th{background:var(--bg3);color:var(--accent);padding:8px 10px;border:1px solid var(--border);text-align:left}
+td{padding:6px 10px;border:1px solid var(--border);color:var(--text2)}
+tr:hover{background:var(--bg3)}
+hr{border:none;height:1px;background:var(--border);margin:20px 0}
+.tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:0.7rem;background:var(--accent);color:var(--bg);margin:2px}
+.badge{display:inline-block;padding:1px 8px;border-radius:8px;font-size:0.7rem;background:var(--green);color:var(--bg);margin:2px}
+.footer{position:fixed;bottom:0;left:0;right:0;background:var(--bg2);border-top:1px solid var(--border);padding:8px 16px;display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;z-index:100;backdrop-filter:blur(8px)}
+.footer a{color:var(--accent);text-decoration:none;padding:4px 10px;border-radius:6px}
+.footer a:hover{background:var(--bg3)}
+@media(max-width:600px){body{padding:12px;padding-bottom:60px}h1{font-size:1.15rem}table{font-size:0.75rem}}
