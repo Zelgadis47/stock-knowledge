@@ -1,1010 +1,353 @@
-﻿<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>鏃ユ湰铚＄儧鍥炬妧鏈?鈥?K绾垮舰鎬佸畬鍏ㄦ墜鍐?/title>
-<link rel="stylesheet" href="theme.css">
-</head>
-<body>
-<nav class="toc">
-  <h2>馃摉 鐩綍</h2>
-  <a href="#intro" class="section">涔︾睄绠€浠?/a>
-  <a href="#author" class="sub">鈥?浣滆€?/a>
-  <a href="#basics" class="section">K绾垮熀纭€</a>
-  <a href="#basics-elements" class="sub">鈥?鏋勬垚瑕佺礌</a>
-  <a href="#basics-types" class="sub">鈥?闃撮槼绾?/a>
-  <a href="#single" class="section">鍗曟牴K绾垮舰鎬?/a>
-  <a href="#s-hammer" class="sub">鈥?閿ゅ瓙绾?/a>
-  <a href="#s-hanging" class="sub">鈥?涓婂悐绾?/a>
-  <a href="#s-doji" class="sub">鈥?鍗佸瓧鏄?/a>
-  <a href="#s-shooting" class="sub">鈥?娴佹槦绾?/a>
-  <a href="#s-ihammer" class="sub">鈥?鍊掗敜瀛愮嚎</a>
-  <a href="#dual" class="section">鍙孠绾垮舰鎬?/a>
-  <a href="#d-engulf" class="sub">鈥?鍚炴病褰㈡€?/a>
-  <a href="#d-darkcloud" class="sub">鈥?涔屼簯鐩栭《</a>
-  <a href="#d-piercing" class="sub">鈥?鍒洪€忓舰鎬?/a>
-  <a href="#triple" class="section">涓塊绾垮舰鎬?/a>
-  <a href="#t-morning" class="sub">鈥?鍚槑鏄?/a>
-  <a href="#t-evening" class="sub">鈥?榛勬槒鏄?/a>
-  <a href="#t-crows" class="sub">鈥?涓夊彧涔岄甫</a>
-  <a href="#t-soldiers" class="sub">鈥?涓夌櫧鍏?/a>
-  <a href="#continuation" class="section">鎸佺画褰㈡€?/a>
-  <a href="#c-gap" class="sub">鈥?绐楀彛/璺崇┖</a>
-  <a href="#c-rising3" class="sub">鈥?涓婂崌涓夋硶</a>
-  <a href="#c-falling3" class="sub">鈥?涓嬮檷涓夋硶</a>
-  <a href="#strategy" class="section">瀹炴垬缁勫悎绛栫暐</a>
-  <a href="#checklist" class="section">K绾挎鏌ヨ〃</a>
-</nav>
-
-<main>
-
-<section id="intro">
-  <h1>鏃ユ湰铚＄儧鍥炬妧鏈?/h1>
-  <p class="subtitle">Japanese Candlestick Charting Techniques 鈥?鍏ㄦ櫙瀛︿範鎵嬪唽</p>
-
-  <div class="book-info">
-    <h2>馃摎 涔︾睄淇℃伅</h2>
-    <p><strong>涔﹀悕锛?/strong>鏃ユ湰铚＄儧鍥炬妧鏈紙Japanese Candlestick Charting Techniques锛?/p>
-    <p><strong>浣滆€咃細</strong>鍙茶拏澶峰凹妫紙Steve Nison锛夆€斺€?琚タ鏂硅獕涓?K绾垮垎鏋愪箣鐖?</p>
-    <p><strong>棣栨鍑虹増锛?/strong>1991骞达紝棣栨灏嗘棩鏈湣鐑涘浘鎶€鏈郴缁熶粙缁嶇粰瑗挎柟鎶曡祫鐣?/p>
-    <p><strong>鍦颁綅锛?/strong>鎶€鏈垎鏋愰鍩熸渶缁忓吀鐨勫叆闂ㄤ功绫嶄箣涓€锛屽叏鐞冩妧鏈垎鏋愬笀鐨勫繀璇讳功鐩?/p>
-    <p><strong>鏍稿績鐞嗗康锛?/strong>K绾垮浘涓嶆槸棰勬祴宸ュ叿锛岃€屾槸<strong>瑙ｈ甯傚満蹇冪悊</strong>鐨勮瑷€銆傛瘡涓€鏍筀绾块兘璁板綍浜嗗绌哄弻鏂圭殑鎴樻枟鐥曡抗锛屽舰鎬佺殑鑳屽悗鏄氦鏄撹€呯殑鎭愭儳銆佽椽濠€佺姽璞拰鍐虫柇銆?/p>
-  </div>
-</section>
-
-<section id="author">
-  <h2>馃懁 浣滆€呯畝浠?/h2>
-  <p>鍙茶拏澶峰凹妫湪绾界害浠庝簨鎶€鏈垎鏋愬伐浣滐紝鍦ㄦ帰绱㈡洿娣卞叆鐨勪环鏍艰涓虹爺绌舵椂鍙戠幇浜嗘棩鏈背甯備氦鏄撹€呬娇鐢ㄧ殑"铚＄儧鍥?鎶€鏈€備粬鑺变簡鏁板勾鏃堕棿鐮旂┒銆佺炕璇戝苟鏁寸悊鐩稿叧璧勬枡锛屾渶缁堝湪1991骞村嚭鐗堜簡銆婃棩鏈湣鐑涘浘鎶€鏈€嬶紝浠庢鏀瑰彉浜嗗叏鐞冩妧鏈垎鏋愮殑鏍煎眬銆?/p>
-  <p>鍦ㄨ繖鏈功涔嬪墠锛岃タ鏂瑰競鍦轰富瑕佷娇鐢ㄦ潯褰㈠浘锛圔ar Chart锛夈€傚凹妫殑宸ヤ綔鐩稿綋浜庢妸涓€闂ㄥ彜鑰佺殑璇█缈昏瘧缁欎簡鐜颁唬鎶曡祫鑰呪€斺€?鏃ユ湰铚＄儧鍥?浠庢鎴愪负鍏ㄧ悆閲戣瀺鍥捐〃鐨勬爣鍑嗗憟鐜版柟寮忋€?/p>
-  <div class="pro-tip">
-    <strong>馃挕 鍘嗗彶鑳屾櫙锛?/strong>铚＄儧鍥炬妧鏈渶鏃╄捣婧愪簬18涓栫邯鐨勬棩鏈背甯傦紝鐢变竴浣嶅悕鍙湰闂村畻涔咃紙Munehisa Homma锛夌殑绫冲晢鍙戝睍鑰屾垚銆備粬閫氳繃璁板綍姣忔棩绫充环鐨勫紑鐩樸€佹敹鐩樸€佹渶楂樺拰鏈€浣庢潵棰勬祴浠锋牸璧板娍锛屾垚涓烘妧鏈垎鏋愮殑鍏堥┍涔嬩竴銆?
-  </div>
-</section>
-
-<section id="basics">
-  <h2>鍩虹姒傚康</h2>
-
-  <h3 id="basics-elements">K绾挎瀯鎴愯绱?/h3>
-  <p>姣忎竴鏍筀绾块兘鍖呭惈鍥涗釜鍏抽敭浠锋牸瑕佺礌锛?/p>
-  <ul>
-    <li><strong>寮€鐩樹环锛圤pen锛?/strong> 鈥?璇ユ椂闂村懆鏈熺殑璧峰浜ゆ槗浠锋牸</li>
-    <li><strong>鏀剁洏浠凤紙Close锛?/strong> 鈥?璇ユ椂闂村懆鏈熺殑鏈€缁堜氦鏄撲环鏍?/li>
-    <li><strong>鏈€楂樹环锛圚igh锛?/strong> 鈥?璇ユ椂闂村懆鏈熷唴鐨勬渶楂樹氦鏄撲环鏍?/li>
-    <li><strong>鏈€浣庝环锛圠ow锛?/strong> 鈥?璇ユ椂闂村懆鏈熷唴鐨勬渶浣庝氦鏄撲环鏍?/li>
-  </ul>
-
-  <div class="kline-row">
-    <div class="kline-wrapper">
-      <div class="jp-name">闃崇嚎锛圔ullish锛?/div>
-      <div class="kline-box">
-        <div class="upper-shadow" style="height:8px"></div>
-        <div class="candle-body bull" style="height:36px"></div>
-        <div class="lower-shadow" style="height:8px"></div>
-      </div>
-      <div class="label">鏀剁洏 &gt; 寮€鐩?br>绌哄績/绾㈣壊</div>
-    </div>
-    <div class="kline-wrapper">
-      <div class="jp-name">闃寸嚎锛圔earish锛?/div>
-      <div class="kline-box">
-        <div class="upper-shadow" style="height:8px"></div>
-        <div class="candle-body bear" style="height:36px"></div>
-        <div class="lower-shadow" style="height:8px"></div>
-      </div>
-      <div class="label">寮€鐩?&gt; 鏀剁洏<br>瀹炲績/缁胯壊/钃濊壊</div>
-    </div>
-    <div class="kline-wrapper">
-      <div class="jp-name">闀块槼绾?/div>
-      <div class="kline-box">
-        <div class="upper-shadow" style="height:4px"></div>
-        <div class="candle-body bull" style="height:50px"></div>
-        <div class="lower-shadow" style="height:4px"></div>
-      </div>
-      <div class="label">涔扮洏寮哄娍鎺ㄥ姩</div>
-    </div>
-    <div class="kline-wrapper">
-      <div class="jp-name">闀块槾绾?/div>
-      <div class="kline-box">
-        <div class="upper-shadow" style="height:4px"></div>
-        <div class="candle-body bear" style="height:50px"></div>
-        <div class="lower-shadow" style="height:4px"></div>
-      </div>
-      <div class="label">鍗栫洏寮哄娍鎺ㄥ姩</div>
-    </div>
-  </div>
-
-  <h3 id="basics-types">閲嶈鏈</h3>
-  <ul>
-    <li><strong>瀹炰綋锛圧eal Body锛夛細</strong>寮€鐩樹环涓庢敹鐩樹环涔嬮棿鐨勯儴鍒嗐€傚疄浣撹秺闀匡紝澶氱┖鍙屾柟涓竴鏂圭殑浼樺娍瓒婃槑鏄俱€?/li>
-    <li><strong>涓婂奖绾匡紙Upper Shadow锛夛細</strong>鏈€楂樹环涓庡疄浣撲笂绔箣闂寸殑缁嗙嚎銆備笂褰辩嚎闀胯鏄庡鏂规帹楂樺悗閬亣鍗栧帇銆?/li>
-    <li><strong>涓嬪奖绾匡紙Lower Shadow锛夛細</strong>鏈€浣庝环涓庡疄浣撲笅绔箣闂寸殑缁嗙嚎銆備笅褰辩嚎闀胯鏄庣┖鏂规墦鍘嬪悗閬亣涔扮洏鏀拺銆?/li>
-    <li><strong>灏忓疄浣擄紙灏忛槼/灏忛槾锛夛細</strong>瀹炰綋寰堢煭锛岃鏄庡绌哄弻鏂瑰姏閲忔帴杩戝钩琛★紝甯傚満澶勪簬鐘硅鲍鏈熴€?/li>
-    <li><strong>绾洪敜绾匡紙Spinning Top锛夛細</strong>瀹炰綋寰堝皬浣嗕笂涓嬪奖绾胯緝闀匡紝浠ｈ〃灞€鍔夸笉鏄庛€?/li>
-  </ul>
-
-  <div class="kline-row">
-    <div class="kline-wrapper">
-      <div class="jp-name">绾洪敜绾?/div>
-      <div class="kline-box">
-        <div class="upper-shadow" style="height:12px"></div>
-        <div class="candle-body bull" style="height:10px"></div>
-        <div class="lower-shadow" style="height:12px"></div>
-      </div>
-      <div class="label">澶氱┖鑳剁潃</div>
-    </div>
-    <div class="kline-wrapper">
-      <div class="jp-name">灏忛槼绾?/div>
-      <div class="kline-box">
-        <div class="upper-shadow" style="height:5px"></div>
-        <div class="candle-body bull" style="height:8px"></div>
-        <div class="lower-shadow" style="height:5px"></div>
-      </div>
-      <div class="label">娓╁拰涓婃定</div>
-    </div>
-    <div class="kline-wrapper">
-      <div class="jp-name">灏忛槾绾?/div>
-      <div class="kline-box">
-        <div class="upper-shadow" style="height:5px"></div>
-        <div class="candle-body bear" style="height:8px"></div>
-        <div class="lower-shadow" style="height:5px"></div>
-      </div>
-      <div class="label">娓╁拰涓嬭穼</div>
-    </div>
-  </div>
-</section>
-
-<section id="single">
-  <h2>鍗曟牴K绾垮舰鎬?/h2>
-
-  <div class="card" id="s-hammer">
-    <div class="card-title">
-      <span>馃敤 閿ゅ瓙绾匡紙Hammer锛?/span>
-      <span class="tag tag-bull">搴曢儴鍙嶈浆</span>
-    </div>
-    <div class="kline-row">
-      <div class="kline-wrapper">
-        <div class="kline-box k-hammer">
-          <div class="candle-body bull"></div>
-          <div class="lower-shadow" style="height:42px;width:3px;background:var(--green)"></div>
-        </div>
-        <div class="label">鐪嬫定閿ゅ瓙绾?/div>
-      </div>
-      <div class="kline-wrapper">
-        <div class="kline-box k-hammer">
-          <div class="upper-shadow" style="height:3px;width:3px"></div>
-          <div class="candle-body" style="height:18px;width:28px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px"></div>
-          <div class="lower-shadow" style="height:42px;width:3px"></div>
-        </div>
-        <div class="label">闃寸嚎閿ゅ瓙绾匡紙杈冨急锛?/div>
-      </div>
-    </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong></p>
-    <ul>
-      <li>鍑虹幇鍦ㄤ笅璺岃秼鍔挎湯绔?/li>
-      <li>涓嬪奖绾块暱搴?鈮?瀹炰綋鐨?鍊?/li>
-      <li>娌℃湁涓婂奖绾挎垨涓婂奖绾挎瀬鐭?/li>
-      <li>瀹炰綋棰滆壊涓嶉噸瑕侊紝浣嗛槼绾夸俊鍙锋洿寮?/li>
-    </ul>
-    <p><strong>甯傚満鍚箟锛?/strong>浠锋牸鍦ㄥ紑鐩樺悗澶у箙涓嬭穼锛屼絾鍗栧帇鏈兘鎸佺画锛屼拱鐩樺皢浠锋牸鎺ㄥ洖鑷冲紑鐩樹环闄勮繎銆傝〃鏄庣┖鏂瑰凡鏃犲姏杩涗竴姝ユ墦鍘嬶紝澶氭柟寮€濮嬪弽鍑汇€傞暱闀跨殑涓嬪奖绾垮儚鏄?閿ゅ瓙"閿ゅ嚭浜嗗簳閮ㄣ€?/p>
-    <p><strong>浜ゆ槗绛栫暐锛?/strong></p>
-    <ul>
-      <li>闇€瑕佹鏃ョ‘璁わ紙闃崇嚎鎴栭珮寮€锛?/li>
-      <li>姝㈡崯璁句簬閿ゅ瓙绾挎渶浣庣偣涓嬫柟</li>
-      <li>缁撳悎鎴愪氦閲忔斁澶ф洿鏈夋晥</li>
-    </ul>
-  </div>
-
-  <div class="card" id="s-hanging">
-    <div class="card-title">
-      <span>馃 涓婂悐绾匡紙Hanging Man锛?/span>
-      <span class="tag tag-bear">椤堕儴鍙嶈浆</span>
-    </div>
-    <div class="kline-row">
-      <div class="kline-wrapper">
-        <div class="kline-box k-hammer">
-          <div class="candle-body" style="height:18px;width:28px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px"></div>
-          <div class="lower-shadow" style="height:42px;width:3px"></div>
-        </div>
-        <div class="label">椤堕儴鍑虹幇 = 涓婂悐绾?/div>
-      </div>
-    </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong>褰㈡€佷笌閿ゅ瓙绾垮畬鍏ㄧ浉鍚岋紝鍞竴鐨勫尯鍒槸鍑虹幇鍦?strong>涓婃定瓒嬪娍鏈</strong>銆?/p>
-    <p><strong>甯傚満鍚箟锛?/strong>浠锋牸鍦ㄧ洏涓ぇ骞呬笅鎸紙闀夸笅褰辩嚎锛夛紝铏界劧鍚庢潵鍙嶅脊鍥炲紑鐩橀檮杩戯紝浣嗚繖璇存槑澶氭柟宸蹭笉鍐嶈兘瀹屽叏鎺у埗灞€闈€傜┖鏂瑰凡缁忓睍鐜板嚭浜嗗姏閲忥紝灏卞儚"涓婂悐鐨勭怀瀛?涓€鏍锋偓鍦ㄩ《閮ㄣ€?/p>
-    <p><strong>浜ゆ槗绛栫暐锛?/strong></p>
-    <ul>
-      <li>闇€瑕佹鏃ョ‘璁わ紙闃寸嚎鎴栦綆寮€锛?/li>
-      <li>姝㈡崯璁句簬涓婂悐绾挎渶楂樼偣涓婃柟</li>
-      <li>瀹炰綋瓒婂皬銆佷笅褰辩嚎瓒婇暱锛屽弽杞鐜囪秺楂?/li>
-    </ul>
-  </div>
-
-  <div class="card" id="s-doji">
-    <div class="card-title">
-      <span>鉁濓笍 鍗佸瓧鏄燂紙Doji锛?/span>
-      <span class="tag tag-neu">瓒嬪娍鍋滈】</span>
-    </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong>寮€鐩樹环 = 鏀剁洏浠凤紙鎴栨瀬鍏舵帴杩戯級锛屽疄浣撳嚑涔庝笉鍙銆?/p>
-    <p><strong>甯傚満鍚箟锛?/strong>澶氱┖鍙屾柟鍦ㄦ煇涓环浣嶈揪鍒板畬鍏ㄥ钩琛★紝甯傚満鐘硅鲍涓嶅喅銆傚湪涓€娈垫槑纭殑瓒嬪娍鍚庡嚭鐜板崄瀛楁槦锛屾剰鍛崇潃瓒嬪娍鍙兘鍋滈】鎴栧弽杞€?/p>
-
-    <h4>鍗佸瓧鏄熷彉浣?/h4>
-    <div class="kline-row">
-      <div class="kline-wrapper">
-        <div class="jp-name">鏅€氬崄瀛楁槦</div>
-        <div class="kline-box k-doji">
-          <div class="candle-body doji"></div>
-        </div>
-        <div class="label">澶氱┖骞宠　</div>
-      </div>
-      <div class="kline-wrapper">
-        <div class="jp-name">澧撶鍗佸瓧绾?/div>
-        <div class="kline-box k-grave">
-          <div class="upper-shadow" style="height:55px;width:3px;background:var(--red)"></div>
-          <div class="candle-body doji"></div>
-        </div>
-        <div class="label">椤堕儴淇″彿 鈫?/div>
-      </div>
-      <div class="kline-wrapper">
-        <div class="jp-name">铚昏湏鍗佸瓧绾?/div>
-        <div class="kline-box k-dfly">
-          <div class="candle-body doji"></div>
-          <div class="lower-shadow" style="height:55px;width:3px;background:var(--green)"></div>
-        </div>
-        <div class="label">搴曢儴淇″彿 鈫?/div>
-      </div>
-      <div class="kline-wrapper">
-        <div class="jp-name">闀胯吙鍗佸瓧鏄?/div>
-        <div class="kline-box k-long">
-          <div class="candle-body doji"></div>
-        </div>
-        <div class="label">婵€鐑堜簤澶?/div>
-      </div>
-    </div>
-
-    <table class="strategy">
-      <tr>
-        <th>鍙樹綋</th>
-        <th>鍚箟</th>
-        <th>浜ゆ槗绛栫暐</th>
-      </tr>
-      <tr>
-        <td>澧撶鍗佸瓧绾?/td>
-        <td>澶氭柟鎺ㄩ珮鍚庡叏闈㈡簝璐ワ紝绌烘柟鑳滃嚭</td>
-        <td>涓婃定鏈 鈫?鍋氱┖淇″彿</td>
-      </tr>
-      <tr>
-        <td>铚昏湏鍗佸瓧绾?/td>
-        <td>绌烘柟鎵撳帇鍚庡叏闈㈡簝璐ワ紝澶氭柟鑳滃嚭</td>
-        <td>涓嬭穼鏈 鈫?鍋氬淇″彿</td>
-      </tr>
-      <tr>
-        <td>闀胯吙鍗佸瓧鏄?/td>
-        <td>澶氱┖婵€鐑堜簤澶猴紝鍔垮潎鍔涙晫</td>
-        <td>鏂瑰悜涓嶆槑锛岃鏈涙垨绛夌‘璁?/td>
-      </tr>
-    </table>
-
-    <div class="pro-tip">
-      <strong>馃搶 灏兼．鍘熻瘽锛?/strong>"鍗佸瓧鏄熸湰韬笉鏄弽杞俊鍙枫€傚湪闀挎湡闃崇嚎涔嬪悗鍑虹幇鍗佸瓧鏄燂紝琛ㄧず涔版柟鍔涢噺琛扮锛涘湪闀挎湡闃寸嚎涔嬪悗鍑虹幇鍗佸瓧鏄燂紝琛ㄧず鍗栨柟鍔涢噺琛扮銆傚叧閿槸瀹冨嚭鐜板湪瓒嬪娍鐨勯珮浣嶆垨浣庝綅銆?
-    </div>
-  </div>
-
-  <div class="card" id="s-shooting">
-    <div class="card-title">
-      <span>鈽勶笍 娴佹槦绾匡紙Shooting Star锛?/span>
-      <span class="tag tag-bear">椤堕儴鍙嶈浆</span>
-    </div>
-    <div class="kline-row">
-      <div class="kline-wrapper">
-        <div class="kline-box k-shooting">
-          <div class="upper-shadow" style="height:42px;width:3px;background:var(--orange)"></div>
-          <div class="candle-body bear" style="height:18px;background:var(--red)"></div>
-        </div>
-        <div class="label">娴佹槦绾?/div>
-      </div>
-    </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong></p>
-    <ul>
-      <li>鍑虹幇鍦ㄤ笂娑ㄨ秼鍔挎湯绔?/li>
-      <li>涓婂奖绾块暱搴?鈮?瀹炰綋鐨?鍊?/li>
-      <li>瀹炰綋浣嶄簬K绾夸綆绔?/li>
-      <li>娌℃湁涓嬪奖绾挎垨涓嬪奖绾挎瀬鐭?/li>
-    </ul>
-    <p><strong>甯傚満鍚箟锛?/strong>寮€鐩樺悗浠锋牸澶у箙鍐查珮锛堥暱涓婂奖绾匡級锛屼絾閬亣澶ч噺鍗栫洏锛屼环鏍艰鐮稿洖寮€鐩樹环闄勮繎銆傚氨鍍忎竴棰楁祦鏄熷垝杩囧ぉ绌衡€斺€斿啿寰楅珮锛屼絾寰堝揩鍧犺惤銆傝鏄庡鏂瑰凡鏃犲姏缁存寔楂樹綅銆?/p>
-    <p><strong>浜ゆ槗绛栫暐锛?/strong></p>
-    <ul>
-      <li>闇€瑕佹鏃ョ‘璁わ紙浣庡紑鎴栭槾绾匡級鎵嶈繘鍦?/li>
-      <li>姝㈡崯璁句簬娴佹槦绾夸笂褰辩嚎鏈€楂樼偣涓婃柟</li>
-      <li>鎴愪氦閲忚秺澶э紝淇″彿瓒婂彲闈?/li>
-    </ul>
-  </div>
-
-  <div class="card" id="s-ihammer">
-    <div class="card-title">
-      <span>馃攦 鍊掗敜瀛愮嚎锛圛nverted Hammer锛?/span>
-      <span class="tag tag-bull">搴曢儴鍙嶈浆</span>
-    </div>
-    <div class="kline-row">
-      <div class="kline-wrapper">
-        <div class="kline-box k-shooting">
-          <div class="upper-shadow" style="height:42px;width:3px;background:var(--green)"></div>
-          <div class="candle-body bull" style="height:18px"></div>
-        </div>
-        <div class="label">鍊掗敜瀛愮嚎锛堥渶娆℃棩纭锛?/div>
-      </div>
-    </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong>褰㈡€佷笌娴佹槦绾垮畬鍏ㄧ浉鍚岋紝鍞竴鐨勫尯鍒湪浜庡嚭鐜板湪<strong>涓嬭穼瓒嬪娍鏈</strong>銆?/p>
-    <p><strong>甯傚満鍚箟锛?/strong>浠锋牸鐩樹腑澶у箙鍐查珮锛岃櫧鐒舵敹鐩樺洖钀斤紝浣嗚繖琛ㄦ槑澶氭柟宸茬粡灏濊瘯绐佺牬锛屽競鍦烘湁鍚戜笂娴嬭瘯鐨勫姏閲忋€傝繖鏄湪搴曢儴鍙戝嚭鐨?璇曟帰鎬ц繘鏀?淇″彿銆?/p>
-    <p><strong>鈿狅笍 鍏抽敭锛?/strong>鍊掗敜瀛愮嚎鏈韩涓嶆槸涔板叆淇″彿锛屽畠鍙槸涓€涓鍛娿€傚繀椤荤瓑<strong>娆℃棩鐨勯槼绾跨‘璁?/strong>锛堟敹鐩樹环楂樹簬鍊掗敜瀛愮嚎瀹炰綋锛夋墠鑳借繘鍦恒€?/p>
-  </div>
-</section>
-
-<section id="dual">
-  <h2>鍙孠绾垮舰鎬?/h2>
-
-  <div class="card" id="d-engulf">
-    <div class="card-title">
-      <span>馃寑 鍚炴病褰㈡€侊紙Engulfing锛?/span>
-      <span class="tag tag-bull">鐪嬫定</span>
-      <span class="tag tag-bear">鐪嬭穼</span>
-    </div>
-
-    <div class="kline-row">
-      <div class="kline-wrapper">
-        <div class="jp-name">鐪嬫定鍚炴病</div>
-        <div class="kline-pair k-engulf-bull k-engulf">
-          <div class="kline-box">
-            <div class="candle-body bear" style="height:24px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px;width:28px"></div>
-          </div>
-          <div class="kline-box">
-            <div class="candle-body bull" style="height:40px;width:34px"></div>
-          </div>
-        </div>
-        <div class="label">闃寸嚎 鈫?瀹屽叏瑕嗙洊鐨勯槼绾?/div>
-      </div>
-      <div class="kline-wrapper">
-        <div class="jp-name">鐪嬭穼鍚炴病</div>
-        <div class="kline-pair k-engulf-bear k-engulf">
-          <div class="kline-box">
-            <div class="candle-body bull" style="height:24px;width:28px"></div>
-          </div>
-          <div class="kline-box">
-            <div class="candle-body bear" style="height:40px;width:34px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px"></div>
-          </div>
-        </div>
-        <div class="label">闃崇嚎 鈫?瀹屽叏瑕嗙洊鐨勯槾绾?/div>
-      </div>
-    </div>
-
-    <p><strong>璇嗗埆瑙勫垯锛?/strong></p>
-    <ul>
-      <li><strong>鐪嬫定鍚炴病锛?/strong>涓嬭穼瓒嬪娍涓紝鍏堝嚭鐜颁竴灏忛槾绾匡紝娆℃棩澶ч槼绾垮疄浣撳畬鍏ㄨ鐩栧墠涓€鏃ラ槾绾垮疄浣?/li>
-      <li><strong>鐪嬭穼鍚炴病锛?/strong>涓婃定瓒嬪娍涓紝鍏堝嚭鐜颁竴灏忛槼绾匡紝娆℃棩澶ч槾绾垮疄浣撳畬鍏ㄨ鐩栧墠涓€鏃ラ槼绾垮疄浣?/li>
-    </ul>
-    <p><strong>甯傚満鍚箟锛?/strong>澶氭柟锛堟垨绌烘柟锛夊畬鍏ㄥ惁瀹氫簡鍓嶄竴鏃ョ殑甯傚満璧板娍锛屾樉绀哄嚭鍔涢噺鐨勫帇鍊掓€ч€嗚浆銆?/p>
-    <p><strong>鏈夋晥鎬у寮哄洜绱狅細</strong></p>
-    <ul>
-      <li>绗竴鏍圭嚎瀹炰綋寰堝皬锛岀浜屾牴绾垮疄浣撳緢澶?鈫?鍙嶈浆鍔涘害寮?/li>
-      <li>鍑虹幇鍦ㄩ暱鏈熻秼鍔挎湯绔?鈫?鍙潬鎬ч珮</li>
-      <li>鎴愪氦閲忔樉钁楁斁澶?鈫?纭鍔涘害</li>
-      <li>绗簩鏍圭嚎鐨勫疄浣撳悓鏃惰鐩栧墠涓€鏍圭殑瀹炰綋+褰辩嚎 鈫?鏇村己</li>
-    </ul>
-  </div>
-
-  <div class="card" id="d-darkcloud">
-    <div class="card-title">
-      <span>馃導锔?涔屼簯鐩栭《锛圖ark Cloud Cover锛?/span>
-      <span class="tag tag-bear">椤堕儴淇″彿</span>
-    </div>
-    <div class="kline-row">
-      <div class="kline-wrapper">
-        <div class="kline-pair">
-          <div class="kline-box k-piercing">
-            <div class="upper-shadow" style="height:3px"></div>
-            <div class="candle-body bull" style="height:28px;width:28px;border-radius:2px;background:var(--green)"></div>
-            <div class="lower-shadow" style="height:8px"></div>
-          </div>
-          <div class="kline-box k-piercing">
-            <div class="upper-shadow" style="height:3px"></div>
-            <div class="candle-body bear" style="height:28px;width:28px;border-radius:2px;background:var(--red);border:1px solid rgba(248,81,73,0.5);margin-top:6px"></div>
-            <div class="lower-shadow" style="height:8px"></div>
-          </div>
-        </div>
-        <div class="label">闃崇嚎 鈫?楂樺紑浣庤蛋鑷?/2浠ヤ笅</div>
-      </div>
-    </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong></p>
-    <ul>
-      <li>涓婃定瓒嬪娍涓紝鍏堝嚭鐜颁竴鏍瑰ぇ闃崇嚎</li>
-      <li>娆℃棩楂樺紑锛堥珮浜庡墠鏃ユ渶楂樹环锛?/li>
-      <li>鏀剁洏浠疯穼鍏ュ墠鏃ラ槼绾垮疄浣?/2浠ヤ笅</li>
-      <li>瓒婁綆绌垮叆寰楄秺娣憋紝鍙嶈浆淇″彿瓒婂己</li>
-    </ul>
-    <p><strong>甯傚満鍚箟锛?/strong>寮€鐩樻椂澶氭柟灏濊瘯缁х画鎷夊崌锛堥珮寮€锛夛紝浣嗗崠鐩樺ぇ閲忔秾鍑猴紝浠锋牸琚ぇ骞呭帇浣庤嚦鍓嶆棩闃崇嚎瀹炰綋娣卞銆傚氨鍍忔櫞鏈楃殑澶╃┖绐佺劧琚箤浜戣鐩栵紝涔版柟鐑儏琚交搴曞帇鍒躲€?/p>
-    <p><strong>鈿狅笍 涓庣湅璺屽悶娌＄殑鍖哄埆锛?/strong>涔屼簯鐩栭《涓嶉渶瑕佸畬鍏ㄨ鐩栧墠涓€鏍归槼绾垮疄浣擄紝鍙渶璺屽叆1/2浠ヤ笅鍗冲彲銆傚鏋滃畬鍏ㄨ鐩栵紝鍒欐紨鍙樹负鐪嬭穼鍚炴病褰㈡€併€?/p>
-    <p><strong>浜ゆ槗绛栫暐锛?/strong></p>
-    <ul>
-      <li>绌垮叆瓒婃繁淇″彿瓒婂己锛?/2浠ヤ笅涓哄熀鏈紝2/3浠ヤ笂鏋佸己锛?/li>
-      <li>鎴愪氦閲忔斁澶?鈫?鏇村彲闈?/li>
-      <li>鍑虹幇鍦ㄩ噸瑕侀樆鍔涗綅 鈫?鏋佸己淇″彿</li>
-    </ul>
-  </div>
-
-  <div class="card" id="d-piercing">
-    <div class="card-title">
-      <span>猬嗭笍 鍒洪€忓舰鎬侊紙Piercing Line锛?/span>
-      <span class="tag tag-bull">搴曢儴淇″彿</span>
-    </div>
-    <div class="kline-row">
-      <div class="kline-wrapper">
-        <div class="kline-pair">
-          <div class="kline-box k-piercing">
-            <div class="upper-shadow" style="height:3px"></div>
-            <div class="candle-body bear" style="height:28px;width:28px;border-radius:2px;background:var(--red);border:1px solid rgba(248,81,73,0.5)"></div>
-            <div class="lower-shadow" style="height:8px"></div>
-          </div>
-          <div class="kline-box k-piercing">
-            <div class="upper-shadow" style="height:3px"></div>
-            <div class="candle-body bull" style="height:28px;width:28px;border-radius:2px;margin-bottom:6px"></div>
-            <div class="lower-shadow" style="height:8px"></div>
-          </div>
-        </div>
-        <div class="label">闃寸嚎 鈫?浣庡紑楂樿蛋鑷?/2浠ヤ笂</div>
-      </div>
-    </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong></p>
-    <ul>
-      <li>涓嬭穼瓒嬪娍涓紝鍏堝嚭鐜颁竴鏍瑰ぇ闃寸嚎</li>
-      <li>娆℃棩浣庡紑锛堜綆浜庡墠鏃ユ渶浣庝环锛?/li>
-      <li>鏀剁洏浠风獊鐮村墠鏃ラ槾绾垮疄浣?/2浠ヤ笂</li>
-      <li>绐佺牬寰楄秺楂橈紝鍙嶈浆淇″彿瓒婂己</li>
-    </ul>
-    <p><strong>甯傚満鍚箟锛?/strong>寮€鐩樻椂绌烘柟缁х画鎵撳帇锛堜綆寮€锛夛紝澶ч噺鎭愭厡鐩樻秾鍑恒€備絾闅忓悗涔扮洏寮哄姏浠嬪叆锛屽皢浠锋牸鎺ㄨ嚦鍓嶆棩闃寸嚎瀹炰綋涓偣浠ヤ笂銆傜┖鏂逛紭鍔胯褰诲簳鐡﹁В銆?/p>
-    <p><strong>鈿狅笍 涓庣湅娑ㄥ悶娌＄殑鍖哄埆锛?/strong>鍒洪€忓舰鎬佸彧闇€绐佺牬鍓嶉槾绾垮疄浣撲腑鐐瑰埌涓婃柟锛屼笉闇€瑕佸畬鍏ㄨ鐩栥€傚鏋滃畬鍏ㄨ鐩栵紝鍒欐紨鍙樹负鐪嬫定鍚炴病褰㈡€併€?/p>
-  </div>
-</section>
-
-<section id="triple">
-  <h2>涓塊绾垮舰鎬?/h2>
-
-  <div class="card" id="t-morning">
-    <div class="card-title">
-      <span>猸?鍚槑鏄燂紙Morning Star锛?/span>
-      <span class="tag tag-bull">寮虹儓搴曢儴鍙嶈浆</span>
-    </div>
-    <div class="kline-row">
-      <div class="kline-wrapper">
-        <div class="kline-box k-star">
-          <div class="kline-box">
-            <div class="candle-body bear lg" style="height:36px;width:24px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px"></div>
-          </div>
-          <div class="kline-box">
-            <div class="upper-shadow" style="height:4px;width:3px"></div>
-            <div class="candle-body sm" style="height:10px;width:20px;border-radius:2px;background:var(--text-dim)"></div>
-            <div class="lower-shadow" style="height:4px;width:3px"></div>
-          </div>
-          <div class="kline-box">
-            <div class="candle-body bull lg" style="height:36px;width:24px"></div>
-          </div>
-        </div>
-        <div class="label">澶ч槾绾?鈫?鏄熺嚎(灏忓疄浣? 鈫?澶ч槼绾?/div>
-      </div>
-    </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong>涓嬭穼瓒嬪娍鏈鍑虹幇锛?/p>
-    <ol>
-      <li>涓€鏍归暱闃寸嚎锛堢┖鏂瑰崰鎹粷瀵逛紭鍔匡級</li>
-      <li>涓€鏍瑰皬瀹炰綋锛堟垨鍗佸瓧鏄燂級锛屼笌鍓嶄竴鏍归槾绾垮瓨鍦ㄨ烦绌?/li>
-      <li>涓€鏍归暱闃崇嚎锛屾敹鐩樹环娣卞叆绗竴鏍归槾绾垮疄浣撲箣鍐?/li>
-    </ol>
-    <p><strong>甯傚満鍚箟锛?/strong>濡傚悓榛庢槑鍓嶇殑榛戞殫鈥斺€旂涓€澶╃┖鏂硅倖铏愶紝绗簩澶╁競鍦鸿浆涓虹姽璞紙鏄熺嚎锛夛紝绗笁澶╁鏂瑰彂璧峰叏闈㈠弽鏀汇€傝繖鏄渶寮虹殑搴曢儴鍙嶈浆淇″彿涔嬩竴銆?/p>
-    <p><strong>浜ゆ槗绛栫暐锛?/strong>鍚槑鏄熷舰鎬佸畬鎴愬悗鐩存帴杩涘満锛屾鎹熻浜庢槦绾挎渶浣庣偣涓嬫柟銆傚鏋滄槦绾挎槸鍗佸瓧鏄燂紝鍒欑О涓?鍗佸瓧鍚槑鏄?锛屽弽杞姏搴︽洿寮恒€?/p>
-  </div>
-
-  <div class="card" id="t-evening">
-    <div class="card-title">
-      <span>馃寙 榛勬槒鏄燂紙Evening Star锛?/span>
-      <span class="tag tag-bear">寮虹儓椤堕儴鍙嶈浆</span>
-    </div>
-    <div class="kline-row">
-      <div class="kline-wrapper">
-        <div class="kline-box k-star">
-          <div class="kline-box">
-            <div class="candle-body bull lg" style="height:36px;width:24px"></div>
-          </div>
-          <div class="kline-box">
-            <div class="upper-shadow" style="height:4px;width:3px"></div>
-            <div class="candle-body sm" style="height:10px;width:20px;border-radius:2px;background:var(--text-dim)"></div>
-            <div class="lower-shadow" style="height:4px;width:3px"></div>
-          </div>
-          <div class="kline-box">
-            <div class="candle-body bear lg" style="height:36px;width:24px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px"></div>
-          </div>
-        </div>
-        <div class="label">澶ч槼绾?鈫?鏄熺嚎(灏忓疄浣? 鈫?澶ч槾绾?/div>
-      </div>
-    </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong>涓婃定瓒嬪娍鏈鍑虹幇锛?/p>
-    <ol>
-      <li>涓€鏍归暱闃崇嚎锛堝鏂瑰崰鎹粷瀵逛紭鍔匡級</li>
-      <li>涓€鏍瑰皬瀹炰綋锛堟垨鍗佸瓧鏄燂級锛屼笌鍓嶄竴鏍归槼绾垮瓨鍦ㄨ烦绌?/li>
-      <li>涓€鏍归暱闃寸嚎锛屾敹鐩樹环娣卞叆绗竴鏍归槼绾垮疄浣撲箣鍐?/li>
-    </ol>
-    <p><strong>甯傚満鍚箟锛?/strong>濡傚悓澶滃箷闄嶄复鈥斺€旂涓€澶╁鏂规皵鍔垮铏癸紝绗簩澶╁競鍦哄け鍘绘柟鍚戯紙鏄熺嚎锛夛紝绗笁澶╃┖鏂规帴绠″競鍦恒€傞粍鏄忔槦鏄《閮ㄧ殑"璀︾ず鐏"銆?/p>
-    <p><strong>浜ゆ槗绛栫暐锛?/strong>褰㈡€佸畬鎴愬悗鑰冭檻鍋氱┖锛屾鎹熻浜庢槦绾挎渶楂樼偣涓婃柟銆傚崄瀛楅粍鏄忔槦淇″彿鏈€寮恒€?/p>
-  </div>
-
-  <div class="card" id="t-crows">
-    <div class="card-title">
-      <span>馃惁鈥嶁瑳 涓夊彧涔岄甫锛圱hree Black Crows锛?/span>
-      <span class="tag tag-bear">椤堕儴鍙嶈浆</span>
-    </div>
-    <div class="kline-row">
-      <div class="kline-wrapper">
-        <div class="kline-box k-three">
-          <div class="kline-box">
-            <div class="candle-body" style="height:28px;width:16px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px"></div>
-          </div>
-          <div class="kline-box">
-            <div class="candle-body" style="height:30px;width:16px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px"></div>
-          </div>
-          <div class="kline-box">
-            <div class="candle-body" style="height:32px;width:16px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px"></div>
-          </div>
-        </div>
-        <div class="label">涓夋牴杩炵画涓嬭穼闃寸嚎</div>
-      </div>
-    </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong></p>
-    <ul>
-      <li>杩炵画涓夋牴闀块槾绾?/li>
-      <li>姣忔牴闃寸嚎鐨勬敹鐩樹环鍧囧垱鏂颁綆</li>
-      <li>姣忔牴闃寸嚎鐨勫紑鐩樹环閮藉湪鍓嶄竴鏍瑰疄浣撲箣鍐咃紙鎴栨帴杩戯級</li>
-      <li>鍑虹幇鍦ㄤ笂娑ㄨ秼鍔挎湯绔?/li>
-    </ul>
-    <p><strong>甯傚満鍚箟锛?/strong>涓夊彧涔岄甫绔欏湪鏍戞灊涓婏紝瀹ｅ憡娑ㄥ娍鐨勭粓缁撱€傜涓€澶╃┖鏂瑰紑濮嬪弽鍑伙紝绗簩澶╁欢缁紝绗笁澶╃‘璁も€斺€旂┖鏂规皵鍔垮凡缁忓畬鍏ㄥ帇杩囧鏂广€?/p>
-    <p><strong>浜ゆ槗绛栫暐锛?/strong>绗笁鏍归槾绾挎敹鐩橀檮杩戣繘鍦哄仛绌恒€傚鏋滃悓鏃惰穼鐮村叧閿敮鎾戜綅锛屼俊鍙锋瀬寮恒€?/p>
-  </div>
-
-  <div class="card" id="t-soldiers">
-    <div class="card-title">
-      <span>鉀帮笍 涓夌櫧鍏碉紙Three White Soldiers锛?/span>
-      <span class="tag tag-bull">搴曢儴鍙嶈浆</span>
-    </div>
-    <div class="kline-row">
-      <div class="kline-wrapper">
-        <div class="kline-box k-three">
-          <div class="kline-box">
-            <div class="candle-body bull" style="height:28px;width:16px"></div>
-          </div>
-          <div class="kline-box">
-            <div class="candle-body bull" style="height:30px;width:16px"></div>
-          </div>
-          <div class="kline-box">
-            <div class="candle-body bull" style="height:32px;width:16px"></div>
-          </div>
-        </div>
-        <div class="label">涓夋牴杩炵画涓婃定闃崇嚎</div>
-      </div>
-    </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong></p>
-    <ul>
-      <li>杩炵画涓夋牴闀块槼绾?/li>
-      <li>姣忔牴闃崇嚎鐨勬敹鐩樹环鍧囧垱鏂伴珮</li>
-      <li>姣忔牴闃崇嚎鐨勫紑鐩樹环閮藉湪鍓嶄竴鏍瑰疄浣撲箣鍐?/li>
-      <li>鍑虹幇鍦ㄤ笅璺岃秼鍔挎湯绔?/li>
-    </ul>
-    <p><strong>甯傚満鍚箟锛?/strong>濡傚悓涓夊垪澹叺绋虫鎺ㄨ繘鈥斺€斿鏂瑰姏閲忓湪绉搫銆佸湪澧炲己銆備笁鐧藉叺鏍囧織鐫€绌哄ご甯傚満鐨勭粨鏉熷拰澶氬ご瓒嬪娍鐨勫紑濮嬨€?/p>
-    <p><strong>浜ゆ槗绛栫暐锛?/strong>绗笁鏍归槼绾挎敹鐩橀檮杩戣繘鍦哄仛澶氥€傚鏋滀笁鏍归槼绾垮疄浣撻€愭鏀惧ぇ锛屼笂娑ㄧǔ瀹氭€ф洿楂樸€?/p>
-    <div class="pro-tip">
-      <strong>鈿狅笍 娉ㄦ剰锛?/strong>涓夌櫧鍏靛鏋滃嚭鐜板湪闀挎湡涓婃定涔嬪悗锛屼笖瀹炰綋瓒婃潵瓒婂皬銆佷笂褰辩嚎瓒婃潵瓒婇暱锛?琛扮鐨勪笁鐧藉叺"锛夛紝鍙兘鏄澶磋“绔殑淇″彿锛岃€屼笉鏄湅娑ㄤ俊鍙枫€?
-    </div>
-  </div>
-</section>
-
-<section id="continuation">
-  <h2>鎸佺画褰㈡€?/h2>
-
-  <div class="card" id="c-gap">
-    <div class="card-title">
-      <span>馃獰 绐楀彛 / 璺崇┖锛圙ap锛?/span>
-      <span class="tag tag-cont">鎸佺画</span>
-    </div>
-    <div class="kline-row">
-      <div class="kline-wrapper">
-        <div class="kline-box k-gap" style="position:relative">
-          <div class="kline-box">
-            <div class="candle-body bear" style="height:16px;width:20px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px"></div>
-            <div class="lower-shadow" style="height:4px;width:3px;background:var(--text-dim)"></div>
-          </div>
-          <div style="width:12px;height:10px"></div>
-          <div style="position:absolute;top:24px;left:0;right:0;border-top:1px dashed var(--accent)"></div>
-          <div class="kline-box">
-            <div class="upper-shadow" style="height:4px;width:3px;background:var(--text-dim)"></div>
-            <div class="candle-body bull" style="height:24px;width:20px"></div>
-          </div>
-        </div>
-        <div class="label">浠锋牸缂哄彛锛堣烦绌猴級</div>
-      </div>
-    </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong>浠婃棩鐨勬渶浣庝环姣旀槰鏃ョ殑鏈€楂樹环杩樿楂橈紙涓婃定绐楀彛锛夛紝鎴栬€呬粖鏃ョ殑鏈€楂樹环姣旀槰鏃ユ渶浣庝环杩樿浣庯紙涓嬭穼绐楀彛锛夈€?/p>
-    <p><strong>甯傚満鍚箟锛?/strong>鏃ユ湰鎶€鏈垎鏋愪腑涓嶅彨"缂哄彛"鑰岀О"绐楀彛"锛屽洜涓鸿湣鐑涘浘鎶婅繛缁殑K绾跨湅浣滀竴闈?澧?锛岃€岃繖涓┖鐧藉氨鏄涓婄殑"绐楁埛"銆傜獥鍙ｆ剰鍛崇潃瓒嬪娍鐨勫己鍔垮欢缁€?/p>
-
-    <h4>涓夌绐楀彛绫诲瀷锛?/h4>
-    <ul>
-      <li><strong>绐佺牬绐楀彛锛?/strong>浠锋牸绐佺牬閲嶈闃诲姏/鏀拺浣嶆椂鍑虹幇锛岃秼鍔垮惎鍔ㄧ殑鏍囧織</li>
-      <li><strong>涓户绐楀彛锛堟祴閲忕獥鍙ｏ級锛?/strong>瓒嬪娍涓鍑虹幇锛屽彲鐢ㄧ獥鍙ｅ墠鐨勬定骞呮祴閲忕洰鏍囦綅</li>
-      <li><strong>琛扮绐楀彛锛?/strong>瓒嬪娍鏈鍑虹幇锛岀煭鏈熷彲鑳藉洖琛ワ紝鏄秼鍔胯“绔殑淇″彿</li>
-    </ul>
-    <p><strong>浜ゆ槗绛栫暐锛?/strong>涓婃定绐楀彛褰㈡垚鍚庯紝浠锋牸鍥炶惤鑷崇獥鍙ｅ尯鍩熸椂瑙嗕负鏀拺锛?绐楀彛浼氳璇?锛夛紝鍙€綆涔板叆銆備笅璺岀獥鍙ｅ悓鐞嗚涓洪樆鍔涖€傜獥鍙ｆ槸鍚﹀洖琛ヤ互鍙婂洖琛ョ殑閫熷害鏄垽鏂秼鍔垮己搴︾殑閲嶈绾跨储銆?/p>
-  </div>
-
-  <div class="card" id="c-rising3">
-    <div class="card-title">
-      <span>馃搱 涓婂崌涓夋硶锛圧ising Three Methods锛?/span>
-      <span class="tag tag-cont">鎸佺画鐪嬫定</span>
-    </div>
-    <div class="kline-row">
-      <div class="kline-wrapper">
-        <div class="kline-box k-three" style="gap:0.15rem">
-          <div class="kline-box">
-            <div class="candle-body bull" style="height:36px;width:18px"></div>
-          </div>
-          <div class="kline-box">
-            <div class="candle-body" style="height:14px;width:12px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px"></div>
-          </div>
-          <div class="kline-box">
-            <div class="candle-body" style="height:12px;width:12px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px"></div>
-          </div>
-          <div class="kline-box">
-            <div class="candle-body" style="height:10px;width:12px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px"></div>
-          </div>
-          <div class="kline-box">
-            <div class="candle-body bull" style="height:36px;width:18px"></div>
-          </div>
-        </div>
-        <div class="label">闀块槼 鈫?3灏忛槾(涓嶇牬鍓嶄綆) 鈫?闀块槼</div>
-      </div>
-    </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong></p>
-    <ul>
-      <li>涓€鏉￠暱闃崇嚎纭珛涓婂崌瓒嬪娍</li>
-      <li>闅忓悗鐨?-5鏉″皬闃寸嚎锛堝疄浣撳緢灏忥級鍦ㄥ墠闃崇嚎瀹炰綋鍐呮í鍚戞暣鐞?/li>
-      <li>灏忛槾绾跨殑鏈€浣庝环涓嶄綆浜庡墠闃崇嚎鐨勬渶浣庝环</li>
-      <li>鏈€鍚庝竴鏉￠暱闃崇嚎鏀剁洏鍒涙柊楂橈紝绐佺牬鏁寸悊鍖洪棿</li>
-    </ul>
-    <p><strong>甯傚満鍚箟锛?/strong>涓婂崌杩囩▼涓殑姝ｅ父鍥炶皟鏁寸悊銆傜┖鏂硅瘯鍥惧弽鎵戜絾鍔涢噺鏈夐檺锛屾渶缁堝鏂瑰啀娆℃帉鎺у眬鍔裤€傝繖鏄秼鍔垮仴搴风殑琛ㄧ幇锛岃€岄潪鍙嶈浆銆?/p>
-  </div>
-
-  <div class="card" id="c-falling3">
-    <div class="card-title">
-      <span>馃搲 涓嬮檷涓夋硶锛團alling Three Methods锛?/span>
-      <span class="tag tag-cont">鎸佺画鐪嬭穼</span>
-    </div>
-    <div class="kline-row">
-      <div class="kline-wrapper">
-        <div class="kline-box k-three" style="gap:0.15rem">
-          <div class="kline-box">
-            <div class="candle-body" style="height:36px;width:18px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px"></div>
-          </div>
-          <div class="kline-box">
-            <div class="candle-body bull" style="height:14px;width:12px"></div>
-          </div>
-          <div class="kline-box">
-            <div class="candle-body bull" style="height:12px;width:12px"></div>
-          </div>
-          <div class="kline-box">
-            <div class="candle-body bull" style="height:10px;width:12px"></div>
-          </div>
-          <div class="kline-box">
-            <div class="candle-body" style="height:36px;width:18px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px"></div>
-          </div>
-        </div>
-        <div class="label">闀块槾 鈫?3灏忛槼(涓嶇牬鍓嶉珮) 鈫?闀块槾</div>
-      </div>
-    </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong>涓庝笂鍗囦笁娉曠浉鍙嶏紝鍦ㄤ笅璺岃秼鍔夸腑鍑虹幇锛氶暱闃寸嚎 鈫?3-5鏉″皬闃崇嚎鏁寸悊锛堜笉绐佺牬鍓嶉槾绾挎渶楂樹环锛?鈫?闀块槾绾垮垱鏂颁綆銆?/p>
-    <p><strong>甯傚満鍚箟锛?/strong>涓嬭穼杩囩▼涓殑鍙嶅脊鏃犲姏銆傚鏂硅瘯鍥惧弽鏀讳絾鍔涢噺涓嶈冻锛岀┖鏂瑰啀娆″彂鍔涙妸浠锋牸鍘嬪埌鏇翠綆銆?/p>
-  </div>
-</section>
-
-<section id="strategy">
-  <h2>瀹炴垬缁勫悎绛栫暐</h2>
-  <p>K绾垮舰鎬佷笉鏄绔嬬殑浜ゆ槗淇″彿銆傚皢褰㈡€佷笌鍏朵粬宸ュ叿缁撳悎浣跨敤锛屽彲浠ュぇ骞呮彁楂樿儨鐜囥€?/p>
-
-  <div class="card-grid">
-    <div class="card">
-      <div class="card-title">馃搳 缁撳悎鏀拺闃诲姏</div>
-      <p>鍦ㄥ叧閿敮鎾戜綅鍑虹幇鐨勭湅娑ㄥ舰鎬侊紙濡傞敜瀛愮嚎銆佸埡閫忋€佸惎鏄庢槦锛夋瘮闅忔剰浣嶇疆鍑虹幇鐨勪俊鍙峰彲闈犲緱澶氥€傚悓鐞嗭紝闃诲姏浣嶄笂鐨勭湅璺屽舰鎬佹晥鏋滄洿浣炽€?/p>
-      <p class="meta">绀轰緥锛氶敜瀛愮嚎钀藉湪鍓嶆湡浣庣偣鏀拺 + 鐪嬫定鍚炴病 = 寮虹儓涔板叆淇″彿</p>
-    </div>
-    <div class="card">
-      <div class="card-title">馃搱 缁撳悎鎴愪氦閲?/div>
-      <p>鍙嶈浆鎴栫‘璁绾夸笂鐨勬垚浜ら噺搴旀樉钁楀ぇ浜庝箣鍓岾绾裤€傛病鏈夋垚浜ら噺鐨勫舰鎬佸彲鑳芥槸鍋囩獊鐮淬€?/p>
-      <p class="meta">鍚炴病褰㈡€?+ 鏀鹃噺 &gt; 100% 鍓?鏃ュ潎閲?鈫?楂樼疆淇″害</p>
-    </div>
-    <div class="card">
-      <div class="card-title">馃搻 缁撳悎瓒嬪娍绾?/div>
-      <p>K绾垮舰鎬佽Е鍙婁笂鍗?涓嬮檷瓒嬪娍绾挎椂锛屾晥鏋滃彔鍔犮€傝秼鍔跨牬浣嶅鐨凨绾垮舰鎬佸線寰€鏄簿鍑嗙殑鍙嶈浆鐐广€?/p>
-      <p class="meta">涓婂崌瓒嬪娍绾?+ 榛勬槒鏄?= 绮惧噯鍋氱┖鐐?/p>
-    </div>
-    <div class="card">
-      <div class="card-title">鈿欙笍 缁撳悎鎶€鏈寚鏍?/div>
-      <p>MACD鑳岀 + K绾垮簳閮ㄥ舰鎬?= 鏋侀珮鑳滅巼銆俁SI瓒呭崠/瓒呬拱 + K绾块《閮?搴曢儴褰㈡€佷簰鐩搁獙璇併€?/p>
-      <p class="meta">鏃ョ嚎MACD搴曡儗绂?+ 鍚槑鏄熷舰鎬?= 鏋佸己鍋氬淇″彿</p>
-    </div>
-  </div>
-
-  <h3>K绾垮舰鎬佷紭鍏堢骇鎺掑簭</h3>
-  <table class="strategy">
-    <tr>
-      <th>浼樺厛绾?/th><th>褰㈡€佺被鍨?/th><th>鍙潬鎬?/th><th>寤鸿</th>
-    </tr>
-    <tr>
-      <td>1</td><td>涓塊绾垮弽杞紙鍚槑鏄?榛勬槒鏄燂級</td><td>猸愨瓙猸愨瓙猸?/td><td>鐩存帴杩涘満锛屾鎹熷彲鎺?/td>
-    </tr>
-    <tr>
-      <td>2</td><td>鍚炴病褰㈡€?+ 鎴愪氦閲?/td><td>猸愨瓙猸愨瓙</td><td>瓒嬪娍鏈棣栭€?/td>
-    </tr>
-    <tr>
-      <td>3</td><td>涔屼簯鐩栭《 / 鍒洪€忓舰鎬?/td><td>猸愨瓙猸愨瓙</td><td>閰嶅悎鏀拺闃诲姏浣跨敤</td>
-    </tr>
-    <tr>
-      <td>4</td><td>閿ゅ瓙绾?/ 涓婂悐绾?/td><td>猸愨瓙猸?/td><td>闇€瑕佹鏃ョ‘璁?/td>
-    </tr>
-    <tr>
-      <td>5</td><td>鍗佸瓧鏄?/td><td>猸愨瓙猸?/td><td>鏈韩涓嶆槸鍙嶈浆锛岄渶涓婁笅鏂?/td>
-    </tr>
-    <tr>
-      <td>6</td><td>鍗曟牴灏忓疄浣撳舰鎬?/td><td>猸愨瓙</td><td>浠呬綔涓鸿鍛婏紝涓嶅崟鐙叆鍦?/td>
-    </tr>
-  </table>
-
-  <h3>甯歌閿欒涓庨櫡闃?/h3>
-  <ul>
-    <li><strong>鉂?鍦ㄧ獎骞呯洏鏁村尯浣跨敤K绾垮舰鎬侊細</strong>鐩樻暣鍖虹殑K绾垮舰鎬佸彲闈犳€у緢浣庯紝鍙兘鍦ㄨ秼鍔挎湯绔娇鐢?/li>
-    <li><strong>鉂?蹇界暐澶ц秼鍔匡細</strong>鏃ョ嚎涓嬭穼瓒嬪娍涓殑搴曢儴褰㈡€佽儨鐜囦綆浜庝笂鍗囪秼鍔夸腑鐨勫簳閮ㄥ舰鎬?/li>
-    <li><strong>鉂?淇″彿璺宠锛?/strong>璺宠繃涓婁竴涓懆鏈熺殑淇″彿鏍煎眬锛屽绔嬪湴鐪嬪緟褰㈡€?/li>
-    <li><strong>鉂?杩囧害瑙ｈ锛?/strong>涓嶈鍦ㄦ瘡涓皬娉㈠姩涓兘鎵惧弽杞舰鎬侊紝K绾垮舰鎬佽鐢ㄥ湪鍏抽敭浣嶇疆</li>
-    <li><strong>鉂?蹇界暐绾у埆锛?/strong>鍛ㄧ嚎鐨勫惎鏄庢槦杩滃己浜?鍒嗛挓鍥剧殑鍚槑鏄燂紝澶х骇鍒紭鍏?/li>
-  </ul>
-</section>
-
-<section id="checklist">
-  <h2>K绾夸氦鏄撴鏌ヨ〃</h2>
-  <p>姣忔浜ゆ槗鍓嶏紝閫愰」纭锛?/p>
-
-  <ul class="checklist">
-    <li class="checked"><strong>瓒嬪娍纭锛?/strong>鏄惁澶勪簬鏄庢樉鐨勮秼鍔挎湯绔紙涓嶆槸鐩樻暣鍖猴級锛?/li>
-    <li class="checked"><strong>K绾垮舰鎬侊細</strong>褰㈡€佺殑璇嗗埆瑙勫垯鏄惁瀹屽叏婊¤冻锛?/li>
-    <li><strong>鎴愪氦閲忕‘璁わ細</strong>褰㈡€佸嚭鐜扮殑鎴愪氦閲忔槸鍚﹀ぇ浜庢甯告按骞筹紵</li>
-    <li><strong>绾у埆楠岃瘉锛?/strong>鍛ㄧ嚎/鏃ョ嚎绾у埆浼樺厛锛屼綆绾у埆淇″彿杩囨护锛?/li>
-    <li><strong>鏀拺闃诲姏锛?/strong>褰㈡€佹槸鍚﹁惤鍦ㄥ叧閿敮鎾?闃诲姏浣嶉檮杩戯紵</li>
-    <li><strong>鎶€鏈寚鏍囷細</strong>鏄惁鏈塎ACD/RSI鑳岀绛夊仛杈呭姪纭锛?/li>
-    <li><strong>娆℃棩纭锛?/strong>鍗曟牴褰㈡€佹槸鍚﹀凡寰楀埌娆℃棩鐨勭‘璁わ紵</li>
-    <li><strong>姝㈡崯璁″垝锛?/strong>姝㈡崯鐨勬湁鏁堜綅缃槸鍚﹀凡缁忕‘瀹氾紵</li>
-    <li><strong>椋庢帶绠＄悊锛?/strong>鍗曠瑪浜ゆ槗椋庨櫓鏄惁鍦ㄥ彲鎺ュ彈鑼冨洿鍐咃紵</li>
-    <li><strong>澶嶇洏璁″垝锛?/strong>鏄惁鏄庣‘浜嗕綍鏃躲€佷互浠€涔堟潯浠跺嚭鍦猴紵</li>
-  </ul>
-
-  <div class="pro-tip">
-    <strong>馃搶 灏兼．鐨勪氦鏄撳摬瀛︼細</strong>"K绾垮浘鏈韩涓嶆槸棰勬祴宸ュ叿锛屽畠鏄競鍦哄績鐞嗙殑娲诲湴鍥俱€傛瘡涓€鏍筀绾块兘鏄绌烘垬鏂楃殑鍖栫煶銆傚浼氳瀹冿紝浣犲氨瀛︿細浜嗕笌甯傚満瀵硅瘽銆備絾鏈€閲嶈鐨勬槸鈥斺€?strong>姘歌繙涓嶈鍥犱负'瑙夊緱'鏌愪釜褰㈡€佷細鍑虹幇灏辨彁鍓嶈繘鍦猴紝绛夊緟褰㈡€佸畬鎴愶紝绛夊緟纭銆?/strong>"
-  </div>
-</section>
-
-<hr style="border-color:var(--border);margin:3rem 0 1rem">
-<p style="text-align:center;color:var(--text-dim);font-size:0.8rem">
-  鍩轰簬銆婃棩鏈湣鐑涘浘鎶€鏈€嬪彶钂傚か路灏兼． 钁?路 鏁寸悊瀛︿範鎵嬪唽 路 浠呬緵涓汉瀛︿範鍙傝€?br>
-  鎶曡祫鏈夐闄╋紝浜ゆ槗闇€璋ㄦ厧銆傛湰鎵嬪唽涓嶆瀯鎴愪换浣曟姇璧勫缓璁€?
-</p>
-
-</main>
-<!-- KG: Knowledge Hub Tracker -->
-
-
-
-
-
-<!-- Knowledge Base Status Bar -->
-
-<div class="footer">
-<span>馃摉 鏃ユ湰铚＄儧鍥炬妧鏈?鈥?K绾垮舰鎬佸畬鍏ㄦ墜鍐?/span>
-<a href="index.html">猬?杩斿洖棣栭〉</a>
-</div>
-
-
-<script src="tracker.js"></script><script>
-(function() {
-  var id = 'candlestick_manual';
-  var title = '鏃ユ湰铚＄儧鍥炬妧鏈?;
-
-  if (typeof KG !== 'undefined' && KG.logVisit) {
-    KG.logVisit(id);
-    KG.logVisitHistory(id, title);
-    KG.initFirstReview(id);
-  }
-
-  var st = KG.getStatus ? KG.getStatus(id) : null;
-  var bm = KG.isBookmarked ? KG.isBookmarked(id) : false;
-  var sts = KG.getStats ? KG.getStats(id) : {visits:0,totalTimeMs:0};
-  var nc = KG.getNotes ? KG.getNotes(id).length : 0;
-  var icon = st==='completed'?'鉁?:st==='reading'?'馃摉':'鈿?;
-  var txt = st==='completed'?'宸插畬鎴?:st==='reading'?'闃呰涓?:'鏈紑濮?;
-
-  var bar = document.createElement('div');
-  bar.id = 'kg-status-bar';
-  bar.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#161b22;border-top:1px solid #30363d;padding:8px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:0.8rem;color:#e6edf3;backdrop-filter:blur(8px);';
-  bar.innerHTML = '<span style="font-weight:600;color:#58a6ff;font-size:0.82rem;">'+title+'</span><span style="color:#8b949e;">|</span><span>'+icon+' '+txt+'</span><span style="color:#8b949e;">|</span><span>馃憗锔?'+(sts.visits||0)+'娆?/span><span style="color:#8b949e;">|</span><span>馃摑 '+nc+'鏉?/span><span style="margin-left:auto;display:flex;gap:6px;"><button onclick="KG_toggleRead(''+id+'')" style="padding:4px 10px;border-radius:6px;border:1px solid #30363d;background:#21262d;color:#e6edf3;cursor:pointer;font-size:0.75rem;">'+(st==='completed'?'鈫?閲嶈':'鉁?璇诲畬')+'</button><button onclick="KG_showNoteDialog(''+id+'')" style="padding:4px 10px;border-radius:6px;border:1px solid #30363d;background:#21262d;color:#e6edf3;cursor:pointer;font-size:0.75rem;">鉁忥笍 绗旇</button><a href="index.html" style="padding:4px 10px;border-radius:6px;border:1px solid #30363d;background:#21262d;color:#e6edf3;text-decoration:none;font-size:0.75rem;">鈫?杩斿洖</a></span>';
-
-  document.body.style.paddingBottom = '56px';
-  document.body.appendChild(bar);
-
-  var t0 = Date.now();
-  window.addEventListener('beforeunload', function(){ if(KG.logTime) KG.logTime(id, Date.now()-t0); });
-
-  if (typeof KG_initAnnotation === 'function') KG_initAnnotation(id);
-})();
-</script>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>鏃ユ湰铚＄儧鍥炬妧鏈?鈥?K绾垮舰鎬佸畬鍏ㄦ墜鍐?/title>
-<link rel="stylesheet" href="theme.css">
+<title>日本蜡烛图技术 — K线形态完全手册</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg2: #161b22;
+    --bg3: #21262d;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-dim: #8b949e;
+    --accent: #58a6ff;
+    --green: #3fb950;
+    --red: #f85149;
+    --purple: #bc8cff;
+    --yellow: #d29922;
+    --orange: #d76b12;
+    --cyan: #39d2c0;
+    --pink: #f778ba;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+  nav.toc {
+    position: fixed; top: 0; left: 0; width: 280px; height: 100vh;
+    background: var(--bg2); border-right: 1px solid var(--border);
+    overflow-y: auto; padding: 1.5rem 1rem; z-index: 100;
+  }
+  nav.toc h2 { font-size: 1rem; color: var(--accent); margin-bottom: 1rem; letter-spacing: 0.5px; }
+  nav.toc a {
+    display: block; padding: 0.35rem 0.75rem; border-radius: 6px;
+    color: var(--text-dim); text-decoration: none; font-size: 0.85rem;
+    transition: 0.2s; border-left: 2px solid transparent;
+  }
+  nav.toc a:hover { color: var(--text); background: var(--bg3); border-left-color: var(--accent); }
+  nav.toc a.section { color: var(--accent); font-weight: 600; margin-top: 0.6rem; }
+  nav.toc a.sub { padding-left: 1.5rem; font-size: 0.8rem; }
+
+  main { margin-left: 300px; padding: 2.5rem 3rem 4rem; max-width: 960px; }
+
+  h1 {
+    font-size: 2.2rem; font-weight: 800; margin-bottom: 0.3rem;
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .subtitle { color: var(--text-dim); font-size: 1rem; margin-bottom: 1.5rem; }
+  .book-info {
+    background: var(--bg2); border: 1px solid var(--border); border-radius: 12px;
+    padding: 1.5rem 2rem; margin-bottom: 2.5rem;
+  }
+  .book-info h2 { font-size: 1.1rem; color: var(--accent); margin-bottom: 0.8rem; }
+  .book-info p { margin: 0.3rem 0; color: var(--text-dim); font-size: 0.92rem; }
+  .book-info strong { color: var(--text); }
+
+  h2 { font-size: 1.5rem; color: var(--accent); margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+  h3 { font-size: 1.15rem; color: var(--yellow); margin: 1.5rem 0 0.6rem; }
+  h4 { font-size: 1rem; color: var(--text); margin: 1rem 0 0.4rem; }
+
+  p, li { color: var(--text-dim); font-size: 0.92rem; line-height: 1.8; }
+  ul, ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+  li { margin: 0.2rem 0; }
+
+  .tag {
+    display: inline-block; padding: 0.15rem 0.6rem; border-radius: 4px;
+    font-size: 0.75rem; font-weight: 600; margin-right: 0.4rem;
+  }
+  .tag-bull { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-bear { background: rgba(248,81,73,0.15); color: var(--red); }
+  .tag-cont { background: rgba(57,210,192,0.15); color: var(--cyan); }
+  .tag-neu  { background: rgba(188,140,255,0.15); color: var(--purple); }
+
+  .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+
+  .card {
+    background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
+    padding: 1.2rem; transition: border-color 0.2s;
+  }
+  .card:hover { border-color: var(--accent); }
+  .card .card-title {
+    font-weight: 700; font-size: 1rem; margin-bottom: 0.4rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .card .meta { color: var(--text-dim); font-size: 0.82rem; margin-bottom: 0.5rem; }
+  .card ul { margin: 0.3rem 0 0; padding-left: 1.2rem; }
+  .card li { font-size: 0.85rem; margin: 0.15rem 0; }
+
+  .kline-row { display: flex; gap: 1.5rem; align-items: flex-end; flex-wrap: wrap; margin: 0.8rem 0; }
+  .kline-wrapper { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+  .kline-wrapper .label { font-size: 0.75rem; color: var(--text-dim); text-align: center; max-width: 90px; }
+  .kline-wrapper .jp-name { font-size: 0.85rem; color: var(--accent); font-weight: 600; }
+  .kline-box { position: relative; display: flex; flex-direction: column; align-items: center; }
+  .upper-shadow { width: 3px; background: var(--text-dim); }
+  .candle-body { width: 28px; border-radius: 2px; position: relative; }
+  .candle-body.bull { background: var(--green); border: 1px solid rgba(63,185,80,0.5); }
+  .candle-body.bear { background: var(--red); border: 1px solid rgba(248,81,73,0.5); }
+  .candle-body.doji { background: var(--text-dim); height: 2px; width: 18px; border: none; }
+  .lower-shadow { width: 3px; background: var(--text-dim); }
+
+  .k-hammer .candle-body    { height: 18px; }
+  .k-hammer .upper-shadow   { height: 3px; }
+  .k-hammer .lower-shadow   { height: 42px; }
+
+  .k-shooting .candle-body  { height: 18px; }
+  .k-shooting .upper-shadow { height: 42px; }
+  .k-shooting .lower-shadow { height: 3px; }
+
+  .k-doji .upper-shadow     { height: 30px; }
+  .k-doji .lower-shadow     { height: 30px; }
+
+  .k-grave .upper-shadow     { height: 55px; }
+  .k-grave .lower-shadow     { height: 3px; }
+
+  .k-dfly .upper-shadow      { height: 3px; }
+  .k-dfly .lower-shadow      { height: 55px; }
+
+  .k-long .upper-shadow      { height: 35px; }
+  .k-long .lower-shadow      { height: 35px; }
+
+  .kline-pair { display: flex; gap: 0.3rem; align-items: flex-end; }
+  .k-engulf-bull .candle-body.bear { height: 24px; }
+  .k-engulf-bull .candle-body.bull { height: 40px; }
+  .k-engulf-bear .candle-body.bull { height: 24px; }
+  .k-engulf-bear .candle-body.bear { height: 40px; }
+  .k-engulf .upper-shadow     { height: 3px; }
+  .k-engulf .lower-shadow     { height: 3px; }
+
+  .k-piercing .upper-shadow   { height: 3px; }
+  .k-piercing .lower-shadow   { height: 8px; }
+  .k-piercing .candle-body    { height: 28px; }
+
+  .k-star { display: flex; gap: 0.2rem; align-items: center; }
+  .k-star .candle-body.bull.lg { height: 36px; }
+  .k-star .candle-body.bear.lg { height: 36px; }
+  .k-star .candle-body.sm { height: 10px; width: 18px; }
+  .k-star .upper-shadow { height: 3px; }
+  .k-star .lower-shadow { height: 3px; }
+
+  .k-three { display: flex; gap: 0.3rem; }
+  .k-three .candle-body { height: 32px; width: 18px; }
+
+  .k-gap { display: flex; gap: 0.2rem; align-items: flex-start; position: relative; }
+  .k-gap .gap-space { width: 8px; }
+  .k-gap-dash { position: absolute; top: 50%; left: 30px; right: 30px; height: 1px; border-top: 1px dashed var(--accent); }
+  .k-gap .candle-body.bull { height: 26px; }
+  .k-gap .candle-body.bear { height: 22px; }
+  .k-gap .upper-shadow { height: 3px; }
+  .k-gap .lower-shadow { height: 3px; }
+
+  table.strategy { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.88rem; }
+  table.strategy th {
+    background: var(--bg3); color: var(--text); padding: 0.6rem 1rem;
+    text-align: left; font-weight: 600; border: 1px solid var(--border);
+  }
+  table.strategy td { padding: 0.6rem 1rem; border: 1px solid var(--border); color: var(--text-dim); }
+  table.strategy tr:hover td { background: rgba(88,166,255,0.05); }
+
+  .checklist { list-style: none; padding: 0; }
+  .checklist li {
+    padding: 0.6rem 1rem; margin: 0.3rem 0;
+    background: var(--bg2); border: 1px solid var(--border); border-radius: 8px;
+    display: flex; align-items: flex-start; gap: 0.6rem;
+  }
+  .checklist li::before { content: "☐"; color: var(--text-dim); font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+  .checklist li.checked::before { content: "☑"; color: var(--green); }
+
+  .pro-tip {
+    background: linear-gradient(135deg, rgba(88,166,255,0.08), rgba(188,140,255,0.08));
+    border: 1px solid rgba(88,166,255,0.2); border-radius: 10px;
+    padding: 1rem 1.2rem; margin: 1rem 0;
+  }
+  .pro-tip strong { color: var(--accent); }
+
+  @media (max-width: 1024px) {
+    nav.toc { width: 240px; }
+    main { margin-left: 260px; padding: 2rem; }
+  }
+  @media (max-width: 768px) {
+    nav.toc { position: relative; width: 100%; height: auto; padding: 1rem; }
+    main { margin-left: 0; padding: 1.5rem; }
+    .card-grid { grid-template-columns: 1fr; }
+    .kline-row { gap: 0.8rem; }
+  }
+</style>
 </head>
 <body>
+
 <nav class="toc">
-  <h2>馃摉 鐩綍</h2>
-  <a href="#intro" class="section">涔︾睄绠€浠?/a>
-  <a href="#author" class="sub">鈥?浣滆€?/a>
-  <a href="#basics" class="section">K绾垮熀纭€</a>
-  <a href="#basics-elements" class="sub">鈥?鏋勬垚瑕佺礌</a>
-  <a href="#basics-types" class="sub">鈥?闃撮槼绾?/a>
-  <a href="#single" class="section">鍗曟牴K绾垮舰鎬?/a>
-  <a href="#s-hammer" class="sub">鈥?閿ゅ瓙绾?/a>
-  <a href="#s-hanging" class="sub">鈥?涓婂悐绾?/a>
-  <a href="#s-doji" class="sub">鈥?鍗佸瓧鏄?/a>
-  <a href="#s-shooting" class="sub">鈥?娴佹槦绾?/a>
-  <a href="#s-ihammer" class="sub">鈥?鍊掗敜瀛愮嚎</a>
-  <a href="#dual" class="section">鍙孠绾垮舰鎬?/a>
-  <a href="#d-engulf" class="sub">鈥?鍚炴病褰㈡€?/a>
-  <a href="#d-darkcloud" class="sub">鈥?涔屼簯鐩栭《</a>
-  <a href="#d-piercing" class="sub">鈥?鍒洪€忓舰鎬?/a>
-  <a href="#triple" class="section">涓塊绾垮舰鎬?/a>
-  <a href="#t-morning" class="sub">鈥?鍚槑鏄?/a>
-  <a href="#t-evening" class="sub">鈥?榛勬槒鏄?/a>
-  <a href="#t-crows" class="sub">鈥?涓夊彧涔岄甫</a>
-  <a href="#t-soldiers" class="sub">鈥?涓夌櫧鍏?/a>
-  <a href="#continuation" class="section">鎸佺画褰㈡€?/a>
-  <a href="#c-gap" class="sub">鈥?绐楀彛/璺崇┖</a>
-  <a href="#c-rising3" class="sub">鈥?涓婂崌涓夋硶</a>
-  <a href="#c-falling3" class="sub">鈥?涓嬮檷涓夋硶</a>
-  <a href="#strategy" class="section">瀹炴垬缁勫悎绛栫暐</a>
-  <a href="#checklist" class="section">K绾挎鏌ヨ〃</a>
+  <h2>📖 目录</h2>
+  <a href="#intro" class="section">书籍简介</a>
+  <a href="#author" class="sub">— 作者</a>
+  <a href="#basics" class="section">K线基础</a>
+  <a href="#basics-elements" class="sub">— 构成要素</a>
+  <a href="#basics-types" class="sub">— 阴阳线</a>
+  <a href="#single" class="section">单根K线形态</a>
+  <a href="#s-hammer" class="sub">— 锤子线</a>
+  <a href="#s-hanging" class="sub">— 上吊线</a>
+  <a href="#s-doji" class="sub">— 十字星</a>
+  <a href="#s-shooting" class="sub">— 流星线</a>
+  <a href="#s-ihammer" class="sub">— 倒锤子线</a>
+  <a href="#dual" class="section">双K线形态</a>
+  <a href="#d-engulf" class="sub">— 吞没形态</a>
+  <a href="#d-darkcloud" class="sub">— 乌云盖顶</a>
+  <a href="#d-piercing" class="sub">— 刺透形态</a>
+  <a href="#triple" class="section">三K线形态</a>
+  <a href="#t-morning" class="sub">— 启明星</a>
+  <a href="#t-evening" class="sub">— 黄昏星</a>
+  <a href="#t-crows" class="sub">— 三只乌鸦</a>
+  <a href="#t-soldiers" class="sub">— 三白兵</a>
+  <a href="#continuation" class="section">持续形态</a>
+  <a href="#c-gap" class="sub">— 窗口/跳空</a>
+  <a href="#c-rising3" class="sub">— 上升三法</a>
+  <a href="#c-falling3" class="sub">— 下降三法</a>
+  <a href="#strategy" class="section">实战组合策略</a>
+  <a href="#checklist" class="section">K线检查表</a>
 </nav>
 
 <main>
 
 <section id="intro">
-  <h1>鏃ユ湰铚＄儧鍥炬妧鏈?/h1>
-  <p class="subtitle">Japanese Candlestick Charting Techniques 鈥?鍏ㄦ櫙瀛︿範鎵嬪唽</p>
+  <h1>日本蜡烛图技术</h1>
+  <p class="subtitle">Japanese Candlestick Charting Techniques — 全景学习手册</p>
 
   <div class="book-info">
-    <h2>馃摎 涔︾睄淇℃伅</h2>
-    <p><strong>涔﹀悕锛?/strong>鏃ユ湰铚＄儧鍥炬妧鏈紙Japanese Candlestick Charting Techniques锛?/p>
-    <p><strong>浣滆€咃細</strong>鍙茶拏澶峰凹妫紙Steve Nison锛夆€斺€?琚タ鏂硅獕涓?K绾垮垎鏋愪箣鐖?</p>
-    <p><strong>棣栨鍑虹増锛?/strong>1991骞达紝棣栨灏嗘棩鏈湣鐑涘浘鎶€鏈郴缁熶粙缁嶇粰瑗挎柟鎶曡祫鐣?/p>
-    <p><strong>鍦颁綅锛?/strong>鎶€鏈垎鏋愰鍩熸渶缁忓吀鐨勫叆闂ㄤ功绫嶄箣涓€锛屽叏鐞冩妧鏈垎鏋愬笀鐨勫繀璇讳功鐩?/p>
-    <p><strong>鏍稿績鐞嗗康锛?/strong>K绾垮浘涓嶆槸棰勬祴宸ュ叿锛岃€屾槸<strong>瑙ｈ甯傚満蹇冪悊</strong>鐨勮瑷€銆傛瘡涓€鏍筀绾块兘璁板綍浜嗗绌哄弻鏂圭殑鎴樻枟鐥曡抗锛屽舰鎬佺殑鑳屽悗鏄氦鏄撹€呯殑鎭愭儳銆佽椽濠€佺姽璞拰鍐虫柇銆?/p>
+    <h2>📚 书籍信息</h2>
+    <p><strong>书名：</strong>日本蜡烛图技术（Japanese Candlestick Charting Techniques）</p>
+    <p><strong>作者：</strong>史蒂夫·尼森（Steve Nison）—— 被西方誉为"K线分析之父"</p>
+    <p><strong>首次出版：</strong>1991年，首次将日本蜡烛图技术系统介绍给西方投资界</p>
+    <p><strong>地位：</strong>技术分析领域最经典的入门书籍之一，全球技术分析师的必读书目</p>
+    <p><strong>核心理念：</strong>K线图不是预测工具，而是<strong>解读市场心理</strong>的语言。每一根K线都记录了多空双方的战斗痕迹，形态的背后是交易者的恐惧、贪婪、犹豫和决断。</p>
   </div>
 </section>
 
 <section id="author">
-  <h2>馃懁 浣滆€呯畝浠?/h2>
-  <p>鍙茶拏澶峰凹妫湪绾界害浠庝簨鎶€鏈垎鏋愬伐浣滐紝鍦ㄦ帰绱㈡洿娣卞叆鐨勪环鏍艰涓虹爺绌舵椂鍙戠幇浜嗘棩鏈背甯備氦鏄撹€呬娇鐢ㄧ殑"铚＄儧鍥?鎶€鏈€備粬鑺变簡鏁板勾鏃堕棿鐮旂┒銆佺炕璇戝苟鏁寸悊鐩稿叧璧勬枡锛屾渶缁堝湪1991骞村嚭鐗堜簡銆婃棩鏈湣鐑涘浘鎶€鏈€嬶紝浠庢鏀瑰彉浜嗗叏鐞冩妧鏈垎鏋愮殑鏍煎眬銆?/p>
-  <p>鍦ㄨ繖鏈功涔嬪墠锛岃タ鏂瑰競鍦轰富瑕佷娇鐢ㄦ潯褰㈠浘锛圔ar Chart锛夈€傚凹妫殑宸ヤ綔鐩稿綋浜庢妸涓€闂ㄥ彜鑰佺殑璇█缈昏瘧缁欎簡鐜颁唬鎶曡祫鑰呪€斺€?鏃ユ湰铚＄儧鍥?浠庢鎴愪负鍏ㄧ悆閲戣瀺鍥捐〃鐨勬爣鍑嗗憟鐜版柟寮忋€?/p>
+  <h2>👤 作者简介</h2>
+  <p>史蒂夫·尼森在纽约从事技术分析工作，在探索更深入的价格行为研究时发现了日本米市交易者使用的"蜡烛图"技术。他花了数年时间研究、翻译并整理相关资料，最终在1991年出版了《日本蜡烛图技术》，从此改变了全球技术分析的格局。</p>
+  <p>在这本书之前，西方市场主要使用条形图（Bar Chart）。尼森的工作相当于把一门古老的语言翻译给了现代投资者——"日本蜡烛图"从此成为全球金融图表的标准呈现方式。</p>
   <div class="pro-tip">
-    <strong>馃挕 鍘嗗彶鑳屾櫙锛?/strong>铚＄儧鍥炬妧鏈渶鏃╄捣婧愪簬18涓栫邯鐨勬棩鏈背甯傦紝鐢变竴浣嶅悕鍙湰闂村畻涔咃紙Munehisa Homma锛夌殑绫冲晢鍙戝睍鑰屾垚銆備粬閫氳繃璁板綍姣忔棩绫充环鐨勫紑鐩樸€佹敹鐩樸€佹渶楂樺拰鏈€浣庢潵棰勬祴浠锋牸璧板娍锛屾垚涓烘妧鏈垎鏋愮殑鍏堥┍涔嬩竴銆?
+    <strong>💡 历史背景：</strong>蜡烛图技术最早起源于18世纪的日本米市，由一位名叫本间宗久（Munehisa Homma）的米商发展而成。他通过记录每日米价的开盘、收盘、最高和最低来预测价格走势，成为技术分析的先驱之一。
   </div>
 </section>
 
 <section id="basics">
-  <h2>鍩虹姒傚康</h2>
+  <h2>基础概念</h2>
 
-  <h3 id="basics-elements">K绾挎瀯鎴愯绱?/h3>
-  <p>姣忎竴鏍筀绾块兘鍖呭惈鍥涗釜鍏抽敭浠锋牸瑕佺礌锛?/p>
+  <h3 id="basics-elements">K线构成要素</h3>
+  <p>每一根K线都包含四个关键价格要素：</p>
   <ul>
-    <li><strong>寮€鐩樹环锛圤pen锛?/strong> 鈥?璇ユ椂闂村懆鏈熺殑璧峰浜ゆ槗浠锋牸</li>
-    <li><strong>鏀剁洏浠凤紙Close锛?/strong> 鈥?璇ユ椂闂村懆鏈熺殑鏈€缁堜氦鏄撲环鏍?/li>
-    <li><strong>鏈€楂樹环锛圚igh锛?/strong> 鈥?璇ユ椂闂村懆鏈熷唴鐨勬渶楂樹氦鏄撲环鏍?/li>
-    <li><strong>鏈€浣庝环锛圠ow锛?/strong> 鈥?璇ユ椂闂村懆鏈熷唴鐨勬渶浣庝氦鏄撲环鏍?/li>
+    <li><strong>开盘价（Open）</strong> — 该时间周期的起始交易价格</li>
+    <li><strong>收盘价（Close）</strong> — 该时间周期的最终交易价格</li>
+    <li><strong>最高价（High）</strong> — 该时间周期内的最高交易价格</li>
+    <li><strong>最低价（Low）</strong> — 该时间周期内的最低交易价格</li>
   </ul>
 
   <div class="kline-row">
     <div class="kline-wrapper">
-      <div class="jp-name">闃崇嚎锛圔ullish锛?/div>
+      <div class="jp-name">阳线（Bullish）</div>
       <div class="kline-box">
         <div class="upper-shadow" style="height:8px"></div>
         <div class="candle-body bull" style="height:36px"></div>
         <div class="lower-shadow" style="height:8px"></div>
       </div>
-      <div class="label">鏀剁洏 &gt; 寮€鐩?br>绌哄績/绾㈣壊</div>
+      <div class="label">收盘 &gt; 开盘<br>空心/红色</div>
     </div>
     <div class="kline-wrapper">
-      <div class="jp-name">闃寸嚎锛圔earish锛?/div>
+      <div class="jp-name">阴线（Bearish）</div>
       <div class="kline-box">
         <div class="upper-shadow" style="height:8px"></div>
         <div class="candle-body bear" style="height:36px"></div>
         <div class="lower-shadow" style="height:8px"></div>
       </div>
-      <div class="label">寮€鐩?&gt; 鏀剁洏<br>瀹炲績/缁胯壊/钃濊壊</div>
+      <div class="label">开盘 &gt; 收盘<br>实心/绿色/蓝色</div>
     </div>
     <div class="kline-wrapper">
-      <div class="jp-name">闀块槼绾?/div>
+      <div class="jp-name">长阳线</div>
       <div class="kline-box">
         <div class="upper-shadow" style="height:4px"></div>
         <div class="candle-body bull" style="height:50px"></div>
         <div class="lower-shadow" style="height:4px"></div>
       </div>
-      <div class="label">涔扮洏寮哄娍鎺ㄥ姩</div>
+      <div class="label">买盘强势推动</div>
     </div>
     <div class="kline-wrapper">
-      <div class="jp-name">闀块槾绾?/div>
+      <div class="jp-name">长阴线</div>
       <div class="kline-box">
         <div class="upper-shadow" style="height:4px"></div>
         <div class="candle-body bear" style="height:50px"></div>
         <div class="lower-shadow" style="height:4px"></div>
       </div>
-      <div class="label">鍗栫洏寮哄娍鎺ㄥ姩</div>
+      <div class="label">卖盘强势推动</div>
     </div>
   </div>
 
-  <h3 id="basics-types">閲嶈鏈</h3>
+  <h3 id="basics-types">重要术语</h3>
   <ul>
-    <li><strong>瀹炰綋锛圧eal Body锛夛細</strong>寮€鐩樹环涓庢敹鐩樹环涔嬮棿鐨勯儴鍒嗐€傚疄浣撹秺闀匡紝澶氱┖鍙屾柟涓竴鏂圭殑浼樺娍瓒婃槑鏄俱€?/li>
-    <li><strong>涓婂奖绾匡紙Upper Shadow锛夛細</strong>鏈€楂樹环涓庡疄浣撲笂绔箣闂寸殑缁嗙嚎銆備笂褰辩嚎闀胯鏄庡鏂规帹楂樺悗閬亣鍗栧帇銆?/li>
-    <li><strong>涓嬪奖绾匡紙Lower Shadow锛夛細</strong>鏈€浣庝环涓庡疄浣撲笅绔箣闂寸殑缁嗙嚎銆備笅褰辩嚎闀胯鏄庣┖鏂规墦鍘嬪悗閬亣涔扮洏鏀拺銆?/li>
-    <li><strong>灏忓疄浣擄紙灏忛槼/灏忛槾锛夛細</strong>瀹炰綋寰堢煭锛岃鏄庡绌哄弻鏂瑰姏閲忔帴杩戝钩琛★紝甯傚満澶勪簬鐘硅鲍鏈熴€?/li>
-    <li><strong>绾洪敜绾匡紙Spinning Top锛夛細</strong>瀹炰綋寰堝皬浣嗕笂涓嬪奖绾胯緝闀匡紝浠ｈ〃灞€鍔夸笉鏄庛€?/li>
+    <li><strong>实体（Real Body）：</strong>开盘价与收盘价之间的部分。实体越长，多空双方中一方的优势越明显。</li>
+    <li><strong>上影线（Upper Shadow）：</strong>最高价与实体上端之间的细线。上影线长说明多方推高后遭遇卖压。</li>
+    <li><strong>下影线（Lower Shadow）：</strong>最低价与实体下端之间的细线。下影线长说明空方打压后遭遇买盘支撑。</li>
+    <li><strong>小实体（小阳/小阴）：</strong>实体很短，说明多空双方力量接近平衡，市场处于犹豫期。</li>
+    <li><strong>纺锤线（Spinning Top）：</strong>实体很小但上下影线较长，代表局势不明。</li>
   </ul>
 
   <div class="kline-row">
     <div class="kline-wrapper">
-      <div class="jp-name">绾洪敜绾?/div>
+      <div class="jp-name">纺锤线</div>
       <div class="kline-box">
         <div class="upper-shadow" style="height:12px"></div>
         <div class="candle-body bull" style="height:10px"></div>
         <div class="lower-shadow" style="height:12px"></div>
       </div>
-      <div class="label">澶氱┖鑳剁潃</div>
+      <div class="label">多空胶着</div>
     </div>
     <div class="kline-wrapper">
-      <div class="jp-name">灏忛槼绾?/div>
+      <div class="jp-name">小阳线</div>
       <div class="kline-box">
         <div class="upper-shadow" style="height:5px"></div>
         <div class="candle-body bull" style="height:8px"></div>
         <div class="lower-shadow" style="height:5px"></div>
       </div>
-      <div class="label">娓╁拰涓婃定</div>
+      <div class="label">温和上涨</div>
     </div>
     <div class="kline-wrapper">
-      <div class="jp-name">灏忛槾绾?/div>
+      <div class="jp-name">小阴线</div>
       <div class="kline-box">
         <div class="upper-shadow" style="height:5px"></div>
         <div class="candle-body bear" style="height:8px"></div>
         <div class="lower-shadow" style="height:5px"></div>
       </div>
-      <div class="label">娓╁拰涓嬭穼</div>
+      <div class="label">温和下跌</div>
     </div>
   </div>
 </section>
 
 <section id="single">
-  <h2>鍗曟牴K绾垮舰鎬?/h2>
+  <h2>单根K线形态</h2>
 
   <div class="card" id="s-hammer">
     <div class="card-title">
-      <span>馃敤 閿ゅ瓙绾匡紙Hammer锛?/span>
-      <span class="tag tag-bull">搴曢儴鍙嶈浆</span>
+      <span>🔨 锤子线（Hammer）</span>
+      <span class="tag tag-bull">底部反转</span>
     </div>
     <div class="kline-row">
       <div class="kline-wrapper">
@@ -1012,7 +355,7 @@
           <div class="candle-body bull"></div>
           <div class="lower-shadow" style="height:42px;width:3px;background:var(--green)"></div>
         </div>
-        <div class="label">鐪嬫定閿ゅ瓙绾?/div>
+        <div class="label">看涨锤子线</div>
       </div>
       <div class="kline-wrapper">
         <div class="kline-box k-hammer">
@@ -1020,29 +363,29 @@
           <div class="candle-body" style="height:18px;width:28px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px"></div>
           <div class="lower-shadow" style="height:42px;width:3px"></div>
         </div>
-        <div class="label">闃寸嚎閿ゅ瓙绾匡紙杈冨急锛?/div>
+        <div class="label">阴线锤子线（较弱）</div>
       </div>
     </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong></p>
+    <p><strong>识别规则：</strong></p>
     <ul>
-      <li>鍑虹幇鍦ㄤ笅璺岃秼鍔挎湯绔?/li>
-      <li>涓嬪奖绾块暱搴?鈮?瀹炰綋鐨?鍊?/li>
-      <li>娌℃湁涓婂奖绾挎垨涓婂奖绾挎瀬鐭?/li>
-      <li>瀹炰綋棰滆壊涓嶉噸瑕侊紝浣嗛槼绾夸俊鍙锋洿寮?/li>
+      <li>出现在下跌趋势末端</li>
+      <li>下影线长度 ≥ 实体的2倍</li>
+      <li>没有上影线或上影线极短</li>
+      <li>实体颜色不重要，但阳线信号更强</li>
     </ul>
-    <p><strong>甯傚満鍚箟锛?/strong>浠锋牸鍦ㄥ紑鐩樺悗澶у箙涓嬭穼锛屼絾鍗栧帇鏈兘鎸佺画锛屼拱鐩樺皢浠锋牸鎺ㄥ洖鑷冲紑鐩樹环闄勮繎銆傝〃鏄庣┖鏂瑰凡鏃犲姏杩涗竴姝ユ墦鍘嬶紝澶氭柟寮€濮嬪弽鍑汇€傞暱闀跨殑涓嬪奖绾垮儚鏄?閿ゅ瓙"閿ゅ嚭浜嗗簳閮ㄣ€?/p>
-    <p><strong>浜ゆ槗绛栫暐锛?/strong></p>
+    <p><strong>市场含义：</strong>价格在开盘后大幅下跌，但卖压未能持续，买盘将价格推回至开盘价附近。表明空方已无力进一步打压，多方开始反击。长长的下影线像是"锤子"锤出了底部。</p>
+    <p><strong>交易策略：</strong></p>
     <ul>
-      <li>闇€瑕佹鏃ョ‘璁わ紙闃崇嚎鎴栭珮寮€锛?/li>
-      <li>姝㈡崯璁句簬閿ゅ瓙绾挎渶浣庣偣涓嬫柟</li>
-      <li>缁撳悎鎴愪氦閲忔斁澶ф洿鏈夋晥</li>
+      <li>需要次日确认（阳线或高开）</li>
+      <li>止损设于锤子线最低点下方</li>
+      <li>结合成交量放大更有效</li>
     </ul>
   </div>
 
   <div class="card" id="s-hanging">
     <div class="card-title">
-      <span>馃 涓婂悐绾匡紙Hanging Man锛?/span>
-      <span class="tag tag-bear">椤堕儴鍙嶈浆</span>
+      <span>🪢 上吊线（Hanging Man）</span>
+      <span class="tag tag-bear">顶部反转</span>
     </div>
     <div class="kline-row">
       <div class="kline-wrapper">
@@ -1050,93 +393,93 @@
           <div class="candle-body" style="height:18px;width:28px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px"></div>
           <div class="lower-shadow" style="height:42px;width:3px"></div>
         </div>
-        <div class="label">椤堕儴鍑虹幇 = 涓婂悐绾?/div>
+        <div class="label">顶部出现 = 上吊线</div>
       </div>
     </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong>褰㈡€佷笌閿ゅ瓙绾垮畬鍏ㄧ浉鍚岋紝鍞竴鐨勫尯鍒槸鍑虹幇鍦?strong>涓婃定瓒嬪娍鏈</strong>銆?/p>
-    <p><strong>甯傚満鍚箟锛?/strong>浠锋牸鍦ㄧ洏涓ぇ骞呬笅鎸紙闀夸笅褰辩嚎锛夛紝铏界劧鍚庢潵鍙嶅脊鍥炲紑鐩橀檮杩戯紝浣嗚繖璇存槑澶氭柟宸蹭笉鍐嶈兘瀹屽叏鎺у埗灞€闈€傜┖鏂瑰凡缁忓睍鐜板嚭浜嗗姏閲忥紝灏卞儚"涓婂悐鐨勭怀瀛?涓€鏍锋偓鍦ㄩ《閮ㄣ€?/p>
-    <p><strong>浜ゆ槗绛栫暐锛?/strong></p>
+    <p><strong>识别规则：</strong>形态与锤子线完全相同，唯一的区别是出现在<strong>上涨趋势末端</strong>。</p>
+    <p><strong>市场含义：</strong>价格在盘中大幅下挫（长下影线），虽然后来反弹回开盘附近，但这说明多方已不再能完全控制局面。空方已经展现出了力量，就像"上吊的绳子"一样悬在顶部。</p>
+    <p><strong>交易策略：</strong></p>
     <ul>
-      <li>闇€瑕佹鏃ョ‘璁わ紙闃寸嚎鎴栦綆寮€锛?/li>
-      <li>姝㈡崯璁句簬涓婂悐绾挎渶楂樼偣涓婃柟</li>
-      <li>瀹炰綋瓒婂皬銆佷笅褰辩嚎瓒婇暱锛屽弽杞鐜囪秺楂?/li>
+      <li>需要次日确认（阴线或低开）</li>
+      <li>止损设于上吊线最高点上方</li>
+      <li>实体越小、下影线越长，反转概率越高</li>
     </ul>
   </div>
 
   <div class="card" id="s-doji">
     <div class="card-title">
-      <span>鉁濓笍 鍗佸瓧鏄燂紙Doji锛?/span>
-      <span class="tag tag-neu">瓒嬪娍鍋滈】</span>
+      <span>✝️ 十字星（Doji）</span>
+      <span class="tag tag-neu">趋势停顿</span>
     </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong>寮€鐩樹环 = 鏀剁洏浠凤紙鎴栨瀬鍏舵帴杩戯級锛屽疄浣撳嚑涔庝笉鍙銆?/p>
-    <p><strong>甯傚満鍚箟锛?/strong>澶氱┖鍙屾柟鍦ㄦ煇涓环浣嶈揪鍒板畬鍏ㄥ钩琛★紝甯傚満鐘硅鲍涓嶅喅銆傚湪涓€娈垫槑纭殑瓒嬪娍鍚庡嚭鐜板崄瀛楁槦锛屾剰鍛崇潃瓒嬪娍鍙兘鍋滈】鎴栧弽杞€?/p>
+    <p><strong>识别规则：</strong>开盘价 = 收盘价（或极其接近），实体几乎不可见。</p>
+    <p><strong>市场含义：</strong>多空双方在某个价位达到完全平衡，市场犹豫不决。在一段明确的趋势后出现十字星，意味着趋势可能停顿或反转。</p>
 
-    <h4>鍗佸瓧鏄熷彉浣?/h4>
+    <h4>十字星变体</h4>
     <div class="kline-row">
       <div class="kline-wrapper">
-        <div class="jp-name">鏅€氬崄瀛楁槦</div>
+        <div class="jp-name">普通十字星</div>
         <div class="kline-box k-doji">
           <div class="candle-body doji"></div>
         </div>
-        <div class="label">澶氱┖骞宠　</div>
+        <div class="label">多空平衡</div>
       </div>
       <div class="kline-wrapper">
-        <div class="jp-name">澧撶鍗佸瓧绾?/div>
+        <div class="jp-name">墓碑十字线</div>
         <div class="kline-box k-grave">
           <div class="upper-shadow" style="height:55px;width:3px;background:var(--red)"></div>
           <div class="candle-body doji"></div>
         </div>
-        <div class="label">椤堕儴淇″彿 鈫?/div>
+        <div class="label">顶部信号 ↗</div>
       </div>
       <div class="kline-wrapper">
-        <div class="jp-name">铚昏湏鍗佸瓧绾?/div>
+        <div class="jp-name">蜻蜓十字线</div>
         <div class="kline-box k-dfly">
           <div class="candle-body doji"></div>
           <div class="lower-shadow" style="height:55px;width:3px;background:var(--green)"></div>
         </div>
-        <div class="label">搴曢儴淇″彿 鈫?/div>
+        <div class="label">底部信号 ↘</div>
       </div>
       <div class="kline-wrapper">
-        <div class="jp-name">闀胯吙鍗佸瓧鏄?/div>
+        <div class="jp-name">长腿十字星</div>
         <div class="kline-box k-long">
           <div class="candle-body doji"></div>
         </div>
-        <div class="label">婵€鐑堜簤澶?/div>
+        <div class="label">激烈争夺</div>
       </div>
     </div>
 
     <table class="strategy">
       <tr>
-        <th>鍙樹綋</th>
-        <th>鍚箟</th>
-        <th>浜ゆ槗绛栫暐</th>
+        <th>变体</th>
+        <th>含义</th>
+        <th>交易策略</th>
       </tr>
       <tr>
-        <td>澧撶鍗佸瓧绾?/td>
-        <td>澶氭柟鎺ㄩ珮鍚庡叏闈㈡簝璐ワ紝绌烘柟鑳滃嚭</td>
-        <td>涓婃定鏈 鈫?鍋氱┖淇″彿</td>
+        <td>墓碑十字线</td>
+        <td>多方推高后全面溃败，空方胜出</td>
+        <td>上涨末端 → 做空信号</td>
       </tr>
       <tr>
-        <td>铚昏湏鍗佸瓧绾?/td>
-        <td>绌烘柟鎵撳帇鍚庡叏闈㈡簝璐ワ紝澶氭柟鑳滃嚭</td>
-        <td>涓嬭穼鏈 鈫?鍋氬淇″彿</td>
+        <td>蜻蜓十字线</td>
+        <td>空方打压后全面溃败，多方胜出</td>
+        <td>下跌末端 → 做多信号</td>
       </tr>
       <tr>
-        <td>闀胯吙鍗佸瓧鏄?/td>
-        <td>澶氱┖婵€鐑堜簤澶猴紝鍔垮潎鍔涙晫</td>
-        <td>鏂瑰悜涓嶆槑锛岃鏈涙垨绛夌‘璁?/td>
+        <td>长腿十字星</td>
+        <td>多空激烈争夺，势均力敌</td>
+        <td>方向不明，观望或等确认</td>
       </tr>
     </table>
 
     <div class="pro-tip">
-      <strong>馃搶 灏兼．鍘熻瘽锛?/strong>"鍗佸瓧鏄熸湰韬笉鏄弽杞俊鍙枫€傚湪闀挎湡闃崇嚎涔嬪悗鍑虹幇鍗佸瓧鏄燂紝琛ㄧず涔版柟鍔涢噺琛扮锛涘湪闀挎湡闃寸嚎涔嬪悗鍑虹幇鍗佸瓧鏄燂紝琛ㄧず鍗栨柟鍔涢噺琛扮銆傚叧閿槸瀹冨嚭鐜板湪瓒嬪娍鐨勯珮浣嶆垨浣庝綅銆?
+      <strong>📌 尼森原话：</strong>"十字星本身不是反转信号。在长期阳线之后出现十字星，表示买方力量衰竭；在长期阴线之后出现十字星，表示卖方力量衰竭。关键是它出现在趋势的高位或低位。"
     </div>
   </div>
 
   <div class="card" id="s-shooting">
     <div class="card-title">
-      <span>鈽勶笍 娴佹槦绾匡紙Shooting Star锛?/span>
-      <span class="tag tag-bear">椤堕儴鍙嶈浆</span>
+      <span>☄️ 流星线（Shooting Star）</span>
+      <span class="tag tag-bear">顶部反转</span>
     </div>
     <div class="kline-row">
       <div class="kline-wrapper">
@@ -1144,29 +487,29 @@
           <div class="upper-shadow" style="height:42px;width:3px;background:var(--orange)"></div>
           <div class="candle-body bear" style="height:18px;background:var(--red)"></div>
         </div>
-        <div class="label">娴佹槦绾?/div>
+        <div class="label">流星线</div>
       </div>
     </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong></p>
+    <p><strong>识别规则：</strong></p>
     <ul>
-      <li>鍑虹幇鍦ㄤ笂娑ㄨ秼鍔挎湯绔?/li>
-      <li>涓婂奖绾块暱搴?鈮?瀹炰綋鐨?鍊?/li>
-      <li>瀹炰綋浣嶄簬K绾夸綆绔?/li>
-      <li>娌℃湁涓嬪奖绾挎垨涓嬪奖绾挎瀬鐭?/li>
+      <li>出现在上涨趋势末端</li>
+      <li>上影线长度 ≥ 实体的2倍</li>
+      <li>实体位于K线低端</li>
+      <li>没有下影线或下影线极短</li>
     </ul>
-    <p><strong>甯傚満鍚箟锛?/strong>寮€鐩樺悗浠锋牸澶у箙鍐查珮锛堥暱涓婂奖绾匡級锛屼絾閬亣澶ч噺鍗栫洏锛屼环鏍艰鐮稿洖寮€鐩樹环闄勮繎銆傚氨鍍忎竴棰楁祦鏄熷垝杩囧ぉ绌衡€斺€斿啿寰楅珮锛屼絾寰堝揩鍧犺惤銆傝鏄庡鏂瑰凡鏃犲姏缁存寔楂樹綅銆?/p>
-    <p><strong>浜ゆ槗绛栫暐锛?/strong></p>
+    <p><strong>市场含义：</strong>开盘后价格大幅冲高（长上影线），但遭遇大量卖盘，价格被砸回开盘价附近。就像一颗流星划过天空——冲得高，但很快坠落。说明多方已无力维持高位。</p>
+    <p><strong>交易策略：</strong></p>
     <ul>
-      <li>闇€瑕佹鏃ョ‘璁わ紙浣庡紑鎴栭槾绾匡級鎵嶈繘鍦?/li>
-      <li>姝㈡崯璁句簬娴佹槦绾夸笂褰辩嚎鏈€楂樼偣涓婃柟</li>
-      <li>鎴愪氦閲忚秺澶э紝淇″彿瓒婂彲闈?/li>
+      <li>需要次日确认（低开或阴线）才进场</li>
+      <li>止损设于流星线上影线最高点上方</li>
+      <li>成交量越大，信号越可靠</li>
     </ul>
   </div>
 
   <div class="card" id="s-ihammer">
     <div class="card-title">
-      <span>馃攦 鍊掗敜瀛愮嚎锛圛nverted Hammer锛?/span>
-      <span class="tag tag-bull">搴曢儴鍙嶈浆</span>
+      <span>🔃 倒锤子线（Inverted Hammer）</span>
+      <span class="tag tag-bull">底部反转</span>
     </div>
     <div class="kline-row">
       <div class="kline-wrapper">
@@ -1174,28 +517,28 @@
           <div class="upper-shadow" style="height:42px;width:3px;background:var(--green)"></div>
           <div class="candle-body bull" style="height:18px"></div>
         </div>
-        <div class="label">鍊掗敜瀛愮嚎锛堥渶娆℃棩纭锛?/div>
+        <div class="label">倒锤子线（需次日确认）</div>
       </div>
     </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong>褰㈡€佷笌娴佹槦绾垮畬鍏ㄧ浉鍚岋紝鍞竴鐨勫尯鍒湪浜庡嚭鐜板湪<strong>涓嬭穼瓒嬪娍鏈</strong>銆?/p>
-    <p><strong>甯傚満鍚箟锛?/strong>浠锋牸鐩樹腑澶у箙鍐查珮锛岃櫧鐒舵敹鐩樺洖钀斤紝浣嗚繖琛ㄦ槑澶氭柟宸茬粡灏濊瘯绐佺牬锛屽競鍦烘湁鍚戜笂娴嬭瘯鐨勫姏閲忋€傝繖鏄湪搴曢儴鍙戝嚭鐨?璇曟帰鎬ц繘鏀?淇″彿銆?/p>
-    <p><strong>鈿狅笍 鍏抽敭锛?/strong>鍊掗敜瀛愮嚎鏈韩涓嶆槸涔板叆淇″彿锛屽畠鍙槸涓€涓鍛娿€傚繀椤荤瓑<strong>娆℃棩鐨勯槼绾跨‘璁?/strong>锛堟敹鐩樹环楂樹簬鍊掗敜瀛愮嚎瀹炰綋锛夋墠鑳借繘鍦恒€?/p>
+    <p><strong>识别规则：</strong>形态与流星线完全相同，唯一的区别在于出现在<strong>下跌趋势末端</strong>。</p>
+    <p><strong>市场含义：</strong>价格盘中大幅冲高，虽然收盘回落，但这表明多方已经尝试突破，市场有向上测试的力量。这是在底部发出的"试探性进攻"信号。</p>
+    <p><strong>⚠️ 关键：</strong>倒锤子线本身不是买入信号，它只是一个警告。必须等<strong>次日的阳线确认</strong>（收盘价高于倒锤子线实体）才能进场。</p>
   </div>
 </section>
 
 <section id="dual">
-  <h2>鍙孠绾垮舰鎬?/h2>
+  <h2>双K线形态</h2>
 
   <div class="card" id="d-engulf">
     <div class="card-title">
-      <span>馃寑 鍚炴病褰㈡€侊紙Engulfing锛?/span>
-      <span class="tag tag-bull">鐪嬫定</span>
-      <span class="tag tag-bear">鐪嬭穼</span>
+      <span>🌀 吞没形态（Engulfing）</span>
+      <span class="tag tag-bull">看涨</span>
+      <span class="tag tag-bear">看跌</span>
     </div>
 
     <div class="kline-row">
       <div class="kline-wrapper">
-        <div class="jp-name">鐪嬫定鍚炴病</div>
+        <div class="jp-name">看涨吞没</div>
         <div class="kline-pair k-engulf-bull k-engulf">
           <div class="kline-box">
             <div class="candle-body bear" style="height:24px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px;width:28px"></div>
@@ -1204,10 +547,10 @@
             <div class="candle-body bull" style="height:40px;width:34px"></div>
           </div>
         </div>
-        <div class="label">闃寸嚎 鈫?瀹屽叏瑕嗙洊鐨勯槼绾?/div>
+        <div class="label">阴线 → 完全覆盖的阳线</div>
       </div>
       <div class="kline-wrapper">
-        <div class="jp-name">鐪嬭穼鍚炴病</div>
+        <div class="jp-name">看跌吞没</div>
         <div class="kline-pair k-engulf-bear k-engulf">
           <div class="kline-box">
             <div class="candle-body bull" style="height:24px;width:28px"></div>
@@ -1216,29 +559,29 @@
             <div class="candle-body bear" style="height:40px;width:34px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px"></div>
           </div>
         </div>
-        <div class="label">闃崇嚎 鈫?瀹屽叏瑕嗙洊鐨勯槾绾?/div>
+        <div class="label">阳线 → 完全覆盖的阴线</div>
       </div>
     </div>
 
-    <p><strong>璇嗗埆瑙勫垯锛?/strong></p>
+    <p><strong>识别规则：</strong></p>
     <ul>
-      <li><strong>鐪嬫定鍚炴病锛?/strong>涓嬭穼瓒嬪娍涓紝鍏堝嚭鐜颁竴灏忛槾绾匡紝娆℃棩澶ч槼绾垮疄浣撳畬鍏ㄨ鐩栧墠涓€鏃ラ槾绾垮疄浣?/li>
-      <li><strong>鐪嬭穼鍚炴病锛?/strong>涓婃定瓒嬪娍涓紝鍏堝嚭鐜颁竴灏忛槼绾匡紝娆℃棩澶ч槾绾垮疄浣撳畬鍏ㄨ鐩栧墠涓€鏃ラ槼绾垮疄浣?/li>
+      <li><strong>看涨吞没：</strong>下跌趋势中，先出现一小阴线，次日大阳线实体完全覆盖前一日阴线实体</li>
+      <li><strong>看跌吞没：</strong>上涨趋势中，先出现一小阳线，次日大阴线实体完全覆盖前一日阳线实体</li>
     </ul>
-    <p><strong>甯傚満鍚箟锛?/strong>澶氭柟锛堟垨绌烘柟锛夊畬鍏ㄥ惁瀹氫簡鍓嶄竴鏃ョ殑甯傚満璧板娍锛屾樉绀哄嚭鍔涢噺鐨勫帇鍊掓€ч€嗚浆銆?/p>
-    <p><strong>鏈夋晥鎬у寮哄洜绱狅細</strong></p>
+    <p><strong>市场含义：</strong>多方（或空方）完全否定了前一日的市场走势，显示出力量的压倒性逆转。</p>
+    <p><strong>有效性增强因素：</strong></p>
     <ul>
-      <li>绗竴鏍圭嚎瀹炰綋寰堝皬锛岀浜屾牴绾垮疄浣撳緢澶?鈫?鍙嶈浆鍔涘害寮?/li>
-      <li>鍑虹幇鍦ㄩ暱鏈熻秼鍔挎湯绔?鈫?鍙潬鎬ч珮</li>
-      <li>鎴愪氦閲忔樉钁楁斁澶?鈫?纭鍔涘害</li>
-      <li>绗簩鏍圭嚎鐨勫疄浣撳悓鏃惰鐩栧墠涓€鏍圭殑瀹炰綋+褰辩嚎 鈫?鏇村己</li>
+      <li>第一根线实体很小，第二根线实体很大 → 反转力度强</li>
+      <li>出现在长期趋势末端 → 可靠性高</li>
+      <li>成交量显著放大 → 确认力度</li>
+      <li>第二根线的实体同时覆盖前一根的实体+影线 → 更强</li>
     </ul>
   </div>
 
   <div class="card" id="d-darkcloud">
     <div class="card-title">
-      <span>馃導锔?涔屼簯鐩栭《锛圖ark Cloud Cover锛?/span>
-      <span class="tag tag-bear">椤堕儴淇″彿</span>
+      <span>🌧️ 乌云盖顶（Dark Cloud Cover）</span>
+      <span class="tag tag-bear">顶部信号</span>
     </div>
     <div class="kline-row">
       <div class="kline-wrapper">
@@ -1254,30 +597,30 @@
             <div class="lower-shadow" style="height:8px"></div>
           </div>
         </div>
-        <div class="label">闃崇嚎 鈫?楂樺紑浣庤蛋鑷?/2浠ヤ笅</div>
+        <div class="label">阳线 → 高开低走至1/2以下</div>
       </div>
     </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong></p>
+    <p><strong>识别规则：</strong></p>
     <ul>
-      <li>涓婃定瓒嬪娍涓紝鍏堝嚭鐜颁竴鏍瑰ぇ闃崇嚎</li>
-      <li>娆℃棩楂樺紑锛堥珮浜庡墠鏃ユ渶楂樹环锛?/li>
-      <li>鏀剁洏浠疯穼鍏ュ墠鏃ラ槼绾垮疄浣?/2浠ヤ笅</li>
-      <li>瓒婁綆绌垮叆寰楄秺娣憋紝鍙嶈浆淇″彿瓒婂己</li>
+      <li>上涨趋势中，先出现一根大阳线</li>
+      <li>次日高开（高于前日最高价）</li>
+      <li>收盘价跌入前日阳线实体1/2以下</li>
+      <li>越低穿入得越深，反转信号越强</li>
     </ul>
-    <p><strong>甯傚満鍚箟锛?/strong>寮€鐩樻椂澶氭柟灏濊瘯缁х画鎷夊崌锛堥珮寮€锛夛紝浣嗗崠鐩樺ぇ閲忔秾鍑猴紝浠锋牸琚ぇ骞呭帇浣庤嚦鍓嶆棩闃崇嚎瀹炰綋娣卞銆傚氨鍍忔櫞鏈楃殑澶╃┖绐佺劧琚箤浜戣鐩栵紝涔版柟鐑儏琚交搴曞帇鍒躲€?/p>
-    <p><strong>鈿狅笍 涓庣湅璺屽悶娌＄殑鍖哄埆锛?/strong>涔屼簯鐩栭《涓嶉渶瑕佸畬鍏ㄨ鐩栧墠涓€鏍归槼绾垮疄浣擄紝鍙渶璺屽叆1/2浠ヤ笅鍗冲彲銆傚鏋滃畬鍏ㄨ鐩栵紝鍒欐紨鍙樹负鐪嬭穼鍚炴病褰㈡€併€?/p>
-    <p><strong>浜ゆ槗绛栫暐锛?/strong></p>
+    <p><strong>市场含义：</strong>开盘时多方尝试继续拉升（高开），但卖盘大量涌出，价格被大幅压低至前日阳线实体深处。就像晴朗的天空突然被乌云覆盖，买方热情被彻底压制。</p>
+    <p><strong>⚠️ 与看跌吞没的区别：</strong>乌云盖顶不需要完全覆盖前一根阳线实体，只需跌入1/2以下即可。如果完全覆盖，则演变为看跌吞没形态。</p>
+    <p><strong>交易策略：</strong></p>
     <ul>
-      <li>绌垮叆瓒婃繁淇″彿瓒婂己锛?/2浠ヤ笅涓哄熀鏈紝2/3浠ヤ笂鏋佸己锛?/li>
-      <li>鎴愪氦閲忔斁澶?鈫?鏇村彲闈?/li>
-      <li>鍑虹幇鍦ㄩ噸瑕侀樆鍔涗綅 鈫?鏋佸己淇″彿</li>
+      <li>穿入越深信号越强（1/2以下为基本，2/3以上极强）</li>
+      <li>成交量放大 → 更可靠</li>
+      <li>出现在重要阻力位 → 极强信号</li>
     </ul>
   </div>
 
   <div class="card" id="d-piercing">
     <div class="card-title">
-      <span>猬嗭笍 鍒洪€忓舰鎬侊紙Piercing Line锛?/span>
-      <span class="tag tag-bull">搴曢儴淇″彿</span>
+      <span>⬆️ 刺透形态（Piercing Line）</span>
+      <span class="tag tag-bull">底部信号</span>
     </div>
     <div class="kline-row">
       <div class="kline-wrapper">
@@ -1293,28 +636,28 @@
             <div class="lower-shadow" style="height:8px"></div>
           </div>
         </div>
-        <div class="label">闃寸嚎 鈫?浣庡紑楂樿蛋鑷?/2浠ヤ笂</div>
+        <div class="label">阴线 → 低开高走至1/2以上</div>
       </div>
     </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong></p>
+    <p><strong>识别规则：</strong></p>
     <ul>
-      <li>涓嬭穼瓒嬪娍涓紝鍏堝嚭鐜颁竴鏍瑰ぇ闃寸嚎</li>
-      <li>娆℃棩浣庡紑锛堜綆浜庡墠鏃ユ渶浣庝环锛?/li>
-      <li>鏀剁洏浠风獊鐮村墠鏃ラ槾绾垮疄浣?/2浠ヤ笂</li>
-      <li>绐佺牬寰楄秺楂橈紝鍙嶈浆淇″彿瓒婂己</li>
+      <li>下跌趋势中，先出现一根大阴线</li>
+      <li>次日低开（低于前日最低价）</li>
+      <li>收盘价突破前日阴线实体1/2以上</li>
+      <li>突破得越高，反转信号越强</li>
     </ul>
-    <p><strong>甯傚満鍚箟锛?/strong>寮€鐩樻椂绌烘柟缁х画鎵撳帇锛堜綆寮€锛夛紝澶ч噺鎭愭厡鐩樻秾鍑恒€備絾闅忓悗涔扮洏寮哄姏浠嬪叆锛屽皢浠锋牸鎺ㄨ嚦鍓嶆棩闃寸嚎瀹炰綋涓偣浠ヤ笂銆傜┖鏂逛紭鍔胯褰诲簳鐡﹁В銆?/p>
-    <p><strong>鈿狅笍 涓庣湅娑ㄥ悶娌＄殑鍖哄埆锛?/strong>鍒洪€忓舰鎬佸彧闇€绐佺牬鍓嶉槾绾垮疄浣撲腑鐐瑰埌涓婃柟锛屼笉闇€瑕佸畬鍏ㄨ鐩栥€傚鏋滃畬鍏ㄨ鐩栵紝鍒欐紨鍙樹负鐪嬫定鍚炴病褰㈡€併€?/p>
+    <p><strong>市场含义：</strong>开盘时空方继续打压（低开），大量恐慌盘涌出。但随后买盘强力介入，将价格推至前日阴线实体中点以上。空方优势被彻底瓦解。</p>
+    <p><strong>⚠️ 与看涨吞没的区别：</strong>刺透形态只需突破前阴线实体中点到上方，不需要完全覆盖。如果完全覆盖，则演变为看涨吞没形态。</p>
   </div>
 </section>
 
 <section id="triple">
-  <h2>涓塊绾垮舰鎬?/h2>
+  <h2>三K线形态</h2>
 
   <div class="card" id="t-morning">
     <div class="card-title">
-      <span>猸?鍚槑鏄燂紙Morning Star锛?/span>
-      <span class="tag tag-bull">寮虹儓搴曢儴鍙嶈浆</span>
+      <span>⭐ 启明星（Morning Star）</span>
+      <span class="tag tag-bull">强烈底部反转</span>
     </div>
     <div class="kline-row">
       <div class="kline-wrapper">
@@ -1331,23 +674,23 @@
             <div class="candle-body bull lg" style="height:36px;width:24px"></div>
           </div>
         </div>
-        <div class="label">澶ч槾绾?鈫?鏄熺嚎(灏忓疄浣? 鈫?澶ч槼绾?/div>
+        <div class="label">大阴线 → 星线(小实体) → 大阳线</div>
       </div>
     </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong>涓嬭穼瓒嬪娍鏈鍑虹幇锛?/p>
+    <p><strong>识别规则：</strong>下跌趋势末端出现：</p>
     <ol>
-      <li>涓€鏍归暱闃寸嚎锛堢┖鏂瑰崰鎹粷瀵逛紭鍔匡級</li>
-      <li>涓€鏍瑰皬瀹炰綋锛堟垨鍗佸瓧鏄燂級锛屼笌鍓嶄竴鏍归槾绾垮瓨鍦ㄨ烦绌?/li>
-      <li>涓€鏍归暱闃崇嚎锛屾敹鐩樹环娣卞叆绗竴鏍归槾绾垮疄浣撲箣鍐?/li>
+      <li>一根长阴线（空方占据绝对优势）</li>
+      <li>一根小实体（或十字星），与前一根阴线存在跳空</li>
+      <li>一根长阳线，收盘价深入第一根阴线实体之内</li>
     </ol>
-    <p><strong>甯傚満鍚箟锛?/strong>濡傚悓榛庢槑鍓嶇殑榛戞殫鈥斺€旂涓€澶╃┖鏂硅倖铏愶紝绗簩澶╁競鍦鸿浆涓虹姽璞紙鏄熺嚎锛夛紝绗笁澶╁鏂瑰彂璧峰叏闈㈠弽鏀汇€傝繖鏄渶寮虹殑搴曢儴鍙嶈浆淇″彿涔嬩竴銆?/p>
-    <p><strong>浜ゆ槗绛栫暐锛?/strong>鍚槑鏄熷舰鎬佸畬鎴愬悗鐩存帴杩涘満锛屾鎹熻浜庢槦绾挎渶浣庣偣涓嬫柟銆傚鏋滄槦绾挎槸鍗佸瓧鏄燂紝鍒欑О涓?鍗佸瓧鍚槑鏄?锛屽弽杞姏搴︽洿寮恒€?/p>
+    <p><strong>市场含义：</strong>如同黎明前的黑暗——第一天空方肆虐，第二天市场转为犹豫（星线），第三天多方发起全面反攻。这是最强的底部反转信号之一。</p>
+    <p><strong>交易策略：</strong>启明星形态完成后直接进场，止损设于星线最低点下方。如果星线是十字星，则称为"十字启明星"，反转力度更强。</p>
   </div>
 
   <div class="card" id="t-evening">
     <div class="card-title">
-      <span>馃寙 榛勬槒鏄燂紙Evening Star锛?/span>
-      <span class="tag tag-bear">寮虹儓椤堕儴鍙嶈浆</span>
+      <span>🌆 黄昏星（Evening Star）</span>
+      <span class="tag tag-bear">强烈顶部反转</span>
     </div>
     <div class="kline-row">
       <div class="kline-wrapper">
@@ -1364,23 +707,23 @@
             <div class="candle-body bear lg" style="height:36px;width:24px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px"></div>
           </div>
         </div>
-        <div class="label">澶ч槼绾?鈫?鏄熺嚎(灏忓疄浣? 鈫?澶ч槾绾?/div>
+        <div class="label">大阳线 → 星线(小实体) → 大阴线</div>
       </div>
     </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong>涓婃定瓒嬪娍鏈鍑虹幇锛?/p>
+    <p><strong>识别规则：</strong>上涨趋势末端出现：</p>
     <ol>
-      <li>涓€鏍归暱闃崇嚎锛堝鏂瑰崰鎹粷瀵逛紭鍔匡級</li>
-      <li>涓€鏍瑰皬瀹炰綋锛堟垨鍗佸瓧鏄燂級锛屼笌鍓嶄竴鏍归槼绾垮瓨鍦ㄨ烦绌?/li>
-      <li>涓€鏍归暱闃寸嚎锛屾敹鐩樹环娣卞叆绗竴鏍归槼绾垮疄浣撲箣鍐?/li>
+      <li>一根长阳线（多方占据绝对优势）</li>
+      <li>一根小实体（或十字星），与前一根阳线存在跳空</li>
+      <li>一根长阴线，收盘价深入第一根阳线实体之内</li>
     </ol>
-    <p><strong>甯傚満鍚箟锛?/strong>濡傚悓澶滃箷闄嶄复鈥斺€旂涓€澶╁鏂规皵鍔垮铏癸紝绗簩澶╁競鍦哄け鍘绘柟鍚戯紙鏄熺嚎锛夛紝绗笁澶╃┖鏂规帴绠″競鍦恒€傞粍鏄忔槦鏄《閮ㄧ殑"璀︾ず鐏"銆?/p>
-    <p><strong>浜ゆ槗绛栫暐锛?/strong>褰㈡€佸畬鎴愬悗鑰冭檻鍋氱┖锛屾鎹熻浜庢槦绾挎渶楂樼偣涓婃柟銆傚崄瀛楅粍鏄忔槦淇″彿鏈€寮恒€?/p>
+    <p><strong>市场含义：</strong>如同夜幕降临——第一天多方气势如虹，第二天市场失去方向（星线），第三天空方接管市场。黄昏星是顶部的"警示灯塔"。</p>
+    <p><strong>交易策略：</strong>形态完成后考虑做空，止损设于星线最高点上方。十字黄昏星信号最强。</p>
   </div>
 
   <div class="card" id="t-crows">
     <div class="card-title">
-      <span>馃惁鈥嶁瑳 涓夊彧涔岄甫锛圱hree Black Crows锛?/span>
-      <span class="tag tag-bear">椤堕儴鍙嶈浆</span>
+      <span>🐦‍⬛ 三只乌鸦（Three Black Crows）</span>
+      <span class="tag tag-bear">顶部反转</span>
     </div>
     <div class="kline-row">
       <div class="kline-wrapper">
@@ -1395,24 +738,24 @@
             <div class="candle-body" style="height:32px;width:16px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px"></div>
           </div>
         </div>
-        <div class="label">涓夋牴杩炵画涓嬭穼闃寸嚎</div>
+        <div class="label">三根连续下跌阴线</div>
       </div>
     </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong></p>
+    <p><strong>识别规则：</strong></p>
     <ul>
-      <li>杩炵画涓夋牴闀块槾绾?/li>
-      <li>姣忔牴闃寸嚎鐨勬敹鐩樹环鍧囧垱鏂颁綆</li>
-      <li>姣忔牴闃寸嚎鐨勫紑鐩樹环閮藉湪鍓嶄竴鏍瑰疄浣撲箣鍐咃紙鎴栨帴杩戯級</li>
-      <li>鍑虹幇鍦ㄤ笂娑ㄨ秼鍔挎湯绔?/li>
+      <li>连续三根长阴线</li>
+      <li>每根阴线的收盘价均创新低</li>
+      <li>每根阴线的开盘价都在前一根实体之内（或接近）</li>
+      <li>出现在上涨趋势末端</li>
     </ul>
-    <p><strong>甯傚満鍚箟锛?/strong>涓夊彧涔岄甫绔欏湪鏍戞灊涓婏紝瀹ｅ憡娑ㄥ娍鐨勭粓缁撱€傜涓€澶╃┖鏂瑰紑濮嬪弽鍑伙紝绗簩澶╁欢缁紝绗笁澶╃‘璁も€斺€旂┖鏂规皵鍔垮凡缁忓畬鍏ㄥ帇杩囧鏂广€?/p>
-    <p><strong>浜ゆ槗绛栫暐锛?/strong>绗笁鏍归槾绾挎敹鐩橀檮杩戣繘鍦哄仛绌恒€傚鏋滃悓鏃惰穼鐮村叧閿敮鎾戜綅锛屼俊鍙锋瀬寮恒€?/p>
+    <p><strong>市场含义：</strong>三只乌鸦站在树枝上，宣告涨势的终结。第一天空方开始反击，第二天延续，第三天确认——空方气势已经完全压过多方。</p>
+    <p><strong>交易策略：</strong>第三根阴线收盘附近进场做空。如果同时跌破关键支撑位，信号极强。</p>
   </div>
 
   <div class="card" id="t-soldiers">
     <div class="card-title">
-      <span>鉀帮笍 涓夌櫧鍏碉紙Three White Soldiers锛?/span>
-      <span class="tag tag-bull">搴曢儴鍙嶈浆</span>
+      <span>⛰️ 三白兵（Three White Soldiers）</span>
+      <span class="tag tag-bull">底部反转</span>
     </div>
     <div class="kline-row">
       <div class="kline-wrapper">
@@ -1427,31 +770,31 @@
             <div class="candle-body bull" style="height:32px;width:16px"></div>
           </div>
         </div>
-        <div class="label">涓夋牴杩炵画涓婃定闃崇嚎</div>
+        <div class="label">三根连续上涨阳线</div>
       </div>
     </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong></p>
+    <p><strong>识别规则：</strong></p>
     <ul>
-      <li>杩炵画涓夋牴闀块槼绾?/li>
-      <li>姣忔牴闃崇嚎鐨勬敹鐩樹环鍧囧垱鏂伴珮</li>
-      <li>姣忔牴闃崇嚎鐨勫紑鐩樹环閮藉湪鍓嶄竴鏍瑰疄浣撲箣鍐?/li>
-      <li>鍑虹幇鍦ㄤ笅璺岃秼鍔挎湯绔?/li>
+      <li>连续三根长阳线</li>
+      <li>每根阳线的收盘价均创新高</li>
+      <li>每根阳线的开盘价都在前一根实体之内</li>
+      <li>出现在下跌趋势末端</li>
     </ul>
-    <p><strong>甯傚満鍚箟锛?/strong>濡傚悓涓夊垪澹叺绋虫鎺ㄨ繘鈥斺€斿鏂瑰姏閲忓湪绉搫銆佸湪澧炲己銆備笁鐧藉叺鏍囧織鐫€绌哄ご甯傚満鐨勭粨鏉熷拰澶氬ご瓒嬪娍鐨勫紑濮嬨€?/p>
-    <p><strong>浜ゆ槗绛栫暐锛?/strong>绗笁鏍归槼绾挎敹鐩橀檮杩戣繘鍦哄仛澶氥€傚鏋滀笁鏍归槼绾垮疄浣撻€愭鏀惧ぇ锛屼笂娑ㄧǔ瀹氭€ф洿楂樸€?/p>
+    <p><strong>市场含义：</strong>如同三列士兵稳步推进——多方力量在积蓄、在增强。三白兵标志着空头市场的结束和多头趋势的开始。</p>
+    <p><strong>交易策略：</strong>第三根阳线收盘附近进场做多。如果三根阳线实体逐步放大，上涨稳定性更高。</p>
     <div class="pro-tip">
-      <strong>鈿狅笍 娉ㄦ剰锛?/strong>涓夌櫧鍏靛鏋滃嚭鐜板湪闀挎湡涓婃定涔嬪悗锛屼笖瀹炰綋瓒婃潵瓒婂皬銆佷笂褰辩嚎瓒婃潵瓒婇暱锛?琛扮鐨勪笁鐧藉叺"锛夛紝鍙兘鏄澶磋“绔殑淇″彿锛岃€屼笉鏄湅娑ㄤ俊鍙枫€?
+      <strong>⚠️ 注意：</strong>三白兵如果出现在长期上涨之后，且实体越来越小、上影线越来越长（"衰竭的三白兵"），可能是多头衰竭的信号，而不是看涨信号。
     </div>
   </div>
 </section>
 
 <section id="continuation">
-  <h2>鎸佺画褰㈡€?/h2>
+  <h2>持续形态</h2>
 
   <div class="card" id="c-gap">
     <div class="card-title">
-      <span>馃獰 绐楀彛 / 璺崇┖锛圙ap锛?/span>
-      <span class="tag tag-cont">鎸佺画</span>
+      <span>🪟 窗口 / 跳空（Gap）</span>
+      <span class="tag tag-cont">持续</span>
     </div>
     <div class="kline-row">
       <div class="kline-wrapper">
@@ -1467,25 +810,25 @@
             <div class="candle-body bull" style="height:24px;width:20px"></div>
           </div>
         </div>
-        <div class="label">浠锋牸缂哄彛锛堣烦绌猴級</div>
+        <div class="label">价格缺口（跳空）</div>
       </div>
     </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong>浠婃棩鐨勬渶浣庝环姣旀槰鏃ョ殑鏈€楂樹环杩樿楂橈紙涓婃定绐楀彛锛夛紝鎴栬€呬粖鏃ョ殑鏈€楂樹环姣旀槰鏃ユ渶浣庝环杩樿浣庯紙涓嬭穼绐楀彛锛夈€?/p>
-    <p><strong>甯傚満鍚箟锛?/strong>鏃ユ湰鎶€鏈垎鏋愪腑涓嶅彨"缂哄彛"鑰岀О"绐楀彛"锛屽洜涓鸿湣鐑涘浘鎶婅繛缁殑K绾跨湅浣滀竴闈?澧?锛岃€岃繖涓┖鐧藉氨鏄涓婄殑"绐楁埛"銆傜獥鍙ｆ剰鍛崇潃瓒嬪娍鐨勫己鍔垮欢缁€?/p>
+    <p><strong>识别规则：</strong>今日的最低价比昨日的最高价还要高（上涨窗口），或者今日的最高价比昨日最低价还要低（下跌窗口）。</p>
+    <p><strong>市场含义：</strong>日本技术分析中不叫"缺口"而称"窗口"，因为蜡烛图把连续的K线看作一面"墙"，而这个空白就是墙上的"窗户"。窗口意味着趋势的强势延续。</p>
 
-    <h4>涓夌绐楀彛绫诲瀷锛?/h4>
+    <h4>三种窗口类型：</h4>
     <ul>
-      <li><strong>绐佺牬绐楀彛锛?/strong>浠锋牸绐佺牬閲嶈闃诲姏/鏀拺浣嶆椂鍑虹幇锛岃秼鍔垮惎鍔ㄧ殑鏍囧織</li>
-      <li><strong>涓户绐楀彛锛堟祴閲忕獥鍙ｏ級锛?/strong>瓒嬪娍涓鍑虹幇锛屽彲鐢ㄧ獥鍙ｅ墠鐨勬定骞呮祴閲忕洰鏍囦綅</li>
-      <li><strong>琛扮绐楀彛锛?/strong>瓒嬪娍鏈鍑虹幇锛岀煭鏈熷彲鑳藉洖琛ワ紝鏄秼鍔胯“绔殑淇″彿</li>
+      <li><strong>突破窗口：</strong>价格突破重要阻力/支撑位时出现，趋势启动的标志</li>
+      <li><strong>中继窗口（测量窗口）：</strong>趋势中段出现，可用窗口前的涨幅测量目标位</li>
+      <li><strong>衰竭窗口：</strong>趋势末端出现，短期可能回补，是趋势衰竭的信号</li>
     </ul>
-    <p><strong>浜ゆ槗绛栫暐锛?/strong>涓婃定绐楀彛褰㈡垚鍚庯紝浠锋牸鍥炶惤鑷崇獥鍙ｅ尯鍩熸椂瑙嗕负鏀拺锛?绐楀彛浼氳璇?锛夛紝鍙€綆涔板叆銆備笅璺岀獥鍙ｅ悓鐞嗚涓洪樆鍔涖€傜獥鍙ｆ槸鍚﹀洖琛ヤ互鍙婂洖琛ョ殑閫熷害鏄垽鏂秼鍔垮己搴︾殑閲嶈绾跨储銆?/p>
+    <p><strong>交易策略：</strong>上涨窗口形成后，价格回落至窗口区域时视为支撑（"窗口会说话"），可逢低买入。下跌窗口同理视为阻力。窗口是否回补以及回补的速度是判断趋势强度的重要线索。</p>
   </div>
 
   <div class="card" id="c-rising3">
     <div class="card-title">
-      <span>馃搱 涓婂崌涓夋硶锛圧ising Three Methods锛?/span>
-      <span class="tag tag-cont">鎸佺画鐪嬫定</span>
+      <span>📈 上升三法（Rising Three Methods）</span>
+      <span class="tag tag-cont">持续看涨</span>
     </div>
     <div class="kline-row">
       <div class="kline-wrapper">
@@ -1506,23 +849,23 @@
             <div class="candle-body bull" style="height:36px;width:18px"></div>
           </div>
         </div>
-        <div class="label">闀块槼 鈫?3灏忛槾(涓嶇牬鍓嶄綆) 鈫?闀块槼</div>
+        <div class="label">长阳 → 3小阴(不破前低) → 长阳</div>
       </div>
     </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong></p>
+    <p><strong>识别规则：</strong></p>
     <ul>
-      <li>涓€鏉￠暱闃崇嚎纭珛涓婂崌瓒嬪娍</li>
-      <li>闅忓悗鐨?-5鏉″皬闃寸嚎锛堝疄浣撳緢灏忥級鍦ㄥ墠闃崇嚎瀹炰綋鍐呮í鍚戞暣鐞?/li>
-      <li>灏忛槾绾跨殑鏈€浣庝环涓嶄綆浜庡墠闃崇嚎鐨勬渶浣庝环</li>
-      <li>鏈€鍚庝竴鏉￠暱闃崇嚎鏀剁洏鍒涙柊楂橈紝绐佺牬鏁寸悊鍖洪棿</li>
+      <li>一条长阳线确立上升趋势</li>
+      <li>随后的3-5条小阴线（实体很小）在前阳线实体内横向整理</li>
+      <li>小阴线的最低价不低于前阳线的最低价</li>
+      <li>最后一条长阳线收盘创新高，突破整理区间</li>
     </ul>
-    <p><strong>甯傚満鍚箟锛?/strong>涓婂崌杩囩▼涓殑姝ｅ父鍥炶皟鏁寸悊銆傜┖鏂硅瘯鍥惧弽鎵戜絾鍔涢噺鏈夐檺锛屾渶缁堝鏂瑰啀娆℃帉鎺у眬鍔裤€傝繖鏄秼鍔垮仴搴风殑琛ㄧ幇锛岃€岄潪鍙嶈浆銆?/p>
+    <p><strong>市场含义：</strong>上升过程中的正常回调整理。空方试图反扑但力量有限，最终多方再次掌控局势。这是趋势健康的表现，而非反转。</p>
   </div>
 
   <div class="card" id="c-falling3">
     <div class="card-title">
-      <span>馃搲 涓嬮檷涓夋硶锛團alling Three Methods锛?/span>
-      <span class="tag tag-cont">鎸佺画鐪嬭穼</span>
+      <span>📉 下降三法（Falling Three Methods）</span>
+      <span class="tag tag-cont">持续看跌</span>
     </div>
     <div class="kline-row">
       <div class="kline-wrapper">
@@ -1543,117 +886,206 @@
             <div class="candle-body" style="height:36px;width:18px;background:var(--red);border:1px solid rgba(248,81,73,0.5);border-radius:2px"></div>
           </div>
         </div>
-        <div class="label">闀块槾 鈫?3灏忛槼(涓嶇牬鍓嶉珮) 鈫?闀块槾</div>
+        <div class="label">长阴 → 3小阳(不破前高) → 长阴</div>
       </div>
     </div>
-    <p><strong>璇嗗埆瑙勫垯锛?/strong>涓庝笂鍗囦笁娉曠浉鍙嶏紝鍦ㄤ笅璺岃秼鍔夸腑鍑虹幇锛氶暱闃寸嚎 鈫?3-5鏉″皬闃崇嚎鏁寸悊锛堜笉绐佺牬鍓嶉槾绾挎渶楂樹环锛?鈫?闀块槾绾垮垱鏂颁綆銆?/p>
-    <p><strong>甯傚満鍚箟锛?/strong>涓嬭穼杩囩▼涓殑鍙嶅脊鏃犲姏銆傚鏂硅瘯鍥惧弽鏀讳絾鍔涢噺涓嶈冻锛岀┖鏂瑰啀娆″彂鍔涙妸浠锋牸鍘嬪埌鏇翠綆銆?/p>
+    <p><strong>识别规则：</strong>与上升三法相反，在下跌趋势中出现：长阴线 → 3-5条小阳线整理（不突破前阴线最高价） → 长阴线创新低。</p>
+    <p><strong>市场含义：</strong>下跌过程中的反弹无力。多方试图反攻但力量不足，空方再次发力把价格压到更低。</p>
   </div>
 </section>
 
 <section id="strategy">
-  <h2>瀹炴垬缁勫悎绛栫暐</h2>
-  <p>K绾垮舰鎬佷笉鏄绔嬬殑浜ゆ槗淇″彿銆傚皢褰㈡€佷笌鍏朵粬宸ュ叿缁撳悎浣跨敤锛屽彲浠ュぇ骞呮彁楂樿儨鐜囥€?/p>
+  <h2>实战组合策略</h2>
+  <p>K线形态不是孤立的交易信号。将形态与其他工具结合使用，可以大幅提高胜率。</p>
 
   <div class="card-grid">
     <div class="card">
-      <div class="card-title">馃搳 缁撳悎鏀拺闃诲姏</div>
-      <p>鍦ㄥ叧閿敮鎾戜綅鍑虹幇鐨勭湅娑ㄥ舰鎬侊紙濡傞敜瀛愮嚎銆佸埡閫忋€佸惎鏄庢槦锛夋瘮闅忔剰浣嶇疆鍑虹幇鐨勪俊鍙峰彲闈犲緱澶氥€傚悓鐞嗭紝闃诲姏浣嶄笂鐨勭湅璺屽舰鎬佹晥鏋滄洿浣炽€?/p>
-      <p class="meta">绀轰緥锛氶敜瀛愮嚎钀藉湪鍓嶆湡浣庣偣鏀拺 + 鐪嬫定鍚炴病 = 寮虹儓涔板叆淇″彿</p>
+      <div class="card-title">📊 结合支撑阻力</div>
+      <p>在关键支撑位出现的看涨形态（如锤子线、刺透、启明星）比随意位置出现的信号可靠得多。同理，阻力位上的看跌形态效果更佳。</p>
+      <p class="meta">示例：锤子线落在前期低点支撑 + 看涨吞没 = 强烈买入信号</p>
     </div>
     <div class="card">
-      <div class="card-title">馃搱 缁撳悎鎴愪氦閲?/div>
-      <p>鍙嶈浆鎴栫‘璁绾夸笂鐨勬垚浜ら噺搴旀樉钁楀ぇ浜庝箣鍓岾绾裤€傛病鏈夋垚浜ら噺鐨勫舰鎬佸彲鑳芥槸鍋囩獊鐮淬€?/p>
-      <p class="meta">鍚炴病褰㈡€?+ 鏀鹃噺 &gt; 100% 鍓?鏃ュ潎閲?鈫?楂樼疆淇″害</p>
+      <div class="card-title">📈 结合成交量</div>
+      <p>反转或确认K线上的成交量应显著大于之前K线。没有成交量的形态可能是假突破。</p>
+      <p class="meta">吞没形态 + 放量 &gt; 100% 前5日均量 → 高置信度</p>
     </div>
     <div class="card">
-      <div class="card-title">馃搻 缁撳悎瓒嬪娍绾?/div>
-      <p>K绾垮舰鎬佽Е鍙婁笂鍗?涓嬮檷瓒嬪娍绾挎椂锛屾晥鏋滃彔鍔犮€傝秼鍔跨牬浣嶅鐨凨绾垮舰鎬佸線寰€鏄簿鍑嗙殑鍙嶈浆鐐广€?/p>
-      <p class="meta">涓婂崌瓒嬪娍绾?+ 榛勬槒鏄?= 绮惧噯鍋氱┖鐐?/p>
+      <div class="card-title">📐 结合趋势线</div>
+      <p>K线形态触及上升/下降趋势线时，效果叠加。趋势破位处的K线形态往往是精准的反转点。</p>
+      <p class="meta">上升趋势线 + 黄昏星 = 精准做空点</p>
     </div>
     <div class="card">
-      <div class="card-title">鈿欙笍 缁撳悎鎶€鏈寚鏍?/div>
-      <p>MACD鑳岀 + K绾垮簳閮ㄥ舰鎬?= 鏋侀珮鑳滅巼銆俁SI瓒呭崠/瓒呬拱 + K绾块《閮?搴曢儴褰㈡€佷簰鐩搁獙璇併€?/p>
-      <p class="meta">鏃ョ嚎MACD搴曡儗绂?+ 鍚槑鏄熷舰鎬?= 鏋佸己鍋氬淇″彿</p>
+      <div class="card-title">⚙️ 结合技术指标</div>
+      <p>MACD背离 + K线底部形态 = 极高胜率。RSI超卖/超买 + K线顶部/底部形态互相验证。</p>
+      <p class="meta">日线MACD底背离 + 启明星形态 = 极强做多信号</p>
     </div>
   </div>
 
-  <h3>K绾垮舰鎬佷紭鍏堢骇鎺掑簭</h3>
+  <h3>K线形态优先级排序</h3>
   <table class="strategy">
     <tr>
-      <th>浼樺厛绾?/th><th>褰㈡€佺被鍨?/th><th>鍙潬鎬?/th><th>寤鸿</th>
+      <th>优先级</th><th>形态类型</th><th>可靠性</th><th>建议</th>
     </tr>
     <tr>
-      <td>1</td><td>涓塊绾垮弽杞紙鍚槑鏄?榛勬槒鏄燂級</td><td>猸愨瓙猸愨瓙猸?/td><td>鐩存帴杩涘満锛屾鎹熷彲鎺?/td>
+      <td>1</td><td>三K线反转（启明星/黄昏星）</td><td>⭐⭐⭐⭐⭐</td><td>直接进场，止损可控</td>
     </tr>
     <tr>
-      <td>2</td><td>鍚炴病褰㈡€?+ 鎴愪氦閲?/td><td>猸愨瓙猸愨瓙</td><td>瓒嬪娍鏈棣栭€?/td>
+      <td>2</td><td>吞没形态 + 成交量</td><td>⭐⭐⭐⭐</td><td>趋势末端首选</td>
     </tr>
     <tr>
-      <td>3</td><td>涔屼簯鐩栭《 / 鍒洪€忓舰鎬?/td><td>猸愨瓙猸愨瓙</td><td>閰嶅悎鏀拺闃诲姏浣跨敤</td>
+      <td>3</td><td>乌云盖顶 / 刺透形态</td><td>⭐⭐⭐⭐</td><td>配合支撑阻力使用</td>
     </tr>
     <tr>
-      <td>4</td><td>閿ゅ瓙绾?/ 涓婂悐绾?/td><td>猸愨瓙猸?/td><td>闇€瑕佹鏃ョ‘璁?/td>
+      <td>4</td><td>锤子线 / 上吊线</td><td>⭐⭐⭐</td><td>需要次日确认</td>
     </tr>
     <tr>
-      <td>5</td><td>鍗佸瓧鏄?/td><td>猸愨瓙猸?/td><td>鏈韩涓嶆槸鍙嶈浆锛岄渶涓婁笅鏂?/td>
+      <td>5</td><td>十字星</td><td>⭐⭐⭐</td><td>本身不是反转，需上下文</td>
     </tr>
     <tr>
-      <td>6</td><td>鍗曟牴灏忓疄浣撳舰鎬?/td><td>猸愨瓙</td><td>浠呬綔涓鸿鍛婏紝涓嶅崟鐙叆鍦?/td>
+      <td>6</td><td>单根小实体形态</td><td>⭐⭐</td><td>仅作为警告，不单独入场</td>
     </tr>
   </table>
 
-  <h3>甯歌閿欒涓庨櫡闃?/h3>
+  <h3>常见错误与陷阱</h3>
   <ul>
-    <li><strong>鉂?鍦ㄧ獎骞呯洏鏁村尯浣跨敤K绾垮舰鎬侊細</strong>鐩樻暣鍖虹殑K绾垮舰鎬佸彲闈犳€у緢浣庯紝鍙兘鍦ㄨ秼鍔挎湯绔娇鐢?/li>
-    <li><strong>鉂?蹇界暐澶ц秼鍔匡細</strong>鏃ョ嚎涓嬭穼瓒嬪娍涓殑搴曢儴褰㈡€佽儨鐜囦綆浜庝笂鍗囪秼鍔夸腑鐨勫簳閮ㄥ舰鎬?/li>
-    <li><strong>鉂?淇″彿璺宠锛?/strong>璺宠繃涓婁竴涓懆鏈熺殑淇″彿鏍煎眬锛屽绔嬪湴鐪嬪緟褰㈡€?/li>
-    <li><strong>鉂?杩囧害瑙ｈ锛?/strong>涓嶈鍦ㄦ瘡涓皬娉㈠姩涓兘鎵惧弽杞舰鎬侊紝K绾垮舰鎬佽鐢ㄥ湪鍏抽敭浣嶇疆</li>
-    <li><strong>鉂?蹇界暐绾у埆锛?/strong>鍛ㄧ嚎鐨勫惎鏄庢槦杩滃己浜?鍒嗛挓鍥剧殑鍚槑鏄燂紝澶х骇鍒紭鍏?/li>
+    <li><strong>❌ 在窄幅盘整区使用K线形态：</strong>盘整区的K线形态可靠性很低，只能在趋势末端使用</li>
+    <li><strong>❌ 忽略大趋势：</strong>日线下跌趋势中的底部形态胜率低于上升趋势中的底部形态</li>
+    <li><strong>❌ 信号跳读：</strong>跳过上一个周期的信号格局，孤立地看待形态</li>
+    <li><strong>❌ 过度解读：</strong>不要在每个小波动中都找反转形态，K线形态要用在关键位置</li>
+    <li><strong>❌ 忽略级别：</strong>周线的启明星远强于5分钟图的启明星，大级别优先</li>
   </ul>
 </section>
 
 <section id="checklist">
-  <h2>K绾夸氦鏄撴鏌ヨ〃</h2>
-  <p>姣忔浜ゆ槗鍓嶏紝閫愰」纭锛?/p>
+  <h2>K线交易检查表</h2>
+  <p>每次交易前，逐项确认：</p>
 
   <ul class="checklist">
-    <li class="checked"><strong>瓒嬪娍纭锛?/strong>鏄惁澶勪簬鏄庢樉鐨勮秼鍔挎湯绔紙涓嶆槸鐩樻暣鍖猴級锛?/li>
-    <li class="checked"><strong>K绾垮舰鎬侊細</strong>褰㈡€佺殑璇嗗埆瑙勫垯鏄惁瀹屽叏婊¤冻锛?/li>
-    <li><strong>鎴愪氦閲忕‘璁わ細</strong>褰㈡€佸嚭鐜扮殑鎴愪氦閲忔槸鍚﹀ぇ浜庢甯告按骞筹紵</li>
-    <li><strong>绾у埆楠岃瘉锛?/strong>鍛ㄧ嚎/鏃ョ嚎绾у埆浼樺厛锛屼綆绾у埆淇″彿杩囨护锛?/li>
-    <li><strong>鏀拺闃诲姏锛?/strong>褰㈡€佹槸鍚﹁惤鍦ㄥ叧閿敮鎾?闃诲姏浣嶉檮杩戯紵</li>
-    <li><strong>鎶€鏈寚鏍囷細</strong>鏄惁鏈塎ACD/RSI鑳岀绛夊仛杈呭姪纭锛?/li>
-    <li><strong>娆℃棩纭锛?/strong>鍗曟牴褰㈡€佹槸鍚﹀凡寰楀埌娆℃棩鐨勭‘璁わ紵</li>
-    <li><strong>姝㈡崯璁″垝锛?/strong>姝㈡崯鐨勬湁鏁堜綅缃槸鍚﹀凡缁忕‘瀹氾紵</li>
-    <li><strong>椋庢帶绠＄悊锛?/strong>鍗曠瑪浜ゆ槗椋庨櫓鏄惁鍦ㄥ彲鎺ュ彈鑼冨洿鍐咃紵</li>
-    <li><strong>澶嶇洏璁″垝锛?/strong>鏄惁鏄庣‘浜嗕綍鏃躲€佷互浠€涔堟潯浠跺嚭鍦猴紵</li>
+    <li class="checked"><strong>趋势确认：</strong>是否处于明显的趋势末端（不是盘整区）？</li>
+    <li class="checked"><strong>K线形态：</strong>形态的识别规则是否完全满足？</li>
+    <li><strong>成交量确认：</strong>形态出现的成交量是否大于正常水平？</li>
+    <li><strong>级别验证：</strong>周线/日线级别优先，低级别信号过滤？</li>
+    <li><strong>支撑阻力：</strong>形态是否落在关键支撑/阻力位附近？</li>
+    <li><strong>技术指标：</strong>是否有MACD/RSI背离等做辅助确认？</li>
+    <li><strong>次日确认：</strong>单根形态是否已得到次日的确认？</li>
+    <li><strong>止损计划：</strong>止损的有效位置是否已经确定？</li>
+    <li><strong>风控管理：</strong>单笔交易风险是否在可接受范围内？</li>
+    <li><strong>复盘计划：</strong>是否明确了何时、以什么条件出场？</li>
   </ul>
 
   <div class="pro-tip">
-    <strong>馃搶 灏兼．鐨勪氦鏄撳摬瀛︼細</strong>"K绾垮浘鏈韩涓嶆槸棰勬祴宸ュ叿锛屽畠鏄競鍦哄績鐞嗙殑娲诲湴鍥俱€傛瘡涓€鏍筀绾块兘鏄绌烘垬鏂楃殑鍖栫煶銆傚浼氳瀹冿紝浣犲氨瀛︿細浜嗕笌甯傚満瀵硅瘽銆備絾鏈€閲嶈鐨勬槸鈥斺€?strong>姘歌繙涓嶈鍥犱负'瑙夊緱'鏌愪釜褰㈡€佷細鍑虹幇灏辨彁鍓嶈繘鍦猴紝绛夊緟褰㈡€佸畬鎴愶紝绛夊緟纭銆?/strong>"
+    <strong>📌 尼森的交易哲学：</strong>"K线图本身不是预测工具，它是市场心理的活地图。每一根K线都是多空战斗的化石。学会读它，你就学会了与市场对话。但最重要的是——<strong>永远不要因为'觉得'某个形态会出现就提前进场，等待形态完成，等待确认。</strong>"
   </div>
 </section>
 
 <hr style="border-color:var(--border);margin:3rem 0 1rem">
 <p style="text-align:center;color:var(--text-dim);font-size:0.8rem">
-  鍩轰簬銆婃棩鏈湣鐑涘浘鎶€鏈€嬪彶钂傚か路灏兼． 钁?路 鏁寸悊瀛︿範鎵嬪唽 路 浠呬緵涓汉瀛︿範鍙傝€?br>
-  鎶曡祫鏈夐闄╋紝浜ゆ槗闇€璋ㄦ厧銆傛湰鎵嬪唽涓嶆瀯鎴愪换浣曟姇璧勫缓璁€?
+  基于《日本蜡烛图技术》史蒂夫·尼森 著 · 整理学习手册 · 仅供个人学习参考<br>
+  投资有风险，交易需谨慎。本手册不构成任何投资建议。
 </p>
 
 </main>
 <!-- KG: Knowledge Hub Tracker -->
-
-
+<script src="tracker.js"></script>
+<script>
+(function(){
+  var itemId = "candlestick_manual.html";
+  var title = "日本蜡烛图技术";
+  KG.setStatus(itemId, 'reading');
+  KG.logVisit(itemId, title);
+  // Add overlay status bar
+  var div = document.createElement('div');
+  div.id = 'kg-status-bar';
+  div.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#161b22;border-top:1px solid #30363d;padding:6px 16px;display:flex;align-items:center;gap:10px;font-size:12px;color:#8b949e;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC",sans-serif;';
+  var status = KG.getStatus(itemId);
+  div.innerHTML = 
+    '<span>📖 <b style="color:#e6edf3">' + title + '</b></span>' +
+    '<span style="color:#8b949e">|</span>' +
+    '<span id="kgStatusLabel" style="color:' + (status==="completed"?"#3fb950":"#d29922") + '">' + (status==="completed"?"✅ 已读完":"📖 阅读中") + '</span>' +
+    '<span style="color:#8b949e">|</span>' +
+    '<a href="javascript:void(0)" onclick="KG_setCompleted()" style="color:#58a6ff;text-decoration:none;">标记已完成</a>' +
+    '<span style="color:#8b949e">|</span>' +
+    '<a href="javascript:void(0)" onclick="KG_showNotes()" style="color:#3fb950;text-decoration:none;">✏️ 添加笔记</a>' +
+    '<span style="color:#8b949e">|</span>' +
+    '<a href="index.html" style="color:#8b949e;text-decoration:none;">← 返回知识库</a>';
+  document.body.appendChild(div);
+  // Add bottom margin
+  document.body.style.marginBottom = '40px';
+  // Global functions
+  window.KG_setCompleted = function() {
+    KG.setStatus(itemId, 'completed');
+    document.getElementById('kgStatusLabel').textContent = '✅ 已读完';
+    document.getElementById('kgStatusLabel').style.color = '#3fb950';
+  };
+  window.KG_showNotes = function() {
+    var content = prompt('📝 添加你的读书笔记：');
+    if (content) {
+      KG.addNote(itemId, content);
+      alert('✅ 笔记已保存！');
+    }
+  };
+})();
+</script>
 
 
 
 <!-- Knowledge Base Status Bar -->
+<script src="tracker.js"></script>
+<script>
+(function() {
+  var itemId = 'candlestick_manual';
+  var itemTitle = '日本蜡烛图技术';
 
-<div class="footer">
-<span>馃摉 鏃ユ湰铚＄儧鍥炬妧鏈?鈥?K绾垮舰鎬佸畬鍏ㄦ墜鍐?/span>
-<a href="index.html">猬?杩斿洖棣栭〉</a>
-</div>
+  // Initialize tracking
+  if (typeof KG !== 'undefined' && KG.logVisit) {
+    KG.logVisit(itemId);
+    KG.logVisitHistory(itemId, itemTitle);
+    KG.initFirstReview(itemId);
+  }
+
+  // Build status bar
+  var status = KG.getStatus ? KG.getStatus(itemId) : null;
+  var isBm = KG.isBookmarked ? KG.isBookmarked(itemId) : false;
+  var stats = KG.getStats ? KG.getStats(itemId) : {visits: 0, totalTimeMs: 0};
+  var noteCount = KG.getNotes ? KG.getNotes(itemId).length : 0;
+
+  var bar = document.createElement('div');
+  bar.id = 'kg-status-bar';
+  bar.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#161b22;border-top:1px solid #30363d;padding:8px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:0.8rem;color:#e6edf3;backdrop-filter:blur(8px);';
+
+  var statusIcon = status === 'completed' ? '✅' : status === 'reading' ? '📖' : '⚪';
+  var statusText = status === 'completed' ? '已完成' : status === 'reading' ? '阅读中' : '未开始';
+
+  bar.innerHTML =
+    '<span style="font-weight:600;color:#58a6ff;font-size:0.82rem;">' + itemTitle + '</span>' +
+    '<span style="color:#8b949e;">|</span>' +
+    '<span>' + statusIcon + ' ' + statusText + '</span>' +
+    '<span style="color:#8b949e;">|</span>' +
+    '<span>👁️ ' + (stats.visits || 0) + '次</span>' +
+    '<span style="color:#8b949e;">|</span>' +
+    '<span>📝 ' + noteCount + '条</span>' +
+    '<span style="margin-left:auto;display:flex;gap:6px;">' +
+      '<button onclick="KG_toggleRead(\'' + itemId + '\')" style="padding:4px 10px;border-radius:6px;border:1px solid #30363d;background:#21262d;color:#e6edf3;cursor:pointer;font-size:0.75rem;">' + (status === 'completed' ? '↩ 重读' : '✅ 读完') + '</button>' +
+      '<button onclick="KG_showNoteDialog(\'' + itemId + '\')" style="padding:4px 10px;border-radius:6px;border:1px solid #30363d;background:#21262d;color:#e6edf3;cursor:pointer;font-size:0.75rem;">✏️ 笔记</button>' +
+      '<a href="index.html" style="padding:4px 10px;border-radius:6px;border:1px solid #30363d;background:#21262d;color:#e6edf3;text-decoration:none;font-size:0.75rem;">← 返回</a>' +
+    '</span>';
+
+  document.body.style.paddingBottom = '56px';
+  document.body.appendChild(bar);
+
+  // Track reading time
+  var startTime = Date.now();
+  window.addEventListener('beforeunload', function() {
+    if (KG.logTime) KG.logTime(itemId, Date.now() - startTime);
+  });
+
+  // Init annotation on this page
+  if (typeof KG_initAnnotation === 'function') {
+    KG_initAnnotation(itemId);
+  }
+})();
+</script>
 
 </body>
 </html>
+

@@ -1,838 +1,641 @@
-?<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>《股票大作手回忆录�?��?交易哲�?学习手册</title>
-<link rel="stylesheet" href="theme.css">
-</head>
-<body>
-<!-- ====== 顶部 ====== -->
-<div class="hero">
-  <div class="hero-content">
-    <h1>股票大作手回忆录</h1>
-    <p class="subtitle">Reminiscences of a Stock Operator</p>
-    <p class="en-title">埃德温·勒费弗 (Edwin Lefèvre) �?· 杰西·利弗�?�� 原型</p>
-    <p class="tagline">"投机如山岳般古�?�，华尔街没有新鲜事"</p>
-  </div>
-</div>
-
-<!-- ====== 导航 ====== -->
-<nav class="nav-bar">
-  <a href="#author">作�?�简�?/a>
-  <a href="#lifeline">四�?起落</a>
-  <a href="#quotes">经典�?��</a>
-  <a href="#chapters">24章精�?/a>
-  <a href="#rules">交易法则</a>
-  <a href="#concepts">核心概念</a>
-  <a href="#cases">经典案例</a>
-  <a href="#insights">实战�?��</a>
-</nav>
-
-<div class="container">
-
-<!-- ====== 作�?�介�?====== -->
-<h2 id="author" class="section-title">📖 作�?�与原型</h2>
-
-<div class="card">
-  <h3>杰西·利弗�?�� (Jesse Lauriston Livermore)</h3>
-  <p>1877�?�?6�?- 1940�?1�?8�?/p>
-  <p style="margin-top:10px;">美国传�?股票投机家，�?��认为"投机之王"。�?�股票大作手回忆录�?�是埃德温·勒费弗以利弗莫尔为原型创作的传记小说，书中主人�?���?拉瑞·利文�?��"�?/p>
-  <p style="margin-top:8px;">利弗�?��14岁进入波�?���?家股票经�??做�?价员，每周薪�?美元�?5岁用5美元在�?赌�?赚到了人生�?�?笔交易利�?.12美元�?0岁积�?万美元本金，�?���?投机小子"�?929年大萧条期间，�?�过做空市场�?��财富�?亿美元（相当于今天的1700亿美元以上）�?/p>
-  <p style="margin-top:8px;">他的�?生四起四落，�?终在1940年于纽约曼哈顿一家酒店衣帽间�?��，留下遗�?�?我的生活�?��败的�?</p>
-</div>
-
-<!-- ====== 四�?起落时间�?====== -->
-<h2 id="lifeline" class="section-title">�?四�?起落时间�?/h2>
-
-<div class="timeline">
-
-  <div class="timeline-item rise">
-    <span class="year">1892-1901</span>
-    <span class="status rise">📈 �?��次崛�?/span>
-    <p>15岁入行�?赌�?�?0岁积�?万美元�??901年在大盘上涨�??�过做�?获利达到5万美元，成为华尔街知名作手�??/p>
-  </div>
-  <div class="timeline-item fall">
-    <span class="year">1901-1902</span>
-    <span class="status fall">📉 �?��次落�?/span>
-    <p>因过度交易和依赖延迟报价信息�?万美元全部亏损�?��?�?��回�?乡，在�?赌�?重新筹集�?���?/p>
-  </div>
-
-  <div class="timeline-item rise">
-    <span class="year">1902-1907</span>
-    <span class="status rise">📈 �?��次崛�?/span>
-    <p>重返华尔街，逐渐领悟市场大趋势的重�?性�?�非�?��波动�?907年美国金融恐慌中做空市场，一天内获利�?00万美元，�?���?华尔街巨�?�?/p>
-  </div>
-  <div class="timeline-item fall">
-    <span class="year">1908-1914</span>
-    <span class="status fall">📉 �?��次落�?/span>
-    <p>�?��"棉花大王"�?西·托�?��的建�?��违背�?��做空判断�?��做�?棉花，损失数百万美元，�?三�?破产。欠下百万美元巨债�??/p>
-  </div>
-
-  <div class="timeline-item rise">
-    <span class="year">1915-1917</span>
-    <span class="status rise">📈 �?��次崛�?/span>
-    <p>从券商手�??�得数百股信用�?度，经过数月耐心等待，在�?��恒钢铁突�?00美元时重仓出击，�?步交易法起�?回生。还清全部�?�务，赚得足够本金重新开始�??/p>
-  </div>
-  <div class="timeline-item fall">
-    <span class="year">1918-1920年代�?/span>
-    <span class="status fall">📉 �?��次落�?/span>
-    <p>在商品期货和股票操作�?��次遭遇重大亏损，几乎破产�?/p>
-  </div>
-
-  <div class="timeline-item rise">
-    <span class="year">1929年顶�?/span>
-    <span class="status rise">📈 �?��次崛�?· 巅峰</span>
-    <p>1929年黑色星期四前，利弗�?��敏锐察�?市场极度狂热，大举做空�?�在美国股市大崩盘中获利1亿美元，达到事业巅峰，成为当时世界上�?富有的人之一�?/p>
-  </div>
-  <div class="timeline-item fall">
-    <span class="year">1930-1940</span>
-    <span class="status fall">📉 �?��次落�?· 终局</span>
-    <p>1934年�?四�?破产。�?后数年无力东山再起�??940�?1�?8日，在纽约雪�?尼德兰酒店更衣�?�?���?��。终�?3岁�??/p>
-  </div>
-</div>
-
-<!-- ====== 经典�?�� ====== -->
-<h2 id="quotes" class="section-title">💬 经典�?��</h2>
-
-<div class="quote-block">
-  <p>"赚大钱不�?���?��的波�?��而是依赖主�?趋势。看对走势没�?么了不起的�?�在多头市场你�?�能找到很�?很早就看涨的人，在熊市很早就看跌的人。我认识许�?看盘高手，他�?��在最佳价位买卖股票�?�但�?��他们却没真�?赚到钱�?�看对市场�?�且紧握头�?不动的人难得�?见，我发现这也是�?难�?的事�?</p>
-  <div class="source">�?利弗�?���?坐稳"的重要�??/div>
-</div>
-
-<div class="quote-block">
-  <p>"华尔街没有新鲜事。投机就像山岳那么古老�?�股市今天发生的事情以前发生过，以后会再度发生�?�因为人的本性从来不会改变�??</p>
-  <div class="source">�?�?���?/div>
-</div>
-
-<div class="quote-block">
-  <p>"绝不要摊低亏损的头�?。�?果你的头笔交易已经�?于亏损状态，就绝不�?继续跟进。一定�?把这�?��法深深地刻在你的脑子里�??</p>
-  <div class="source">�?核心铁律</div>
-</div>
-
-<div class="quote-block">
-  <p>"凡事都有两面，但�?��市只有一�?���?���??头的�?�?��也不�?��头的�?�?��而是正确的一�???</p>
-  <div class="source">�?�?���?/div>
-</div>
-
-<div class="quote-block">
-  <p>"没有必�?效忠多方或空方，你唯�?要效忠的就是正确�?</p>
-  <div class="source">�?�?��四章</div>
-</div>
-
-<div class="quote-block">
-  <p>"�?�?��要花很长的时间，才能从他�?有错�?��学到�?有的教�?。等你知道不该做�?么才能不亏钱时，你开始�?习�?做什么才能赢钱�??</p>
-  <div class="source">�?�?���?/div>
-</div>
-
-<div class="quote-block">
-  <p>"投机客必须同时是学生和投机�?。他必须始终研究市场条件，永远不能停止�?习�??</p>
-  <div class="source">�?�?���?/div>
-</div>
-
-<div class="quote-block">
-  <p>"关心把事情做得�?�?��而不�?��心赚钱�?��?果做好每�?件事，利润自己会产生的�??</p>
-  <div class="source">�?�?���?�?/div>
-</div>
-
-<div class="quote-block">
-  <p>"投机客最致命的敌人是无知、贪�??�恐惧和希望。世界上�?有的法令规章，都不能把这些敌人从人的兽�?�中消除�?</p>
-  <div class="source">�?�?��九章</div>
-</div>
-
-<div class="quote-block">
-  <p>"不�?交易者�?么有经验，他�?��做出亏损交易的可能�?��?�是存在。因为投机不�?��百分之百安全。所以�?损的代价就像给自己的投机生涯上了�?份保险�??</p>
-  <div class="source">�?�?��十四�?/div>
-</div>
-
-<!-- ====== 24章精�?====== -->
-<h2 id="chapters" class="section-title">📚 24章核心摘�?/h2>
-
-<div class="chapter-grid">
-
-  <div class="chapter-card">
-    <span class="ch-num">�?���?/span>
-    <div class="ch-title">华尔街没有新事物</div>
-    <div class="ch-subtitle">行情纸带悟模式，对赌行里试牛�?</div>
-    <div class="ch-summary">利弗�?��少年时期通过观察股价波动规律，在对赌行中�?��早期经验。核心�?悟：投机像山岳般古�?�，人�?�不变，市场会重复同样的模式�?/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?���?/span>
-    <div class="ch-title">生市场的气�?你没有任何好�?/div>
-    <div class="ch-subtitle">首战纽约�?��败，重回对赌筹本�?/div>
-    <div class="ch-summary">记录首�?进入华尔街失败后重返对赌行的经历。反思交易心态：永远不�?和市场�?�?干，市场永远�??的�??/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?���?/span>
-    <div class="ch-title">凡事都有两面，但�?��市只有一�?/div>
-    <div class="ch-subtitle">行情纸带拖后腿，五万美元得�?�?/div>
-    <div class="ch-summary">因依赖延迟的行情信息导致亏损。只有�?�?���?面�?�得追随，不要做死�?头或死空头�??/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?���?/span>
-    <div class="ch-title">不�?做什么才能不亏钱</div>
-    <div class="ch-subtitle">回�?��?疗伤反省，非正�?渠道重谋�?��</div>
-    <div class="ch-summary">亏损后回到�?乡调整策略�?�先学会不做�?么，再�?做什么�?�失败是�?好的老师�?/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?���?/span>
-    <div class="ch-title">不�?失去你的头�?</div>
-    <div class="ch-subtitle">梅开三度华尔街，水滴石穿悟大�?/div>
-    <div class="ch-summary">�?��次进军华尔�?，�?悟到不�?因为小波动�?�丢掉核心仓位�?�大钱是靠等待赚来的�?/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?���?/span>
-    <div class="ch-title">考虑大盘，�?�不�?���?/div>
-    <div class="ch-subtitle">�?��直�?如天助，�?��他人终改�?/div>
-    <div class="ch-summary">明白�?��走势必须在大盘背�?��审�?。大盘环境不好时，最好的股票也难以独善其�???/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?���?/span>
-    <div class="ch-title">股票永远不会�?��</div>
-    <div class="ch-subtitle">顺势操作先试�?��步�?为营渐建�?/div>
-    <div class="ch-summary">提出"试探性建�?策略，强调�?�过逐�?加码验证趋势。不要因为价格高而不�?���?/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?���?/span>
-    <div class="ch-title">在�?头市场看多，在空头市场看�?/div>
-    <div class="ch-subtitle">今是昨非识大�?，操之过急悟时机</div>
-    <div class="ch-summary">总结过早行动的教�??�不要在多头市场做空，不要在空头市场做�?，顺势�?�为�?/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?���?/span>
-    <div class="ch-title">投机客必须同时是学生和投机�?</div>
-    <div class="ch-subtitle">紧缩银根酿恐慌，�?��正果当股�?/div>
-    <div class="ch-summary">�?907年金融恐慌中通过做空获利，�?�?华尔街巨�?地位。永远保持�?习和�?���?/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?���?/span>
-    <div class="ch-title">总有�?�?���?��你前�?/div>
-    <div class="ch-subtitle">守�?��?情关�?��刻，明察�?小阻力路�?/div>
-    <div class="ch-summary">分析市场�?小阻力方向�?�在窄幅震荡的市场中耐心等待突破，不要猜测方向�??/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?���?�?/span>
-    <div class="ch-title">关心把事情做正确，�?�非关心赚钱</div>
-    <div class="ch-subtitle">声东击西巧出货，巨�?棉花借东�?/div>
-    <div class="ch-summary">通过操纵棉花市场完成大�?模出货�?�一旦把事情做�?，利润自然�?�来�?/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?��二章</span>
-    <div class="ch-title">股市不会为你的皮大衣付钱</div>
-    <div class="ch-subtitle">巧舌如簧蔽主见，数百万金付东�?/div>
-    <div class="ch-summary">不�?为了消费欲望而交易�?�因为想赚钱或�?�需要钱而交易是大忌�?/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?��三章</span>
-    <div class="ch-title">�?���?��的判�?/div>
-    <div class="ch-subtitle">�?��投机�?��必须始终相信�?��的判�?/div>
-    <div class="ch-summary">�?���?��机�?的大敌�?�亏损不会困扰我—�?�亏钱�?我得到经验，这些钱就�??费�??/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?��四章</span>
-    <div class="ch-title">抓住空头回补的理想时�?/div>
-    <div class="ch-subtitle">交易者�?研究大势、市场先例和�?��心理</div>
-    <div class="ch-summary">了解�?��和研判大盘一样重要�?�没有必要效忠�?方或空方，你�?��要效忠的就是正确�?/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?��五章</span>
-    <div class="ch-title">没有�?么事情能够绝对�?�?/div>
-    <div class="ch-subtitle">意�?事件的�?险�?率最�?/div>
-    <div class="ch-summary">投机充满意�?，除非把钱存进银行，否则还不能算你的利润。诚实是�?好的策略�?/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?���?��</span>
-    <div class="ch-title">内幕消息</div>
-    <div class="ch-subtitle">大�?多么想�?内幕消息</div>
-    <div class="ch-summary">靠内幕消�?��资是愚蠢到极点�?��?果依赖别人买股票，卖的时候也必须依赖�?���?/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?��七章</span>
-    <div class="ch-title">经验会付给你稳定的红�?/div>
-    <div class="ch-subtitle">观察会�?你得到最好的内幕消息</div>
-    <div class="ch-summary">�?��经验的支配，有时候会�?��愚弄；但不听从经验的�?��，一定会成为傻瓜�?/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?���?��</span>
-    <div class="ch-title">投机客的勇气</div>
-    <div class="ch-subtitle">有信心根�?��己的决定行动</div>
-    <div class="ch-summary">优�?的投机�?在市场中要能做到泰然�?��。投机�?必须相信�?��，�?�?��的判�?��信心�?/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?��九章</span>
-    <div class="ch-title">投机成功的基�?</div>
-    <div class="ch-subtitle">假�?大�?�?��会继�?��以前�?�?��错�?</div>
-    <div class="ch-summary">恐惧和希望是永远不会改变的本性�?�空头卖出股票能赚大钱的�?��机会出现在高价区�?/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?��十章</span>
-    <div class="ch-title">不�?指望把利润救回来</div>
-    <div class="ch-subtitle">在还能出脱且能廉价出脱时，赶�?���?/div>
-    <div class="ch-summary">股市如战场，牢�?战略和战�?���?��。一旦发现自己做错，�?��回头，立刻改正�??/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?��十一�?/span>
-    <div class="ch-title">在景气热�?��</div>
-    <div class="ch-subtitle">大众总赚账面利润，却亏在流连�?��</div>
-    <div class="ch-summary">投机客�?尽早�??大势（能就�?�?��不能就等待），否则买卖将沦为赌博�?/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?��十二�?/span>
-    <div class="ch-title">狗绝不会有反对咬狗的愚蠢偏�?</div>
-    <div class="ch-subtitle">在华尔�?做空时�?不�?价格卖出</div>
-    <div class="ch-summary">生气没有任何好�?，爱生气�?��机�?的致命伤。空头市场�?真�?不�?价格卖出�?/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?��十三�?/span>
-    <div class="ch-title">警惕匿名的权威言�?/div>
-    <div class="ch-subtitle">投机失败源于�?��、恐惧�?�虚荣心和无法控制的希望</div>
-    <div class="ch-summary">知道�?么应该做，与知道�?么不应�?做几乎一样重要�?��?头市场中留恋�?���?��损的原因�?/div>
-  </div>
-
-  <div class="chapter-card">
-    <span class="ch-num">�?��十四�?/span>
-    <div class="ch-title">大众应�?终�?住股票交易的要素</div>
-    <div class="ch-subtitle">股价上涨不需要解释，�?��跟随趋势</div>
-    <div class="ch-summary">持续买进推高价格，阻力最小路线从向上变成向下时就�?��出时机�?�投机不�?��百分之百安全，�?损是保险�?/div>
-  </div>
-</div>
-
-<!-- ====== 交易法则 ====== -->
-<h2 id="rules" class="section-title">📜 十大核心交易法则</h2>
-
-<div class="rule-list">
-  <div class="rule-item">
-    <p><strong>寻找�?小阻力位</strong> �?价格像水�?样，总是沿着阻力�?小的�?��移动。在上涨行情�?��入，在下跌�?情中卖出。�?�过"试单-验证"机制探测趋势：先�?%仓位试探性建仓，若价格朝预期方向移动3%则加仓，反向突破关键点位立即止损�?/p>
-  </div>
-  <div class="rule-item">
-    <p><strong>不�?频繁交易</strong> �?�?��行情出现明显趋势时才进�?交易。每天或每周都操作是失败者的玩法。每年仅有�?寥可数的几�?机会，可能只有四五�?。当市场缺乏大好机会时，选择场�?观望�?/p>
-  </div>
-  <div class="rule-item">
-    <p><strong>顺势而为</strong> �?交易方向要与总体市场保持�?致�?�在多头市场看�?，在空头市场看空。一定�?等到大盘上涨时才�?始买进，或在大盘下跌时才做空。大盘环境不好时，再好的股票也难以独善其�???/p>
-  </div>
-  <div class="rule-item">
-    <p><strong>耐心等待关键�?/strong> �?等市场证明你的�?点后再交易，不�?先入为主做�?测�?�介入�?�关�?��包括：整数关口突破（�?伴随成交量放大）、历史新�?新低突破（需连续3日站稳）、�?体震荡突破（持续时间>20�?��易日）�??/p>
-  </div>
-  <div class="rule-item">
-    <p><strong>�?��亏损，�?利润奔跑</strong> �?把自己的首�?损失控制�?0%以内。亏损就�?���?���?��惩罚，赚钱就�?���??�?��报酬。亏损后不�?试图加仓挽救，盈利后要敢于持有�??/p>
-  </div>
-  <div class="rule-item">
-    <p><strong>做�?头羊</strong> �?做�?就做�?强的，做空就做最弱的。追随�?头�?业和强势行业�?��领头股票。�?头羊股票突破阻力区域、率先创造新高�?��?住：今天的�?头羊不会�?��年后的�?头羊�?/p>
-  </div>
-  <div class="rule-item">
-    <p><strong>绝不平摊亏损头�?</strong> �?如果首笔交易已经处于亏损状�?�，绝不要继�?��进�?�浮亏意味着判断错�?，加仓只会放大�?险�?��?�?��策略�?��首�?交易盈利后再加仓，且每�?加码价格应高于前�?次�??/p>
-  </div>
-  <div class="rule-item">
-    <p><strong>及时止损</strong> �?�?��投机事业持续下去的唯�?抉择�?��心守护自己的资本账户。决不允许亏损大到足以威胁未来操作的程度。留得青山在，不怕没柴烧。�?损就像给�?��的投机生�?��保险�?/p>
-  </div>
-  <div class="rule-item">
-    <p><strong>不因价格高低而不�?���?/strong> �?股票永远不会�?��，高到�?你不能开始买进；也永远不会太低，低到不能�?始卖出�?�关�?��于恰当的时机，�?�非价格�?��。不要在下跌时买入做多，�?��上涨时买入�??/p>
-  </div>
-  <div class="rule-item">
-    <p><strong>市场永远�??�?/strong> �?不�?和市场争辩�?�错�?��会在�?���?��。投机�?�必须控制的�?大问题就�?��己的情绪。情�?��制是市场�?��重�?的因素�?�亏损时从自己身上找原因�?/p>
-  </div>
-</div>
-
-<!-- ====== 关键概念 ====== -->
-<h2 id="concepts" class="section-title">�? 关键概念</h2>
-
-<div class="concept-grid">
-  <div class="concept-card">
-    <div class="icon">🎯</div>
-    <h4>关键�?(Pivotal Point)</h4>
-    <p>股票价格运动�?��关键�?��位置。突破关�?���?�?意味�?行情加�?��?�关�?��越重要，突破后的行情越大�?/p>
-  </div>
-  <div class="concept-card">
-    <div class="icon">📏</div>
-    <h4>�?小阻力线 (LOLR)</h4>
-    <p>价格总是沿着阻力�?小的方向移动。只要参与进来，跟随趋势交易就�?，无�?预测。上涨做多，下跌做空�?/p>
-  </div>
-  <div class="concept-card">
-    <div class="icon">🐏</div>
-    <h4>领头�?(Leaders)</h4>
-    <p>每个牛市�?��龙头板块和龙头股票�?�利弗莫尔强调只做最强的股票，不做跟风股。�?头羊会随经济结构变化而更替�??/p>
-  </div>
-  <div class="concept-card">
-    <div class="icon">🔺</div>
-    <h4>金字塔加�?/h4>
-    <p>�?��盈利的头寸上加码，且每�?加码价格高于前一次�?�例�?5%�?0%仓位�?10%�?0%仓位�?15%�?0%仓位�?/p>
-  </div>
-  <div class="concept-card">
-    <div class="icon">🧩</div>
-    <h4>分批建仓</h4>
-    <p>首�?建仓�?��总仓位的20%-30%以试探市场�?��?果方向�?�?��加仓。方向错�?��即�?损�?�小仓位验证，大仓位盈利�?/p>
-  </div>
-  <div class="concept-card">
-    <div class="icon">�?</div>
-    <h4>坐稳不动</h4>
-    <p>赚大钱的关键不是操作频率，�?�是判断对趋势后坐稳的能力�?�没有人因为频繁交易而致富，都是因为抓住大趋势获利�??/p>
-  </div>
-</div>
-
-<!-- ====== 经典案例 ====== -->
-<h2 id="cases" class="section-title">⚔️ 经典案例</h2>
-
-<div class="case-card">
-  <h4>🔥 1907年金融恐慌：做空获利100万美�?/h4>
-  <p>1907年，当�?数人仍在狂�?时，利弗�?��观察到信用环境在紧缩：上市公司打折发�?��股，经纪商头寸紧张，多�?�?��破产。他大举做空市场�?��活跃的股票�??0月市场崩盘，他一天内赚得100万美元，并获得金融巨鳄J.P.摩根的赞誉�?�这次成功来�?���?��分析—�?��?市场大趋势的准确把握�?/p>
-</div>
-
-<div class="case-card">
-  <h4>⚔️ 1915年伯利恒钢铁之战：起死回�?/h4>
-  <p>�?��次破产后欠百万美元巨债�??915�?月起看好�?��恒钢铁，但大盘未显强度�?��?�他蛰伏3�?��。直�?月底道琼�?��业指数走强，�?��恒钢�?月初大涨。他耐心等待股价突破100美元整数关口后出手�?�利弗莫尔�?�结：一�?��票�?次越�?00�?00�?00美元时，几乎总�?继续上涨30�?0美元�?/p>
-</div>
-
-<div class="case-card">
-  <h4>🌪�?1929年黑色星期四：做空赚�?亿美�?/h4>
-  <p>利弗�?��达到事业巅峰的交易�?�他早在市场狂热时就�?始�?��?做空�?929�?0�?4�?黑色星期�?，美国股市大崩盘，利弗莫尔�?�过做空赚取1亿美元，相当于当年美国财政收�?2亿美元的�?.4%。然而仅�?年后，他再�?破产—�?�印证了他自己所说的"没有人能始终如一战胜市场"�?/p>
-</div>
-
-<div class="case-card">
-  <h4>💔 棉花期货惨败：听信他人的代价</h4>
-  <p>1908年，利弗�?��遇到�?棉花大王"�?西·托�?��。托�?��以雄辩和魅力让他放弃了自己看空市场的判断改为做�?棉花。尽管他�?初只�?��仓位尝试，但托马�?���??服他加仓，最终损失数百万美元。这次教�??他深刻�?悟："没有人能靠别人告诉他要�?�么做赚大钱"�?/p>
-</div>
-
-<!-- ====== 实战�?�� ====== -->
-<h2 id="insights" class="section-title">💡 现代实战�?��</h2>
-
-<div class="insight-card">
-  <h4>🎯 1. 追随趋势而不�??�?/h4>
-  <p>利弗�?��的核心哲学是"跟随而非预测"。不猜测顶底，只�??趋势形成后参与�?�突破关�?��买入，跌破关�?��卖出。在A股市场，这个概念�?��通过均线系统（�?60日均线）或前高突破来落地执�?�?/p>
-</div>
-
-<div class="insight-card">
-  <h4>�?2. 情绪控制�??�?位的</h4>
-  <p>利弗�?��反�?强调情绪�?��大敌人�?�现代交易�?�面临同样的心理陷阱�?
-  <ul style="margin-top:8px;">
-    <li><strong>恐惧</strong>：盈利时过早止盈，�?�利润回�?/li>
-    <li><strong>�?��</strong>：亏损时死扛期待反弹，或想赚到最后一�?���?/li>
-    <li><strong>希望</strong>：抱�?错�?头�?不放，寄希望�?会回来的"</li>
-    <li><strong>冲动</strong>：看到大涨�?�跌就追涨杀�?/li>
-  </ul>
-  建�?：严格执行交易�?划，用机器�?则�?抗人性本能�??/p>
-</div>
-
-<div class="insight-card">
-  <h4>💰 3. 资金管理�?��存的基石</h4>
-  <p>单笔交易风险不超过�?�资金的2%。账户回撤达10%时强制停�?��易一周�?�拿出一半利润作为现金储备�?�A股实战：每�?�?仓不超�?�资20%，�?损�?3%-5%，分批买入�?�非�?把�?哈�??/p>
-</div>
-
-<div class="insight-card">
-  <h4>📊 4. 先大盘后�?��</h4>
-  <p>永远在确定大盘环境后才交易�?�大盘�?于上升趋势时做�?�?��，下降趋势时做空或空仓�?�大盘震荡时避免交易。A股中�?��考上证指�?创业板指的大趋势，结合成交量判断市场情绪�?/p>
-</div>
-
-<div class="insight-card">
-  <h4>🏆 5. �?��龙头不做跟�?</h4>
-  <p>每天研究板块强弱排�?榜，�?��与最强的板块和最强的�?��。A股中�?龙头战法"实际上与利弗�?��的�?头羊理�?�?脉相承�?�做多最强的，做空最弱的�?/p>
-</div>
-
-<div class="insight-card">
-  <h4>📝 6. 交易日�?与�?�?/h4>
-  <p>利弗�?��坚持记录每一次操作，尤其�?��损操作，分析原因避免再犯。现代交易�?�也应坚持写交易日�?：�?录入场理由�?�出场条件�?�情�?��态�?�每周末复盘，找出系统�?�问题�??/p>
-</div>
-
-<div class="insight-card">
-  <h4>�?7. 80%时间等待�?0%时间行动</h4>
-  <p>利弗�?���?坐稳不动"哲�?�?��拆解为：趋势�?��成时耐心等待�?0%时间），趋势�??后果�??动并持有�?0%时间）�?�在A股中，一年真正�?�得重仓的大机会�?���?��2-3次�??/p>
-</div>
-
-<div class="insight-card">
-  <h4>🛡�?8. 不接受内幕消�?/h4>
-  <p>利弗�?��用惨痛教�?���?��人：内幕消息�?��资人�?�?��破产方式之一。即使消�?��真的，也无法掌握买卖时机。坚持独立判�?��用自己的方法分析市场�?/p>
-</div>
-
-</div><!-- /container -->
-
-<!-- ====== 页脚 ====== -->
-
-
-<!-- KG: Knowledge Hub Tracker -->
-
-
-
-
-
-<!-- Knowledge Base Status Bar -->
-
-<div class="footer">
-<span>📖 《股票大作手回忆录�?��?交易哲�?学习手册</span>
-<a href="index.html">�?返回首页</a>
-</div>
-
-
-<script src="tracker.js"></script><script>
-(function() {
-  var id = 'stock_operator_manual';
-  var title = '股票大作手回忆录';
-
-  if (typeof KG !== 'undefined' && KG.logVisit) {
-    KG.logVisit(id);
-    KG.logVisitHistory(id, title);
-    KG.initFirstReview(id);
-  }
-
-  var st = KG.getStatus ? KG.getStatus(id) : null;
-  var bm = KG.isBookmarked ? KG.isBookmarked(id) : false;
-  var sts = KG.getStats ? KG.getStats(id) : {visits:0,totalTimeMs:0};
-  var nc = KG.getNotes ? KG.getNotes(id).length : 0;
-  var icon = st==='completed'?'�?:st==='reading'?'📖':'�?;
-  var txt = st==='completed'?'已完�?:st==='reading'?'阅�?�?:'�?���?;
-
-  var bar = document.createElement('div');
-  bar.id = 'kg-status-bar';
-  bar.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#161b22;border-top:1px solid #30363d;padding:8px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:0.8rem;color:#e6edf3;backdrop-filter:blur(8px);';
-  bar.innerHTML = '<span style="font-weight:600;color:#58a6ff;font-size:0.82rem;">'+title+'</span><span style="color:#8b949e;">|</span><span>'+icon+' '+txt+'</span><span style="color:#8b949e;">|</span><span>👁�?'+(sts.visits||0)+'�?/span><span style="color:#8b949e;">|</span><span>📝 '+nc+'�?/span><span style="margin-left:auto;display:flex;gap:6px;"><button onclick="KG_toggleRead(''+id+'')" style="padding:4px 10px;border-radius:6px;border:1px solid #30363d;background:#21262d;color:#e6edf3;cursor:pointer;font-size:0.75rem;">'+(st==='completed'?'�?重�?':'�?读完')+'</button><button onclick="KG_showNoteDialog(''+id+'')" style="padding:4px 10px;border-radius:6px;border:1px solid #30363d;background:#21262d;color:#e6edf3;cursor:pointer;font-size:0.75rem;">✏️ 笔�?</button><a href="index.html" style="padding:4px 10px;border-radius:6px;border:1px solid #30363d;background:#21262d;color:#e6edf3;text-decoration:none;font-size:0.75rem;">�?返回</a></span>';
-
-  document.body.style.paddingBottom = '56px';
-  document.body.appendChild(bar);
-
-  var t0 = Date.now();
-  window.addEventListener('beforeunload', function(){ if(KG.logTime) KG.logTime(id, Date.now()-t0); });
-
-  if (typeof KG_initAnnotation === 'function') KG_initAnnotation(id);
-})();
-</script>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>《股票大作手回忆录�?��?交易哲�?学习手册</title>
-<link rel="stylesheet" href="theme.css">
+<title>《股票大作手回忆录》· 交易哲学学习手册</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0e17;
+    color: #c8d6e5;
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* ── 顶部横幅 ── */
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, #0a1628 0%, #1a1a2e 50%, #0f3460 100%);
+    padding: 80px 20px 60px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(15, 52, 96, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(233, 69, 96, 0.1) 0%, transparent 50%);
+    animation: breathe 8s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero h1 {
+    font-size: 2.8em;
+    color: #f1c40f;
+    text-shadow: 0 0 30px rgba(241, 196, 15, 0.3);
+    margin-bottom: 10px;
+    letter-spacing: 4px;
+  }
+  .hero .subtitle {
+    font-size: 1.1em;
+    color: #8395a7;
+    margin-bottom: 20px;
+  }
+  .hero .en-title {
+    font-size: 0.9em;
+    color: #576574;
+    letter-spacing: 2px;
+    font-style: italic;
+  }
+  .hero .tagline {
+    margin-top: 25px;
+    font-size: 1em;
+    color: #e94560;
+    border-top: 1px solid rgba(233, 69, 96, 0.2);
+    padding-top: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ── 导航 ── */
+  .nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 14, 23, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(241, 196, 15, 0.15);
+    padding: 0 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .nav-bar a {
+    display: inline-block;
+    padding: 14px 18px;
+    color: #8395a7;
+    text-decoration: none;
+    font-size: 0.85em;
+    transition: color 0.2s, border-color 0.2s;
+    border-bottom: 2px solid transparent;
+  }
+  .nav-bar a:hover, .nav-bar a.active {
+    color: #f1c40f;
+    border-bottom-color: #f1c40f;
+  }
+
+  /* ── 主要包裹 ── */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  /* ── 分区标题 ── */
+  .section-title {
+    font-size: 1.8em;
+    color: #f1c40f;
+    margin: 50px 0 25px;
+    padding-left: 15px;
+    border-left: 4px solid #e94560;
+  }
+  .section-title:first-of-type { margin-top: 0; }
+
+  /* ── 卡片 ── */
+  .card {
+    background: linear-gradient(135deg, #111827, #1a1a2e);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s, transform 0.2s;
+  }
+  .card:hover {
+    border-color: rgba(241, 196, 15, 0.25);
+    transform: translateY(-2px);
+  }
+  .card h3 {
+    color: #f1c40f;
+    font-size: 1.15em;
+    margin-bottom: 10px;
+  }
+  .card h4 {
+    color: #e94560;
+    font-size: 1em;
+    margin-bottom: 8px;
+  }
+  .card p, .card li { color: #c8d6e5; font-size: 0.95em; }
+  .card ul { padding-left: 20px; }
+  .card li { margin-bottom: 6px; }
+  .card .highlight { color: #f1c40f; }
+
+  /* ── 时间线 ── */
+  .timeline { position: relative; padding-left: 30px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #e94560, #f1c40f, #e94560);
+  }
+  .timeline-item {
+    position: relative;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    border-left: 2px solid transparent;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 22px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #f1c40f;
+    border: 2px solid #0a0e17;
+  }
+  .timeline-item.rise::before { background: #2ecc71; }
+  .timeline-item.fall::before { background: #e94560; }
+  .timeline-item .year {
+    font-weight: bold;
+    color: #f1c40f;
+    font-size: 0.9em;
+  }
+  .timeline-item .status {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    margin-left: 8px;
+  }
+  .status.rise { background: rgba(46, 204, 113, 0.2); color: #2ecc71; }
+  .status.fall { background: rgba(233, 69, 96, 0.2); color: #e94560; }
+
+  /* ── 语录 ── */
+  .quote-block {
+    background: linear-gradient(135deg, #0f1629, #1a1a2e);
+    border-left: 4px solid #f1c40f;
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 16px 0;
+    font-style: italic;
+  }
+  .quote-block p { font-size: 1em; color: #dfe6e9; line-height: 1.7; }
+  .quote-block .source {
+    margin-top: 8px;
+    font-size: 0.8em;
+    color: #8395a7;
+    text-align: right;
+    font-style: normal;
+  }
+
+  /* ── 章节列表 ── */
+  .chapter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .chapter-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 18px;
+    transition: border-color 0.3s;
+  }
+  .chapter-card:hover { border-color: rgba(241, 196, 15, 0.3); }
+  .chapter-card .ch-num {
+    display: inline-block;
+    background: rgba(241, 196, 15, 0.15);
+    color: #f1c40f;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    margin-bottom: 6px;
+  }
+  .chapter-card .ch-title {
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+  .chapter-card .ch-subtitle {
+    color: #8395a7;
+    font-size: 0.85em;
+  }
+  .chapter-card .ch-summary {
+    color: #b2bec3;
+    font-size: 0.85em;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  /* ── 规则列表 ── */
+  .rule-list { counter-reset: rule; }
+  .rule-item {
+    counter-increment: rule;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    border-left: 3px solid #e94560;
+  }
+  .rule-item::before {
+    content: '#' counter(rule);
+    display: inline-block;
+    font-size: 0.75em;
+    color: #e94560;
+    margin-right: 8px;
+    font-weight: bold;
+  }
+  .rule-item strong {
+    color: #f1c40f;
+  }
+
+  /* ── 概念卡片 ── */
+  .concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .concept-card {
+    background: linear-gradient(135deg, #0f1629, #16213e);
+    border: 1px solid rgba(46, 204, 113, 0.15);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+  }
+  .concept-card .icon {
+    font-size: 2em;
+    margin-bottom: 8px;
+  }
+  .concept-card h4 { color: #2ecc71; font-size: 1em; margin-bottom: 8px; }
+  .concept-card p { color: #b2bec3; font-size: 0.85em; }
+
+  /* ── 实战启示 ── */
+  .insight-card {
+    background: linear-gradient(135deg, #0f1629, #16213e);
+    border: 1px solid rgba(46, 204, 113, 0.15);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .insight-card h4 { color: #2ecc71; margin-bottom: 8px; }
+  .insight-card p { color: #b2bec3; font-size: 0.9em; }
+
+  /* ── 经典案例 ── */
+  .case-card {
+    background: linear-gradient(135deg, #111827, #1a1a2e);
+    border: 1px solid rgba(233, 69, 96, 0.15);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .case-card h4 { color: #e94560; margin-bottom: 8px; }
+  .case-card p, .case-card li { font-size: 0.9em; }
+
+  /* ── 页脚 ── */
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: #576574;
+    font-size: 0.8em;
+  }
+  .footer a { color: #f1c40f; text-decoration: none; }
+
+  /* ── 响应式 ── */
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 2em; }
+    .chapter-grid, .concept-grid { grid-template-columns: 1fr; }
+    .nav-bar a { padding: 10px 12px; font-size: 0.8em; }
+  }
+</style>
 </head>
 <body>
+
 <!-- ====== 顶部 ====== -->
 <div class="hero">
   <div class="hero-content">
     <h1>股票大作手回忆录</h1>
     <p class="subtitle">Reminiscences of a Stock Operator</p>
-    <p class="en-title">埃德温·勒费弗 (Edwin Lefèvre) �?· 杰西·利弗�?�� 原型</p>
-    <p class="tagline">"投机如山岳般古�?�，华尔街没有新鲜事"</p>
+    <p class="en-title">埃德温·勒费弗 (Edwin Lefèvre) 著 · 杰西·利弗莫尔 原型</p>
+    <p class="tagline">"投机如山岳般古老，华尔街没有新鲜事"</p>
   </div>
 </div>
 
 <!-- ====== 导航 ====== -->
 <nav class="nav-bar">
-  <a href="#author">作�?�简�?/a>
-  <a href="#lifeline">四�?起落</a>
-  <a href="#quotes">经典�?��</a>
-  <a href="#chapters">24章精�?/a>
+  <a href="#author">作者简介</a>
+  <a href="#lifeline">四次起落</a>
+  <a href="#quotes">经典语录</a>
+  <a href="#chapters">24章精要</a>
   <a href="#rules">交易法则</a>
   <a href="#concepts">核心概念</a>
   <a href="#cases">经典案例</a>
-  <a href="#insights">实战�?��</a>
+  <a href="#insights">实战启示</a>
 </nav>
 
 <div class="container">
 
-<!-- ====== 作�?�介�?====== -->
-<h2 id="author" class="section-title">📖 作�?�与原型</h2>
+<!-- ====== 作者介绍 ====== -->
+<h2 id="author" class="section-title">📖 作者与原型</h2>
 
 <div class="card">
-  <h3>杰西·利弗�?�� (Jesse Lauriston Livermore)</h3>
-  <p>1877�?�?6�?- 1940�?1�?8�?/p>
-  <p style="margin-top:10px;">美国传�?股票投机家，�?��认为"投机之王"。�?�股票大作手回忆录�?�是埃德温·勒费弗以利弗莫尔为原型创作的传记小说，书中主人�?���?拉瑞·利文�?��"�?/p>
-  <p style="margin-top:8px;">利弗�?��14岁进入波�?���?家股票经�??做�?价员，每周薪�?美元�?5岁用5美元在�?赌�?赚到了人生�?�?笔交易利�?.12美元�?0岁积�?万美元本金，�?���?投机小子"�?929年大萧条期间，�?�过做空市场�?��财富�?亿美元（相当于今天的1700亿美元以上）�?/p>
-  <p style="margin-top:8px;">他的�?生四起四落，�?终在1940年于纽约曼哈顿一家酒店衣帽间�?��，留下遗�?�?我的生活�?��败的�?</p>
+  <h3>杰西·利弗莫尔 (Jesse Lauriston Livermore)</h3>
+  <p>1877年7月26日 - 1940年11月28日</p>
+  <p style="margin-top:10px;">美国传奇股票投机家，被公认为"投机之王"。《股票大作手回忆录》是埃德温·勒费弗以利弗莫尔为原型创作的传记小说，书中主人公名为"拉瑞·利文斯顿"。</p>
+  <p style="margin-top:8px;">利弗莫尔14岁进入波士顿一家股票经纪行做记价员，每周薪资1美元。15岁用5美元在对赌行赚到了人生第一笔交易利润3.12美元。20岁积累1万美元本金，被称为"投机小子"。1929年大萧条期间，通过做空市场累积财富达1亿美元（相当于今天的1700亿美元以上）。</p>
+  <p style="margin-top:8px;">他的一生四起四落，最终在1940年于纽约曼哈顿一家酒店衣帽间自杀，留下遗言："我的生活是失败的。"</p>
 </div>
 
-<!-- ====== 四�?起落时间�?====== -->
-<h2 id="lifeline" class="section-title">�?四�?起落时间�?/h2>
+<!-- ====== 四次起落时间线 ====== -->
+<h2 id="lifeline" class="section-title">⏳ 四次起落时间线</h2>
 
 <div class="timeline">
 
   <div class="timeline-item rise">
     <span class="year">1892-1901</span>
-    <span class="status rise">📈 �?��次崛�?/span>
-    <p>15岁入行�?赌�?�?0岁积�?万美元�??901年在大盘上涨�??�过做�?获利达到5万美元，成为华尔街知名作手�??/p>
+    <span class="status rise">📈 第一次崛起</span>
+    <p>15岁入行对赌行，20岁积累1万美元。1901年在大盘上涨中通过做多获利达到5万美元，成为华尔街知名作手。</p>
   </div>
   <div class="timeline-item fall">
     <span class="year">1901-1902</span>
-    <span class="status fall">📉 �?��次落�?/span>
-    <p>因过度交易和依赖延迟报价信息�?万美元全部亏损�?��?�?��回�?乡，在�?赌�?重新筹集�?���?/p>
+    <span class="status fall">📉 第一次落败</span>
+    <p>因过度交易和依赖延迟报价信息，5万美元全部亏损。被迫返回家乡，在对赌行重新筹集本金。</p>
   </div>
 
   <div class="timeline-item rise">
     <span class="year">1902-1907</span>
-    <span class="status rise">📈 �?��次崛�?/span>
-    <p>重返华尔街，逐渐领悟市场大趋势的重�?性�?�非�?��波动�?907年美国金融恐慌中做空市场，一天内获利�?00万美元，�?���?华尔街巨�?�?/p>
+    <span class="status rise">📈 第二次崛起</span>
+    <p>重返华尔街，逐渐领悟市场大趋势的重要性而非短线波动。1907年美国金融恐慌中做空市场，一天内获利约100万美元，被誉为"华尔街巨熊"。</p>
   </div>
   <div class="timeline-item fall">
     <span class="year">1908-1914</span>
-    <span class="status fall">📉 �?��次落�?/span>
-    <p>�?��"棉花大王"�?西·托�?��的建�?��违背�?��做空判断�?��做�?棉花，损失数百万美元，�?三�?破产。欠下百万美元巨债�??/p>
+    <span class="status fall">📉 第二次落败</span>
+    <p>听信"棉花大王"珀西·托马斯的建议，违背自己做空判断转为做多棉花，损失数百万美元，第三次破产。欠下百万美元巨债。</p>
   </div>
 
   <div class="timeline-item rise">
     <span class="year">1915-1917</span>
-    <span class="status rise">📈 �?��次崛�?/span>
-    <p>从券商手�??�得数百股信用�?度，经过数月耐心等待，在�?��恒钢铁突�?00美元时重仓出击，�?步交易法起�?回生。还清全部�?�务，赚得足够本金重新开始�??/p>
+    <span class="status rise">📈 第三次崛起</span>
+    <p>从券商手中借得数百股信用额度，经过数月耐心等待，在伯利恒钢铁突破100美元时重仓出击，用4步交易法起死回生。还清全部债务，赚得足够本金重新开始。</p>
   </div>
   <div class="timeline-item fall">
-    <span class="year">1918-1920年代�?/span>
-    <span class="status fall">📉 �?��次落�?/span>
-    <p>在商品期货和股票操作�?��次遭遇重大亏损，几乎破产�?/p>
+    <span class="year">1918-1920年代初</span>
+    <span class="status fall">📉 第三次落败</span>
+    <p>在商品期货和股票操作中再次遭遇重大亏损，几乎破产。</p>
   </div>
 
   <div class="timeline-item rise">
-    <span class="year">1929年顶�?/span>
-    <span class="status rise">📈 �?��次崛�?· 巅峰</span>
-    <p>1929年黑色星期四前，利弗�?��敏锐察�?市场极度狂热，大举做空�?�在美国股市大崩盘中获利1亿美元，达到事业巅峰，成为当时世界上�?富有的人之一�?/p>
+    <span class="year">1929年顶峰</span>
+    <span class="status rise">📈 第四次崛起 · 巅峰</span>
+    <p>1929年黑色星期四前，利弗莫尔敏锐察觉市场极度狂热，大举做空。在美国股市大崩盘中获利1亿美元，达到事业巅峰，成为当时世界上最富有的人之一。</p>
   </div>
   <div class="timeline-item fall">
     <span class="year">1930-1940</span>
-    <span class="status fall">📉 �?��次落�?· 终局</span>
-    <p>1934年�?四�?破产。�?后数年无力东山再起�??940�?1�?8日，在纽约雪�?尼德兰酒店更衣�?�?���?��。终�?3岁�??/p>
+    <span class="status fall">📉 第四次落败 · 终局</span>
+    <p>1934年第四次破产。此后数年无力东山再起。1940年11月28日，在纽约雪莉-尼德兰酒店更衣室饮弹自尽。终年63岁。</p>
   </div>
 </div>
 
-<!-- ====== 经典�?�� ====== -->
-<h2 id="quotes" class="section-title">💬 经典�?��</h2>
+<!-- ====== 经典语录 ====== -->
+<h2 id="quotes" class="section-title">💬 经典语录</h2>
 
 <div class="quote-block">
-  <p>"赚大钱不�?���?��的波�?��而是依赖主�?趋势。看对走势没�?么了不起的�?�在多头市场你�?�能找到很�?很早就看涨的人，在熊市很早就看跌的人。我认识许�?看盘高手，他�?��在最佳价位买卖股票�?�但�?��他们却没真�?赚到钱�?�看对市场�?�且紧握头�?不动的人难得�?见，我发现这也是�?难�?的事�?</p>
-  <div class="source">�?利弗�?���?坐稳"的重要�??/div>
+  <p>"赚大钱不是靠个股的波动，而是依赖主要趋势。看对走势没什么了不起的。在多头市场你总能找到很多很早就看涨的人，在熊市很早就看跌的人。我认识许多看盘高手，他们也在最佳价位买卖股票。但是，他们却没真正赚到钱。看对市场而且紧握头寸不动的人难得一见，我发现这也是最难学的事。"</p>
+  <div class="source">— 利弗莫尔论"坐稳"的重要性</div>
 </div>
 
 <div class="quote-block">
-  <p>"华尔街没有新鲜事。投机就像山岳那么古老�?�股市今天发生的事情以前发生过，以后会再度发生�?�因为人的本性从来不会改变�??</p>
-  <div class="source">�?�?���?/div>
+  <p>"华尔街没有新鲜事。投机就像山岳那么古老。股市今天发生的事情以前发生过，以后会再度发生。因为人的本性从来不会改变。"</p>
+  <div class="source">— 第一章</div>
 </div>
 
 <div class="quote-block">
-  <p>"绝不要摊低亏损的头�?。�?果你的头笔交易已经�?于亏损状态，就绝不�?继续跟进。一定�?把这�?��法深深地刻在你的脑子里�??</p>
-  <div class="source">�?核心铁律</div>
+  <p>"绝不要摊低亏损的头寸。如果你的头笔交易已经处于亏损状态，就绝不要继续跟进。一定要把这个想法深深地刻在你的脑子里。"</p>
+  <div class="source">— 核心铁律</div>
 </div>
 
 <div class="quote-block">
-  <p>"凡事都有两面，但�?��市只有一�?���?���??头的�?�?��也不�?��头的�?�?��而是正确的一�???</p>
-  <div class="source">�?�?���?/div>
+  <p>"凡事都有两面，但是股市只有一面，既不是多头的一面，也不是空头的一面，而是正确的一面。"</p>
+  <div class="source">— 第三章</div>
 </div>
 
 <div class="quote-block">
-  <p>"没有必�?效忠多方或空方，你唯�?要效忠的就是正确�?</p>
-  <div class="source">�?�?��四章</div>
+  <p>"没有必要效忠多方或空方，你唯一要效忠的就是正确！"</p>
+  <div class="source">— 第十四章</div>
 </div>
 
 <div class="quote-block">
-  <p>"�?�?��要花很长的时间，才能从他�?有错�?��学到�?有的教�?。等你知道不该做�?么才能不亏钱时，你开始�?习�?做什么才能赢钱�??</p>
-  <div class="source">�?�?���?/div>
+  <p>"一个人要花很长的时间，才能从他所有错误中学到所有的教训。等你知道不该做什么才能不亏钱时，你开始学习该做什么才能赢钱。"</p>
+  <div class="source">— 第四章</div>
 </div>
 
 <div class="quote-block">
-  <p>"投机客必须同时是学生和投机�?。他必须始终研究市场条件，永远不能停止�?习�??</p>
-  <div class="source">�?�?���?/div>
+  <p>"投机客必须同时是学生和投机客。他必须始终研究市场条件，永远不能停止学习。"</p>
+  <div class="source">— 第九章</div>
 </div>
 
 <div class="quote-block">
-  <p>"关心把事情做得�?�?��而不�?��心赚钱�?��?果做好每�?件事，利润自己会产生的�??</p>
-  <div class="source">�?�?���?�?/div>
+  <p>"关心把事情做得正确，而不是关心赚钱。如果做好每一件事，利润自己会产生的。"</p>
+  <div class="source">— 第十一章</div>
 </div>
 
 <div class="quote-block">
-  <p>"投机客最致命的敌人是无知、贪�??�恐惧和希望。世界上�?有的法令规章，都不能把这些敌人从人的兽�?�中消除�?</p>
-  <div class="source">�?�?��九章</div>
+  <p>"投机客最致命的敌人是无知、贪婪、恐惧和希望。世界上所有的法令规章，都不能把这些敌人从人的兽性中消除。"</p>
+  <div class="source">— 第十九章</div>
 </div>
 
 <div class="quote-block">
-  <p>"不�?交易者�?么有经验，他�?��做出亏损交易的可能�?��?�是存在。因为投机不�?��百分之百安全。所以�?损的代价就像给自己的投机生涯上了�?份保险�??</p>
-  <div class="source">�?�?��十四�?/div>
+  <p>"不管交易者多么有经验，他犯错做出亏损交易的可能性总是存在。因为投机不可能百分之百安全。所以止损的代价就像给自己的投机生涯上了一份保险。"</p>
+  <div class="source">— 第二十四章</div>
 </div>
 
-<!-- ====== 24章精�?====== -->
-<h2 id="chapters" class="section-title">📚 24章核心摘�?/h2>
+<!-- ====== 24章精要 ====== -->
+<h2 id="chapters" class="section-title">📚 24章核心摘要</h2>
 
 <div class="chapter-grid">
 
   <div class="chapter-card">
-    <span class="ch-num">�?���?/span>
+    <span class="ch-num">第一章</span>
     <div class="ch-title">华尔街没有新事物</div>
-    <div class="ch-subtitle">行情纸带悟模式，对赌行里试牛�?</div>
-    <div class="ch-summary">利弗�?��少年时期通过观察股价波动规律，在对赌行中�?��早期经验。核心�?悟：投机像山岳般古�?�，人�?�不变，市场会重复同样的模式�?/div>
+    <div class="ch-subtitle">行情纸带悟模式，对赌行里试牛刀</div>
+    <div class="ch-summary">利弗莫尔少年时期通过观察股价波动规律，在对赌行中积累早期经验。核心领悟：投机像山岳般古老，人性不变，市场会重复同样的模式。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?���?/span>
-    <div class="ch-title">生市场的气�?你没有任何好�?/div>
-    <div class="ch-subtitle">首战纽约�?��败，重回对赌筹本�?/div>
-    <div class="ch-summary">记录首�?进入华尔街失败后重返对赌行的经历。反思交易心态：永远不�?和市场�?�?干，市场永远�??的�??/div>
+    <span class="ch-num">第二章</span>
+    <div class="ch-title">生市场的气对你没有任何好处</div>
+    <div class="ch-subtitle">首战纽约遭挫败，重回对赌筹本钱</div>
+    <div class="ch-summary">记录首次进入华尔街失败后重返对赌行的经历。反思交易心态：永远不要和市场对着干，市场永远是对的。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?���?/span>
-    <div class="ch-title">凡事都有两面，但�?��市只有一�?/div>
-    <div class="ch-subtitle">行情纸带拖后腿，五万美元得�?�?/div>
-    <div class="ch-summary">因依赖延迟的行情信息导致亏损。只有�?�?���?面�?�得追随，不要做死�?头或死空头�??/div>
+    <span class="ch-num">第三章</span>
+    <div class="ch-title">凡事都有两面，但是股市只有一面</div>
+    <div class="ch-subtitle">行情纸带拖后腿，五万美元得复失</div>
+    <div class="ch-summary">因依赖延迟的行情信息导致亏损。只有正确的一面值得追随，不要做死多头或死空头。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?���?/span>
-    <div class="ch-title">不�?做什么才能不亏钱</div>
-    <div class="ch-subtitle">回�?��?疗伤反省，非正�?渠道重谋�?��</div>
-    <div class="ch-summary">亏损后回到�?乡调整策略�?�先学会不做�?么，再�?做什么�?�失败是�?好的老师�?/div>
+    <span class="ch-num">第四章</span>
+    <div class="ch-title">不该做什么才能不亏钱</div>
+    <div class="ch-subtitle">回老家疗伤反省，非正规渠道重谋本金</div>
+    <div class="ch-summary">亏损后回到家乡调整策略。先学会不做什么，再学做什么。失败是最好的老师。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?���?/span>
-    <div class="ch-title">不�?失去你的头�?</div>
-    <div class="ch-subtitle">梅开三度华尔街，水滴石穿悟大�?/div>
-    <div class="ch-summary">�?��次进军华尔�?，�?悟到不�?因为小波动�?�丢掉核心仓位�?�大钱是靠等待赚来的�?/div>
+    <span class="ch-num">第五章</span>
+    <div class="ch-title">不要失去你的头寸</div>
+    <div class="ch-subtitle">梅开三度华尔街，水滴石穿悟大势</div>
+    <div class="ch-summary">第三次进军华尔街，领悟到不要因为小波动而丢掉核心仓位。大钱是靠等待赚来的。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?���?/span>
-    <div class="ch-title">考虑大盘，�?�不�?���?/div>
-    <div class="ch-subtitle">�?��直�?如天助，�?��他人终改�?/div>
-    <div class="ch-summary">明白�?��走势必须在大盘背�?��审�?。大盘环境不好时，最好的股票也难以独善其�???/div>
+    <span class="ch-num">第六章</span>
+    <div class="ch-title">考虑大盘，而不是个股</div>
+    <div class="ch-subtitle">自信直觉如天助，听信他人终改错</div>
+    <div class="ch-summary">明白个股走势必须在大盘背景下审视。大盘环境不好时，最好的股票也难以独善其身。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?���?/span>
-    <div class="ch-title">股票永远不会�?��</div>
-    <div class="ch-subtitle">顺势操作先试�?��步�?为营渐建�?/div>
-    <div class="ch-summary">提出"试探性建�?策略，强调�?�过逐�?加码验证趋势。不要因为价格高而不�?���?/div>
+    <span class="ch-num">第七章</span>
+    <div class="ch-title">股票永远不会太高</div>
+    <div class="ch-subtitle">顺势操作先试探，步步为营渐建仓</div>
+    <div class="ch-summary">提出"试探性建仓"策略，强调通过逐步加码验证趋势。不要因为价格高而不敢买。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?���?/span>
-    <div class="ch-title">在�?头市场看多，在空头市场看�?/div>
-    <div class="ch-subtitle">今是昨非识大�?，操之过急悟时机</div>
-    <div class="ch-summary">总结过早行动的教�??�不要在多头市场做空，不要在空头市场做�?，顺势�?�为�?/div>
+    <span class="ch-num">第八章</span>
+    <div class="ch-title">在多头市场看多，在空头市场看空</div>
+    <div class="ch-subtitle">今是昨非识大局，操之过急悟时机</div>
+    <div class="ch-summary">总结过早行动的教训。不要在多头市场做空，不要在空头市场做多，顺势而为。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?���?/span>
-    <div class="ch-title">投机客必须同时是学生和投机�?</div>
-    <div class="ch-subtitle">紧缩银根酿恐慌，�?��正果当股�?/div>
-    <div class="ch-summary">�?907年金融恐慌中通过做空获利，�?�?华尔街巨�?地位。永远保持�?习和�?���?/div>
+    <span class="ch-num">第九章</span>
+    <div class="ch-title">投机客必须同时是学生和投机客</div>
+    <div class="ch-subtitle">紧缩银根酿恐慌，修成正果当股王</div>
+    <div class="ch-summary">在1907年金融恐慌中通过做空获利，奠定"华尔街巨熊"地位。永远保持学习和敬畏。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?���?/span>
-    <div class="ch-title">总有�?�?���?��你前�?/div>
-    <div class="ch-subtitle">守�?��?情关�?��刻，明察�?小阻力路�?/div>
-    <div class="ch-summary">分析市场�?小阻力方向�?�在窄幅震荡的市场中耐心等待突破，不要猜测方向�??/div>
+    <span class="ch-num">第十章</span>
+    <div class="ch-title">总有一个错误在你前边</div>
+    <div class="ch-subtitle">守候行情关键时刻，明察最小阻力路线</div>
+    <div class="ch-summary">分析市场最小阻力方向。在窄幅震荡的市场中耐心等待突破，不要猜测方向。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?���?�?/span>
-    <div class="ch-title">关心把事情做正确，�?�非关心赚钱</div>
-    <div class="ch-subtitle">声东击西巧出货，巨�?棉花借东�?/div>
-    <div class="ch-summary">通过操纵棉花市场完成大�?模出货�?�一旦把事情做�?，利润自然�?�来�?/div>
+    <span class="ch-num">第十一章</span>
+    <div class="ch-title">关心把事情做正确，而非关心赚钱</div>
+    <div class="ch-subtitle">声东击西巧出货，巨额棉花借东风</div>
+    <div class="ch-summary">通过操纵棉花市场完成大规模出货。一旦把事情做对，利润自然而来。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?��二章</span>
+    <span class="ch-num">第十二章</span>
     <div class="ch-title">股市不会为你的皮大衣付钱</div>
-    <div class="ch-subtitle">巧舌如簧蔽主见，数百万金付东�?/div>
-    <div class="ch-summary">不�?为了消费欲望而交易�?�因为想赚钱或�?�需要钱而交易是大忌�?/div>
+    <div class="ch-subtitle">巧舌如簧蔽主见，数百万金付东流</div>
+    <div class="ch-summary">不要为了消费欲望而交易。因为想赚钱或者需要钱而交易是大忌。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?��三章</span>
-    <div class="ch-title">�?���?��的判�?/div>
-    <div class="ch-subtitle">�?��投机�?��必须始终相信�?��的判�?/div>
-    <div class="ch-summary">�?���?��机�?的大敌�?�亏损不会困扰我—�?�亏钱�?我得到经验，这些钱就�??费�??/div>
+    <span class="ch-num">第十三章</span>
+    <div class="ch-title">支持自己的判断</div>
+    <div class="ch-subtitle">身为投机客，必须始终相信自己的判断</div>
+    <div class="ch-summary">自大是投机客的大敌。亏损不会困扰我——亏钱让我得到经验，这些钱就是学费。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?��四章</span>
-    <div class="ch-title">抓住空头回补的理想时�?/div>
-    <div class="ch-subtitle">交易者�?研究大势、市场先例和�?��心理</div>
-    <div class="ch-summary">了解�?��和研判大盘一样重要�?�没有必要效忠�?方或空方，你�?��要效忠的就是正确�?/div>
+    <span class="ch-num">第十四章</span>
+    <div class="ch-title">抓住空头回补的理想时机</div>
+    <div class="ch-subtitle">交易者要研究大势、市场先例和自身心理</div>
+    <div class="ch-summary">了解自己和研判大盘一样重要。没有必要效忠多方或空方，你唯一要效忠的就是正确。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?��五章</span>
-    <div class="ch-title">没有�?么事情能够绝对�?�?/div>
-    <div class="ch-subtitle">意�?事件的�?险�?率最�?/div>
-    <div class="ch-summary">投机充满意�?，除非把钱存进银行，否则还不能算你的利润。诚实是�?好的策略�?/div>
+    <span class="ch-num">第十五章</span>
+    <div class="ch-title">没有什么事情能够绝对预定</div>
+    <div class="ch-subtitle">意外事件的风险概率最大</div>
+    <div class="ch-summary">投机充满意外，除非把钱存进银行，否则还不能算你的利润。诚实是最好的策略。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?���?��</span>
+    <span class="ch-num">第十六章</span>
     <div class="ch-title">内幕消息</div>
-    <div class="ch-subtitle">大�?多么想�?内幕消息</div>
-    <div class="ch-summary">靠内幕消�?��资是愚蠢到极点�?��?果依赖别人买股票，卖的时候也必须依赖�?���?/div>
+    <div class="ch-subtitle">大家多么想要内幕消息</div>
+    <div class="ch-summary">靠内幕消息投资是愚蠢到极点。如果依赖别人买股票，卖的时候也必须依赖别人。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?��七章</span>
-    <div class="ch-title">经验会付给你稳定的红�?/div>
-    <div class="ch-subtitle">观察会�?你得到最好的内幕消息</div>
-    <div class="ch-summary">�?��经验的支配，有时候会�?��愚弄；但不听从经验的�?��，一定会成为傻瓜�?/div>
+    <span class="ch-num">第十七章</span>
+    <div class="ch-title">经验会付给你稳定的红利</div>
+    <div class="ch-subtitle">观察会让你得到最好的内幕消息</div>
+    <div class="ch-summary">听从经验的支配，有时候会遭到愚弄；但不听从经验的支配，一定会成为傻瓜。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?���?��</span>
+    <span class="ch-num">第十八章</span>
     <div class="ch-title">投机客的勇气</div>
-    <div class="ch-subtitle">有信心根�?��己的决定行动</div>
-    <div class="ch-summary">优�?的投机�?在市场中要能做到泰然�?��。投机�?必须相信�?��，�?�?��的判�?��信心�?/div>
+    <div class="ch-subtitle">有信心根据自己的决定行动</div>
+    <div class="ch-summary">优秀的投机客在市场中要能做到泰然自若。投机客必须相信自己，对自己的判断有信心。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?��九章</span>
-    <div class="ch-title">投机成功的基�?</div>
-    <div class="ch-subtitle">假�?大�?�?��会继�?��以前�?�?��错�?</div>
-    <div class="ch-summary">恐惧和希望是永远不会改变的本性�?�空头卖出股票能赚大钱的�?��机会出现在高价区�?/div>
+    <span class="ch-num">第十九章</span>
+    <div class="ch-title">投机成功的基础</div>
+    <div class="ch-subtitle">假设大家未来会继续犯以前所犯的错误</div>
+    <div class="ch-summary">恐惧和希望是永远不会改变的本性。空头卖出股票能赚大钱的唯一机会出现在高价区。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?��十章</span>
-    <div class="ch-title">不�?指望把利润救回来</div>
-    <div class="ch-subtitle">在还能出脱且能廉价出脱时，赶�?���?/div>
-    <div class="ch-summary">股市如战场，牢�?战略和战�?���?��。一旦发现自己做错，�?��回头，立刻改正�??/div>
+    <span class="ch-num">第二十章</span>
+    <div class="ch-title">不要指望把利润救回来</div>
+    <div class="ch-subtitle">在还能出脱且能廉价出脱时，赶快脱身</div>
+    <div class="ch-summary">股市如战场，牢记战略和战术的差别。一旦发现自己做错，瞬间回头，立刻改正。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?��十一�?/span>
-    <div class="ch-title">在景气热�?��</div>
-    <div class="ch-subtitle">大众总赚账面利润，却亏在流连�?��</div>
-    <div class="ch-summary">投机客�?尽早�??大势（能就�?�?��不能就等待），否则买卖将沦为赌博�?/div>
+    <span class="ch-num">第二十一章</span>
+    <div class="ch-title">在景气热潮中</div>
+    <div class="ch-subtitle">大众总赚账面利润，却亏在流连太久</div>
+    <div class="ch-summary">投机客要尽早确认大势（能就行动，不能就等待），否则买卖将沦为赌博。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?��十二�?/span>
-    <div class="ch-title">狗绝不会有反对咬狗的愚蠢偏�?</div>
-    <div class="ch-subtitle">在华尔�?做空时�?不�?价格卖出</div>
-    <div class="ch-summary">生气没有任何好�?，爱生气�?��机�?的致命伤。空头市场�?真�?不�?价格卖出�?/div>
+    <span class="ch-num">第二十二章</span>
+    <div class="ch-title">狗绝不会有反对咬狗的愚蠢偏见</div>
+    <div class="ch-subtitle">在华尔街做空时要不计价格卖出</div>
+    <div class="ch-summary">生气没有任何好处，爱生气是投机客的致命伤。空头市场要真正不计价格卖出。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?��十三�?/span>
-    <div class="ch-title">警惕匿名的权威言�?/div>
-    <div class="ch-subtitle">投机失败源于�?��、恐惧�?�虚荣心和无法控制的希望</div>
-    <div class="ch-summary">知道�?么应该做，与知道�?么不应�?做几乎一样重要�?��?头市场中留恋�?���?��损的原因�?/div>
+    <span class="ch-num">第二十三章</span>
+    <div class="ch-title">警惕匿名的权威言论</div>
+    <div class="ch-subtitle">投机失败源于贪婪、恐惧、虚荣心和无法控制的希望</div>
+    <div class="ch-summary">知道什么应该做，与知道什么不应该做几乎一样重要。多头市场中留恋太久是亏损的原因。</div>
   </div>
 
   <div class="chapter-card">
-    <span class="ch-num">�?��十四�?/span>
-    <div class="ch-title">大众应�?终�?住股票交易的要素</div>
-    <div class="ch-subtitle">股价上涨不需要解释，�?��跟随趋势</div>
-    <div class="ch-summary">持续买进推高价格，阻力最小路线从向上变成向下时就�?��出时机�?�投机不�?��百分之百安全，�?损是保险�?/div>
+    <span class="ch-num">第二十四章</span>
+    <div class="ch-title">大众应始终记住股票交易的要素</div>
+    <div class="ch-subtitle">股价上涨不需要解释，只需跟随趋势</div>
+    <div class="ch-summary">持续买进推高价格，阻力最小路线从向上变成向下时就是卖出时机。投机不可能百分之百安全，止损是保险。</div>
   </div>
 </div>
 
@@ -841,70 +644,70 @@
 
 <div class="rule-list">
   <div class="rule-item">
-    <p><strong>寻找�?小阻力位</strong> �?价格像水�?样，总是沿着阻力�?小的�?��移动。在上涨行情�?��入，在下跌�?情中卖出。�?�过"试单-验证"机制探测趋势：先�?%仓位试探性建仓，若价格朝预期方向移动3%则加仓，反向突破关键点位立即止损�?/p>
+    <p><strong>寻找最小阻力位</strong> — 价格像水一样，总是沿着阻力最小的路线移动。在上涨行情中买入，在下跌行情中卖出。通过"试单-验证"机制探测趋势：先以5%仓位试探性建仓，若价格朝预期方向移动3%则加仓，反向突破关键点位立即止损。</p>
   </div>
   <div class="rule-item">
-    <p><strong>不�?频繁交易</strong> �?�?��行情出现明显趋势时才进�?交易。每天或每周都操作是失败者的玩法。每年仅有�?寥可数的几�?机会，可能只有四五�?。当市场缺乏大好机会时，选择场�?观望�?/p>
+    <p><strong>不要频繁交易</strong> — 只在行情出现明显趋势时才进行交易。每天或每周都操作是失败者的玩法。每年仅有寥寥可数的几次机会，可能只有四五次。当市场缺乏大好机会时，选择场外观望。</p>
   </div>
   <div class="rule-item">
-    <p><strong>顺势而为</strong> �?交易方向要与总体市场保持�?致�?�在多头市场看�?，在空头市场看空。一定�?等到大盘上涨时才�?始买进，或在大盘下跌时才做空。大盘环境不好时，再好的股票也难以独善其�???/p>
+    <p><strong>顺势而为</strong> — 交易方向要与总体市场保持一致。在多头市场看多，在空头市场看空。一定要等到大盘上涨时才开始买进，或在大盘下跌时才做空。大盘环境不好时，再好的股票也难以独善其身。</p>
   </div>
   <div class="rule-item">
-    <p><strong>耐心等待关键�?/strong> �?等市场证明你的�?点后再交易，不�?先入为主做�?测�?�介入�?�关�?��包括：整数关口突破（�?伴随成交量放大）、历史新�?新低突破（需连续3日站稳）、�?体震荡突破（持续时间>20�?��易日）�??/p>
+    <p><strong>耐心等待关键点</strong> — 等市场证明你的观点后再交易，不要先入为主做预测性介入。关键点包括：整数关口突破（需伴随成交量放大）、历史新高/新低突破（需连续3日站稳）、箱体震荡突破（持续时间>20个交易日）。</p>
   </div>
   <div class="rule-item">
-    <p><strong>�?��亏损，�?利润奔跑</strong> �?把自己的首�?损失控制�?0%以内。亏损就�?���?���?��惩罚，赚钱就�?���??�?��报酬。亏损后不�?试图加仓挽救，盈利后要敢于持有�??/p>
+    <p><strong>截断亏损，让利润奔跑</strong> — 把自己的首次损失控制在10%以内。亏损就是判断错误的惩罚，赚钱就是判断正确的报酬。亏损后不要试图加仓挽救，盈利后要敢于持有。</p>
   </div>
   <div class="rule-item">
-    <p><strong>做�?头羊</strong> �?做�?就做�?强的，做空就做最弱的。追随�?头�?业和强势行业�?��领头股票。�?头羊股票突破阻力区域、率先创造新高�?��?住：今天的�?头羊不会�?��年后的�?头羊�?/p>
+    <p><strong>做领头羊</strong> — 做多就做最强的，做空就做最弱的。追随领头行业和强势行业中的领头股票。领头羊股票突破阻力区域、率先创造新高。记住：今天的领头羊不会是两年后的领头羊。</p>
   </div>
   <div class="rule-item">
-    <p><strong>绝不平摊亏损头�?</strong> �?如果首笔交易已经处于亏损状�?�，绝不要继�?��进�?�浮亏意味着判断错�?，加仓只会放大�?险�?��?�?��策略�?��首�?交易盈利后再加仓，且每�?加码价格应高于前�?次�??/p>
+    <p><strong>绝不平摊亏损头寸</strong> — 如果首笔交易已经处于亏损状态，绝不要继续跟进。浮亏意味着判断错误，加仓只会放大风险。正确的策略是：首次交易盈利后再加仓，且每次加码价格应高于前一次。</p>
   </div>
   <div class="rule-item">
-    <p><strong>及时止损</strong> �?�?��投机事业持续下去的唯�?抉择�?��心守护自己的资本账户。决不允许亏损大到足以威胁未来操作的程度。留得青山在，不怕没柴烧。�?损就像给�?��的投机生�?��保险�?/p>
+    <p><strong>及时止损</strong> — 确保投机事业持续下去的唯一抉择是小心守护自己的资本账户。决不允许亏损大到足以威胁未来操作的程度。留得青山在，不怕没柴烧。止损就像给自己的投机生涯上保险。</p>
   </div>
   <div class="rule-item">
-    <p><strong>不因价格高低而不�?���?/strong> �?股票永远不会�?��，高到�?你不能开始买进；也永远不会太低，低到不能�?始卖出�?�关�?��于恰当的时机，�?�非价格�?��。不要在下跌时买入做多，�?��上涨时买入�??/p>
+    <p><strong>不因价格高低而不敢买卖</strong> — 股票永远不会太高，高到让你不能开始买进；也永远不会太低，低到不能开始卖出。关键在于恰当的时机，而非价格本身。不要在下跌时买入做多，只在上涨时买入。</p>
   </div>
   <div class="rule-item">
-    <p><strong>市场永远�??�?/strong> �?不�?和市场争辩�?�错�?��会在�?���?��。投机�?�必须控制的�?大问题就�?��己的情绪。情�?��制是市场�?��重�?的因素�?�亏损时从自己身上找原因�?/p>
+    <p><strong>市场永远是对的</strong> — 不要和市场争辩。错误只会在自己身上。投机者必须控制的最大问题就是自己的情绪。情绪控制是市场中最重要的因素。亏损时从自己身上找原因。</p>
   </div>
 </div>
 
 <!-- ====== 关键概念 ====== -->
-<h2 id="concepts" class="section-title">�? 关键概念</h2>
+<h2 id="concepts" class="section-title">🧠 关键概念</h2>
 
 <div class="concept-grid">
   <div class="concept-card">
     <div class="icon">🎯</div>
-    <h4>关键�?(Pivotal Point)</h4>
-    <p>股票价格运动�?��关键�?��位置。突破关�?���?�?意味�?行情加�?��?�关�?��越重要，突破后的行情越大�?/p>
+    <h4>关键点 (Pivotal Point)</h4>
+    <p>股票价格运动中的关键转折位置。突破关键点往往意味着行情加速。关键点越重要，突破后的行情越大。</p>
   </div>
   <div class="concept-card">
     <div class="icon">📏</div>
-    <h4>�?小阻力线 (LOLR)</h4>
-    <p>价格总是沿着阻力�?小的方向移动。只要参与进来，跟随趋势交易就�?，无�?预测。上涨做多，下跌做空�?/p>
+    <h4>最小阻力线 (LOLR)</h4>
+    <p>价格总是沿着阻力最小的方向移动。只要参与进来，跟随趋势交易就行，无需预测。上涨做多，下跌做空。</p>
   </div>
   <div class="concept-card">
     <div class="icon">🐏</div>
-    <h4>领头�?(Leaders)</h4>
-    <p>每个牛市�?��龙头板块和龙头股票�?�利弗莫尔强调只做最强的股票，不做跟风股。�?头羊会随经济结构变化而更替�??/p>
+    <h4>领头羊 (Leaders)</h4>
+    <p>每个牛市中的龙头板块和龙头股票。利弗莫尔强调只做最强的股票，不做跟风股。领头羊会随经济结构变化而更替。</p>
   </div>
   <div class="concept-card">
     <div class="icon">🔺</div>
-    <h4>金字塔加�?/h4>
-    <p>�?��盈利的头寸上加码，且每�?加码价格高于前一次�?�例�?5%�?0%仓位�?10%�?0%仓位�?15%�?0%仓位�?/p>
+    <h4>金字塔加仓</h4>
+    <p>只在盈利的头寸上加码，且每次加码价格高于前一次。例：+5%加30%仓位，+10%加20%仓位，+15%加10%仓位。</p>
   </div>
   <div class="concept-card">
     <div class="icon">🧩</div>
     <h4>分批建仓</h4>
-    <p>首�?建仓�?��总仓位的20%-30%以试探市场�?��?果方向�?�?��加仓。方向错�?��即�?损�?�小仓位验证，大仓位盈利�?/p>
+    <p>首次建仓只用总仓位的20%-30%以试探市场。如果方向正确再加仓。方向错误立即止损。小仓位验证，大仓位盈利。</p>
   </div>
   <div class="concept-card">
-    <div class="icon">�?</div>
+    <div class="icon">🧘</div>
     <h4>坐稳不动</h4>
-    <p>赚大钱的关键不是操作频率，�?�是判断对趋势后坐稳的能力�?�没有人因为频繁交易而致富，都是因为抓住大趋势获利�??/p>
+    <p>赚大钱的关键不是操作频率，而是判断对趋势后坐稳的能力。没有人因为频繁交易而致富，都是因为抓住大趋势获利。</p>
   </div>
 </div>
 
@@ -912,92 +715,186 @@
 <h2 id="cases" class="section-title">⚔️ 经典案例</h2>
 
 <div class="case-card">
-  <h4>🔥 1907年金融恐慌：做空获利100万美�?/h4>
-  <p>1907年，当�?数人仍在狂�?时，利弗�?��观察到信用环境在紧缩：上市公司打折发�?��股，经纪商头寸紧张，多�?�?��破产。他大举做空市场�?��活跃的股票�??0月市场崩盘，他一天内赚得100万美元，并获得金融巨鳄J.P.摩根的赞誉�?�这次成功来�?���?��分析—�?��?市场大趋势的准确把握�?/p>
+  <h4>🔥 1907年金融恐慌：做空获利100万美元</h4>
+  <p>1907年，当多数人仍在狂欢时，利弗莫尔观察到信用环境在紧缩：上市公司打折发售新股，经纪商头寸紧张，多家公司破产。他大举做空市场中最活跃的股票。10月市场崩盘，他一天内赚得100万美元，并获得金融巨鳄J.P.摩根的赞誉。这次成功来自基本面分析——对市场大趋势的准确把握。</p>
 </div>
 
 <div class="case-card">
-  <h4>⚔️ 1915年伯利恒钢铁之战：起死回�?/h4>
-  <p>�?��次破产后欠百万美元巨债�??915�?月起看好�?��恒钢铁，但大盘未显强度�?��?�他蛰伏3�?��。直�?月底道琼�?��业指数走强，�?��恒钢�?月初大涨。他耐心等待股价突破100美元整数关口后出手�?�利弗莫尔�?�结：一�?��票�?次越�?00�?00�?00美元时，几乎总�?继续上涨30�?0美元�?/p>
+  <h4>⚔️ 1915年伯利恒钢铁之战：起死回生</h4>
+  <p>第三次破产后欠百万美元巨债。1915年2月起看好伯利恒钢铁，但大盘未显强度——他蛰伏3个月。直到5月底道琼斯工业指数走强，伯利恒钢铁6月初大涨。他耐心等待股价突破100美元整数关口后出手。利弗莫尔总结：一支股票首次越过100、200或300美元时，几乎总要继续上涨30到50美元。</p>
 </div>
 
 <div class="case-card">
-  <h4>🌪�?1929年黑色星期四：做空赚�?亿美�?/h4>
-  <p>利弗�?��达到事业巅峰的交易�?�他早在市场狂热时就�?始�?��?做空�?929�?0�?4�?黑色星期�?，美国股市大崩盘，利弗莫尔�?�过做空赚取1亿美元，相当于当年美国财政收�?2亿美元的�?.4%。然而仅�?年后，他再�?破产—�?�印证了他自己所说的"没有人能始终如一战胜市场"�?/p>
+  <h4>🌪️ 1929年黑色星期四：做空赚取1亿美元</h4>
+  <p>利弗莫尔达到事业巅峰的交易。他早在市场狂热时就开始逐步做空。1929年10月24日"黑色星期四"，美国股市大崩盘，利弗莫尔通过做空赚取1亿美元，相当于当年美国财政收入42亿美元的约2.4%。然而仅仅4年后，他再次破产——印证了他自己所说的"没有人能始终如一战胜市场"。</p>
 </div>
 
 <div class="case-card">
   <h4>💔 棉花期货惨败：听信他人的代价</h4>
-  <p>1908年，利弗�?��遇到�?棉花大王"�?西·托�?��。托�?��以雄辩和魅力让他放弃了自己看空市场的判断改为做�?棉花。尽管他�?初只�?��仓位尝试，但托马�?���??服他加仓，最终损失数百万美元。这次教�??他深刻�?悟："没有人能靠别人告诉他要�?�么做赚大钱"�?/p>
+  <p>1908年，利弗莫尔遇到了"棉花大王"珀西·托马斯。托马斯以雄辩和魅力让他放弃了自己看空市场的判断改为做多棉花。尽管他最初只是小仓位尝试，但托马斯不断说服他加仓，最终损失数百万美元。这次教训让他深刻领悟："没有人能靠别人告诉他要怎么做赚大钱"。</p>
 </div>
 
-<!-- ====== 实战�?�� ====== -->
-<h2 id="insights" class="section-title">💡 现代实战�?��</h2>
+<!-- ====== 实战启示 ====== -->
+<h2 id="insights" class="section-title">💡 现代实战启示</h2>
 
 <div class="insight-card">
-  <h4>🎯 1. 追随趋势而不�??�?/h4>
-  <p>利弗�?��的核心哲学是"跟随而非预测"。不猜测顶底，只�??趋势形成后参与�?�突破关�?��买入，跌破关�?��卖出。在A股市场，这个概念�?��通过均线系统（�?60日均线）或前高突破来落地执�?�?/p>
+  <h4>🎯 1. 追随趋势而不是预测</h4>
+  <p>利弗莫尔的核心哲学是"跟随而非预测"。不猜测顶底，只确认趋势形成后参与。突破关键点买入，跌破关键点卖出。在A股市场，这个概念可以通过均线系统（如60日均线）或前高突破来落地执行。</p>
 </div>
 
 <div class="insight-card">
-  <h4>�?2. 情绪控制�??�?位的</h4>
-  <p>利弗�?��反�?强调情绪�?��大敌人�?�现代交易�?�面临同样的心理陷阱�?
+  <h4>⚡ 2. 情绪控制是第一位的</h4>
+  <p>利弗莫尔反复强调情绪是最大敌人。现代交易者面临同样的心理陷阱：
   <ul style="margin-top:8px;">
-    <li><strong>恐惧</strong>：盈利时过早止盈，�?�利润回�?/li>
-    <li><strong>�?��</strong>：亏损时死扛期待反弹，或想赚到最后一�?���?/li>
-    <li><strong>希望</strong>：抱�?错�?头�?不放，寄希望�?会回来的"</li>
-    <li><strong>冲动</strong>：看到大涨�?�跌就追涨杀�?/li>
+    <li><strong>恐惧</strong>：盈利时过早止盈，怕利润回吐</li>
+    <li><strong>贪婪</strong>：亏损时死扛期待反弹，或想赚到最后一个铜板</li>
+    <li><strong>希望</strong>：抱着错误头寸不放，寄希望于"会回来的"</li>
+    <li><strong>冲动</strong>：看到大涨急跌就追涨杀跌</li>
   </ul>
-  建�?：严格执行交易�?划，用机器�?则�?抗人性本能�??/p>
+  建议：严格执行交易计划，用机器规则对抗人性本能。</p>
 </div>
 
 <div class="insight-card">
-  <h4>💰 3. 资金管理�?��存的基石</h4>
-  <p>单笔交易风险不超过�?�资金的2%。账户回撤达10%时强制停�?��易一周�?�拿出一半利润作为现金储备�?�A股实战：每�?�?仓不超�?�资20%，�?损�?3%-5%，分批买入�?�非�?把�?哈�??/p>
+  <h4>💰 3. 资金管理是生存的基石</h4>
+  <p>单笔交易风险不超过总资金的2%。账户回撤达10%时强制停止交易一周。拿出一半利润作为现金储备。A股实战：每次开仓不超总资20%，止损设3%-5%，分批买入而非一把梭哈。</p>
 </div>
 
 <div class="insight-card">
-  <h4>📊 4. 先大盘后�?��</h4>
-  <p>永远在确定大盘环境后才交易�?�大盘�?于上升趋势时做�?�?��，下降趋势时做空或空仓�?�大盘震荡时避免交易。A股中�?��考上证指�?创业板指的大趋势，结合成交量判断市场情绪�?/p>
+  <h4>📊 4. 先大盘后个股</h4>
+  <p>永远在确定大盘环境后才交易。大盘处于上升趋势时做多个股，下降趋势时做空或空仓。大盘震荡时避免交易。A股中可参考上证指数/创业板指的大趋势，结合成交量判断市场情绪。</p>
 </div>
 
 <div class="insight-card">
-  <h4>🏆 5. �?��龙头不做跟�?</h4>
-  <p>每天研究板块强弱排�?榜，�?��与最强的板块和最强的�?��。A股中�?龙头战法"实际上与利弗�?��的�?头羊理�?�?脉相承�?�做多最强的，做空最弱的�?/p>
+  <h4>🏆 5. 只做龙头不做跟风</h4>
+  <p>每天研究板块强弱排行榜，只参与最强的板块和最强的个股。A股中的"龙头战法"实际上与利弗莫尔的领头羊理论一脉相承。做多最强的，做空最弱的。</p>
 </div>
 
 <div class="insight-card">
-  <h4>📝 6. 交易日�?与�?�?/h4>
-  <p>利弗�?��坚持记录每一次操作，尤其�?��损操作，分析原因避免再犯。现代交易�?�也应坚持写交易日�?：�?录入场理由�?�出场条件�?�情�?��态�?�每周末复盘，找出系统�?�问题�??/p>
+  <h4>📝 6. 交易日记与复盘</h4>
+  <p>利弗莫尔坚持记录每一次操作，尤其是亏损操作，分析原因避免再犯。现代交易者也应坚持写交易日记：记录入场理由、出场条件、情绪状态。每周末复盘，找出系统性问题。</p>
 </div>
 
 <div class="insight-card">
-  <h4>�?7. 80%时间等待�?0%时间行动</h4>
-  <p>利弗�?���?坐稳不动"哲�?�?��拆解为：趋势�?��成时耐心等待�?0%时间），趋势�??后果�??动并持有�?0%时间）�?�在A股中，一年真正�?�得重仓的大机会�?���?��2-3次�??/p>
+  <h4>⏳ 7. 80%时间等待，20%时间行动</h4>
+  <p>利弗莫尔的"坐稳不动"哲学可以拆解为：趋势未形成时耐心等待（80%时间），趋势确认后果断行动并持有（20%时间）。在A股中，一年真正值得重仓的大机会可能只有2-3次。</p>
 </div>
 
 <div class="insight-card">
-  <h4>🛡�?8. 不接受内幕消�?/h4>
-  <p>利弗�?��用惨痛教�?���?��人：内幕消息�?��资人�?�?��破产方式之一。即使消�?��真的，也无法掌握买卖时机。坚持独立判�?��用自己的方法分析市场�?/p>
+  <h4>🛡️ 8. 不接受内幕消息</h4>
+  <p>利弗莫尔用惨痛教训告诫后人：内幕消息是投资人最快的破产方式之一。即使消息是真的，也无法掌握买卖时机。坚持独立判断，用自己的方法分析市场。</p>
 </div>
 
 </div><!-- /container -->
 
 <!-- ====== 页脚 ====== -->
-
+<div class="footer">
+  <p>《股票大作手回忆录》Reminiscences of a Stock Operator</p>
+  <p>埃德温·勒费弗 (Edwin Lefèvre) 著 · 杰西·利弗莫尔 原型</p>
+  <p style="margin-top:8px;">内容整理自公开资料 · 仅供学习参考，不构成投资建议</p>
+  <p style="margin-top:4px;">"投机如山岳般古老，人性却从不改变"</p>
+</div>
 
 <!-- KG: Knowledge Hub Tracker -->
-
-
+<script src="tracker.js"></script>
+<script>
+(function(){
+  var itemId = "stock_operator_manual.html";
+  var title = "股票大作手回忆录";
+  KG.setStatus(itemId, 'reading');
+  KG.logVisit(itemId, title);
+  // Add overlay status bar
+  var div = document.createElement('div');
+  div.id = 'kg-status-bar';
+  div.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#161b22;border-top:1px solid #30363d;padding:6px 16px;display:flex;align-items:center;gap:10px;font-size:12px;color:#8b949e;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC",sans-serif;';
+  var status = KG.getStatus(itemId);
+  div.innerHTML = 
+    '<span>📖 <b style="color:#e6edf3">' + title + '</b></span>' +
+    '<span style="color:#8b949e">|</span>' +
+    '<span id="kgStatusLabel" style="color:' + (status==="completed"?"#3fb950":"#d29922") + '">' + (status==="completed"?"✅ 已读完":"📖 阅读中") + '</span>' +
+    '<span style="color:#8b949e">|</span>' +
+    '<a href="javascript:void(0)" onclick="KG_setCompleted()" style="color:#58a6ff;text-decoration:none;">标记已完成</a>' +
+    '<span style="color:#8b949e">|</span>' +
+    '<a href="javascript:void(0)" onclick="KG_showNotes()" style="color:#3fb950;text-decoration:none;">✏️ 添加笔记</a>' +
+    '<span style="color:#8b949e">|</span>' +
+    '<a href="index.html" style="color:#8b949e;text-decoration:none;">← 返回知识库</a>';
+  document.body.appendChild(div);
+  // Add bottom margin
+  document.body.style.marginBottom = '40px';
+  // Global functions
+  window.KG_setCompleted = function() {
+    KG.setStatus(itemId, 'completed');
+    document.getElementById('kgStatusLabel').textContent = '✅ 已读完';
+    document.getElementById('kgStatusLabel').style.color = '#3fb950';
+  };
+  window.KG_showNotes = function() {
+    var content = prompt('📝 添加你的读书笔记：');
+    if (content) {
+      KG.addNote(itemId, content);
+      alert('✅ 笔记已保存！');
+    }
+  };
+})();
+</script>
 
 
 
 <!-- Knowledge Base Status Bar -->
+<script src="tracker.js"></script>
+<script>
+(function() {
+  var itemId = 'stock_operator_manual';
+  var itemTitle = '股票大作手回忆录';
 
-<div class="footer">
-<span>📖 《股票大作手回忆录�?��?交易哲�?学习手册</span>
-<a href="index.html">�?返回首页</a>
-</div>
+  // Initialize tracking
+  if (typeof KG !== 'undefined' && KG.logVisit) {
+    KG.logVisit(itemId);
+    KG.logVisitHistory(itemId, itemTitle);
+    KG.initFirstReview(itemId);
+  }
+
+  // Build status bar
+  var status = KG.getStatus ? KG.getStatus(itemId) : null;
+  var isBm = KG.isBookmarked ? KG.isBookmarked(itemId) : false;
+  var stats = KG.getStats ? KG.getStats(itemId) : {visits: 0, totalTimeMs: 0};
+  var noteCount = KG.getNotes ? KG.getNotes(itemId).length : 0;
+
+  var bar = document.createElement('div');
+  bar.id = 'kg-status-bar';
+  bar.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#161b22;border-top:1px solid #30363d;padding:8px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:0.8rem;color:#e6edf3;backdrop-filter:blur(8px);';
+
+  var statusIcon = status === 'completed' ? '✅' : status === 'reading' ? '📖' : '⚪';
+  var statusText = status === 'completed' ? '已完成' : status === 'reading' ? '阅读中' : '未开始';
+
+  bar.innerHTML =
+    '<span style="font-weight:600;color:#58a6ff;font-size:0.82rem;">' + itemTitle + '</span>' +
+    '<span style="color:#8b949e;">|</span>' +
+    '<span>' + statusIcon + ' ' + statusText + '</span>' +
+    '<span style="color:#8b949e;">|</span>' +
+    '<span>👁️ ' + (stats.visits || 0) + '次</span>' +
+    '<span style="color:#8b949e;">|</span>' +
+    '<span>📝 ' + noteCount + '条</span>' +
+    '<span style="margin-left:auto;display:flex;gap:6px;">' +
+      '<button onclick="KG_toggleRead(\'' + itemId + '\')" style="padding:4px 10px;border-radius:6px;border:1px solid #30363d;background:#21262d;color:#e6edf3;cursor:pointer;font-size:0.75rem;">' + (status === 'completed' ? '↩ 重读' : '✅ 读完') + '</button>' +
+      '<button onclick="KG_showNoteDialog(\'' + itemId + '\')" style="padding:4px 10px;border-radius:6px;border:1px solid #30363d;background:#21262d;color:#e6edf3;cursor:pointer;font-size:0.75rem;">✏️ 笔记</button>' +
+      '<a href="index.html" style="padding:4px 10px;border-radius:6px;border:1px solid #30363d;background:#21262d;color:#e6edf3;text-decoration:none;font-size:0.75rem;">← 返回</a>' +
+    '</span>';
+
+  document.body.style.paddingBottom = '56px';
+  document.body.appendChild(bar);
+
+  // Track reading time
+  var startTime = Date.now();
+  window.addEventListener('beforeunload', function() {
+    if (KG.logTime) KG.logTime(itemId, Date.now() - startTime);
+  });
+
+  // Init annotation on this page
+  if (typeof KG_initAnnotation === 'function') {
+    KG_initAnnotation(itemId);
+  }
+})();
+</script>
 
 </body>
 </html>
+
