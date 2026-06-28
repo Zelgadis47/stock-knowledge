@@ -189,12 +189,13 @@ check(".gitattributes 存在 + working-tree-encoding", check_gitattributes)
 # ── 9. encoding-guard.py ──
 print("\n=== Encoding Guard (运行时防火墙) ===")
 def check_encoding_guard():
-    guard_path = os.path.join(os.path.dirname(ROOT), 'scripts', 'encoding-guard.py')
+    # encoding-guard is a dev tool, check workspace-level scripts/
+    guard_path = os.path.abspath(os.path.join(ROOT, '..', 'scripts', 'encoding-guard.py'))
     if not os.path.exists(guard_path):
-        # Try scripts/ in project root
-        guard_path = os.path.join(ROOT, 'scripts', 'encoding-guard.py')
+        # Also check workspace root
+        guard_path = os.path.abspath(os.path.join(ROOT, '..', 'scripts', 'encoding-guard.py'))
     if not os.path.exists(guard_path):
-        raise Exception("encoding-guard.py 不存在")
+        raise Exception("encoding-guard.py 不存在于 scripts/ 中")
     return True
 
 check("encoding-guard.py 存在", check_encoding_guard)

@@ -17,10 +17,10 @@ const KG = (function() {
     HISTORY: 'kg_history_v3',      // [ { id, title, timestamp } ]
   };
 
-  function get(key) { return JSON.parse(localStorage.getItem(key) || '{}'); }
-  function set(key, val) { localStorage.setItem(key, JSON.stringify(val)); }
-  function getArr(key) { return JSON.parse(localStorage.getItem(key) || '[]'); }
-  function setArr(key, val) { localStorage.setItem(key, JSON.stringify(val)); }
+  function get(key) { try { return JSON.parse(localStorage.getItem(key) || '{}'); } catch(e) { console.warn('KG storage read failed:', key, e); return {}; } }
+  function set(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch(e) { console.warn('KG storage write failed (quota exceeded?):', key, e); } }
+  function getArr(key) { try { return JSON.parse(localStorage.getItem(key) || '[]'); } catch(e) { console.warn('KG storage read failed:', key, e); return []; } }
+  function setArr(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch(e) { console.warn('KG storage write failed (quota exceeded?):', key, e); } }
 
   return {
     // ==================== PROGRESS ====================

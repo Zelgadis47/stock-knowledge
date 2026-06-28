@@ -273,6 +273,9 @@ function KG_setBmModal(){
 }
 function KG_closeModal(){ document.getElementById('modalOverlay').classList.remove('active'); KG_modalId=null; }
 
+// Escape key to close modal
+document.addEventListener('keydown', function(e){ if(e.key==='Escape'&&KG_modalId) KG_closeModal(); });
+
 function KG_doSearch(){ KG_renderBooks(document.getElementById('searchBox').value); }
 
 function KG_renderTags(){
@@ -322,6 +325,10 @@ function KG_renderGraph(){
     }]
   });
   chart.on('click', function(p){ if(p.dataType==='node' && !p.id.startsWith('tag_')) KG_openModal(p.id); });
+  // Auto-resize on window change
+  window._kgChart = chart;
+  window._kgChartResize = function(){ setTimeout(function(){ if(window._kgChart && !window._kgChart.isDisposed()) window._kgChart.resize(); }, 200); };
+  window.addEventListener('resize', window._kgChartResize);
 }
 
 function KG_renderStatsPanel(){
