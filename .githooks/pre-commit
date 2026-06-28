@@ -1,34 +1,26 @@
-#!/usr/bin/env python3
-"""Git pre-commit hook — 桀洛 & 嘉娜的知识库"""
-import os, sys, subprocess
+#!/bin/sh
+# Git pre-commit hook - 桀洛 & 嘉娜的知识库
+# 每次 commit 前自动运行部署检查，失败则阻止提交
 
-# Force UTF-8 for stdout/stderr (handles Windows GBK terminal)
-os.environ.setdefault('PYTHONIOENCODING', 'utf-8')
-sys.stdout.reconfigure(encoding='utf-8', errors='replace')
-sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+export PYTHONIOENCODING="utf-8"
 
-REPO_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), '..'))
-CHECK_SCRIPT = os.path.join(REPO_ROOT, 'scripts', 'deploy-check.py')
+CHECK_SCRIPT="$(dirname "$0")/../scripts/deploy-check.py"
+if [ ! -f "$CHECK_SCRIPT" ]; then
+    echo "[pre-commit] deploy-check.py not found, skipping."
+    exit 0
+fi
 
-if not os.path.exists(CHECK_SCRIPT):
-    print("[pre-commit] deploy-check.py not found, skipping.")
-    sys.exit(0)
+echo "[pre-commit] Running deploy-check.py ..."
 
-print("[pre-commit] Running deploy-check.py ...")
-result = subprocess.run(
-    [sys.executable, CHECK_SCRIPT],
-    cwd=REPO_ROOT,
-    capture_output=True, text=True, encoding='utf-8',
-)
+python "$CHECK_SCRIPT"
+RESULT=$?
 
-print(result.stdout)
+if [ $RESULT -ne 0 ]; then
+    echo ""
+    echo "[FAIL] Pre-commit check failed! Commit blocked."
+    echo "To skip: git commit --no-verify"
+    exit 1
+fi
 
-if result.returncode != 0:
-    print("[FAIL] Pre-commit check failed! Commit blocked.")
-    if result.stderr.strip():
-        print(result.stderr)
-    print("\nTo skip check: git commit --no-verify")
-    sys.exit(1)
-
-print("[PASS] All checks passed, commit continues.")
-sys.exit(0)
+echo "[PASS] All checks passed, commit continues."
+exit 0
