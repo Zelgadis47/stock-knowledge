@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《投资最重要的事》— 霍华德·马克斯 学习手册</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  :root {
+    --bg: #0d1117;
+    --bg-card: #161b22;
+    --bg-card-hover: #1c2333;
+    --border: #30363d;
+    --border-accent: #58a6ff;
+    --text: #c9d1d9;
+    --text-dim: #8b949e;
+    --text-bright: #f0f6fc;
+    --accent: #58a6ff;
+    --accent2: #3fb950;
+    --accent3: #d29922;
+    --accent4: #f85149;
+    --accent5: #bc8cff;
+    --gold: #d4a843;
+    --gold-light: #f0d68a;
+    --shadow: 0 4px 20px rgba(0,0,0,.4);
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text-dim); }
+
+  /* Navigation */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(13,17,23,.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    display: flex; align-items: center; height: 56px;
+    gap: 16px; overflow-x: auto;
+  }
+  nav::-webkit-scrollbar { height: 2px; }
+  nav .logo {
+    font-weight: 800; font-size: 14px; white-space: nowrap;
+    color: var(--gold); flex-shrink: 0;
+    text-decoration: none;
+  }
+  nav a {
+    color: var(--text-dim); text-decoration: none; font-size: 13px;
+    font-weight: 500; white-space: nowrap; transition: color .2s;
+    padding: 4px 8px; border-radius: 6px;
+  }
+  nav a:hover { color: var(--text-bright); background: rgba(255,255,255,.06); }
+
+  /* Hero */
+  .hero {
+    min-height: 70vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center;
+    padding: 100px 24px 60px;
+    background: radial-gradient(ellipse at 50% 0%, rgba(88,166,255,.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 40%, rgba(188,140,255,.06) 0%, transparent 50%);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute;
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(212,168,67,.04) 0%, transparent 70%);
+    top: -200px; right: -200px;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(212,168,67,.12);
+    border: 1px solid rgba(212,168,67,.3);
+    color: var(--gold-light); padding: 6px 18px;
+    border-radius: 20px; font-size: 13px; font-weight: 600;
+    margin-bottom: 24px; letter-spacing: 1px;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 900; color: var(--text-bright);
+    max-width: 800px; line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .hero h1 span { background: linear-gradient(135deg, var(--gold-light), var(--accent3), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero .subtitle {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--text-dim); max-width: 640px;
+    margin-bottom: 32px;
+  }
+  .hero .meta {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    justify-content: center; font-size: 14px; color: var(--text-dim);
+  }
+  .hero .meta span { padding: 4px 14px; background: var(--bg-card); border-radius: 6px; border: 1px solid var(--border); }
+
+  .scroll-indicator {
+    margin-top: 40px; animation: bounce 2s infinite;
+    color: var(--text-dim); font-size: 24px;
+  }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+
+  /* Sections */
+  .section {
+    max-width: 1100px; margin: 0 auto; padding: 80px 24px;
+  }
+  .section-title {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: 800; color: var(--text-bright);
+    margin-bottom: 8px;
+  }
+  .section-subtitle {
+    color: var(--text-dim); font-size: 15px;
+    margin-bottom: 40px; max-width: 600px;
+  }
+  .section-divider {
+    width: 60px; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--accent3));
+    border-radius: 2px; margin-bottom: 24px;
+  }
+
+  /* Author Card */
+  .author-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 24px; margin-top: 32px;
+  }
+  @media(max-width:768px){ .author-grid { grid-template-columns: 1fr; } }
+  .author-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 32px;
+    transition: all .3s;
+  }
+  .author-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow); }
+  .author-card h3 { color: var(--text-bright); font-size: 18px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .author-card p { color: var(--text-dim); font-size: 14px; line-height: 1.8; }
+
+  /* Cards Grid */
+  .card-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px;
+    transition: all .3s; position: relative;
+    cursor: default;
+  }
+  .card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow); }
+  .card.featured {
+    border-color: rgba(212,168,67,.4);
+    background: linear-gradient(135deg, rgba(212,168,67,.06), rgba(88,166,255,.04));
+  }
+  .card.featured:hover { border-color: var(--gold); }
+  .card .num {
+    font-size: 36px; font-weight: 900;
+    background: linear-gradient(135deg, var(--gold-light), var(--accent3));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 12px; line-height: 1;
+  }
+  .card h3 { color: var(--text-bright); font-size: 17px; margin-bottom: 8px; }
+  .card .badge {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    padding: 2px 10px; border-radius: 10px;
+    margin-bottom: 10px; letter-spacing: .5px;
+  }
+  .badge-core { background: rgba(212,168,67,.15); color: var(--gold-light); border: 1px solid rgba(212,168,67,.3); }
+  .badge-risk { background: rgba(248,81,73,.12); color: #f85149; border: 1px solid rgba(248,81,73,.3); }
+  .badge-defense { background: rgba(63,185,80,.12); color: var(--accent2); border: 1px solid rgba(63,185,80,.3); }
+  .badge-psych { background: rgba(188,140,255,.12); color: var(--accent5); border: 1px solid rgba(188,140,255,.3); }
+  .badge-cycle { background: rgba(210,153,34,.12); color: var(--accent3); border: 1px solid rgba(210,153,34,.3); }
+  .card .desc { color: var(--text-dim); font-size: 14px; line-height: 1.7; }
+  .card .quote {
+    margin-top: 12px; padding: 10px 14px;
+    background: rgba(255,255,255,.03); border-left: 3px solid var(--gold);
+    border-radius: 4px; font-size: 13px; color: var(--gold-light);
+    font-style: italic;
+  }
+
+  /* Concept Cards */
+  .concept-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .concept-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px;
+    transition: all .3s; position: relative;
+    overflow: hidden;
+  }
+  .concept-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(180deg, var(--accent), var(--accent2));
+    opacity: 0; transition: opacity .3s;
+  }
+  .concept-card:hover::before { opacity: 1; }
+  .concept-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow); }
+  .concept-card .icon { font-size: 32px; margin-bottom: 12px; }
+  .concept-card h3 { color: var(--text-bright); font-size: 16px; margin-bottom: 8px; }
+  .concept-card p { color: var(--text-dim); font-size: 14px; line-height: 1.7; }
+
+  /* Quotes */
+  .quotes-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 20px;
+  }
+  .quote-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 24px 28px;
+    position: relative;
+  }
+  .quote-card::before {
+    content: '\201C'; font-size: 60px; color: var(--gold);
+    opacity: .2; position: absolute; top: 8px; left: 16px;
+    font-family: Georgia, serif; line-height: 1;
+  }
+  .quote-card p { font-size: 15px; color: var(--text-bright); font-style: italic; line-height: 1.7; padding-left: 20px; }
+  .quote-card .source { font-size: 13px; color: var(--text-dim); margin-top: 10px; padding-left: 20px; font-style: normal; }
+  .quote-card .source::before { content: '— '; }
+
+  /* China Section */
+  .china-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+  }
+  .china-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px;
+    transition: all .3s;
+  }
+  .china-card:hover { border-color: var(--accent2); transform: translateY(-2px); box-shadow: var(--shadow); }
+  .china-card h3 { color: var(--accent2); font-size: 16px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .china-card p { color: var(--text-dim); font-size: 14px; line-height: 1.8; }
+  .china-card .tag {
+    display: inline-block; font-size: 11px; font-weight: 600;
+    padding: 2px 8px; border-radius: 4px;
+    background: rgba(63,185,80,.1); color: var(--accent2);
+    margin-top: 8px;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center; padding: 40px 24px;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim); font-size: 13px;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* Responsive */
+  @media(max-width:640px){
+    .section { padding: 48px 16px; }
+    .card-grid, .concept-grid, .quotes-grid, .china-grid { grid-template-columns: 1fr; }
+    nav .logo { font-size: 12px; }
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .card, .concept-card, .quote-card, .china-card, .author-card {
+    animation: fadeUp .5s ease-out both;
+  }
+  .card:nth-child(1) { animation-delay: .05s; }
+  .card:nth-child(2) { animation-delay: .1s; }
+  .card:nth-child(3) { animation-delay: .15s; }
+  .card:nth-child(4) { animation-delay: .2s; }
+  .card:nth-child(5) { animation-delay: .25s; }
+  .card:nth-child(6) { animation-delay: .3s; }
+  .card:nth-child(7) { animation-delay: .35s; }
+  .card:nth-child(8) { animation-delay: .4s; }
+  .card:nth-child(9) { animation-delay: .45s; }
+  .card:nth-child(10) { animation-delay: .5s; }
+  .card:nth-child(11) { animation-delay: .55s; }
+  .card:nth-child(12) { animation-delay: .6s; }
+  .card:nth-child(13) { animation-delay: .65s; }
+  .card:nth-child(14) { animation-delay: .7s; }
+  .card:nth-child(15) { animation-delay: .75s; }
+  .card:nth-child(16) { animation-delay: .8s; }
+  .card:nth-child(17) { animation-delay: .85s; }
+  .card:nth-child(18) { animation-delay: .9s; }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <a href="#" class="logo">📖 最重要的事</a>
+  <a href="#author">作者</a>
+  <a href="#principles">降龙十八掌</a>
+  <a href="#concepts">核心概念</a>
+  <a href="#quotes">经典语录</a>
+  <a href="#china">A股实战</a>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">🏆 价值投资必读经典</div>
+  <h1><span>投资最重要的事</span></h1>
+  <p class="subtitle">霍华德·马克斯 著 · 橡树资本联合创始人 · 被誉为「逆势投资大师」</p>
+  <div class="meta">
+    <span>📚 18 个投资原则</span>
+    <span>💡 第二层次思维</span>
+    <span>🛡️ 防御型投资</span>
+    <span>🔄 周期与钟摆</span>
+    <span>🎯 安全边际</span>
+  </div>
+  <div class="scroll-indicator">↓</div>
+</section>
+
+<!-- Author -->
+<section class="section" id="author">
+  <div class="section-divider"></div>
+  <h2 class="section-title">📖 作者简介</h2>
+  <p class="section-subtitle">霍华德·马克斯（Howard Marks）—— 投资界的哲学家</p>
+  <div class="author-grid">
+    <div class="author-card">
+      <h3>🎓 传奇经历</h3>
+      <p>霍华德·马克斯，橡树资本（Oaktree Capital）联合创始人兼联席董事长，管理资产超千亿美元。1969年毕业于沃顿商学院，1970年获芝加哥大学工商管理硕士学位。在花旗银行、TCW集团等机构从事投资近50年。</p>
+    </div>
+    <div class="author-card">
+      <h3>📝 投资备忘录</h3>
+      <p>自1990年起持续撰写投资备忘录，内容深刻、风格坦诚，被全球投资者视为必读。沃伦·巴菲特说：「当我第一时间看到霍华德·马克斯的备忘录，我一定会去阅读它，总能从中获得收获。」</p>
+    </div>
+    <div class="author-card">
+      <h3>🥇 逆势投资大师</h3>
+      <p>以「逆向投资」和「防御型投资」闻名。在2000年互联网泡沫前看空科技股，2008年金融危机前提示风险并在危机中大规模投资，两次经典操作奠定了其大师地位。</p>
+    </div>
+    <div class="author-card">
+      <h3>📖 本书地位</h3>
+      <p>《投资最重要的事》（The Most Important Thing）被誉为「价值投资圣经」，马克斯将其近50年投资经验浓缩为18个最重要原则。巴菲特评价：「这是一本难得一见的优秀投资著作。」</p>
+    </div>
+  </div>
+</section>
+
+<!-- 18 Principles -->
+<section class="section" id="principles">
+  <div class="section-divider"></div>
+  <h2 class="section-title">⚔️ 降龙十八掌 — 18个最重要原则</h2>
+  <p class="section-subtitle">霍华德·马克斯将其投资心法凝练为18章，每一章都是一个独立而互相关联的投资原则</p>
+
+  <div class="card-grid">
+    <!-- Ch1 -->
+    <div class="card featured">
+      <div class="num">01</div>
+      <span class="badge badge-core">🔑 核心</span>
+      <h3>学习第二层次思维</h3>
+      <div class="desc">
+        <strong>第一层次思维</strong>：直观、表面——「公司不错，买」<br>
+        <strong>第二层次思维</strong>：深入、复杂——「公司不错，但市场预期更高，股价可能跌」<br><br>
+        成功投资者必须有比群体共识更深入的思考。第二层次思维考虑：未来可能出现的结果、概率分布、当前价格是否合理。
+      </div>
+      <div class="quote">「投资是一门科学，更是一门艺术。第二层次思维是艺术的核心。」</div>
+    </div>
+
+    <!-- Ch2 -->
+    <div class="card">
+      <div class="num">02</div>
+      <span class="badge badge-core">🔑 核心</span>
+      <h3>理解市场有效性和局限性</h3>
+      <div class="desc">
+        市场既不是完全有效的，也不是完全无效的。<br><br>
+        <strong>尊重有效市场</strong>：承认市场中有很多聪明人，信息已经被充分消化。<br>
+        <strong>感激无效市场</strong>：正因为市场不是完全有效，才为深刻思考者提供了获取超额收益的机会。
+      </div>
+      <div class="quote">「最成功的投资者是利用市场无效性的人，同时他们也尊重有效市场理论的核心真理。」</div>
+    </div>
+
+    <!-- Ch3 -->
+    <div class="card featured">
+      <div class="num">03</div>
+      <span class="badge badge-core">🔑 核心</span>
+      <h3>准确估值</h3>
+      <div class="desc">
+        价值投资的核心：了解内在价值。<br><br>
+        要成为一个成功的投资者，你必须了解：<br>
+        ① 如何评估企业的内在价值<br>
+        ② 在市场下跌时有足够的自信坚持持有并买进<br><br>
+        估值不是精准的科学，而是一个范围。关键是要比别人更接近真相。
+      </div>
+      <div class="quote">「在下跌的市场中获利，你必须了解内在价值，并有足够的自信坚定持股买进。」</div>
+    </div>
+
+    <!-- Ch4 -->
+    <div class="card">
+      <div class="num">04</div>
+      <span class="badge badge-core">🔑 核心</span>
+      <h3>认识价格与价值的关系</h3>
+      <div class="desc">
+        建立基本面-价值-价格之间的健康关系：<br><br>
+        <strong>价格是你付出的，价值是你得到的。</strong><br><br>
+        成功的投资不在于买好的东西，而在于买得好。即使是一家优秀公司，如果买入价格过高，也是一笔糟糕的投资。反之，一家普通公司以足够低的价格买入，也能获得好回报。
+      </div>
+      <div class="quote">「最重要的不是买好的，而是买得好。」</div>
+    </div>
+
+    <!-- Ch5 -->
+    <div class="card featured">
+      <div class="num">05</div>
+      <span class="badge badge-risk">⚠️ 风险</span>
+      <h3>理解风险</h3>
+      <div class="desc">
+        <strong>最重要的风险不是波动性，而是永久损失的可能性。</strong><br><br>
+        巨大风险发生在人人都觉得风险很小时——当所有人都乐观，风险偏好最高时，风险最大。风险是隐性的，往往在事后才显现。<br><br>
+        风险与收益的关系不是线性的：高风险不一定带来高收益，但追求低风险可以稳定获得合理收益。
+      </div>
+      <div class="quote">「最大的风险发生在人人都觉得风险很小时。」</div>
+    </div>
+
+    <!-- Ch6 -->
+    <div class="card">
+      <div class="num">06</div>
+      <span class="badge badge-risk">⚠️ 风险</span>
+      <h3>识别风险</h3>
+      <div class="desc">
+        风险是隐蔽的、不可见的。<br><br>
+        <strong>当所有人都认为风险很小时，风险最大。</strong><br>
+        <strong>当所有人都担心风险时，风险最小。</strong><br><br>
+        高收益伴随着高风险，但追求高风险不一定带来高收益。风险识别需要：<br>
+        ① 了解市场情绪<br>
+        ② 识别过度乐观<br>
+        ③ 警惕信贷宽松
+      </div>
+      <div class="quote">「风险只有在事后才能被清晰识别。在此之前，它隐藏在表面的平静之下。」</div>
+    </div>
+
+    <!-- Ch7 -->
+    <div class="card">
+      <div class="num">07</div>
+      <span class="badge badge-defense">🛡️ 防守</span>
+      <h3>控制风险</h3>
+      <div class="desc">
+        优秀的投资者不是追求高风险高收益，而是追求低风险高收益。<br><br>
+        <strong>防御型投资的核心</strong>：在上涨时跟上市场，在下跌时大幅跑赢市场。不是因为选对了牛股，而是因为避免了大亏。<br><br>
+        控制风险不是消除风险，而是识别、理解、管理风险，使其与收益相匹配。
+      </div>
+      <div class="quote">「优秀的投资者不是那些在牛市中赚得最多的人，而是那些在熊市中亏得最少的人。」</div>
+    </div>
+
+    <!-- Ch8 -->
+    <div class="card featured">
+      <div class="num">08</div>
+      <span class="badge badge-cycle">🔄 周期</span>
+      <h3>关注周期</h3>
+      <div class="desc">
+        <strong>最重要的不是趋势，而是周期。</strong><br><br>
+        周期永远不会消失，只是被推迟。没有只涨不跌的市场，也没有只跌不涨的市场。<br><br>
+        周期包括：经济周期、企业盈利周期、信贷周期、投资者心理周期、市场周期。理解这些周期的相互作用，是把握投资时机的关键。
+      </div>
+      <div class="quote">「最重要的不是趋势，而是周期。」</div>
+    </div>
+
+    <!-- Ch9 -->
+    <div class="card featured">
+      <div class="num">09</div>
+      <span class="badge badge-cycle">🔄 周期</span>
+      <h3>钟摆意识</h3>
+      <div class="desc">
+        市场像钟摆一样在贪婪和恐惧之间摆动。<br><br>
+        <strong>最重要的不是钟摆的中点，而是终点的反转。</strong><br>
+        <strong>极端是转折点，中庸不是。</strong><br><br>
+        钟摆永远不会停留在中点，而是从一个极端摆向另一个极端。投资者的任务不是预测钟摆的方向，而是识别极端位置并据此行动。
+      </div>
+      <div class="quote">「钟摆不会在中间停留，它要么摆向贪婪，要么摆向恐惧。」</div>
+    </div>
+
+    <!-- Ch10 -->
+    <div class="card">
+      <div class="num">10</div>
+      <span class="badge badge-psych">🧠 心理</span>
+      <h3>抵御消极影响</h3>
+      <div class="desc">
+        投资中最大的敌人不是市场，而是自己。<br><br>
+        <strong>七大心理陷阱</strong>：<br>
+        ① <strong>贪婪</strong> — 对利润的过度渴望<br>
+        ② <strong>恐惧</strong> — 恐慌性抛售<br>
+        ③ <strong>从众</strong> — 放弃独立思考<br>
+        ④ <strong>嫉妒</strong> — 看到别人赚钱比自己亏钱还难受<br>
+        ⑤ <strong>自负</strong> — 过度自信于自己的判断<br>
+        ⑥ <strong>轻信</strong> — 不加分析地相信故事<br>
+        ⑦ <strong>妥协</strong> — 在压力下放弃原则
+      </div>
+      <div class="quote">「这些情绪是投资的最大敌人。战胜它们比分析财务报表更难。」</div>
+    </div>
+
+    <!-- Ch11 -->
+    <div class="card featured">
+      <div class="num">11</div>
+      <span class="badge badge-core">🔑 核心</span>
+      <h3>逆向投资</h3>
+      <div class="desc">
+        <strong>最重要的不是顺势而为，而是逆势而为。</strong><br><br>
+        逆向投资包含两层含义：<br>
+        ① <strong>想到</strong> — 逆向思考很容易<br>
+        ② <strong>做到</strong> — 做到逆向投资非常难<br><br>
+        逆向投资不会永远带来收益，但长期有效。当所有人都冲向一个方向时，保持冷静、独立思考，往往能获得最好的机会。
+      </div>
+      <div class="quote">「最重要的不是想到逆向投资，而是做到逆向投资。」</div>
+    </div>
+
+    <!-- Ch12 -->
+    <div class="card">
+      <div class="num">12</div>
+      <span class="badge badge-core">🔑 核心</span>
+      <h3>寻找便宜货</h3>
+      <div class="desc">
+        <strong>最重要的不是价格也不是价值，而是性价比/安全边际。</strong><br><br>
+        便宜货通常存在于：<br>
+        ① 被忽视的领域<br>
+        ② 有争议的领域<br>
+        ③ 不被理解、不好懂的业务<br>
+        ④ 近期表现不佳的资产<br><br>
+        寻找便宜货不是买低价股，而是寻找价格低于内在价值的资产。
+      </div>
+      <div class="quote">「以低于内在价值的价格买入，这是投资盈利的唯一可靠途径。」</div>
+    </div>
+
+    <!-- Ch13 -->
+    <div class="card">
+      <div class="num">13</div>
+      <span class="badge badge-defense">🛡️ 防守</span>
+      <h3>耐心等待机会</h3>
+      <div class="desc">
+        <strong>最重要的不是主动寻找机会，而是耐心等待机会上门。</strong><br><br>
+        不需要每时每刻都在市场上。有时最好的行动就是不行动。<br><br>
+        耐心的价值：等待市场恐慌带来的廉价筹码，等待泡沫消退后的理性回归。耐得住寂寞才能守得住繁华。
+      </div>
+      <div class="quote">「投资者最大的错误之一，就是总觉得必须做点什么。」</div>
+    </div>
+
+    <!-- Ch14 -->
+    <div class="card">
+      <div class="num">14</div>
+      <span class="badge badge-risk">⚠️ 风险</span>
+      <h3>认识预测的局限性</h3>
+      <div class="desc">
+        <strong>最重要的不是预测未来，而是认识到未来无法预测。</strong><br><br>
+        没有人能持续准确地预测未来，但可以做准备：<br>
+        ① 考虑多种可能性<br>
+        ② 为不利情况留足安全边际<br>
+        ③ 在不确定中寻找确定性<br><br>
+        与其花时间预测，不如花时间应对。
+      </div>
+      <div class="quote">「最重要的不是预测未来，而是认识到未来无法预测。」</div>
+    </div>
+
+    <!-- Ch15 -->
+    <div class="card">
+      <div class="num">15</div>
+      <span class="badge badge-psych">🧠 心理</span>
+      <h3>正确认识自身</h3>
+      <div class="desc">
+        <strong>短期业绩靠运气，长期业绩靠技术。</strong><br><br>
+        认识自己知道什么、不知道什么，这是投资智慧的开端。<br><br>
+        不要因为几次成功就认为自己天才，也不要因为几次失败就否定自己。区分运气和能力，是成熟投资者的标志。
+      </div>
+      <div class="quote">「知道你不知道什么，比知道你知道什么更重要。」</div>
+    </div>
+
+    <!-- Ch16 -->
+    <div class="card featured">
+      <div class="num">16</div>
+      <span class="badge badge-defense">🛡️ 防守</span>
+      <h3>重视防守</h3>
+      <div class="desc">
+        <strong>最重要的不是进攻，而是防守。</strong><br><br>
+        防守型投资的三个支柱：<br>
+        ① <strong>多元化</strong> — 不把所有鸡蛋放在一个篮子里<br>
+        ② <strong>对冲</strong> — 减少不可控风险<br>
+        ③ <strong>避免重大错误</strong> — 不犯不可逆的错误<br><br>
+        防守的核心不是不赚钱，而是保证本金安全，让自己能长期留在牌桌上。
+      </div>
+      <div class="quote">「最重要的不是进攻，而是防守。」</div>
+    </div>
+
+    <!-- Ch17 -->
+    <div class="card">
+      <div class="num">17</div>
+      <span class="badge badge-defense">🛡️ 防守</span>
+      <h3>避免重大错误</h3>
+      <div class="desc">
+        <strong>最重要的不是追求伟大成功，而是避免重大错误。</strong><br><br>
+        与其追求卓越，不如避免愚蠢。<br><br>
+        重大错误通常来自：<br>
+        ① 使用过高杠杆<br>
+        ② 追逐市场热点<br>
+        ③ 在恐慌中抛售<br>
+        ④ 在狂热中重仓<br>
+        ⑤ 忽视风险
+      </div>
+      <div class="quote">「一次重大错误可能抵消数十次正确决策的收益。避免它，就是最好的进攻。」</div>
+    </div>
+
+    <!-- Ch18 -->
+    <div class="card">
+      <div class="num">18</div>
+      <span class="badge badge-core">🔑 核心</span>
+      <h3>合理预期</h3>
+      <div class="desc">
+        <strong>最重要的不是在牛市时跑赢市场，而是在熊市时跑赢市场。</strong><br><br>
+        建立合理的预期：<br>
+        ① 不要追求不切实际的回报<br>
+        ② 接受市场周期的必然性<br>
+        ③ 理解复利的力量<br>
+        ④ 长期稳定的回报远胜于短期暴利<br><br>
+        投资是一场马拉松，不是百米冲刺。
+      </div>
+      <div class="quote">「在熊市中跑赢市场，比在牛市中跑赢市场重要得多。」</div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Concepts -->
+<section class="section" id="concepts">
+  <div class="section-divider"></div>
+  <h2 class="section-title">🧩 八大核心概念</h2>
+  <p class="section-subtitle">贯穿全书的核心思想框架，是理解马克斯投资哲学的关键</p>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <div class="icon">🧠</div>
+      <h3>第二层次思维</h3>
+      <p>超越表象的深层思考。第一层次看到「好公司」，第二层次看到「好公司但市场已过度追捧」。是区分优秀投资者和普通投资者的根本能力。</p>
+    </div>
+    <div class="concept-card">
+      <div class="icon">🎯</div>
+      <h3>有效市场与无效市场</h3>
+      <p>市场在某些时候有效，在某些时候无效。尊重有效性决定你参与市场的方式，利用无效性决定你获取超额收益的来源。</p>
+    </div>
+    <div class="concept-card">
+      <div class="icon">⚖️</div>
+      <h3>内在价值与价格</h3>
+      <p>价格是你付出的，价值是你得到的。投资的核心是判断内在价值，并在价格低于价值时买入。价格围绕价值波动，但长期会回归。</p>
+    </div>
+    <div class="concept-card">
+      <div class="icon">🛡️</div>
+      <h3>风险的本质</h3>
+      <p>最重要的风险不是价格波动，而是永久性资本损失。风险不可精确衡量，只能识别和管理。巨大风险往往隐藏在表面的平静中。</p>
+    </div>
+    <div class="concept-card">
+      <div class="icon">🔄</div>
+      <h3>周期与钟摆</h3>
+      <p>市场永远在周期和钟摆中运行。涨多了会跌，跌多了会涨。认识极端位置比预测精确拐点更重要。极端是转折点，中庸不是。</p>
+    </div>
+    <div class="concept-card">
+      <div class="icon">🔙</div>
+      <h3>逆向投资</h3>
+      <p>当别人贪婪时恐惧，当别人恐惧时贪婪。逆向投资最难的不是想到，而是做到。独立思考、不从众，是获取超额收益的关键。</p>
+    </div>
+    <div class="concept-card">
+      <div class="icon">🏗️</div>
+      <h3>安全边际</h3>
+      <p>以低于内在价值的价格买入，为判断错误留出缓冲。安全边际越大，风险越小，潜在收益越高。这是价值投资的基石。</p>
+    </div>
+    <div class="concept-card">
+      <div class="icon">🏰</div>
+      <h3>防守型投资</h3>
+      <p>在上涨时跟上市场，在下跌时大幅跑赢。核心是多元化、对冲和避免重大错误。防守不是为了不赚钱，而是为了活得久。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Quotes -->
+<section class="section" id="quotes">
+  <div class="section-divider"></div>
+  <h2 class="section-title">💬 经典语录</h2>
+  <p class="section-subtitle">马克斯的金句蕴含着深刻的投资智慧，每一句都值得反复品读</p>
+
+  <div class="quotes-grid">
+    <div class="quote-card">
+      <p>最重要的不是买好的，而是买得好。</p>
+      <div class="source">第4章 · 价格与价值</div>
+    </div>
+    <div class="quote-card">
+      <p>最重要的不是趋势，而是周期。</p>
+      <div class="source">第8章 · 关注周期</div>
+    </div>
+    <div class="quote-card">
+      <p>最重要的不是预测未来，而是认识到未来无法预测。</p>
+      <div class="source">第14章 · 预测的局限性</div>
+    </div>
+    <div class="quote-card">
+      <p>最重要的不是进攻，而是防守。</p>
+      <div class="source">第16章 · 重视防守</div>
+    </div>
+    <div class="quote-card">
+      <p>最大的风险发生在人人都觉得风险很小时。</p>
+      <div class="source">第5章 · 理解风险</div>
+    </div>
+    <div class="quote-card">
+      <p>最重要的不是想到逆向投资，而是做到逆向投资。</p>
+      <div class="source">第11章 · 逆向投资</div>
+    </div>
+    <div class="quote-card">
+      <p>投资是一门科学，更是一门艺术。第二层次思维是艺术的核心。</p>
+      <div class="source">第1章 · 第二层次思维</div>
+    </div>
+    <div class="quote-card">
+      <p>投资者最大的错误之一，就是总觉得必须做点什么。</p>
+      <div class="source">第13章 · 耐心等待</div>
+    </div>
+    <div class="quote-card">
+      <p>钟摆不会在中间停留，它要么摆向贪婪，要么摆向恐惧。</p>
+      <div class="source">第9章 · 钟摆意识</div>
+    </div>
+    <div class="quote-card">
+      <p>优秀的投资者不是那些在牛市中赚得最多的人，而是那些在熊市中亏得最少的人。</p>
+      <div class="source">第7章 · 控制风险</div>
+    </div>
+    <div class="quote-card">
+      <p>在下跌的市场中获利，你必须了解内在价值，并有足够的自信坚定持股买进。</p>
+      <div class="source">第3章 · 准确估值</div>
+    </div>
+    <div class="quote-card">
+      <p>短期业绩靠运气，长期业绩靠技术。</p>
+      <div class="source">第15章 · 认识自身</div>
+    </div>
+  </div>
+</section>
+
+<!-- A-Share -->
+<section class="section" id="china">
+  <div class="section-divider"></div>
+  <h2 class="section-title">🇨🇳 A股实战启示</h2>
+  <p class="section-subtitle">将马克斯的投资智慧与中国A股市场的实际情况相结合</p>
+
+  <div class="china-grid">
+    <div class="china-card">
+      <h3>📈 第二层次思维看A股</h3>
+      <p>A股市场散户占比高，第一层次思维泛滥——追涨杀跌、听消息买股是常态。这恰恰为具备第二层次思维的投资者创造了巨大的超额收益空间。当所有人都在讨论「牛市来了」时，要问：还有谁没进场？</p>
+      <span class="tag">🧠 第二层次思维</span>
+    </div>
+    <div class="china-card">
+      <h3>📊 A股的有效性与无效性</h3>
+      <p>A股「牛短熊长」的特征，本质上是市场从无效（狂热）走向有效（回归）再到过度有效（恐慌）的循环。理解这一点，就不会在5178点追高，也不会在2440点恐慌。</p>
+      <span class="tag">🎯 市场有效性</span>
+    </div>
+    <div class="china-card">
+      <h3>💎 估值在A股的应用</h3>
+      <p>A股情绪化定价严重——好公司被低估时无人问津，平庸公司被炒作估值远超合理范围。这正是价值投资者的机会。茅台、招行等白马股历史上多次出现明显的低估区间，给深度研究者提供了绝佳买点。</p>
+      <span class="tag">⚖️ 估值</span>
+    </div>
+    <div class="china-card">
+      <h3>⚠️ A股的真实风险</h3>
+      <p>A股最大的风险不是波动（年化波动率远高于美股），而是：① 退市制度不完善导致的价值陷阱 ② 财务造假 ③ 股权质押爆仓 ④ 政策突变。这些都可能造成永久性损失，比股价波动可怕得多。识别风险比预测行情更重要。</p>
+      <span class="tag">🛡️ 风险控制</span>
+    </div>
+    <div class="china-card">
+      <h3>🔄 A股周期的实战运用</h3>
+      <p>A股周期特征极其明显：2005-2007大牛市→2008大熊市→2014-2015杠杆牛→2016熔断→2019-2021核心资产牛→2022-2024调整。7-8年一轮大周期，中间的券商/白酒/新能源/AI等主题行情则是小周期钟摆。在周期底部买入宽基指数是A股最简单有效的策略。</p>
+      <span class="tag">🔄 周期</span>
+    </div>
+    <div class="china-card">
+      <h3>🔙 A股逆向投资案例</h3>
+      <p>2015年6月市场狂热时减仓的投资者；2018年底贸易战最悲观加仓的投资者；2022年10月港股极度低估时逆势买入的投资者——这些都是在A股实践逆向投资的成功案例。逆向投资在A股的有效性甚至高于成熟市场，因为A股情绪波动更大。</p>
+      <span class="tag">🔙 逆向</span>
+    </div>
+    <div class="china-card">
+      <h3>🛡️ 防守型投资在中国</h3>
+      <p>A股「七亏二平一赚」的根源不是不够激进，而是不懂防守。真正的A股长期赢家，往往是那些控制仓位、分散配置、不追热点、不碰内幕消息的「胆小者」。防守不是保守，而是为了活到下一次牛市。</p>
+      <span class="tag">🏰 防守</span>
+    </div>
+    <div class="china-card">
+      <h3>🏗️ 安全边际的A股实践</h3>
+      <p>A股波动巨大，安全边际比任何成熟市场都重要。一个简单的安全边际框架：PE低于历史30%分位 + PB低于1.5 + 股息率>3% + 负债率<50%。这个组合在A股历史上回测表现极其优异。</p>
+      <span class="tag">🏗️ 安全边际</span>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>📖 《投资最重要的事》— 霍华德·马克斯 学习手册</p>
+  <p style="margin-top:6px;font-size:12px;color:var(--border);">
+    基于《The Most Important Thing: Uncommon Sense for the Thoughtful Investor》整理
+  </p>
+</footer>
+
+</body>
+</html>

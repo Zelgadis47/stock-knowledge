@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>聪明的投资者 — 学习手册</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg2: #161b22;
+    --bg3: #21262d;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text2: #8b949e;
+    --accent: #ffa657;
+    --accent2: #58a6ff;
+    --accent3: #3fb950;
+    --accent4: #f0883e;
+    --warn: #d29922;
+    --quote: #264f78;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    padding: 0;
+  }
+  .hero {
+    background: linear-gradient(135deg, #0d1117 0%, #1a1a2e 40%, #16213e 100%);
+    padding: 80px 24px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(255,166,87,0.03) 0%, transparent 50%);
+    animation: pulse 8s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+  .hero h1 {
+    font-size: 3em;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+  }
+  .hero .subtitle {
+    font-size: 1.3em;
+    color: var(--text2);
+    margin-top: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero .meta {
+    color: var(--text2);
+    margin-top: 24px;
+    font-size: 0.95em;
+    position: relative;
+    z-index: 1;
+  }
+  .hero .meta span {
+    display: inline-block;
+    margin: 0 12px;
+    background: var(--bg3);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.9em;
+  }
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .toc {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin: 40px 0;
+    padding: 32px;
+  }
+  .toc h2 {
+    font-size: 1.3em;
+    color: var(--accent);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .toc ol {
+    columns: 2;
+    list-style: none;
+    counter-reset: toc;
+  }
+  .toc ol li {
+    counter-increment: toc;
+    margin: 6px 0;
+    break-inside: avoid;
+  }
+  .toc ol li::before {
+    content: counter(toc);
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    background: var(--bg3);
+    color: var(--accent);
+    border-radius: 6px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 0.8em;
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .toc ol li a {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 0.92em;
+    transition: color .2s;
+  }
+  .toc ol li a:hover { color: var(--accent2); }
+  section {
+    margin: 48px 0;
+    padding: 32px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    scroll-margin-top: 24px;
+  }
+  section h2 {
+    font-size: 1.6em;
+    color: var(--accent);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--accent);
+  }
+  section h3 {
+    font-size: 1.2em;
+    color: var(--accent2);
+    margin: 20px 0 12px;
+  }
+  section h4 {
+    font-size: 1.05em;
+    color: var(--accent4);
+    margin: 16px 0 8px;
+  }
+  section p {
+    margin: 12px 0;
+    color: var(--text);
+  }
+  section ul, section ol {
+    margin: 12px 0;
+    padding-left: 24px;
+  }
+  section li {
+    margin: 6px 0;
+    color: var(--text);
+  }
+  blockquote {
+    margin: 16px 0;
+    padding: 16px 20px;
+    background: var(--bg);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--accent);
+  }
+  blockquote cite {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.85em;
+    color: var(--text2);
+    font-style: normal;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    transition: border-color .2s, transform .2s;
+  }
+  .card:hover {
+    border-color: var(--accent2);
+    transform: translateY(-2px);
+  }
+  .card .card-icon { font-size: 2em; margin-bottom: 8px; }
+  .card h4 { color: var(--accent2); margin: 0 0 8px; }
+  .card p { margin: 0; font-size: 0.92em; color: var(--text2); }
+  .quote-highlight {
+    text-align: center;
+    padding: 32px 40px;
+    margin: 24px 0;
+    background: linear-gradient(135deg, rgba(255,166,87,0.05), rgba(88,166,255,0.05));
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .quote-highlight .big-quote {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.6;
+  }
+  .quote-highlight .big-quote::before { content: '\201C'; }
+  .quote-highlight .big-quote::after { content: '\201D'; }
+  .checklist { list-style: none; padding-left: 0 !important; }
+  .checklist li {
+    padding: 10px 16px 10px 44px;
+    position: relative;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 8px 0;
+  }
+  .checklist li::before {
+    content: '\2713';
+    position: absolute;
+    left: 14px;
+    top: 10px;
+    color: var(--accent3);
+    font-weight: 700;
+  }
+  .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.78em;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .tag-def { background: rgba(88,166,255,0.15); color: var(--accent2); }
+  .tag-act { background: rgba(255,166,87,0.15); color: var(--accent); }
+  .tag-core { background: rgba(63,185,80,0.15); color: var(--accent3); }
+  .tag-warn { background: rgba(210,153,34,0.15); color: var(--warn); }
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.92em;
+  }
+  .compare-table th {
+    background: var(--bg3);
+    color: var(--accent);
+    padding: 12px 16px;
+    text-align: left;
+    border: 1px solid var(--border);
+  }
+  .compare-table td {
+    padding: 10px 16px;
+    border: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .compare-table tr:nth-child(even) td { background: var(--bg); }
+  .principle-list { counter-reset: principle; list-style: none; padding-left: 0 !important; }
+  .principle-list li {
+    counter-increment: principle;
+    padding: 12px 16px 12px 56px;
+    position: relative;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 10px 0;
+  }
+  .principle-list li::before {
+    content: counter(principle);
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    width: 32px;
+    height: 32px;
+    background: var(--accent2);
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 32px;
+    font-size: 0.85em;
+    font-weight: 700;
+  }
+  footer {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--text2);
+    font-size: 0.85em;
+    border-top: 1px solid var(--border);
+    margin-top: 48px;
+  }
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 2em; }
+    .hero { padding: 48px 16px; }
+    section { padding: 20px; }
+    .toc ol { columns: 1; }
+    .card-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>聪明的投资者</h1>
+  <div class="subtitle">The Intelligent Investor</div>
+  <div class="meta">
+    <span>本杰明·格雷厄姆</span>
+    <span>Benjamin Graham</span>
+    <span>价值投资圣经</span>
+    <span>首版 1949</span>
+  </div>
+  <div class="quote-highlight" style="max-width:700px;margin:32px auto 0;">
+    <div class="big-quote">有史以来最伟大的投资著作</div>
+    <p style="color:var(--text2);margin-top:8px;">— 沃伦·巴菲特（Warren Buffett）</p>
+  </div>
+</div>
+
+<div class="container">
+
+<div class="toc">
+  <h2>📖 目录</h2>
+  <ol>
+    <li><a href="#core">核心思想</a></li>
+    <li><a href="#vs">投资 vs 投机</a></li>
+    <li><a href="#margin">安全边际</a></li>
+    <li><a href="#mr-market">市场先生</a></li>
+    <li><a href="#defensive">防御型投资者策略</a></li>
+    <li><a href="#aggressive">积极型投资者策略</a></li>
+    <li><a href="#principles">价值投资七项原则</a></li>
+    <li><a href="#chapters">廿章核心摘要</a></li>
+    <li><a href="#quotes">经典语录</a></li>
+    <li><a href="#checklist">投资检查清单</a></li>
+  </ol>
+</div>
+
+<section id="core">
+  <h2>🎯 核心思想</h2>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">🛡️</div>
+      <h4>安全边际</h4>
+      <p>以低于内在价值的价格买入，为判断失误留出缓冲。这是价值投资的基石。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🧑‍💼</div>
+      <h4>市场先生</h4>
+      <p>市场是你的仆人而非向导。利用市场的情绪化定价，而非被其左右。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚖️</div>
+      <h4>股债平衡</h4>
+      <p>防御型投资者应保持 25%-75% 的股票-债券动态配置，定期再平衡。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔍</div>
+      <h4>内在价值</h4>
+      <p>通过深入分析估算企业的真实价值，而非依赖市场报价。价格是你付的，价值是你得的。</p>
+    </div>
+  </div>
+  <blockquote>我大胆地将成功投资的秘密精炼成四个字的座右铭：<strong>安全边际</strong>。<cite>— 本杰明·格雷厄姆</cite></blockquote>
+</section>
+
+<section id="vs">
+  <h2>⚡ 投资 vs 投机</h2>
+  <table class="compare-table">
+    <thead>
+      <tr><th>维度</th><th>投资</th><th>投机</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>定义</strong></td><td>深入分析 &rarr; 本金安全 &rarr; 适当回报</td><td>追求短期价差 &rarr; 忽视风险</td></tr>
+      <tr><td><strong>时间视角</strong></td><td>长期持有（3-5年+）</td><td>短期交易（天/周/月）</td></tr>
+      <tr><td><strong>分析基础</strong></td><td>基本面：财报、行业、管理层</td><td>技术面、消息面、情绪面</td></tr>
+      <tr><td><strong>风险认知</strong></td><td>风险是亏损的可能性，需量化和管理</td><td>风险是波动的别名，被低估或忽略</td></tr>
+      <tr><td><strong>市场态度</strong></td><td>利用市场报价</td><td>预测市场走势</td></tr>
+      <tr><td><strong>仓位</strong></td><td>分散配置，股债平衡</td><td>集中押注，杠杆交易</td></tr>
+      <tr><td><strong>关键词</strong></td><td><span class="tag tag-core">安全边际</span> <span class="tag tag-def">内在价值</span></td><td><span class="tag tag-warn">追涨杀跌</span> <span class="tag tag-warn">杠杆</span></td></tr>
+    </tbody>
+  </table>
+  <div class="quote-highlight">
+    <div class="big-quote">投资者最大的敌人不是股市，而是自己</div>
+    <p style="color:var(--text2);margin-top:8px;">如果投机，请坦然承认自己是投机者，接受投机的风险和规则，不要假装在投资。</p>
+  </div>
+  <h3>格雷厄姆的警告</h3>
+  <ul>
+    <li><strong>不要把投机混同为投资</strong> &mdash; 明确自己的角色，这是第一原则</li>
+    <li>如果一定要投机，<strong>用"可以亏掉的钱"</strong>，并且严格止损</li>
+    <li>投机最危险的时刻不是亏钱，而是<strong>赚钱的时候</strong>&mdash;因为它会让人误以为自己是天才</li>
+    <li>不要因为一次投机的成功就否定投资的纪律</li>
+  </ul>
+</section>
+
+<section id="margin">
+  <h2>🛡️ 安全边际（Margin of Safety）</h2>
+  <blockquote>用50美分买1美元的东西。<cite>&mdash; 价值投资的核心比喻</cite></blockquote>
+  <h3>什么是安全边际？</h3>
+  <p>安全边际是<strong>证券的市场价格与其估算内在价值之间的正差额</strong>。这个差额为投资者提供了缓冲&mdash;即使判断出错或未来不如预期，仍然有较高的概率不亏损。</p>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h4>公式</h4>
+      <p style="font-size:1.1em;font-weight:700;color:var(--accent3);margin-top:8px;">安全边际 = 内在价值 &minus; 买入价格</p>
+      <p style="margin-top:4px;">比率越大，安全垫越厚</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎯</div>
+      <h4>格雷厄姆的标准</h4>
+      <p>买入价格不超过内在价值的 <strong>2/3</strong>（即至少有 33% 的折价）</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏢</div>
+      <h4>债券 vs 股票</h4>
+      <p>债券的安全边际来自过去的利润覆盖利息的倍数；股票来自预期未来盈利能力高于当前价格</p>
+    </div>
+  </div>
+  <h3>为什么安全边际如此重要？</h3>
+  <ul>
+    <li><strong>未来不可预测</strong> &mdash; 我们永远无法完全准确地预测企业的未来</li>
+    <li><strong>人性弱点</strong> &mdash; 投资者会犯错，安全边际为错误留出空间</li>
+    <li><strong>市场波动</strong> &mdash; 即使买入后继续下跌，安全边际确保你最终能获利</li>
+    <li><strong>心理优势</strong> &mdash; 知道自己有安全边际，更能从容面对市场下跌</li>
+  </ul>
+  <h3>实践中如何应用？</h3>
+  <ul>
+    <li><strong>净流动资产价值（Net-Net）</strong>：买入价格低于流动资产减去全部负债后的净值</li>
+    <li><strong>市盈率法</strong>：买入市盈率低于市场平均且低于历史均值的股票</li>
+    <li><strong>股息率法</strong>：买入股息率持续高于市场平均的优质公司</li>
+    <li><strong>资产价值法</strong>：买入股价低于每股净资产的股票</li>
+  </ul>
+</section>
+
+<section id="mr-market">
+  <h2>🧑‍💼 市场先生理论</h2>
+  <blockquote>市场是你的仆人，不是你的向导。利用市场的疯狂，不要被市场牵着走。<cite>&mdash; 本杰明·格雷厄姆</cite></blockquote>
+  <h3>寓言：市场先生</h3>
+  <div style="background:var(--bg);padding:24px;border-radius:10px;border:1px solid var(--border);margin:16px 0;">
+    <p style="font-size:0.95em;line-height:1.8;">想象你持有一家公司的股票，每天都有一个叫<strong>"市场先生"</strong>的人来找你。他每天都会给你一个报价，愿意买你的股票，或者卖给你更多。</p>
+    <p style="font-size:0.95em;line-height:1.8;margin-top:8px;">但市场先生有<strong>情绪病</strong>&mdash;当他情绪高涨时，他会报出极高的价格，因为他看到未来一片光明；当他情绪低落时，他会报出极低的价格，因为他觉得世界末日到了。</p>
+    <p style="font-size:0.95em;line-height:1.8;margin-top:8px;">你可以完全<strong>无视他的报价</strong>，也可以<strong>利用他的报价</strong>&mdash;当他报出荒唐的低价时买入，当他报出荒唐的高价时卖出。但记住：<strong>你绝对不能被他牵着鼻子走</strong>。</p>
+  </div>
+  <h3>对投资者的启示</h3>
+  <table class="compare-table">
+    <thead>
+      <tr><th>市场先生的行为</th><th>聪明的投资者应该</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>极度悲观，低价抛售</td><td><span class="tag tag-core">买入</span> 此时有安全边际</td></tr>
+      <tr><td>极度乐观，高价报盘</td><td><span class="tag tag-act">卖出</span> 或暂时持有，不要追高</td></tr>
+      <tr><td>情绪平稳，合理报价</td><td>⚪ 无视，继续持有</td></tr>
+      <tr><td>一天之内大起大落</td><td>🔇 关掉行情软件，不要看！</td></tr>
+    </tbody>
+  </table>
+  <h3>关键教训</h3>
+  <ol>
+    <li><strong>市场是为你服务的，不是指导你的</strong> &mdash; 市场报价只在你决定买卖时有意义</li>
+    <li><strong>价格波动不是风险</strong> &mdash; 永久性亏损才是真正的风险。价格波动是机会的来源</li>
+    <li><strong>情绪是最大的敌人</strong> &mdash; 恐惧和贪婪会让你在市场先生面前沦为提线木偶</li>
+    <li><strong>独立思考</strong> &mdash; 如果你买了什么股票是因为别人说它会涨，你已经输了</li>
+  </ol>
+</section>
+
+<section id="defensive">
+  <h2>🛡️ 防御型投资者策略</h2>
+  <p>防御型投资者 = 想要避免重大错误和损失、不想花太多时间在投资研究上的普通人。格雷厄姆认为，这是<strong>大多数人应该选择的道路</strong>。</p>
+  <h3>核心策略：股债平衡</h3>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">📈</div>
+      <h4>股票部分：25%-75%</h4>
+      <p>由市场估值决定：股市昂贵 &rarr; 降低比例；股市便宜 &rarr; 增加比例</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏦</div>
+      <h4>债券部分：25%-75%</h4>
+      <p>高评级债券、国债为主，保证安全性和流动性</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔄</div>
+      <h4>定期再平衡</h4>
+      <p>每半年或一年调整一次比例，自动实现"低买高卖"</p>
+    </div>
+  </div>
+  <h3>防御型投资者的选股7项标准</h3>
+  <ol class="principle-list">
+    <li><strong>适当的规模</strong> &mdash; 选择大型、知名、财务稳健的公司。排除小型公司和高风险企业</li>
+    <li><strong>足够强劲的财务状况</strong> &mdash; 流动比率 &ge; 2:1（流动资产至少是流动负债的两倍），长期负债不超过净流动资产</li>
+    <li><strong>连续20年以上的分红记录</strong> &mdash; 证明公司有持续盈利能力和对股东负责的态度</li>
+    <li><strong>近10年无利润亏损</strong> &mdash; 公司必须在过去10年中每年都有利润，不能有亏损年份</li>
+    <li><strong>10年内每股利润增长至少33%</strong> &mdash; 使用期初和期末的三年平均利润计算，排除基期效应干扰</li>
+    <li><strong>市盈率不超过过去3年平均利润的15倍</strong> &mdash; 如果找不到那么多标的，可以放宽到25倍，但价格-账面值比不能超过1.5倍</li>
+    <li><strong>适度的价格-资产比</strong> &mdash; 市盈率 &times; 市净率 &le; 22.5（即15&times;1.5）</li>
+  </ol>
+  <div class="quote-highlight">
+    <div class="big-quote">防御型投资者的目标应当是获得比债券收益率略高的回报，同时不必承受太大的风险</div>
+  </div>
+  <h3>格雷厄姆的提醒</h3>
+  <ul>
+    <li>防御型投资者<strong>不要尝试选股</strong>，应通过指数基金或优质蓝筹股组合参与市场</li>
+    <li>坚持定期投资（定投）比择时更可靠</li>
+    <li>分散投资至少10-30只股票，避免过度集中在某一行业</li>
+    <li>如果不想做研究，就买<strong>指数基金</strong>&mdash;这在格雷厄姆的时代还没有，但今天是最佳选择</li>
+  </ul>
+</section>
+
+<section id="aggressive">
+  <h2>⚡ 积极型投资者策略</h2>
+  <p>积极型投资者愿意花大量时间做研究，寻找被市场低估的机会。格雷厄姆警告：<strong>"积极"不意味着"频繁交易"</strong>，而是"深度研究"。</p>
+  <h3>寻找被低估的股票</h3>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">🔎</div>
+      <h4>净流动资产价值（Net-Net）</h4>
+      <p>股价低于流动资产减去全部负债后的净值。格雷厄姆的经典策略，在今天很难找到，但原理依然有效。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏷️</div>
+      <h4>低于私有价值的公司</h4>
+      <p>寻找市值低于其资产或业务对战略收购方价值的公司。这些公司往往成为并购目标。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📋</div>
+      <h4>特殊情境（Special Situations）</h4>
+      <p>并购、重组、分拆、清算中的机会。需要深入分析法律文件和业务细节。</p>
+    </div>
+  </div>
+  <h3>积极型投资者的操作原则</h3>
+  <ol class="principle-list">
+    <li><strong>不要知道太多</strong> &mdash; 专注于少数经过深入研究的公司，避免分散精力</li>
+    <li><strong>关注被忽视的领域</strong> &mdash; 小市值、冷门行业、无人问津的公司往往有更大的机会</li>
+    <li><strong>逆向思维</strong> &mdash; 当市场对某只股票极度悲观时，可能是最好的买入时机</li>
+    <li><strong>买入破产边缘的公司</strong> &mdash; 但必须经过严格分析，确保资产价值远高于债务</li>
+    <li><strong>利用市场恐慌</strong> &mdash; 大跌后往往是买入良机，但不是所有下跌都值得买入</li>
+  </ol>
+  <div class="quote-highlight">
+    <div class="big-quote">聪明的投资者是现实主义者，他向乐观主义者卖出股票，从悲观主义者手中买入股票</div>
+  </div>
+</section>
+
+<section id="principles">
+  <h2>📐 价值投资七项原则</h2>
+  <ol class="principle-list">
+    <li>
+      <strong>了解业务</strong>
+      <p style="color:var(--text2);margin-top:4px;font-size:0.92em;">只买你完全理解其商业模式的公司。如果你无法用三句话解释这家公司如何赚钱，不要买。</p>
+    </li>
+    <li>
+      <strong>了解经营业务的人</strong>
+      <p style="color:var(--text2);margin-top:4px;font-size:0.92em;">评估管理层的能力、诚信、股东导向。长期来看，优秀的管理层是超额收益的保障。</p>
+    </li>
+    <li>
+      <strong>为利润投资</strong>
+      <p style="color:var(--text2);margin-top:4px;font-size:0.92em;">投资的核心目的是获取合理的利润，而不是追逐潮流或满足好奇心。任何投资决策都必须回答：这个投资怎样赚钱？</p>
+    </li>
+    <li>
+      <strong>有信心</strong>
+      <p style="color:var(--text2);margin-top:4px;font-size:0.92em;">基于深入分析的信心，而非盲目的信念。当市场下跌时，你的分析告诉我可以持有甚至加仓&mdash;不是因为信仰，是因为数据。</p>
+    </li>
+    <li>
+      <strong>分散投资</strong>
+      <p style="color:var(--text2);margin-top:4px;font-size:0.92em;">不要把所有鸡蛋放在一个篮子里。即使是最深入的分析也可能会错，分散是唯一免费的午餐。</p>
+    </li>
+    <li>
+      <strong>利用市场</strong>
+      <p style="color:var(--text2);margin-top:4px;font-size:0.92em;">市场是你的仆人。利用市场先生的报价错误，而不是被他牵着鼻子走。</p>
+    </li>
+    <li>
+      <strong>安全边际</strong>
+      <p style="color:var(--text2);margin-top:4px;font-size:0.92em;">永远为不确定性留出缓冲。安全边际是价值投资区别于其他投资理念的根本特征。</p>
+    </li>
+  </ol>
+</section>
+
+<section id="chapters">
+  <h2>📚 廿章核心摘要</h2>
+  <div class="card-grid">
+    <div class="card"><h4>第1章 &middot; 投资与投机</h4><p>明确区分投资与投机。投资需要深入分析、本金安全、适当回报。投机者必须承认自己是投机者，用可亏损的资金操作。</p></div>
+    <div class="card"><h4>第2章 &middot; 投资者与通货膨胀</h4><p>通胀是长期趋势。股票长期能跑赢通胀，但短期也会被通胀打压。防御型投资者应持有通胀保护资产对抗货币贬值。</p></div>
+    <div class="card"><h4>第3章 &middot; 一个世纪的股市历史</h4><p>回顾百年股市：市场估值呈周期性波动。3-5年一个小周期，15-20年一个大周期。历史不会重复，但规律相似。</p></div>
+    <div class="card"><h4>第4章 &middot; 防御型投资组合策略</h4><p>股债25%-75%动态分配。定期再平衡。债券选择高评级品种。根据市场估值水平调配比例。</p></div>
+    <div class="card"><h4>第5章 &middot; 防御型投资者与普通股</h4><p>选股7项标准。分散投资至少10-30只。避免频繁换仓。</p></div>
+    <div class="card"><h4>第6章 &middot; 积极型投资组合：被动方法</h4><p>被动策略包括：买入指数基金、持有大型蓝筹股、定期定额投资。大多数主动基金经理跑不赢指数。</p></div>
+    <div class="card"><h4>第7章 &middot; 积极型投资组合：主动方法</h4><p>寻找被低估的公司。Net-Net策略是经典。关注并购/重组/清算等特殊情境。</p></div>
+    <div class="card"><h4>第8章 &middot; 投资者与市场波动</h4><p>价格波动&ne;风险（永久亏损才是）。利用市场波动创造机会。不要试图预测短期走势。</p></div>
+    <div class="card"><h4>第9章 &middot; 基金投资</h4><p>大多数主动基金跑不赢指数。选择低费率指数基金。注意基金经理的利益冲突。</p></div>
+    <div class="card"><h4>第10章 &middot; 投资者与投资顾问</h4><p>顾问可能有利益冲突。防御型投资者需要可信的、独立的顾问。理解收费结构。</p></div>
+    <div class="card"><h4>第11章 &middot; 普通投资者证券分析</h4><p>分析方法：行业前景 &rarr; 管理层能力 &rarr; 财务实力 &rarr; 盈利能力 &rarr; 分红记录。不要被复杂数据迷惑。</p></div>
+    <div class="card"><h4>第12章 &middot; 每股利润的问题</h4><p>警惕"每股利润"被操纵。关注：非经常性损益、会计方法变更、股票期权稀释。用多年平均利润平滑周期波动。</p></div>
+    <div class="card"><h4>第13章 &middot; 四家上市公司比较</h4><p>通过四个实际案例演示如何用格雷厄姆方法分析公司（比例分析+估值判断）。</p></div>
+    <div class="card"><h4>第14章 &middot; 防御型投资者的股票选择</h4><p>应用7项标准进行筛选。严格筛选后只有少数公司合格，但这正是纪律的价值。</p></div>
+    <div class="card"><h4>第15章 &middot; 积极型投资者的股票选择</h4><p>寻找困境反转型公司、被忽视的小盘股、因暂时问题被低估的优质公司。避免新股和热门股。</p></div>
+    <div class="card"><h4>第16章 &middot; 可转换证券及认股权证</h4><p>复杂的金融工具。格雷厄姆建议普通投资者回避，除非有深入理解并计算过内含安全边际。</p></div>
+    <div class="card"><h4>第17章 &middot; 四个非常有启发的案例</h4><p>分析历史上的公司案例，展示价值投资方法在实际中的运用和教训。</p></div>
+    <div class="card"><h4>第18章 &middot; 八组公司的比较</h4><p>通过对比分析演示如何识别优劣。比较：盈利能力、财务稳健性、估值、管理层质量。</p></div>
+    <div class="card"><h4>第19章 &middot; 股东与管理层</h4><p>股东的权利和责任。关注管理层薪酬合理性、分红政策、资本配置决策。积极行使股东权利。</p></div>
+    <div class="card"><h4>第20章 &middot; 安全边际&mdash;核心概念</h4><p>"安全边际"是全书的总结和精粹。成功投资=深入分析+安全边际+耐心+纪律。以低于内在价值的价格买入，等待价值回归。</p></div>
+  </div>
+</section>
+
+<section id="quotes">
+  <h2>💬 经典语录</h2>
+  <blockquote>我大胆地将成功投资的秘密精炼成四个字的座右铭：安全边际。<cite>&mdash; 第20章</cite></blockquote>
+  <blockquote>市场是你的仆人，不是你的向导。利用市场的疯狂，不要被市场牵着走。<cite>&mdash; 第8章</cite></blockquote>
+  <blockquote>聪明的投资者是现实主义者，他向乐观主义者卖出股票，从悲观主义者手中买入股票。<cite>&mdash; 第1章</cite></blockquote>
+  <blockquote>投资者最大的敌人不是股市，而是自己。<cite>&mdash; 第8章</cite></blockquote>
+  <blockquote>拥有股票的人如果没有做好看着它们价格下跌50%的心理准备，就不应该持有股票。<cite>&mdash; 第8章</cite></blockquote>
+  <blockquote>短期来看，市场是一台投票机；长期来看，它是一台称重机。<cite>&mdash; 本杰明·格雷厄姆</cite></blockquote>
+  <blockquote>真正的投资不仅仅是被动持有，还需要深入分析和主动判断&mdash;但绝不等于频繁买卖。<cite>&mdash; 第1章</cite></blockquote>
+  <blockquote>如果你不能承受50%的下跌，就不应该持有股票。如果你在50%的下跌后卖出了，你就永远不应该持有股票。<cite>&mdash; 第8章</cite></blockquote>
+  <blockquote>价格是你付出的，价值是你得到的。<cite>&mdash; 贯穿全书</cite></blockquote>
+  <blockquote>聪明的投资者绝不要把所有的钱都放在一个好主意上。<cite>&mdash; 第5章</cite></blockquote>
+  <blockquote>买股票不是赌博，而是拥有公司的一部分&mdash;即使是很少的一部分。<cite>&mdash; 第11章</cite></blockquote>
+  <blockquote>投资是预测资产未来的收益，投机是预测市场心理的变化。<cite>&mdash; 第1章</cite></blockquote>
+  <blockquote>大多数人在市场上涨时信心满满，在市场下跌时惊慌失措&mdash;这是最危险的模式。<cite>&mdash; 第8章</cite></blockquote>
+  <blockquote>如果你能坚持纪律，即使有时候看起来像个傻瓜，最终你会是那个笑到最后的人。<cite>&mdash; 第20章</cite></blockquote>
+</section>
+
+<section id="checklist">
+  <h2>✅ 投资检查清单</h2>
+  <p style="margin-bottom:20px;">每次买入前逐项检查，任何一项不满足都应暂缓操作：</p>
+
+  <h4>🔴 买入前必问</h4>
+  <ul class="checklist">
+    <li>我是否真正理解这家公司的业务模式？</li>
+    <li>我能否用三句话清楚地向他人解释这家公司？</li>
+    <li>这家公司的管理层是否诚实、有能力、以股东利益为导向？</li>
+    <li>这家公司是否有持续20年以上的分红记录？</li>
+    <li>过去10年是否有任何一年出现亏损？</li>
+    <li>市盈率是否低于15倍（或市盈率&times;市净率&le;22.5）？</li>
+    <li>股价是否具有至少33%的安全边际？</li>
+    <li>我是否做好了股价下跌50%的心理准备？</li>
+    <li>这笔投资占我总资产的比例是否合理（单个股票不超过5%）？</li>
+    <li>我是在利用市场恐慌买入，还是因为害怕错过（FOMO）买入？</li>
+  </ul>
+
+  <h4 style="margin-top:24px;">🟡 持有期间持续关注</h4>
+  <ul class="checklist">
+    <li>公司的基本面是否发生了根本性变化？</li>
+    <li>曾经的安全边际是否仍然存在？</li>
+    <li>我是因为基本面变化卖出，还是因为价格下跌而恐慌？</li>
+    <li>持仓组合是否仍然保持在10-30只股票的范围？</li>
+    <li>股票与债券的比例是否需要再平衡？</li>
+  </ul>
+
+  <h4 style="margin-top:24px;">🟠 卖出条件</h4>
+  <ul class="checklist">
+    <li>股价已经严重高估（超过内在价值）</li>
+    <li>基本面发生永久性恶化</li>
+    <li>发现了更好的投资机会</li>
+    <li>需要再平衡（股票占比超出目标区间）</li>
+    <li>公司被收购（除非你认为新股东更好）</li>
+  </ul>
+
+  <div class="quote-highlight" style="margin-top:32px;">
+    <div class="big-quote">清单不会让每个决定都正确，但它会让你避免致命的错误</div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <p>📖 《聪明的投资者》学习手册 &middot; The Intelligent Investor</p>
+  <p style="margin-top:4px;">本杰明·格雷厄姆（Benjamin Graham） &middot; 首次出版 1949年 &middot; 第4版 1973年</p>
+  <p style="margin-top:12px;font-size:0.8em;">"有史以来最伟大的投资著作" &mdash; 沃伦·巴菲特</p>
+  <p style="margin-top:20px;font-size:0.75em;">仅供个人学习参考 &middot; 投资有风险，决策需谨慎</p>
+</footer>
+
+</body>
+</html>

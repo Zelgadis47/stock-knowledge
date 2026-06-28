@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>游资高手语录合集 — 交易者的精进手册</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg-card: #161b22;
+    --bg-card-hover: #1c2333;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-dim: #8b949e;
+    --text-muted: #6e7681;
+    --accent: #58a6ff;
+    --accent2: #3fb950;
+    --accent3: #d29922;
+    --accent4: #f85149;
+    --accent5: #bc8cff;
+    --quote-bg: #0d1b2a;
+    --quote-border: #58a6ff;
+    --tag-bg: #1f6feb33;
+    --tag-text: #58a6ff;
+    --table-bg: #161b22;
+    --table-hover: #1c2333;
+    --hero-gradient: linear-gradient(135deg, #0d1117 0%, #1f2937 50%, #111827 100%);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* === HERO === */
+  .hero {
+    background: var(--hero-gradient);
+    padding: 80px 24px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(88,166,255,0.06) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(188,140,255,0.06) 0%, transparent 50%);
+    animation: heroGlow 8s ease-in-out infinite alternate;
+  }
+  @keyframes heroGlow {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(-5%,5%); }
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #58a6ff, #bc8cff, #3fb950);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+  }
+  .hero .subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: var(--text-dim);
+    font-weight: 300;
+    letter-spacing: 4px;
+    margin-bottom: 16px;
+  }
+  .hero .quote-mark {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-style: italic;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: inline-block;
+  }
+  .hero .count-badge {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+  .hero .count-badge span {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+  }
+  .hero .count-badge strong {
+    color: var(--accent);
+  }
+
+  /* === CONTAINER === */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  /* === TOC === */
+  .toc-section {
+    padding: 50px 0 30px;
+    border-bottom: 1px solid var(--border);
+  }
+  .toc-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 8px;
+  }
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+  .toc-item:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent);
+    transform: translateX(4px);
+  }
+  .toc-item .num {
+    width: 26px;
+    height: 26px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .toc-item .num.special { background: var(--accent2); }
+  .toc-item .num.warn { background: var(--accent4); }
+
+  /* === SECTION === */
+  .master-section {
+    padding: 50px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .master-section:last-of-type { border-bottom: none; }
+
+  .master-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .master-header .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+  .master-header .info { flex: 1; }
+  .master-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .master-header .alias {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+  }
+  .master-desc {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    padding-left: 64px;
+    border-left: 2px solid var(--accent);
+    background: var(--bg-card);
+    padding: 16px 20px;
+    border-radius: 8px;
+    border-left: 3px solid var(--accent);
+  }
+
+  /* === QUOTES === */
+  .quote-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+  .quote-card {
+    background: var(--quote-bg);
+    border-left: 3px solid var(--quote-border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    position: relative;
+    transition: all 0.2s;
+  }
+  .quote-card:hover { background: #0f2035; }
+  .quote-card .q-num {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+  }
+  .quote-card .q-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text);
+  }
+  .quote-card .q-text::before {
+    content: '「';
+    color: var(--accent);
+  }
+  .quote-card .q-text::after {
+    content: '」';
+    color: var(--accent);
+  }
+
+  /* === KEY INSIGHT === */
+  .key-insight {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .key-insight h3 {
+    font-size: 1rem;
+    color: var(--accent2);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .key-insight ul { list-style: none; padding: 0; }
+  .key-insight li {
+    padding: 4px 0 4px 20px;
+    position: relative;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+  }
+  .key-insight li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent2);
+  }
+
+  /* === TABLE === */
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .styled-table thead th {
+    background: #1c2333;
+    color: var(--accent);
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border);
+    font-size: 0.85rem;
+  }
+  .styled-table tbody td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+  .styled-table tbody tr:hover { background: var(--table-hover); }
+  .styled-table tbody tr:last-child td { border-bottom: none; }
+
+  /* === COMPARISON TABLE === */
+  .comparison-wrap { overflow-x: auto; margin-bottom: 30px; }
+  .comparison-table {
+    width: 100%;
+    min-width: 700px;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  .comparison-table thead th {
+    background: linear-gradient(135deg, #1c2333, #161b22);
+    color: var(--accent);
+    padding: 12px 10px;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border);
+    position: sticky; top: 0;
+  }
+  .comparison-table thead th:first-child {
+    min-width: 100px;
+  }
+  .comparison-table tbody td {
+    padding: 10px;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    line-height: 1.5;
+    vertical-align: top;
+  }
+  .comparison-table tbody td:first-child {
+    color: var(--text);
+    font-weight: 600;
+    background: #111820;
+  }
+  .comparison-table tbody tr:hover td { background: var(--bg-card-hover); }
+
+  /* === LEARNING PATH === */
+  .path-container { margin-bottom: 30px; }
+  .path-step {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .path-step::before {
+    content: '';
+    position: absolute;
+    left: 21px;
+    top: 42px;
+    width: 2px;
+    height: calc(100% + 16px);
+    background: var(--border);
+  }
+  .path-step:last-child::before { display: none; }
+  .path-step .step-num {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .path-step .step-num.green { background: var(--accent2); }
+  .path-step .step-num.gold { background: var(--accent3); }
+  .path-step .step-num.purple { background: var(--accent5); }
+  .path-step .step-num.red { background: var(--accent4); }
+  .path-step .step-body {
+    flex: 1;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .path-step .step-body h4 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+    color: var(--accent);
+  }
+  .path-step .step-body p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+  }
+  .path-step .step-body .source {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 6px;
+  }
+
+  /* === RISK WARNING === */
+  .risk-section {
+    background: linear-gradient(135deg, #1a0f0f, #1a1115);
+    border: 1px solid rgba(248,81,73,0.3);
+    border-radius: 12px;
+    padding: 30px;
+    margin: 40px 0;
+  }
+  .risk-section h2 {
+    color: var(--accent4);
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .risk-section ul { list-style: none; padding: 0; }
+  .risk-section li {
+    padding: 8px 0 8px 24px;
+    position: relative;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+  .risk-section li::before {
+    content: '⚠';
+    position: absolute;
+    left: 0;
+    color: var(--accent3);
+  }
+  .risk-section .disclaimer {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: rgba(248,81,73,0.1);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  /* === FOOTER === */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  /* === BACK TO TOP === */
+  .back-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 44px;
+    height: 44px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.2s;
+    opacity: 0.7;
+  }
+  .back-top:hover { opacity: 1; background: var(--bg-card-hover); }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 640px) {
+    .hero { padding: 50px 16px 40px; }
+    .toc-grid { grid-template-columns: 1fr; }
+    .master-header { flex-direction: column; align-items: flex-start; }
+    .master-desc { padding: 14px; }
+    .comparison-table { font-size: 0.8rem; }
+    .path-step { flex-direction: column; }
+    .path-step::before { display: none; }
+    .risk-section { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- =========== HERO =========== -->
+<div class="hero">
+  <div class="hero-content">
+    <h1>📈 游资高手语录合集</h1>
+    <div class="subtitle">交易者的精进手册</div>
+    <div class="quote-mark">"梦想在上，孤独在下"</div>
+    <div class="count-badge">
+      <span>🏆 <strong>9</strong> 位游资大师</span>
+      <span>💬 <strong>70+</strong> 核心语录</span>
+      <span>📖 <strong>1</strong> 本必读手册</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- =========== TOC =========== -->
+<div class="toc-section">
+  <h2>📑 目录</h2>
+  <div class="toc-grid">
+    <a href="#asking" class="toc-item"><span class="num">1</span> Asking — 龙头战神</a>
+    <a href="#steel" class="toc-item"><span class="num">2</span> 钢铁战士 — 纪律之王</a>
+    <a href="#shennan" class="toc-item"><span class="num">3</span> 深南中路高手 — 五阶进化</a>
+    <a href="#zhive" class="toc-item"><span class="num">4</span> 职业炒手 — 葵花宝典</a>
+    <a href="#longfeihu" class="toc-item"><span class="num">5</span> 龙飞虎 — 换手定高度</a>
+    <a href="#jingchang" class="toc-item"><span class="num">6</span> 经常站岗 — 右侧交易者</a>
+    <a href="#taoyonggen" class="toc-item"><span class="num">7</span> 陶永根 — 复利之道</a>
+    <a href="#cdrr" class="toc-item"><span class="num">8</span> cdrr(刘睿) — 市场智者</a>
+    <a href="#wangyuanhao" class="toc-item"><span class="num">9</span> 王元昊 — 领涨战法</a>
+    <a href="#compare" class="toc-item"><span class="num special">📊</span> 精华对比表</a>
+    <a href="#path" class="toc-item"><span class="num special">📖</span> 游资学习路径</a>
+    <a href="#risk" class="toc-item"><span class="num warn">⚠</span> 风险警示</a>
+  </div>
+</div>
+
+<!-- =========== 1. ASKING =========== -->
+<section class="master-section" id="asking">
+  <div class="master-header">
+    <div class="avatar" style="background:linear-gradient(135deg,#1f6feb,#58a6ff);">A</div>
+    <div class="info">
+      <h2>Asking</h2>
+      <div class="alias">淘股吧传奇 · 龙头战法奠基人</div>
+    </div>
+  </div>
+  <div class="master-desc">
+    淘股吧早期传奇人物，龙头战法的开创者与集大成者。Asking 以"只做龙头、只做最强"为核心信条，开创了A股超短线龙头战法的流派。其语录精炼深刻，影响了一代游资。
+  </div>
+
+  <div class="quote-list">
+    <div class="quote-card"><span class="q-num">#1</span><div class="q-text">炒股一定要炒龙头股，有板块效应的最好</div></div>
+    <div class="quote-card"><span class="q-num">#2</span><div class="q-text">跟风股不看、不看、不看——怎么上去的怎么下来</div></div>
+    <div class="quote-card"><span class="q-num">#3</span><div class="q-text">小资金要想快速变大一定要超短线，只有超短线才能让小资金在短期内快速变大</div></div>
+    <div class="quote-card"><span class="q-num">#4</span><div class="q-text">短线的目的并不是要追求短期的利润最大化，稳定获利的境界才是交易者追求的最高目标</div></div>
+    <div class="quote-card"><span class="q-num">#5</span><div class="q-text">我只跟市场走，不预测，不操纵</div></div>
+    <div class="quote-card"><span class="q-num">#6</span><div class="q-text">大概说得出来，一个月停牌一两天，停牌一两天波动一下才好做</div></div>
+    <div class="quote-card"><span class="q-num">#7</span><div class="q-text">十分里边，心态、控制力占7分，技术占3分</div></div>
+  </div>
+
+  <div class="key-insight">
+    <h3>💡 核心思想</h3>
+    <ul>
+      <li><strong>龙头战法</strong>——只做龙头股，放弃一切跟风股</li>
+      <li><strong>板块效应</strong>——龙头必须有板块助攻，孤龙不长</li>
+      <li><strong>超短线</strong>——小资金翻倍的唯一路径是高频复利</li>
+      <li><strong>心态至上</strong>——70%心态+30%技术，控制力是核心</li>
+      <li><strong>不预测、不操纵</strong>——顺势跟随，不妄图对抗市场</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =========== 2. 钢铁战士 =========== -->
+<section class="master-section" id="steel">
+  <div class="master-header">
+    <div class="avatar" style="background:linear-gradient(135deg,#3fb950,#2ea043);">钢</div>
+    <div class="info">
+      <h2>钢铁战士</h2>
+      <div class="alias">纪律之王 · 空仓与止损的极致践行者</div>
+    </div>
+  </div>
+  <div class="master-desc">
+    以钢铁般的纪律闻名，核心交易哲学围绕"空仓"和"止损"展开。他不追求每一笔都盈利，而是追求不在错误的时候交易。其理念对控制回撤有极大指导意义。
+  </div>
+
+  <div class="quote-list">
+    <div class="quote-card"><span class="q-num">#1</span><div class="q-text">在一个下降通道赚钱是偶然的，亏钱是必然的</div></div>
+    <div class="quote-card"><span class="q-num">#2</span><div class="q-text">在一个上升通道赚钱是必然的，亏钱是偶然的</div></div>
+    <div class="quote-card"><span class="q-num">#3</span><div class="q-text">如果你没有耐心，那你将注定在股市一无所获</div></div>
+    <div class="quote-card"><span class="q-num">#4</span><div class="q-text">不会空仓的人，他永远不会战斗</div></div>
+    <div class="quote-card"><span class="q-num">#5</span><div class="q-text">一个不会止损的人，死路一条</div></div>
+    <div class="quote-card"><span class="q-num">#6</span><div class="q-text">盲目的冲动和频繁的交易是造成亏损的主要原因</div></div>
+    <div class="quote-card"><span class="q-num">#7</span><div class="q-text">不要迷信技术，不要迷信经验，不要迷信专家，市场时时刻刻都会教你做人，只有亏钱才能让你真正成长</div></div>
+  </div>
+
+  <div class="key-insight">
+    <h3>💡 核心思想</h3>
+    <ul>
+      <li><strong>顺趋势而为</strong>——上升通道做多、下降通道做空/空仓</li>
+      <li><strong>空仓是最高境界</strong>——不会空仓的人永远不会战斗</li>
+      <li><strong>止损是生命线</strong>——不止损=死路一条</li>
+      <li><strong>减少交易频率</strong>——盲目冲动和频繁交易是亏损主因</li>
+      <li><strong>实战出真知</strong>——唯有亏损才能真正教会你敬畏市场</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =========== 3. 深南中路高手 =========== -->
+<section class="master-section" id="shennan">
+  <div class="master-header">
+    <div class="avatar" style="background:linear-gradient(135deg,#bc8cff,#8b5cf6);">深</div>
+    <div class="info">
+      <h2>深南中路高手</h2>
+      <div class="alias">五阶成长体系 · 从一招高手到市场大鳄</div>
+    </div>
+  </div>
+  <div class="master-desc">
+    提出了A股交易者成长五阶段理论——从简单重复到改变趋势。这个体系是每一个交易者自我诊断、自我定位的绝佳参照。
+  </div>
+
+  <div class="quote-list">
+    <div class="quote-card"><span class="q-num">#0</span><div class="q-text">做好第一件事——做好自己的本职，做好自己的功课；再去做其他事情。做股票也是一样，把一种手法做到极致</div></div>
+  </div>
+
+  <div style="overflow-x:auto; margin-bottom:24px;">
+    <table class="styled-table">
+      <thead>
+        <tr><th style="width:60px;">阶段</th><th style="width:120px;">名称</th><th>核心特征</th><th>实战标志</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Ⅰ</td><td>一招高手</td><td>简单的事情重复做，精练一种手法</td><td>专注单一模式稳定盈利</td></tr>
+        <tr><td>Ⅱ</td><td>踏准节拍</td><td>研究大盘涨跌趋势，踩准市场节奏</td><td>开始理解市场周期</td></tr>
+        <tr><td>Ⅲ</td><td>趋势影响者</td><td>追随者增多，成为一定范围内的意见领袖</td><td>操作开始具有引领效应</td></tr>
+        <tr><td>Ⅳ</td><td>趋势引导者</td><td>成为市场注目的焦点，拥有强大的话语权</td><td>一呼百应，板块跟风</td></tr>
+        <tr><td>Ⅴ</td><td>市场大鳄</td><td>能够改变趋势，一言一行足以影响整个市场</td><td>对市场趋势产生实质性影响</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="key-insight">
+    <h3>💡 核心思想</h3>
+    <ul>
+      <li><strong>先精后博</strong>——把一种手法做到极致，再拓展</li>
+      <li><strong>循序渐进</strong>——成长有节奏，不要跨越式幻想</li>
+      <li><strong>影响力即能力</strong>——你的市场影响力是你能力的真实投射</li>
+      <li><strong>最终是趋势的共创者</strong>——顶级游资本身就是趋势的一部分</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =========== 4. 职业炒手 =========== -->
+<section class="master-section" id="zhive">
+  <div class="master-header">
+    <div class="avatar" style="background:linear-gradient(135deg,#d29922,#f0883e);">职</div>
+    <div class="info">
+      <h2>职业炒手（葵花宝典）</h2>
+      <div class="alias">资金流分析宗师 · 万法归宗</div>
+    </div>
+  </div>
+  <div class="master-desc">
+    葵花宝典的作者，将资金流向分析推向极致。他的交易体系最为完整——从学习次序到实战战术，从弱市应对到大赚后的处理，面面俱到。是游资理论集大成者。
+  </div>
+
+  <div class="quote-list">
+    <div class="quote-card"><span class="q-num">#1</span><div class="q-text">技术分析的最高层次是抛弃所有的技术指标，最后只剩下资金流向的分析</div></div>
+    <div class="quote-card"><span class="q-num">#2</span><div class="q-text">抓住市场热点，赚大钱的方法就是做龙头股</div></div>
+    <div class="quote-card"><span class="q-num">#3</span><div class="q-text">短线的目的并不是要追求短期的利润最大化，稳定获利的境界才是交易者追求的最高目标</div></div>
+    <div class="quote-card"><span class="q-num">#4</span><div class="q-text">弱市不亏钱，这才是复利增长的关键</div></div>
+    <div class="quote-card"><span class="q-num">#5</span><div class="q-text">攻在量中，退在量后</div></div>
+    <div class="quote-card"><span class="q-num">#6</span><div class="q-text">龙头不在盘子大小，而在启动的时机</div></div>
+    <div class="quote-card"><span class="q-num">#7</span><div class="q-text">做龙头股全靠打快，小资金要学快，越快越好</div></div>
+    <div class="quote-card"><span class="q-num">#8</span><div class="q-text">弱市不亏钱，这才是复利增长的关键</div></div>
+    <div class="quote-card"><span class="q-num">#9</span><div class="q-text">弱市战术变化：少做或空仓，低吸代替追涨，计划性操作代替随意性操作</div></div>
+    <div class="quote-card"><span class="q-num">#10</span><div class="q-text">大赚后不能马上买票，最好休息一天</div></div>
+    <div class="quote-card"><span class="q-num">#11</span><div class="q-text">弱市学会空仓是最高境界，不会空仓的人永远不会战斗</div></div>
+    <div class="quote-card"><span class="q-num">#12</span><div class="q-text">高手临门，先看市场氛围和资金流向</div></div>
+  </div>
+
+  <div class="key-insight">
+    <h3>💡 核心思想</h3>
+    <ul>
+      <li><strong>学习次序</strong>：入门贵在精一 → 重在坚持 → 法无定法 → 万法归宗</li>
+      <li><strong>资金流</strong>：扔掉所有技术指标，只分析资金流向</li>
+      <li><strong>弱市生存</strong>：弱市不亏钱 = 复利增长的关键；弱市空仓是最高境界</li>
+      <li><strong>大赚后休息</strong>：盈利后不追加仓位，休息一天重新校准</li>
+      <li><strong>龙头本质</strong>：不看盘子看时机，打快是核心</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =========== 5. 龙飞虎 =========== -->
+<section class="master-section" id="longfeihu">
+  <div class="master-header">
+    <div class="avatar" style="background:linear-gradient(135deg,#1f6feb,#79c0ff);">龙</div>
+    <div class="info">
+      <h2>龙飞虎</h2>
+      <div class="alias">换手决定高度 · 多样化手法交易者</div>
+    </div>
+  </div>
+  <div class="master-desc">
+    以"换手决定高度"闻名，强调一致性和分歧在股价上涨中的核心作用。他是分仓滚动的代表，追涨热点与低吸反抽交替使用，是手法多样化的最佳诠释者。
+  </div>
+
+  <div class="quote-list">
+    <div class="quote-card"><span class="q-num">#1</span><div class="q-text">换手决定高度——大凡大牛板块或大牛连板股，一定都是换手上去的板</div></div>
+    <div class="quote-card"><span class="q-num">#2</span><div class="q-text">我的看法是：分歧就是换手，一致就是一字的体现</div></div>
+    <div class="quote-card"><span class="q-num">#3</span><div class="q-text">作为市场的疯狂交易者，知行合一最难的</div></div>
+    <div class="quote-card"><span class="q-num">#4</span><div class="q-text">封板也好，逢低也罢，重组埋伏也好，都是交易手段之一，没有厚薄之分</div></div>
+    <div class="quote-card"><span class="q-num">#5</span><div class="q-text">决定收益的是你的手法是否多样化</div></div>
+    <div class="quote-card"><span class="q-num">#6</span><div class="q-text">战略空仓，能做而不做，才是大智慧</div></div>
+    <div class="quote-card"><span class="q-num">#7</span><div class="q-text">交易风格：分仓滚动，追涨热点与低吸反抽交替</div></div>
+  </div>
+
+  <div class="key-insight">
+    <h3>💡 核心思想</h3>
+    <ul>
+      <li><strong>换手=高度</strong>——真龙都是换手板上去的，一字板没有高度</li>
+      <li><strong>分仓滚动</strong>——不重仓单一标的，通过仓位管理分散风险</li>
+      <li><strong>手法多样化</strong>——追涨、低吸、反抽、埋伏，不拘泥于单一手法</li>
+      <li><strong>战略空仓</strong>——能做到而不做，才是最高级的交易智慧</li>
+      <li><strong>知行合一</strong>——知道和做到之间，是交易者最大的鸿沟</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =========== 6. 经常站岗 =========== -->
+<section class="master-section" id="jingchang">
+  <div class="master-header">
+    <div class="avatar" style="background:linear-gradient(135deg,#3fb950,#56d364);">经</div>
+    <div class="info">
+      <h2>经常站岗</h2>
+      <div class="alias">右侧交易铁律 · 系统化流程操作</div>
+    </div>
+  </div>
+  <div class="master-desc">
+    以"右侧交易是铁律"著称，强调流程化操作和系统力量。他最重要的理念是：评价操作的标准不是盈亏，而是是否在能力范围内贯彻了执行力。
+  </div>
+
+  <div class="quote-list">
+    <div class="quote-card"><span class="q-num">#1</span><div class="q-text">赚赔不是评价操作的标准，在能力所及的范围内贯彻好自己的执行力才是最重要的</div></div>
+    <div class="quote-card"><span class="q-num">#2</span><div class="q-text">随着对市场理解能力的加深，资金增值是水到渠成的事情</div></div>
+    <div class="quote-card"><span class="q-num">#3</span><div class="q-text">怎么都不可与趋势做对</div></div>
+    <div class="quote-card"><span class="q-num">#4</span><div class="q-text">右侧交易是铁律，要做右侧交易</div></div>
+    <div class="quote-card"><span class="q-num">#5</span><div class="q-text">流程化操作，运用系统的力量</div></div>
+    <div class="quote-card"><span class="q-num">#6</span><div class="q-text">不到理想的买点坚决不买入</div></div>
+  </div>
+
+  <div class="key-insight">
+    <h3>💡 核心思想</h3>
+    <ul>
+      <li><strong>执行力>盈亏</strong>——贯彻系统比单次盈亏更重要</li>
+      <li><strong>右侧交易铁律</strong>——绝不左侧抄底，只做趋势确认后</li>
+      <li><strong>系统化流程</strong>——用流程和系统约束人性弱点</li>
+      <li><strong>理想买点</strong>——宁可错过，不可做错；不到点位不进场</li>
+      <li><strong>顺趋势</strong>——在任何情况下都不与趋势对抗</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =========== 7. 陶永根 =========== -->
+<section class="master-section" id="taoyonggen">
+  <div class="master-header">
+    <div class="avatar" style="background:linear-gradient(135deg,#d29922,#e5c07b);">陶</div>
+    <div class="info">
+      <h2>陶永根</h2>
+      <div class="alias">复利之道 · 交易体系集大成者</div>
+    </div>
+  </div>
+  <div class="master-desc">
+    全面阐释了投资的"正道"——完善的交易体系 + 风险控制体系。他强调复利的前提是不亏损，以及复盘总结、阴中看阳、阳中看阴的辩证思维。对龙头特征的总结最为详细。
+  </div>
+
+  <div class="quote-list">
+    <div class="quote-card"><span class="q-num">#1</span><div class="q-text">强势板块龙头股；超跌后缩量均匀的品种</div></div>
+    <div class="quote-card"><span class="q-num">#2</span><div class="q-text">复利的前提就是不亏损，要么不出手，出手就要赢</div></div>
+    <div class="quote-card"><span class="q-num">#3</span><div class="q-text">在资本市场中真正的投资秘诀：1.充分理解复利的神奇意义；2.找到复利的方法无条件的执行下去</div></div>
+    <div class="quote-card"><span class="q-num">#4</span><div class="q-text">阴中看阳、阳中看阴，方可立于不败之地</div></div>
+    <div class="quote-card"><span class="q-num">#5</span><div class="q-text">复盘——多做总结——给自己定好目标位——选好坐标股——调整心态——最最重要的是学会躲掉大的风险</div></div>
+    <div class="quote-card"><span class="q-num">#6</span><div class="q-text">龙头特征：率先涨停、盘子适中、换手充分、周线月线形态好</div></div>
+    <div class="quote-card"><span class="q-num">#7</span><div class="q-text">投资正道：1.完善的交易体系；2.风险控制体系至高无上</div></div>
+    <div class="quote-card"><span class="q-num">#8</span><div class="q-text">保本第一，赚钱第二；学会了保本，自然就学会了赚钱</div></div>
+    <div class="quote-card"><span class="q-num">#9</span><div class="q-text">强势上攻：任何战法都可采用；弱势整理：短线冒险家的乐园；下跌通道：任何操作战法都不能采用</div></div>
+    <div class="quote-card"><span class="q-num">#10</span><div class="q-text">指数分析第一步，强势弱势要分明；寻找领涨热点股，跟风操作要谨慎</div></div>
+    <div class="quote-card"><span class="q-num">#11</span><div class="q-text">学会休养生息，专注坚持是成功最重要的环节之一；不要小瞧休息，休息是最好的策略</div></div>
+  </div>
+
+  <div class="key-insight">
+    <h3>💡 核心思想</h3>
+    <ul>
+      <li><strong>复利=不亏损</strong>——不出手则已，出手必胜</li>
+      <li><strong>辩证看市</strong>——阴中看阳、阳中看阴，不极端</li>
+      <li><strong>复盘体系</strong>——复盘→总结→目标→选股→心态→避大险</li>
+      <li><strong>龙头四特征</strong>——率先涨停、盘子适中、换手充分、周月线好</li>
+      <li><strong>两大体系</strong>——交易体系 + 风控体系，缺一不可</li>
+      <li><strong>盘面三判断</strong>——指数→强势/弱势→下跌，对应不同策略</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =========== 8. CDRR =========== -->
+<section class="master-section" id="cdrr">
+  <div class="master-header">
+    <div class="avatar" style="background:linear-gradient(135deg,#f85149,#da3633);">C</div>
+    <div class="info">
+      <h2>cdrr（刘睿，中睿合银）</h2>
+      <div class="alias">市场真相的揭示者 · 九点忠告</div>
+    </div>
+  </div>
+  <div class="master-desc">
+    从散户到阳光私募冠军的传奇人物，他的九点忠告句句扎心，是对股市本质最赤裸的揭示。他强调顺势而为、放弃主观判断、不同市况运用不同盈利方式。
+  </div>
+
+  <div class="quote-list">
+    <div class="quote-card"><span class="q-num">#1</span><div class="q-text">不同市况下运用不同的盈利方式</div></div>
+    <div class="quote-card"><span class="q-num">#2</span><div class="q-text">放弃自己主观的判断，简简单单的顺势而为</div></div>
+    <div class="quote-card"><span class="q-num">#3</span><div class="q-text">宁波赚大钱的交易在于对势的深刻理解上，明白什么时候可以重仓</div></div>
+    <div class="quote-card"><span class="q-num">#4</span><div class="q-text">持续的稳定盈利才是复利的基础，不追求暴利，只追求系统的稳定输出</div></div>
+    <div class="quote-card"><span class="q-num">#5</span><div class="q-text">坚持正确的交易系统，好机会是等出来的</div></div>
+  </div>
+
+  <div class="key-insight">
+    <h3>🖐 九点忠告（市场真相）</h3>
+    <div style="overflow-x:auto;">
+      <table class="styled-table">
+        <thead><tr><th>#</th><th>忠告</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>持续稳定盈利前不要再投更多钱</td></tr>
+          <tr><td>2</td><td>任何时候离开市场对大部分人是最明智的选择</td></tr>
+          <tr><td>3</td><td>书上的东西仅作参考，自己体会到的才是财富</td></tr>
+          <tr><td>4</td><td>其它行业努力就能成功，股票没有天分几乎不可能</td></tr>
+          <tr><td>5</td><td>股市充分体现人性弱点</td></tr>
+          <tr><td>6</td><td>真正会赚钱的人不做股评不收会员</td></tr>
+          <tr><td>7</td><td>没有人能准确预测个股和指数的走势</td></tr>
+          <tr><td>8</td><td>市场是用来生存的，不是用来发财的</td></tr>
+          <tr><td>9</td><td>所有的技术和知识最终服务于对市场本质的理解</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="key-insight" style="border-left-color:var(--accent4);">
+    <h3>💡 核心思想</h3>
+    <ul>
+      <li><strong>市况适应</strong>——不同市况不同手法，没有万能策略</li>
+      <li><strong>顺势放弃主观</strong>——简简单单跟随趋势，不搞预测</li>
+      <li><strong>重仓时机</strong>——深刻理解"势"才能知道何时下重注</li>
+      <li><strong>稳定>暴利</strong>——系统稳定输出胜过追求单次暴利</li>
+      <li><strong>天分论</strong>——承认股市需要天分，努力在其他行业更有效</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =========== 9. 王元昊 =========== -->
+<section class="master-section" id="wangyuanhao">
+  <div class="master-header">
+    <div class="avatar" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">王</div>
+    <div class="info">
+      <h2>王元昊</h2>
+      <div class="alias">领涨战法 · 大盘三状态操作体系</div>
+    </div>
+  </div>
+  <div class="master-desc">
+    提出大盘三种状态的系统化操作战法，以及完整的抓领涨股体系——从庄家试盘到板块集体走强。对新股"前三板"战法有独到见解。
+  </div>
+
+  <div class="quote-list">
+    <div class="quote-card"><span class="q-num">#1</span><div class="q-text">强势上攻——任何战法都可采用，配合81黑马窗口选黑马</div></div>
+    <div class="quote-card"><span class="q-num">#2</span><div class="q-text">弱势整理——短线冒险家的乐园</div></div>
+    <div class="quote-card"><span class="q-num">#3</span><div class="q-text">下跌通道——任何操作战法都不能采用</div></div>
+    <div class="quote-card"><span class="q-num">#4</span><div class="q-text">抓领涨股战法：庄家试盘→打压→领涨股启动→板块集体走强</div></div>
+    <div class="quote-card"><span class="q-num">#5</span><div class="q-text">炒新前三板战法</div></div>
+  </div>
+
+  <div class="key-insight">
+    <h3>💡 核心思想</h3>
+    <ul>
+      <li><strong>大盘三态</strong>——强攻/整理/下跌，不同市态不同策略</li>
+      <li><strong>领涨股战法</strong>——完整的四步抓领涨体系</li>
+      <li><strong>新股"前三板"</strong>——新股上市前三板是关键博弈区域</li>
+      <li><strong>铁律：下跌通道不操作</strong>——与钢铁战士一脉相承</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =========== COMPARISON TABLE =========== -->
+<section class="master-section" id="compare">
+  <h2 style="font-size:1.5rem; margin-bottom:16px;">📊 精华对比表</h2>
+  <p style="color:var(--text-dim); margin-bottom:20px; font-size:0.9rem;">各游资在核心维度上的横向对比，快速定位每位大师的代表性观点</p>
+
+  <div class="comparison-wrap">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>维度</th>
+          <th>Asking</th>
+          <th>钢铁战士</th>
+          <th>职业炒手</th>
+          <th>龙飞虎</th>
+          <th>陶永根</th>
+          <th>cdrr(刘睿)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>核心理念</td>
+          <td>只做龙头</td>
+          <td>空仓止损</td>
+          <td>资金流向分析</td>
+          <td>换手定高度</td>
+          <td>复利不亏损</td>
+          <td>顺势而为</td>
+        </tr>
+        <tr>
+          <td>大盘研判</td>
+          <td>跟市场走</td>
+          <td>看通道方向</td>
+          <td>弱市空仓</td>
+          <td>战略空仓</td>
+          <td>三态判断</td>
+          <td>不同市况不同手法</td>
+        </tr>
+        <tr>
+          <td>风控第一</td>
+          <td>心态7分</td>
+          <td>止损=命</td>
+          <td>弱市不亏</td>
+          <td>分仓滚动</td>
+          <td>风控至上</td>
+          <td>不追暴利</td>
+        </tr>
+        <tr>
+          <td>选股偏好</td>
+          <td>龙头+板块</td>
+          <td>上升通道</td>
+          <td>资金聚集处</td>
+          <td>换手充分</td>
+          <td>龙头四特征</td>
+          <td>顺势标的</td>
+        </tr>
+        <tr>
+          <td>交易频率</td>
+          <td>超短线</td>
+          <td>低频</td>
+          <td>快进快出</td>
+          <td>分仓滚动</td>
+          <td>不频不躁</td>
+          <td>等待机会</td>
+        </tr>
+        <tr>
+          <td>复利理解</td>
+          <td>快速积累</td>
+          <td>不亏即赚</td>
+          <td>弱市不亏</td>
+          <td>稳定产出</td>
+          <td>不亏为前提</td>
+          <td>稳定>暴利</td>
+        </tr>
+        <tr>
+          <td>独特贡献</td>
+          <td>龙头战法</td>
+          <td>空仓哲学</td>
+          <td>葵花宝典</td>
+          <td>换手理论</td>
+          <td>阴阳辩证</td>
+          <td>九点忠告</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="overflow-x:auto;">
+    <table class="styled-table">
+      <thead><tr><th style="width:50px;">#</th><th>大师</th><th style="width:200px;">一句话速记</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Asking</td><td>只做龙头，不预测不操纵</td></tr>
+        <tr><td>2</td><td>钢铁战士</td><td>不会空仓不会止损，死路一条</td></tr>
+        <tr><td>3</td><td>深南中路</td><td>五阶进化：一招→大鳄</td></tr>
+        <tr><td>4</td><td>职业炒手</td><td>扔掉指标，只剩资金流向</td></tr>
+        <tr><td>5</td><td>龙飞虎</td><td>换手决定高度</td></tr>
+        <tr><td>6</td><td>经常站岗</td><td>右侧交易是铁律</td></tr>
+        <tr><td>7</td><td>陶永根</td><td>复利前提是不亏损</td></tr>
+        <tr><td>8</td><td>cdrr</td><td>放弃主观，顺势而为</td></tr>
+        <tr><td>9</td><td>王元昊</td><td>大盘三态，领涨战法</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- =========== LEARNING PATH =========== -->
+<section class="master-section" id="path">
+  <h2 style="font-size:1.5rem; margin-bottom:20px;">📖 游资学习路径</h2>
+  <p style="color:var(--text-dim); margin-bottom:24px; font-size:0.9rem;">参考职业炒手的「精一→坚持→无定法→万法归宗」，结合深南中路五阶段体系</p>
+
+  <div class="path-container">
+    <div class="path-step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>入门贵在精一</h4>
+        <p>专注一种手法练到极致。不贪多，不求快。把一种模式练到本能反应。</p>
+        <div class="source">—— 职业炒手·学习次序</div>
+      </div>
+    </div>
+
+    <div class="path-step">
+      <div class="step-num green">2</div>
+      <div class="step-body">
+        <h4>重在坚持 · 建立交易系统</h4>
+        <p>在精一的基础上坚持执行，建立自己的交易系统。包含：选股标准、买卖规则、风控纪律。</p>
+        <div class="source">—— 陶永根·交易体系</div>
+      </div>
+    </div>
+
+    <div class="path-step">
+      <div class="step-num gold">3</div>
+      <div class="step-body">
+        <h4>法无定法 · 手法多样化</h4>
+        <p>在精通一种模式后，开始拓展多种手法。追涨、低吸、反抽、埋伏……不拘泥于单一模式。</p>
+        <div class="source">—— 龙飞虎·手法多样化</div>
+      </div>
+    </div>
+
+    <div class="path-step">
+      <div class="step-num purple">4</div>
+      <div class="step-body">
+        <h4>万法归宗 · 只剩资金流</h4>
+        <p>抛弃所有技术指标，只分析资金流向。达到"眼中无K线，心中有趋势"的境界。</p>
+        <div class="source">—— 职业炒手·资金流分析</div>
+      </div>
+    </div>
+
+    <div class="path-step">
+      <div class="step-num purple">5</div>
+      <div class="step-body">
+        <h4>无招胜有招 · 顺势而为</h4>
+        <p>放弃主观判断，完全顺应市场。不同市况不同手法，真正理解"势"的含义。</p>
+        <div class="source">—— cdrr(刘睿)·顺势而为</div>
+      </div>
+    </div>
+
+    <div class="path-step">
+      <div class="step-num">6</div>
+      <div class="step-body">
+        <h4>趋势影响者 → 趋势引导者</h4>
+        <p>操作开始具有引领效应——你的买卖成为市场参考。能够带动板块跟风。</p>
+        <div class="source">—— 深南中路·阶段Ⅲ→Ⅳ</div>
+      </div>
+    </div>
+
+    <div class="path-step">
+      <div class="step-num red">7</div>
+      <div class="step-body">
+        <h4>终局：战略空仓 · 大智若愚</h4>
+        <p>最高境界不是天天交易，而是"能做而不做"。空仓不是无为，而是战略选择。</p>
+        <div class="source">—— 龙飞虎/钢铁战士·空仓哲学</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== RISK =========== -->
+<section id="risk">
+  <div class="risk-section">
+    <h2>⚠️ 风险警示</h2>
+    <ul>
+      <li><strong>语录不是圣旨</strong>——每一位大师的语录都是他们在特定市场环境下的经验总结，市场在变，照搬可能适得其反</li>
+      <li><strong>幸存者偏差</strong>——你看到的这些高手是成千上万亏损者中的极少数幸存者，他们的成功不可简单复制</li>
+      <li><strong>不要迷信任何一个人</strong>——包括本手册中的任何一位大师。学习的应该是他们的思维方式和纪律，而非具体操作</li>
+      <li><strong>短线不是唯一路径</strong>——超短线需要极强的时间精力、执行力和心理素质，不适合大多数人</li>
+      <li><strong>本金安全永远第一</strong>——如cdrr所说：持续稳定盈利前不要再投更多钱</li>
+      <li><strong>市场是最好的老师</strong>——书上的东西仅作参考，自己体会到的才是真正的财富</li>
+      <li><strong>任何时候离开都不晚</strong>——对于大部分人来说，离开市场是最明智的选择</li>
+    </ul>
+    <div class="disclaimer">
+      本手册仅供学习参考，不构成投资建议。股市有风险，投资需谨慎。所有历史收益不代表未来表现。
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="container">
+    <p>📈 游资高手语录合集 · 交易者的精进手册</p>
+    <p>内容整理自网络公开资料 · 仅供学习交流使用</p>
+    <p>"梦想在上，孤独在下"</p>
+  </div>
+</footer>
+
+<a href="#" class="back-top" title="回到顶部">↑</a>
+
+</body>
+</html>

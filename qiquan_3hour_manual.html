@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3小时快学期权（第二版）— 完整学习手册</title>
+<style>
+:root{--bg:#1a1a2e;--card:#16213e;--accent:#e94560;--gold:#f5a623;--text:#e0e0e0;--heading:#fff;--sub:#a0a0b0;--border:#2a2a4a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+.container{max-width:900px;margin:0 auto;padding:20px}
+.header{text-align:center;padding:50px 20px 30px;background:linear-gradient(135deg,#16213e,#0f3460);border-radius:16px;margin-bottom:30px}
+.header h1{color:var(--gold);font-size:2.2em;margin-bottom:10px}
+.header .sub{color:var(--sub);font-size:1em}
+.header .badge{display:inline-block;background:var(--accent);color:#fff;padding:4px 16px;border-radius:20px;font-size:.85em;margin:10px 0}
+.toc{background:var(--card);border-radius:12px;padding:25px;margin-bottom:30px;border:1px solid var(--border)}
+.toc h2{color:var(--gold);margin-bottom:15px;font-size:1.3em}
+.toc ul{list-style:none;padding:0}
+.toc li{padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.toc li:last-child{border:none}
+.toc a{color:var(--text);text-decoration:none;transition:color .2s}
+.toc a:hover{color:var(--gold)}
+.toc .toc-c{color:var(--accent);font-weight:bold;font-size:.9em}
+.chapter{background:var(--card);border-radius:12px;padding:30px;margin-bottom:25px;border:1px solid var(--border)}
+.chapter h2{color:var(--gold);font-size:1.5em;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--accent)}
+.chapter h3{color:var(--heading);font-size:1.15em;margin:20px 0 10px}
+.chapter p{margin:10px 0;text-indent:2em}
+.chapter ul,.chapter ol{margin:10px 0 10px 2em}
+.chapter li{margin:6px 0}
+.chapter .hl{background:rgba(233,69,96,.15);border-left:4px solid var(--accent);padding:12px 16px;margin:15px 0;border-radius:0 8px 8px 0}
+.chapter .kd{background:linear-gradient(135deg,rgba(233,69,96,.1),rgba(245,166,35,.1));border:1px solid var(--gold);padding:15px 20px;margin:15px 0;border-radius:12px;text-align:center;font-size:1.05em;color:var(--gold)}
+.footer{text-align:center;padding:30px;color:var(--sub);font-size:.85em}
+@media(max-width:600px){.container{padding:10px}.header{padding:30px 15px}.header h1{font-size:1.6em}.chapter{padding:20px 15px}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+<h1>📖 3小时快学期权</h1>
+<div class="badge">第二版 · 上海证券交易所</div>
+<div class="sub">期权交易之「独孤九剑」 — 完整学习手册</div>
+</div>
+
+<div class="toc">
+<h2>📑 目录</h2>
+<ul>
+<li><span class="toc-c">第1小时 · 基础入门</span></li>
+<li><a href="#c1">第1讲 · 拔剑式：基本概念</a></li>
+<li><a href="#c2">第2讲 · 论剑式：合约要素</a></li>
+<li><a href="#c3">第3讲 · 独剑式：单腿策略</a></li>
+<li><span class="toc-c">第2小时 · 进阶策略</span></li>
+<li><a href="#c4">第4讲 · 长剑式：买方策略</a></li>
+<li><a href="#c5">第5讲 · 短剑式：卖方策略</a></li>
+<li><a href="#c6">第6讲 · 化剑式：保险策略</a></li>
+<li><span class="toc-c">第3小时 · 高级应用</span></li>
+<li><a href="#c7">第7讲 · 重剑式：增强收益策略</a></li>
+<li><a href="#c8">第8讲 · 花剑式：组合策略</a></li>
+<li><a href="#c9">第9讲 · 收剑式：行权与交割</a></li>
+<li><a href="#app">附录 · 独孤九剑剑诀 &amp; 活用七字诀</a></li>
+</ul>
+</div>
+
+<div class="chapter" id="c1">
+<h2>第1讲 · 拔剑式：基本概念</h2>
+<div class="kd">期权产品是个宝，风险管理少不了。转移风险作用大，组合交易效果好。买期权，享权利，以小博大增收益。开空仓，尽义务，收取对价押财物。</div>
+<h3>什么是期权</h3>
+<p>期=未来，权=权利。期权就是"未来的权利"。2015年2月9日，我国诞生了股票期权。把期权理解为一份<strong>保险</strong>：<strong>买方（投保人）</strong>支付权利金（保费），获得补偿损失的权利；<strong>卖方（保险公司）</strong>收取权利金，须无条件履行义务。</p>
+<h3>认购期权 vs 认沽期权</h3>
+<p><strong>认购期权（Call）</strong>拥有未来<strong>买入</strong>的权利。类比<strong>楼花</strong>付定金锁定买入价。股票涨得越多越值钱。</p>
+<p><strong>认沽期权（Put）</strong>拥有未来<strong>卖出</strong>的权利。类比<strong>粮食最低收购价</strong>锁定卖出价。股票跌得越多越值钱。</p>
+<h3>欧式 vs 美式</h3>
+<p><strong>欧式</strong>（电影票）：只能在到期日当天行使权利。<strong>美式</strong>（月饼票）：到期前任意交易日都可行使。</p>
+<h3>五大用途</h3>
+<ol><li><strong>转移风险</strong>：锁定最大损失，保留潜在收益（vs期货放弃潜在收益）</li><li><strong>杠杆</strong>：花小钱办大事</li><li><strong>增强收益</strong>：卖认购收权利金</li><li><strong>立体化交易</strong>：涨、跌、横盘都可获利</li><li><strong>精准化投资</strong>：精确表达市场观点</li></ol>
+</div>
+
+<div class="chapter" id="c2">
+<h2>第2讲 · 论剑式：合约要素</h2>
+<div class="kd">行权价，影响大，行权交割就依它。价内价外或平价，行权价格需细查。期权定价颇复杂，欧式美式有变化。波动利率和股价，剩余期限意义大。</div>
+<h3>合约要素解读</h3>
+<p><strong>50ETF购3月2200</strong>：50ETF=标的，购=认购(沽=认沽)，3月=到期月(第四个星期三)，2200=行权价(2.2元/份)，合约单位=10,000份/张。</p>
+<h3>实值/平值/虚值</h3>
+<p>判断原则：<strong>立刻行权赚钱=实值，不赚不亏=平值，亏钱=虚值</strong></p>
+<div class="hl">标的12元/行权10元认购：以10买12→赚→实值。标的10/行权10→平值。标的8/行权10→亏→虚值。</div>
+<h3>权利金构成</h3>
+<p>权利金 = <strong>内在价值</strong>（立即行权可获收入）+ <strong>时间价值</strong>（剩余时间附加价值）</p>
+<p>时间价值像<strong>"阳光下的冰"</strong>，到期前加速衰减，到期归零。</p>
+<h3>影响因素</h3>
+<ul><li><strong>标的价格</strong>：标的涨→认购涨、认沽跌</li><li><strong>行权价</strong>：认购行权价越高越便宜；认沽反之</li><li><strong>波动率</strong>：波动越大期权越贵（四川地震险>上海）</li><li><strong>剩余期限</strong>：时间越长越贵</li><li><strong>无风险利率</strong>：利率↑→认购↑、认沽↓</li><li><strong>股息率</strong>：股息↑→认购↓、认沽↑</li></ul>
+</div>
+
+<div class="chapter" id="c3">
+<h2>第3讲 · 独剑式：单腿策略</h2>
+<div class="kd">期权交易并不难，四种基础须记全。买认购或买认沽，卖认购或卖认沽。</div>
+<h3>四种基础操作</h3>
+<div class="hl">① 买入认购(Buy Call)→强烈看涨<br>② 买入认沽(Buy Put)→强烈看跌<br>③ 卖出认购(Sell Call)→看不涨(横盘/小跌)<br>④ 卖出认沽(Sell Put)→看不跌(横盘/小涨)</div>
+<h3>盈亏分析</h3>
+<p><strong>买入认购</strong>：最大损失=权利金(有限)，最大收益=无限，盈亏平衡=行权价+权利金</p>
+<p><strong>买入认沽</strong>：最大损失=权利金(有限)，最大收益=行权价-权利金，盈亏平衡=行权价-权利金</p>
+<p><strong>卖出认购</strong>：最大收益=权利金(有限)，最大损失=无限</p>
+<p><strong>卖出认沽</strong>：最大收益=权利金(有限)，最大损失=行权价-权利金</p>
+<h3>买方 vs 卖方</h3>
+<p><strong>买方</strong>：损失有限收益无限，付权利金，胜率低盈亏比高<br><strong>卖方</strong>：收益有限损失可能巨大，收权利金，胜率高盈亏比低</p>
+</div>
+
+<div class="chapter" id="c4">
+<h2>第4讲 · 长剑式：买方策略</h2>
+<div class="kd">买入期权损失限，杠杆机制最关键。以小博大抓机会，资金效率翻几倍。</div>
+<h3>为什么买期权</h3>
+<ul><li>损失有限：最大亏损=全部权利金</li><li>杠杆效应：少量资金撬动大额标的</li><li>风险可控：无需追加保证金</li></ul>
+<h3>怎样买期权</h3>
+<p>实值期权：贵但稳定，适合初学者。平值期权：价格适中。虚值期权：便宜但杠杆极高。</p>
+<p><strong>经验法则</strong>：买远月实值认购买长线；近月实值认购买短线。初学者以实值短线为主，避免虚值频繁操作。</p>
+<h3>买方三大风险</h3>
+<ol><li><strong>价值归零</strong>：到期虚值损失全部权利金</li><li><strong>流动性</strong>：选买卖价差窄、盘口深的合约</li><li><strong>交割风险</strong>：行权T+1得券，T+2卖出</li></ol>
+</div>
+
+<div class="chapter" id="c5">
+<h2>第5讲 · 短剑式：卖方策略</h2>
+<div class="kd">卖方赚取时间值，收取对价押财物。高胜率来低赔率，风险控制须谨记。</div>
+<h3>为什么卖期权</h3>
+<ul><li>赚时间价值：不波动也每天获利</li><li>高胜率：虚值被行权概率低</li><li>震荡市主力：横盘时稳定获利</li></ul>
+<h3>怎样卖期权</h3>
+<p>多卖虚值期权，高波动率时更有利，选高流动性合约，根据风险承受能力选行权价。</p>
+<h3>卖方风险</h3>
+<ul><li>保证金风险：需缴纳开仓/维持保证金</li><li>巨亏风险：标的大幅不利变动</li><li>流动性风险：极端行情无法平仓</li><li>交割风险：被行权须履行义务</li></ul>
+</div>
+
+<div class="chapter" id="c6">
+<h2>第6讲 · 化剑式：保险策略</h2>
+<div class="kd">持有股票怕下跌，买入认沽来保险。锁定损失保下限，上涨收益仍保留。</div>
+<h3>保险策略</h3>
+<p><strong>保险策略</strong> = 持有股票/ETF + 买入认沽期权。用认沽期权对冲下跌风险。</p>
+<h3>适用场景</h3>
+<ul><li>预测上涨但担心下行</li><li>已获利想锁定利润并保留上行空间</li><li>质押无法抛售需对冲</li></ul>
+<h3>注意事项</h3>
+<p>对看好的标的投保；多选虚值认沽；选合适行权价；到期时间匹配。</p>
+<p><strong>领口策略（Collar）</strong>：保险策略+卖出认购，用权利金抵消保险成本，但牺牲部分上涨空间。</p>
+</div>
+
+<div class="chapter" id="c7">
+<h2>第7讲 · 重剑式：增强收益策略</h2>
+<div class="kd">持有股票不看好涨，卖出认购来做空。赚取权利金降成本，被行权也无大碍。</div>
+<h3>备兑开仓（包租公模式）</h3>
+<p><strong>备兑开仓</strong> = 持有股票 + 卖出认购期权。提交持仓锁定，卖出认购收租。</p>
+<div class="hl">适用：持股但不预期大涨/震荡。行权价选在预期涨幅附近。急涨急跌时及时转仓或了结。</div>
+<ul><li>好处：降低成本，无强平风险</li><li>坏处：上涨收益有限，仍承受下跌风险</li></ul>
+<h3>卖出认沽（自动抄底）</h3>
+<p>未被行权→得权利金；被行权→以（行权价-权利金）的心理价位获股。巴菲特常用策略。</p>
+</div>
+
+<div class="chapter" id="c8">
+<h2>第8讲 · 花剑式：组合策略</h2>
+<div class="kd">多种策略巧组合，立体交易显神通。合成股票来复制，跨式勒式抓波动。</div>
+<h3>合成股票策略</h3>
+<p><strong>合成多头</strong> = 买入认购 + 卖出认沽（同价、同期）。用于低成本做多，成本约为直接买入的14%。具有复制资产、现金替代、套利三大功能。</p>
+<h3>跨式（Straddle）</h3>
+<p><strong>买入跨式</strong>：买认购+买认沽（同条件）。预期大波动但不清楚方向。收益无限，损失有限。</p>
+<p><strong>卖出跨式</strong>：卖认购+卖认沽。预期小幅盘整。最大收益=两个权利金之和。</p>
+<h3>勒式（Strangle）</h3>
+<p>类似跨式但行权价不同（都取虚值）。买入勒式成本更低，卖出勒式更安全。</p>
+<h3>价差策略</h3>
+<p><strong>牛市价差</strong>：买低行权+卖高行权认购。<strong>熊市价差</strong>：买高行权+卖低行权认沽。</p>
+</div>
+
+<div class="chapter" id="c9">
+<h2>第9讲 · 收剑式：行权与交割</h2>
+<div class="kd">期权到期须知晓，行权弃权看行情。认清交割各流程，规避风险才从容。</div>
+<h3>买方行权</h3>
+<ul><li>认购行权：交钱得券（支付行权价得标的）</li><li>认沽行权：交券得钱（交付标得行权价）</li></ul>
+<h3>卖方交割</h3>
+<ul><li>认购被行权：交付标的</li><li>认沽被行权：买入标的</li></ul>
+<h3>合并申报</h3>
+<p>同时持有同一标的认购权利方和认沽义务方（或反之），可合并申报提高资金效率。</p>
+</div>
+
+<div class="chapter" id="app">
+<h2>附录</h2>
+<h3>独孤九剑剑诀</h3>
+<div class="hl">
+① 拔剑式—基本概念：期权是把保险伞，风险转移作用显<br>
+② 论剑式—合约要素：行权价到期日，波动率里有玄机<br>
+③ 独剑式—单腿策略：四种操作记心间<br>
+④ 长剑式—买方策略：损失有限收益多<br>
+⑤ 短剑式—卖方策略：收取对价押财物<br>
+⑥ 化剑式—保险策略：持股怕跌买认沽<br>
+⑦ 重剑式—增强收益：备兑开仓包租公<br>
+⑧ 花剑式—组合策略：合成跨式加价差<br>
+⑨ 收剑式—行权交割：到期行权或弃权
+</div>
+<h3>期权活用七字诀</h3>
+<div class="kd">一保险，二投机，三增强，四立体，五套利，六对冲，七精准。</div>
+<h3>策略速查表</h3>
+<table style="width:100%;border-collapse:collapse;margin:15px 0;font-size:.9em">
+<tr style="background:var(--accent);color:#fff"><th style="padding:8px;text-align:left">市场观点</th><th style="padding:8px;text-align:left">策略</th><th style="padding:8px;text-align:left">操作</th></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:8px">强烈看涨</td><td style="padding:8px">买入认购</td><td>Buy Call</td></tr>
+<tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.03)"><td>强烈看跌</td><td>买入认沽</td><td>Buy Put</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td>看不涨</td><td>卖出认购</td><td>Sell Call</td></tr>
+<tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.03)"><td>看不跌</td><td>卖出认沽</td><td>Sell Put</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td>持股怕跌</td><td>保险策略</td><td>持股+买认沽</td></tr>
+<tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.03)"><td>持股不涨</td><td>备兑开仓</td><td>持股+卖认购</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td>强烈看多(低成本)</td><td>合成多头</td><td>买认购+卖认沽</td></tr>
+<tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.03)"><td>大波动(方向不明)</td><td>买入跨式/勒式</td><td>买认购+买认沽</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td>小幅盘整</td><td>卖出跨式/勒式</td><td>卖认购+卖认沽</td></tr>
+<tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.03)"><td>温和看涨</td><td>牛市价差</td><td>买低卖高认购</td></tr>
+<tr><td>温和看跌</td><td>熊市价差</td><td>买高卖低认沽</td></tr>
+</table>
+</div>
+
+<div class="footer">
+<p>📖 内容来源：《3小时快学期权（第二版）》上海证券交易所产品创新中心 著·格致出版社</p>
+<p>本手册供个人学习用，完整内容请阅读原著</p>
+</div>
+
+</div>
+</body>
+</html>

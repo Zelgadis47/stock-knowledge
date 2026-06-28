@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>炒股养家心法 — 完整精华学习手册</title>
+<style>
+  :root {
+    --bg: #0f0f14;
+    --card: #1a1a24;
+    --accent: #e8b84b;
+    --accent2: #5b8def;
+    --accent3: #e06c6c;
+    --accent4: #6bc47f;
+    --text: #e0e0e8;
+    --text2: #9090a0;
+    --border: #2a2a3a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.8;
+    padding: 0;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  /* Header */
+  .hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    padding: 60px 0 50px; text-align: center; border-bottom: 3px solid var(--accent);
+  }
+  .hero h1 { font-size: 2.5em; color: var(--accent); letter-spacing: 2px; }
+  .hero .subtitle { color: var(--text2); margin-top: 10px; font-size: 1.1em; }
+  .hero .meta { color: var(--text2); margin-top: 6px; font-size: 0.85em; }
+
+  /* Sections */
+  .section { margin: 30px 0; }
+  .section-title {
+    font-size: 1.4em; color: var(--accent); border-left: 4px solid var(--accent);
+    padding-left: 12px; margin-bottom: 16px;
+  }
+
+  /* Cards */
+  .card-grid { display: grid; gap: 12px; }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 20px; transition: border-color .2s;
+  }
+  .card:hover { border-color: var(--accent); }
+  .card .label {
+    display: inline-block; font-size: 0.75em; font-weight: 600; padding: 2px 10px;
+    border-radius: 4px; margin-bottom: 8px;
+  }
+  .label-gold { background: rgba(232,184,75,.2); color: var(--accent); }
+  .label-blue { background: rgba(91,141,239,.2); color: var(--accent2); }
+  .label-red { background: rgba(224,108,108,.2); color: var(--accent3); }
+  .label-green { background: rgba(107,196,127,.2); color: var(--accent4); }
+
+  /* Quote block */
+  .quote {
+    background: rgba(232,184,75,.08); border-left: 3px solid var(--accent);
+    padding: 12px 16px; margin: 10px 0; border-radius: 0 8px 8px 0; color: #c8c8d0;
+  }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+  th, td { border: 1px solid var(--border); padding: 10px 14px; text-align: left; }
+  th { background: rgba(232,184,75,.1); color: var(--accent); font-weight: 600; }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 24px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 8px; top: 4px; bottom: 4px;
+    width: 2px; background: var(--border);
+  }
+  .tl-item { position: relative; padding: 10px 0; }
+  .tl-item::before {
+    content: ''; position: absolute; left: -18px; top: 16px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--accent); border: 2px solid var(--bg);
+  }
+  .tl-phase { font-weight: 700; color: var(--accent); }
+  .tl-desc { color: var(--text2); font-size: .93em; margin-top: 4px; }
+
+  /* Tag row */
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+  .tag {
+    font-size: .78em; padding: 2px 10px; border-radius: 12px;
+    background: rgba(255,255,255,.06); color: var(--text2); border: 1px solid var(--border);
+  }
+
+  /* Info box */
+  .info-box {
+    background: rgba(91,141,239,.08); border: 1px solid rgba(91,141,239,.2);
+    border-radius: 8px; padding: 14px 18px; margin: 10px 0;
+  }
+  .info-box.warn { background: rgba(224,108,108,.08); border-color: rgba(224,108,108,.2); }
+
+  /* Q&A */
+  .qa { margin: 10px 0; }
+  .qa-q { color: var(--accent); font-weight: 600; margin-bottom: 4px; }
+  .qa-a { color: var(--text2); padding-left: 12px; border-left: 2px solid var(--border); }
+
+  /* Footer */
+  .footer {
+    text-align: center; padding: 30px 0; color: var(--text2); font-size: .85em;
+    border-top: 1px solid var(--border); margin-top: 40px;
+  }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 1.8em; }
+    .container { padding: 0 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>🌙 炒股养家心法</h1>
+  <div class="subtitle">完整精华学习手册 · 从理念到实战的全景解读</div>
+  <div class="meta">基于 138,875 字原文 · 79 页问答实录 · 2010–2013 年实战精华</div>
+</div>
+
+<div class="container">
+
+<!-- ==================== 一、心法总纲 ==================== -->
+<div class="section">
+<div class="section-title">一、心法总纲 · 六条核心</div>
+<p style="color:var(--text2);margin-bottom:14px;">养家心法的精髓提炼——每一条背后都是对市场心理的深刻洞察。</p>
+
+<div class="card-grid">
+
+<div class="card">
+<span class="label label-gold">心法一</span>
+<div style="font-size:1.05em;font-weight:600;">高手买入龙头，超级高手卖出龙头</div>
+<div class="quote">
+当题材发酵、龙头股成为"大众情人"时，风险已在悄然累积。<br>
+<strong>真正的能力不是买在起涨点，而是在最狂热时从容离场。</strong>
+</div>
+<div class="tags"><span class="tag">龙头战法</span><span class="tag">逃顶</span><span class="tag">逆向思维</span></div>
+</div>
+
+<div class="card">
+<span class="label label-gold">心法二</span>
+<div style="font-size:1.05em;font-weight:600;">别人贪婪时我更贪婪，别人恐慌时我更恐慌</div>
+<div class="quote">
+赚了钱的人会继续追涨，亏了钱的人会继续杀跌。<strong>情绪本身具有自我强化和延续的惯性。</strong><br>
+在赚钱效应弥漫时全力做多，在亏钱效应扩散时果断空仓——这不是反人性，而是顺应情绪周期的客观规律。
+</div>
+<div class="tags"><span class="tag">情绪周期</span><span class="tag">顺势</span><span class="tag">仓位管理</span></div>
+</div>
+
+<div class="card">
+<span class="label label-gold">心法三</span>
+<div style="font-size:1.05em;font-weight:600;">敢于大盘低位空仓，敢于大盘高位满仓</div>
+<div class="quote">
+大多数人依据历史点位判断高低。大盘从5000跌到3000，算"低位"——但可能跌到2000。<br>
+<strong>正确做法：赚钱效应强就参与，亏钱效应强就回避，与点位无关。</strong>
+</div>
+<div class="tags"><span class="tag">逆人性</span><span class="tag">不预测</span><span class="tag">只跟随</span></div>
+</div>
+
+<div class="card">
+<span class="label label-gold">心法四</span>
+<div style="font-size:1.05em;font-weight:600;">永不止损，永不止盈</div>
+<div class="quote">
+真正的操作依据是风险收益比的动态评估，而非机械的止损止盈线。<br>
+<strong>不看好了就卖出，有更好的标的就换仓，心中没有成本，自然没有止损。</strong>
+</div>
+<div class="tags"><span class="tag">心理博弈</span><span class="tag">成本无关</span><span class="tag">主动操作</span></div>
+</div>
+
+<div class="card">
+<span class="label label-gold">心法五</span>
+<div style="font-size:1.05em;font-weight:600;">得散户心者得天下，人气所向，牛股所在</div>
+<div class="quote">
+题材的级别决定想象空间，赚钱效应决定资金参与热情。<br>
+<strong>一个没有群众基础的板块走不远，一个没有人气的股票涨不高。</strong>
+</div>
+<div class="tags"><span class="tag">题材级别</span><span class="tag">人气</span><span class="tag">赚钱效应</span></div>
+</div>
+
+<div class="card">
+<span class="label label-gold">心法六</span>
+<div style="font-size:1.05em;font-weight:600;">心中有顶底，操作自随心</div>
+<div class="quote">
+预判不是目的，应变才是根本。不用事先设定顶和底，<strong>根据市场情绪的演变动态调整操作策略。</strong>
+</div>
+<div class="tags"><span class="tag">应变</span><span class="tag">动态判断</span><span class="tag">不预判</span></div>
+</div>
+
+</div>
+</div>
+
+<!-- ==================== 二、情绪周期论 ==================== -->
+<div class="section">
+<div class="section-title">二、情绪周期论 · 市场心理的动态演变</div>
+<p style="color:var(--text2);margin-bottom:14px;">养家心法的核心框架——一切操作的基础都是对市场情绪的揣摩。</p>
+
+<div class="card">
+<div class="label label-blue">核心公式</div>
+<div class="quote">
+<strong>赚钱效应 → 追涨资金赚钱 → 自信心膨胀 → 继续追涨 → 行情推向高潮 → 赚钱效应告一段落</strong>
+<br><br>
+<strong>亏钱效应 → 追涨资金亏钱 → 自我惩罚 → 操作趋于谨慎 → 活跃度下降 → 崩溃逐步酝酿</strong>
+</div>
+<div class="tags"><span class="tag">自我强化</span><span class="tag">正反馈</span><span class="tag">负反馈</span></div>
+</div>
+
+<div class="card" style="margin-top:10px;">
+<div class="label label-blue">崩溃与反转 — 情绪周期的关键拐点</div>
+<div class="info-box">
+<strong>崩溃前兆：</strong>抄底的人也在亏钱 → 抄底行为减少 → 稍有卖压便无抵抗式下跌 → 加速崩溃
+</div>
+<div class="info-box" style="margin-top:8px;">
+<strong>反转条件：</strong>大面积跌停（几十到上百家）+ 部分品种跌幅达 20-30%+ → 超跌品种企稳 + 新热点萌芽 → 情绪逆转
+</div>
+<div class="info-box warn" style="margin-top:8px;">
+<strong>⚠️ 关键认知：</strong>"已经这么低了还能跌到哪里去"是危险的。正是因为大多数人有这种想法，才导致崩溃发生时抛压更集中。
+</div>
+<div class="tags" style="margin-top:10px;">
+  <span class="tag">崩溃盘</span>
+  <span class="tag">情绪逆转</span>
+  <span class="tag">左侧交易</span>
+  <span class="tag">恐慌释放</span>
+</div>
+</div>
+
+</div>
+
+<!-- ==================== 三、热点分类体系 ==================== -->
+<div class="section">
+<div class="section-title">三、热点分类 · 四层操作体系</div>
+
+<table>
+<thead>
+<tr><th>类型</th><th>特征</th><th>操作策略</th><th>典型案例</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong style="color:var(--accent)">主流热点</strong></td>
+<td>涨幅大、跨度时间长，国家大级别战略驱动</td>
+<td>反复做。第一波赶上了就做足，没赶上等回落做第二波</td>
+<td>页岩气、文化传媒、自贸区、稀土</td>
+</tr>
+<tr>
+<td><strong style="color:var(--accent2)">支流热点</strong></td>
+<td>各支流循序轮动，围绕主流逻辑逐步挖掘</td>
+<td>在主流不倒的前提下，以主流为中心挖掘扩散</td>
+<td>水泥跟随保障房、水利跟随基建</td>
+</tr>
+<tr>
+<td><strong style="color:var(--accent4)">次主流</strong></td>
+<td>涨幅和时间跨度少于主流，但仍具可操作性</td>
+<td>围绕龙头操作，周期短于主流</td>
+<td>券商、环保、舟山概念</td>
+</tr>
+<tr>
+<td><strong style="color:var(--accent3)">非主流</strong></td>
+<td>时间短，靠技术面或消息面短期爆发</td>
+<td>快进快出，隔日超短；爆发初期可参与，后市不追高</td>
+<td>摘帽行情、一夜情题材</td>
+</tr>
+</tbody>
+</table>
+
+<div class="card" style="margin-top:12px;">
+<div class="label label-blue">题材级别判断法则</div>
+<div class="quote">
+<strong>国家大战略级别 > 行业政策 > 突发事件 > 个股消息</strong><br><br>
+判断标准：是否符合国家核心利益？政策支持力度是否持续反复出现（如新闻联播高频提及）？<br>
+例：文化传媒 — 政策由投资转向消费的战略拐点，生逢其时，反复活跃数月
+</div>
+</div>
+</div>
+
+<!-- ==================== 四、四阶段模型 ==================== -->
+<div class="section">
+<div class="section-title">四、市场四阶段 · 对应操作策略</div>
+
+<div class="timeline">
+
+<div class="tl-item">
+<div class="tl-phase">📈 强势阶段</div>
+<div class="tl-desc">
+<strong>操作：追涨龙头</strong> — 赚钱效应下的资金不断进入，强的标的被后来资金选中的概率更大，所以选强。<br>
+买股逻辑：因为赚钱效应 → 资金不断涌入 → 强者恒强
+</div>
+<div class="tags" style="margin-top:6px;"><span class="tag">追涨</span><span class="tag">龙头</span><span class="tag">强者恒强</span></div>
+</div>
+
+<div class="tl-item">
+<div class="tl-phase">📉 弱势初期</div>
+<div class="tl-desc">
+<strong>操作：低吸止损盘</strong> — 强势品种还有主升能力的做回调后第二波。<br>
+关键判断：超跌品种稳住 → 强势股有机会；超跌品种继续创新低 → 强势股补跌在即
+</div>
+<div class="tags" style="margin-top:6px;"><span class="tag">低吸</span><span class="tag">强势股回调</span></div>
+</div>
+
+<div class="tl-item">
+<div class="tl-phase">💀 弱势中期</div>
+<div class="tl-desc">
+<strong>操作：低吸崩溃盘</strong> — 超跌的板块在连续下跌后再次出现集体性大幅杀跌时出手。<br>
+核心：用轻仓试错保持盘感，等待真正的恐慌释放重仓出击
+</div>
+<div class="tags" style="margin-top:6px;"><span class="tag">崩溃盘</span><span class="tag">恐慌</span><span class="tag">轻仓</span></div>
+</div>
+
+<div class="tl-item">
+<div class="tl-phase">🔥 弱势末期</div>
+<div class="tl-desc">
+<strong>操作：追涨强势</strong> — 恐慌释放殆尽，由弱转强阶段是暴利机会。<br>
+提前埋伏回调充分、有题材有想象力的品种，等待右侧确认
+</div>
+<div class="tags" style="margin-top:6px;"><span class="tag">转强</span><span class="tag">暴利</span><span class="tag">右侧</span></div>
+</div>
+
+</div>
+
+<div class="info-box" style="margin-top:16px;">
+<strong>📊 数据统计印证：</strong>养家自述收益 95% 以上来自右侧交易（强势阶段与弱势末期）。<br>
+左侧模式（弱势初、中期）更多是为了保持盘感——输赢不重要，重要的是感受市场情绪。
+</div>
+</div>
+
+<!-- ==================== 五、实战技法 ==================== -->
+<div class="section">
+<div class="section-title">五、实战技法精要</div>
+
+<div class="card-grid">
+
+<div class="card">
+<div class="label label-blue">技法一 · 低吸崩溃盘</div>
+<div class="quote">
+<strong>条件：</strong>大盘连续下跌一段后 → 再出现大阴线 → 指数远离 5 日线<br>
+<strong>配合：</strong>板块在连续下跌后再次出现集体性大幅杀跌<br>
+<strong>双重共振时，即为超跌出击时刻。</strong>
+</div>
+<div class="tags"><span class="tag">左侧交易</span><span class="tag">恐慌</span><span class="tag">大阴线</span></div>
+</div>
+
+<div class="card">
+<div class="label label-blue">技法二 · 龙头套利链条</div>
+<div class="quote">
+<strong>套利逻辑：</strong>龙头超预期上涨 → 板块内其他低位品种产生补涨空间<br>
+<strong>操作方法：</strong>龙头连板时，挖掘同一板块中低位、小盘、低价且未大涨的品种<br>
+<strong>经典案例：</strong>山东墨龙 → 宝莫股份；深天马 → 华东科技
+</div>
+<div class="tags"><span class="tag">补涨</span><span class="tag">比价效应</span><span class="tag">联动</span></div>
+</div>
+
+<div class="card">
+<div class="label label-blue">技法三 · 做T 心法</div>
+<div class="quote">
+不是为了做T而做T。<strong>T = 机会大时加仓 + 风险大时减仓</strong>，恰好发生在同一天同一只股票上，就成了"做T"。<br>
+本质是动态的买卖操作，不是机械的高抛低吸。
+</div>
+<div class="tags"><span class="tag">滚动操作</span><span class="tag">动态</span><span class="tag">非机械</span></div>
+</div>
+
+<div class="card">
+<div class="label label-blue">技法四 · 仓位管理</div>
+<div class="quote">
+<strong>赢面 vs 仓位的对应关系：</strong><br>
+赢面 &lt; 60% → ❌ 观望<br>
+赢面 60-70% → 🔸 小仓出击<br>
+赢面 70-80% → 🔶 中仓出击<br>
+赢面 80-90% → 🔴 大仓出击<br>
+赢面 &gt; 90% → 🟢 满仓（需同时满足：上涨空间至少 30-50% + 下跌空间控制在 3-5% 以内）
+</div>
+<div class="tags"><span class="tag">风险收益比</span><span class="tag">凯利公式</span><span class="tag">赢面</span></div>
+</div>
+
+<div class="card">
+<div class="label label-blue">技法五 · 主流热点买入法</div>
+<div class="quote">
+<strong>选股顺序：</strong>① 先判定是否主流热点 → ② 如是，不必等涨停，可随时先买入 → ③ 确认强度后加仓<br>
+<strong>如果不是主流热点：</strong>等强度够就排队龙头，大幅超预期就同时排，注意仓位控制<br>
+<strong>核心：</strong>买的那一刻，后市敢看 30-50% 以上空间才重仓
+</div>
+<div class="tags"><span class="tag">分步建仓</span><span class="tag">确认加仓</span><span class="tag">空间预期</span></div>
+</div>
+
+<div class="card">
+<div class="label label-blue">技法六 · 持筹者心理博弈</div>
+<div class="quote">
+<strong>持筹者问自己：</strong>
+- 同样持筹的人在想什么？"给个反弹我就走" → 那你最好尽快走
+- "让我解套我就走" → 你在他们解套之前走<br>
+<strong>持币者问自己：</strong>如果下跌会买吗？如果反弹会追吗？<br>
+<strong>让自己始终处于主动的一方。</strong>
+</div>
+<div class="tags"><span class="tag">心理博弈</span><span class="tag">主动</span><span class="tag">先手</span></div>
+</div>
+
+<div class="card">
+<div class="label label-blue">技法七 · 崩溃前识别</div>
+<div class="quote">
+<strong>三大前兆信号：</strong><br>
+① 领跌品种中出现近期强势股 → 打击追涨热情<br>
+② 90/120 天周期级别的品种（煤炭、水泥等）再度领跌 → 抄底资金被套<br>
+③ 抄底的人也开始亏钱 → 引发无抵抗式下跌
+</div>
+<div class="tags"><span class="tag">风险预警</span><span class="tag">系统性风险</span><span class="tag">回撤控制</span></div>
+</div>
+
+</div>
+</div>
+
+<!-- ==================== 六、经典问答精粹 ==================== -->
+<div class="section">
+<div class="section-title">六、经典问答精粹 · 核心智慧</div>
+
+<div class="card">
+<div class="qa">
+<div class="qa-q">Q：如何判断大盘要崩溃？</div>
+<div class="qa-a">
+<strong>A：</strong>特征上有较大面积跌停（几十到上百家），幅度上不少数品种有20-30%以上跌幅。然后观察各阶段超跌品种以及新热点反应，等待情绪逆转的一刻。<br>
+<strong>更重要的：</strong>这不只是一个判断，更是一个动态的应对过程。当下先空仓或低仓位回避这种概率，会使自己操作上更为主动。
+</div>
+</div>
+</div>
+
+<div class="card" style="margin-top:10px;">
+<div class="qa">
+<div class="qa-q">Q：如何避免"追在山顶、割在谷底"？</div>
+<div class="qa-a">
+<strong>A：</strong>先判定是否主流热点。如是，不必等涨停可随时先买入，等确认强度后再行加仓。如果不是主流热点，等。强度够高就排队龙头。
+</div>
+</div>
+</div>
+
+<div class="card" style="margin-top:10px;">
+<div class="qa">
+<div class="qa-q">Q：如何选到有大空间的热点？</div>
+<div class="qa-a">
+<strong>A：</strong>大局观是一个综合，宏观政策面是权重最大的因素——这是爆发力牛股产生的最大根源。技术只是辅助作用。符合主流热点的新故事，往往是赚大钱的机会。
+</div>
+</div>
+</div>
+
+<div class="card" style="margin-top:10px;">
+<div class="qa">
+<div class="qa-q">Q：如何克服"拿不住好股票"的毛病？</div>
+<div class="qa-a">
+<strong>A：</strong>操作被情绪主导才会拿不住。判断买卖的唯一标准只有风险和收益的比较——买入机会，卖出风险，只做对的交易，胜负交给概率，多一份淡定，少一分胜负心。
+</div>
+</div>
+</div>
+
+<div class="card" style="margin-top:10px;">
+<div class="qa">
+<div class="qa-q">Q：对初学者有什么建议？</div>
+<div class="qa-a">
+<strong>A：</strong>纯K线技术的打板，统计胜率约在45%左右，简单所谓的追龙头模式，胜率也大抵如此，大致于澳门赌场。要有大局观，重仓买入的一刹那要有后市还有3到5个涨停空间的判断。如果你没有后市的把握，一个板也不要重仓买。
+</div>
+</div>
+</div>
+
+<div class="card" style="margin-top:10px;">
+<div class="qa">
+<div class="qa-q">Q：如何控制回撤？</div>
+<div class="qa-a">
+<strong>A：</strong>控制回撤最重要的就是回避系统性崩溃风险。绝大部分崩溃都有前兆，从赚钱和亏钱效应的演变过程可以进行推断。不过为此可能也会放弃很多机会。看看天气，如果觉得要下雨了，就早点回家，不要贪玩，天气好了再出来。
+</div>
+</div>
+</div>
+
+<div class="card" style="margin-top:10px;">
+<div class="qa">
+<div class="qa-q">Q：什么情况下可以重仓出击？</div>
+<div class="qa-a">
+<strong>A：</strong>一年通常4-5次重仓必杀，要满足：① 胜率要求90%以上 ② 上涨空间至少看30-50% ③ 下跌空间控制在3-5%以内。符合条件时，有一种"哪怕少买了100股都觉得遗憾"的感觉。
+</div>
+</div>
+</div>
+
+<div class="card" style="margin-top:10px;">
+<div class="qa">
+<div class="qa-q">Q：如何让预期更贴近市场实际走势？</div>
+<div class="qa-a">
+<strong>A：</strong>以史为鉴，可以知兴替。掌握以往热点轮动规律后，自然预期的准确性会提高。但更为重要的是——判断为末，应变为本。
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- ==================== 七、龙飞虎仓位管理 ==================== -->
+<div class="section">
+<div class="section-title">七、龙飞虎仓位管理 · 补充精华</div>
+
+<div class="card">
+<div class="label label-green">滚动分仓模式</div>
+<div class="quote">
+<strong>风格：</strong>滚动、分仓。品种大都是选择热门股（资金活跃的品种）+ 中线活跃品种的反复参与。<br>
+一般收盘持有 3-6 成仓位。第2天如果手里的股票出现大幅拉升会抛出，视情况轻重仓位。
+</div>
+</div>
+
+<div class="card" style="margin-top:10px;">
+<div class="label label-green">核心四步</div>
+<div class="quote">
+① <strong>出击时间：</strong>必须把握住大盘否极泰来的临界点——借大盘的势<br>
+② <strong>认清热点：</strong>借板块的势，或借赚钱示范效应的势<br>
+③ <strong>个股选择：</strong>即时图走势强于同类个股，有涨停潜力的优先<br>
+④ <strong>四两拨千斤：</strong>做好前两点，自然能体会——启动板块和大盘见底的时间刚好重合共振时，此板块就是阶段性主流
+</div>
+</div>
+
+<div class="card" style="margin-top:10px;">
+<div class="label label-green">板块炒作规律</div>
+<div class="quote">
+<strong>主流热点三阶段：</strong><br>
+① 龙头大幅上涨，板块内尚未跟风 → ② 媒体开始提及，短线客追涨，板块浮出水面 → ③ 人人皆知，鸡犬升天，主力出货<br><br>
+<strong>关键判断：</strong>板块内最冷门的股票也开始上涨 → 板块循环已到末期 → 主力大举出货之时<br><br>
+<strong>量能核心：</strong>量能是超短强势股中非常重要的观察点。看量价之间的关系，不同阶段、不一样的量能。量能分析可以充分解读主流资金想法。
+</div>
+</div>
+</div>
+
+<!-- ==================== 八、养家语录精选 ==================== -->
+<div class="section">
+<div class="section-title">八、养家语录 · 值得反复咀嚼的金句</div>
+
+<div class="info-box" style="margin-bottom:8px;">
+「交易的本质是群体博弈——随时衡量场外的潜在买入者的钱的数量和买入倾向，与场内筹码的数量和卖出倾向。」
+</div>
+<div class="info-box" style="margin-bottom:8px;">
+「买入倾向的推理，大多来自赚钱效应；卖出倾向的推理，大多来自亏钱效应。」
+</div>
+<div class="info-box" style="margin-bottom:8px;">
+「掌握市场之心，胜利接踵而至；心被市场掌握，失败连绵不绝。」
+</div>
+<div class="info-box" style="margin-bottom:8px;">
+「如果你能掌握市场的情绪，胜利将接踵而来；如果你的情绪被市场掌握，失败将挥之不去。」
+</div>
+<div class="info-box" style="margin-bottom:8px;">
+「如果说股市有什么规律的话，这种情绪转变的过程就是规律，而且可以预期的一千年内，这种规律亦不会有大的改变。」
+</div>
+<div class="info-box" style="margin-bottom:8px;">
+「买股之前问自己：如果下跌了怎么办？如果回答是继续买，那么可以买；如果回答是不知道，那么就不买。」
+</div>
+<div class="info-box" style="margin-bottom:8px;">
+「我这个股票如果不是主流热点，就不买；如果是主流热点，就买，买了以后持有一段时间直到没有上涨动力为止。」
+</div>
+<div class="info-box" style="margin-bottom:8px;">
+「把所有心思放在揣摩市场情绪上，做好比价效应的挖掘，热点会自己到你面前来。」
+</div>
+<div class="info-box" style="margin-bottom:8px;">
+「我们要利用市场的情绪来赚钱，自然也要避免自己陷入情绪的漩涡。」
+</div>
+<div class="info-box" style="margin-bottom:8px;">
+「一个股票，买的时候问自己：往上敢不敢看30-50%的空间？往下敢不敢越跌越买？如果回答是肯定的，那就买吧。」
+</div>
+
+</div>
+
+<!-- ==================== Footer ==================== -->
+<div class="footer">
+<p>📖 基于 138,875 字养家心法原文整理 · 来源：淘股吧 2010-2013 年问答实录</p>
+<p>仅作学习交流，不构成任何投资建议 · 市场有风险，投资需谨慎</p>
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>资金流书 v2.1 — 完整精华学习手册</title>
+<style>
+  :root {
+    --bg: #0d0d14;
+    --card: #181823;
+    --accent: #e8b84b;
+    --accent2: #5b8def;
+    --accent3: #e06c6c;
+    --accent4: #6bc47f;
+    --accent5: #c084fc;
+    --text: #e0e0e8;
+    --text2: #9090a0;
+    --border: #2a2a3a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.8;
+    padding: 0;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 50%, #0f2847 100%);
+    padding: 60px 0 50px; text-align: center;
+    border-bottom: 3px solid var(--accent5);
+    position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: '💰'; position: absolute; right: 30px; bottom: 10px;
+    font-size: 80px; opacity: 0.08;
+  }
+  .hero h1 { font-size: 2.6em; color: var(--accent5); letter-spacing: 3px; }
+  .hero .subtitle { color: var(--text2); margin-top: 8px; font-size: 1.05em; }
+  .hero .meta { color: var(--text2); margin-top: 6px; font-size: 0.85em; }
+  .hero .tagline {
+    display: inline-block; margin-top: 14px;
+    background: rgba(192,132,252,.15); color: var(--accent5);
+    padding: 6px 20px; border-radius: 20px; font-size: 0.9em;
+    border: 1px solid rgba(192,132,252,.25);
+  }
+
+  /* Sections */
+  .section { margin: 32px 0; }
+  .section-title {
+    font-size: 1.4em; color: var(--accent5);
+    border-left: 4px solid var(--accent5);
+    padding-left: 12px; margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 1.15em; color: var(--accent);
+    margin: 20px 0 10px; padding-left: 8px;
+    border-left: 3px solid var(--accent);
+  }
+
+  /* Cards */
+  .card-grid { display: grid; gap: 12px; }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 20px; transition: border-color .2s;
+  }
+  .card:hover { border-color: var(--accent5); }
+  .card .label {
+    display: inline-block; font-size: 0.75em; font-weight: 600; padding: 2px 10px;
+    border-radius: 4px; margin-bottom: 8px;
+  }
+  .label-purple { background: rgba(192,132,252,.2); color: var(--accent5); }
+  .label-gold { background: rgba(232,184,75,.2); color: var(--accent); }
+  .label-blue { background: rgba(91,141,239,.2); color: var(--accent2); }
+  .label-red { background: rgba(224,108,108,.2); color: var(--accent3); }
+  .label-green { background: rgba(107,196,127,.2); color: var(--accent4); }
+
+  /* Quote */
+  .quote {
+    background: rgba(192,132,252,.07); border-left: 3px solid var(--accent5);
+    padding: 12px 16px; margin: 10px 0; border-radius: 0 8px 8px 0; color: #c8c8d0;
+  }
+
+  /* Info boxes */
+  .info-box {
+    background: rgba(91,141,239,.08); border: 1px solid rgba(91,141,239,.2);
+    border-radius: 8px; padding: 14px 18px; margin: 10px 0;
+  }
+  .info-box.warn { background: rgba(224,108,108,.08); border-color: rgba(224,108,108,.2); }
+  .info-box.green { background: rgba(107,196,127,.08); border-color: rgba(107,196,127,.2); }
+  .info-box.purple { background: rgba(192,132,252,.08); border-color: rgba(192,132,252,.2); }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.93em; }
+  th, td { border: 1px solid var(--border); padding: 10px 14px; text-align: left; }
+  th { background: rgba(192,132,252,.1); color: var(--accent5); font-weight: 600; }
+  tr:nth-child(even) { background: rgba(255,255,255,.02); }
+
+  /* Checklist */
+  .checklist { list-style: none; padding: 0; }
+  .checklist li {
+    padding: 6px 0 6px 28px; position: relative;
+    border-bottom: 1px solid rgba(255,255,255,.04);
+  }
+  .checklist li::before {
+    content: '◆'; position: absolute; left: 6px;
+    color: var(--accent5); font-size: 0.8em;
+  }
+
+  /* Tags */
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+  .tag {
+    font-size: .78em; padding: 2px 10px; border-radius: 12px;
+    background: rgba(255,255,255,.06); color: var(--text2); border: 1px solid var(--border);
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center; padding: 30px 0; color: var(--text2); font-size: .85em;
+    border-top: 1px solid var(--border); margin-top: 40px;
+  }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 1.8em; }
+    .container { padding: 0 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>💰 资金流书 v2.1</h1>
+  <div class="subtitle">中国股市最细腻、极致打法 · 完整精华学习手册</div>
+  <div class="meta">狂龙十八段 撰写 · 基于 289 页原文 · 十五年实战沉淀</div>
+  <div class="tagline">化繁为简 · 钱在哪，我在哪</div>
+</div>
+
+<div class="container">
+
+<!-- ==================== 一、核心思想 ==================== -->
+<div class="section">
+<div class="section-title">一、核心思想 · 资金流的根基</div>
+
+<div class="card-grid">
+
+<div class="card">
+<div class="label label-purple">核心公式</div>
+<div class="quote">
+<strong>资金流派 = 化繁为简</strong><br><br>
+钱在哪，风口在哪，我们就在哪。钱走了，我们也走了。<br>
+<strong>基于资金而买入，也基于资金而卖出。</strong>
+</div>
+<div class="tags"><span class="tag">核心逻辑</span><span class="tag">跟随主力</span><span class="tag">简单极致</span></div>
+</div>
+
+<div class="card">
+<div class="label label-purple">必做减法</div>
+<div class="quote">
+从此不看研报 · 从此不看企业 · 从此不看基本面 · 从此不看技术面<br>
+从此不再阴谋论 · 从此不再关注热点新闻 · 从此不再听信任何消息
+</div>
+<div class="info-box" style="margin-top:8px;">
+<strong>为什么？</strong>个人分析能力永远敌不过专业团队。我们要做的不是自己分析，而是<strong>找出最会赚钱的主力，跟紧他们</strong>。
+</div>
+<div class="tags"><span class="tag">减法</span><span class="tag">聚焦</span><span class="tag">交给专业</span></div>
+</div>
+
+<div class="card">
+<div class="label label-purple">六步核心工作</div>
+<div class="checklist">
+<li>找出市场上几大资金分派最强的主力</li>
+<li>研究他们建仓、拉升、出货的手法</li>
+<li>从源头找出资金建仓的痕迹</li>
+<li>算出资金建仓规模</li>
+<li>算出资金建仓成本</li>
+<li>基于建仓逻辑买入，基于减仓/出货逻辑卖出</li>
+</div>
+</div>
+
+<div class="card">
+<div class="label label-purple">投资理念</div>
+<div class="checklist">
+<li>永远只关心市场上最赚钱的一群资金和主力</li>
+<li>永远只跟随和研究市场上最赚钱的一小群主力</li>
+<li>永远把最专业的工作交给最专业的人去做</li>
+<li>持续的做深度思考，换位思考</li>
+<li>持续的修心，建立积极阳光内心</li>
+<li>能睡到10点起来，绝不7点起来看财经新闻</li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ==================== 二、资金流派理论 ==================== -->
+<div class="section">
+<div class="section-title">二、资金流派理论</div>
+
+<div class="section-sub">市场价格观</div>
+<div class="card">
+<div class="quote">
+传统的股价高或低，我们是不关心的。<strong>我们只看主力的仓位规模、成本。</strong><br>
+<span style="color:var(--accent4)">庄家成本10%以下为低</span> · <span style="color:var(--accent)">20%左右为中</span> · <span style="color:var(--accent3)">30%左右或以上为高</span>
+</div>
+<div class="tags"><span class="tag">成本思维</span><span class="tag">主力视角</span><span class="tag">抛弃传统估值</span></div>
+</div>
+
+<div class="section-sub">四大资金力量</div>
+<table>
+<thead>
+<tr><th>类型</th><th>特征</th><th>研究价值</th><th>操作关注点</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong style="color:var(--accent4)">公募基金</strong></td>
+<td>收管理费为主，做多动力弱；"钱多人傻"；98%没研究价值</td>
+<td>⚠️ 低</td>
+<td>回避。多主力混战，无人愿意抬轿</td>
+</tr>
+<tr>
+<td><strong style="color:var(--accent)">私募基金</strong></td>
+<td>利润20%分成，有强烈做多意愿；龙蛇混杂</td>
+<td>✅ 中</td>
+<td>做好筛选，找有规模有实力的</td>
+</tr>
+<tr>
+<td><strong style="color:var(--accent3)">游资</strong></td>
+<td>营业部形式，高换手（日换手20%+），手法凶悍，持有时间短</td>
+<td>⭐ 高</td>
+<td>热点题材+接力逻辑+高换手</td>
+</tr>
+<tr>
+<td><strong style="color:var(--accent5)">庄股</strong></td>
+<td>单一资金控盘20-30%流通盘，逆市敢拉；低市值、亏损、夕阳行业</td>
+<td>⭐ 高</td>
+<td>低市值+控盘+成本计算</td>
+</tr>
+</tbody>
+</table>
+
+<div class="card" style="margin-top:10px;">
+<div class="info-box" style="margin-top:0;">
+<strong>关键认知：</strong>四股力量各占不同的股票池，互不踩界。用庄股的打法去判断游资股，必亏。这是散户长期无法积累和进步的根源。
+</div>
+</div>
+
+<div class="section-sub">股票学 = 概率学</div>
+<div class="card">
+<div class="quote">
+<strong>高概率 + 高概率 + 高概率 + ... + 高概率 = 高成功率</strong>
+</div>
+<div class="info-box purple">
+<strong>高概率叠加要素（超短型）：</strong><br>
+主力成本高 + 低吸 + 相对底部 + 盘中异动 + 资金流入明显 + 中小盘 + 热点 + 确定主力
+</div>
+<div class="info-box green">
+<strong>高概率选股思路：</strong><br>
+① 低市值股（10-50亿）— 近11年每年买入市值最低前20，年均回报~80%<br>
+② 亏损股/传统行业 — 越亏损越有想象空间，借壳/转型/并购温床<br>
+③ 单一主力/单一资金来源 — 多主力=无人抬轿=价值投资派至死不明的原因<br>
+④ 回避公募基金股 — 多主力混战，没人愿意当冤大头<br>
+⑤ 众取我舍，众舍我取 — 逆大多数人思维<br>
+⑥ 抓住大炒作题材 — 石墨烯、AR-VR等改变世界的题材，冷却后反复做
+</div>
+<div class="tags"><span class="tag">概率叠加</span><span class="tag">低市值</span><span class="tag">单一主力</span><span class="tag">逆向思维</span></div>
+</div>
+
+<div class="section-sub">资金安全垫理论</div>
+<div class="card">
+<div class="quote">
+<strong>安全垫是什么？</strong><br>
+主力买入1个亿，股票跌了，他至少拿3000-5000万甚至1个亿来护盘/拉升。<br>
+你跟进去10万=垫了他的安全垫。<strong>单一主力介入资金体量越大，安全垫越厚。</strong>
+</div>
+<div class="info-box" style="margin-top:8px;">
+<strong>实战用法：</strong><br>
+强势市场追龙头，弱市市场找安全垫。<br>
+选一个短期确定性高、介入金额比你大很多倍、且有主动性攻击操盘习惯的大资金——他进你随他进，大盘跌他抗，拉起来你跑。
+</div>
+<div class="info-box warn" style="margin-top:8px;">
+⚠️ 安全垫也会穿。长线买入型资金的安全垫意义较小，短线资金的安全垫更大。
+</div>
+<div class="tags"><span class="tag">安全垫</span><span class="tag">弱市生存</span><span class="tag">跟随大资金</span></div>
+</div>
+</div>
+
+<!-- ==================== 三、辨风：识别主力 ==================== -->
+<div class="section">
+<div class="section-title">三、辨风 · 识别各路主力</div>
+
+<div class="section-sub">游资识别法</div>
+<div class="card">
+<table>
+<thead>
+<tr><th>特征</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>大热点板块</td><td>石墨烯、AR-VR、锂电池等市场核心题材</td></tr>
+<tr><td>突发性事件</td><td>疾病、灾难、季节、政策等引导性事件</td></tr>
+<tr><td>特定炒作概念</td><td>高送转、两会等周期性概念</td></tr>
+<tr><td>高换手</td><td>日换手率常在20%-50%</td></tr>
+<tr><td>选股工具</td><td>查阶段性最高涨幅股票，筛选高换手+非次新股</td></tr>
+</tbody>
+</table>
+<div class="tags"><span class="tag">高换手</span><span class="tag">热点题材</span><span class="tag">营业部</span></div>
+</div>
+
+<div class="section-sub">私募识别法</div>
+<div class="card">
+<div class="checklist">
+<li>查龙虎榜数据，找出现次数频繁的营业部</li>
+<li>记录营业部操作过的股票，用EXCEL跟踪</li>
+<li>分析其操作模式：每次买多少？隔几天拉升？涨多少才出？</li>
+<li>建立股票池，出现买入信号时做好操作预案</li>
+</ul>
+</div>
+<div class="tags"><span class="tag">龙虎榜</span><span class="tag">营业部跟踪</span><span class="tag">模式识别</span></div>
+</div>
+
+<div class="section-sub">庄股识别法</div>
+<div class="card">
+<div class="info-box purple">
+<strong>庄股的典型特征：</strong>
+</div>
+<table>
+<thead>
+<tr><th>维度</th><th>特征</th></tr>
+</thead>
+<tbody>
+<tr><td>标的</td><td>低市值、亏损、夕阳行业（钢铁、铁路、煤炭、百货等）</td></tr>
+<tr><td>控盘</td><td>控盘实际流通盘的20-30%，对盘面有绝对控制力</td></tr>
+<tr><td>盘面</td><td>洗盘、下跌行为一致；量能稳定不突大突小；无量上涨</td></tr>
+<tr><td>K线</td><td>总是不断复制之前的K线走势</td></tr>
+<tr><td>换手率</td><td>低于7%-10%</td></tr>
+<tr><td>资金来源</td><td>众筹、配资、借贷，成本高，对利润需求大</td></tr>
+<tr><td>行为</td><td>不受重视的题材（如甘肃电投等亏损股、水力发电等不受待见的题材）</td></tr>
+</tbody>
+</table>
+<div class="tags"><span class="tag">低市值</span><span class="tag">控盘</span><span class="tag">无量上涨</span><span class="tag">K线复制</span></div>
+</div>
+
+<div class="section-sub">强庄的特殊特征</div>
+<div class="card">
+<div class="checklist">
+<li>由于控盘，上涨是不放量的（筹码都在庄家手里，基本没有抛压）</li>
+<li>换手率低于7%-10%</li>
+<li>尾市常有大单托盘（如2000手以上的买单）</li>
+<li>盘中经常出现密集小单——防止技术派介入，用碎单拉升</li>
+<li>上涨似乎"有气无力"但就是天天涨</li>
+</ul>
+</div>
+<div class="tags"><span class="tag">强庄</span><span class="tag">不放量上涨</span><span class="tag">尾盘托盘</span><span class="tag">碎单</span></div>
+</div>
+
+<div class="section-sub">如何找到庄股</div>
+<div class="card">
+<div class="quote">
+<strong>选股法：</strong>从股东数变化入手<br>
+每月1日、16日查股东数减少比例最大的个股（排除次新股）。<br>
+股东数大幅减少 = 筹码在集中 = 庄家大概率在建仓。
+</div>
+<div class="tags"><span class="tag">股东数</span><span class="tag">筹码集中</span><span class="tag">建仓信号</span></div>
+</div>
+</div>
+
+<!-- ==================== 四、看盘核心技法 ==================== -->
+<div class="section">
+<div class="section-title">四、看盘核心技法</div>
+
+<div class="section-sub">对倒（洗筹或出货）</div>
+<div class="card">
+<div class="quote">
+<strong>对倒的本质：</strong>主力用左手倒右手，制造成交量，吸引市场关注。<br><br>
+<strong>特征识别：</strong><br>
+① 成交量明显放大，但股价变化不大<br>
+② 买卖盘口频繁出现大单挂单又撤单<br>
+③ 分时图出现"钓鱼线"——快速拉升后缓慢回落<br>
+④ 同一天，买五卖五席位高度重合（龙虎榜可查）
+</div>
+<div class="info-box warn" style="margin-top:8px;">
+<strong>⚠️ 对倒的两种用途：</strong><br>
+<strong>对倒建仓：</strong>低位对倒制造恐慌，逼散户交出筹码<br>
+<strong>对倒出货：</strong>高位对倒吸引跟风盘，边拉边出
+</div>
+<div class="tags"><span class="tag">对倒</span><span class="tag">成交量造假</span><span class="tag">盘口异动</span></div>
+</div>
+
+<div class="section-sub">洗盘</div>
+<div class="card">
+<div class="quote">
+<strong>洗盘的本质：</strong>吓出不坚定散户，提高持筹者平均成本。<br><br>
+<strong>与出货的区别：</strong>
+</div>
+<table>
+<thead>
+<tr><th>维度</th><th>洗盘</th><th>出货</th></tr>
+</thead>
+<tbody>
+<tr><td>位置</td><td>相对低位或刚启动</td><td>已大幅上涨后</td></tr>
+<tr><td>量能</td><td>下跌缩量、反弹放量</td><td>下跌放量（大单卖出）</td></tr>
+<tr><td>盘口</td><td>尾市有托盘，大买单常现</td><td>尾市急拉，次日低开</td></tr>
+<tr><td>均线</td><td>不破关键均线（如20日线）</td><td>破位下行</td></tr>
+<tr><td>持续时间</td><td>短则1-3天，长则1-2周</td><td>持续阴跌+反弹诱多</td></tr>
+</tbody>
+</table>
+<div class="tags"><span class="tag">洗盘</span><span class="tag">甩轿</span><span class="tag">缩量下跌</span></div>
+</div>
+
+<div class="section-sub">低位 vs 高位</div>
+<div class="card">
+<div class="quote">
+<strong>资金流派眼里：</strong>没有传统的高/低，只有<strong>主力成本高/低</strong><br><br>
+<strong>庄家成本10%以下 = 低</strong> → 风险小但需耐心<br>
+<strong>庄家成本20%左右 = 中</strong> → 可积极关注<br>
+<strong>庄家成本30%以上 = 高</strong> → 随时可能出货
+</div>
+<div class="tags"><span class="tag">成本判断</span><span class="tag">主力成本</span><span class="tag">相对位置</span></div>
+</div>
+
+<div class="section-sub">计算主力仓位与成本</div>
+<div class="card">
+<div class="quote">
+<strong>如何计算主力仓位：</strong><br>
+① 看区间换手率：主力建仓期累计换手率 × 估算建仓比例<br>
+② 看龙虎榜数据：买入前五席位的合计买入金额<br>
+③ 看大宗交易：折价率+成交量<br>
+④ 看股东数变化：减少比例越大，仓位越集中
+</div>
+<div class="quote" style="margin-top:8px;">
+<strong>如何计算主力成本：</strong><br>
+① 涨停板建仓的 → 大致是涨停价附近<br>
+② 震荡区间建仓的 → 区间中位数附近<br>
+③ 底部放量拉升的 → 放量起始位置附近<br>
+④ 股价跌破主力成本10%以上 → 一般是洗盘，不是出货
+</div>
+<div class="tags"><span class="tag">仓位估算</span><span class="tag">成本计算</span><span class="tag">龙虎榜分析</span></div>
+</div>
+
+<div class="section-sub">涨停板吸货</div>
+<div class="card">
+<div class="quote">
+<strong>什么是涨停板吸货？</strong><br>
+主力为了快速建仓，在涨停板上扫货。说明主力非常看好，不惜高价拿货。<br>
+<strong>特征：</strong>涨停板上反复打开又封上，成交量大，换手充分。<br><br>
+<strong>安全垫意义：</strong>涨停板买入的资金成本极高，主力有强烈的拉升意愿来脱离成本区。
+</div>
+<div class="tags"><span class="tag">涨停板吸货</span><span class="tag">快速建仓</span><span class="tag">高价拿货</span></div>
+</div>
+</div>
+
+<!-- ==================== 五、出货法 ==================== -->
+<div class="section">
+<div class="section-title">五、常见出货手法 · 七种武器</div>
+
+<table>
+<thead>
+<tr><th>手法</th><th>特征</th><th>识别</th><th>应对</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>"反"一字出货</strong></td>
+<td>连续一字板后，巨量打开，看似还要涨，实则一浪比一浪低</td>
+<td>开板日换手率极高（30%+），盘中冲高回落</td>
+<td>开板当日即出，不抱幻想</td>
+</tr>
+<tr>
+<td><strong>上下夹单出货</strong></td>
+<td>买卖盘口挂大量买单（托盘）+少量卖单，吸引散户买，不断撤单重挂</td>
+<td>买一买二永远有大单，但就是不成交；卖单不断被吃又不断出现</td>
+<td>不参与，不追</td>
+</tr>
+<tr>
+<td><strong>拆单出货</strong></td>
+<td>大单拆成无数小单，混在散户中悄悄卖</td>
+<td>分时走势无明显大单抛压，但股价重心缓缓下移</td>
+<td>跌破关键均线即出</td>
+</tr>
+<tr>
+<td><strong>跌停板出货</strong></td>
+<td>封跌停→打开→再封跌停，反复吃抄底资金</td>
+<td>跌停板上反复开板+放量</td>
+<td>不抄跌停板的底</td>
+</tr>
+<tr>
+<td><strong>对倒掩护出货</strong></td>
+<td>一笔对倒拉升吸引眼球，另一账户同步出货</td>
+<td>脉冲式拉升后快速回落，反复出现</td>
+<td>拉升无量不追</td>
+</tr>
+<tr>
+<td><strong>平台整理出货</strong></td>
+<td>股价不跌但横盘，每天盘中出一点货</td>
+<td>横盘期成交量逐渐萎缩或忽大忽小，散户以为在蓄力</td>
+<td>横久不涨先出</td>
+</tr>
+<tr>
+<td><strong>拉升出货</strong></td>
+<td>边拉边出，涨一段出一批，跌了再拉再出</td>
+<td>每次拉升的高点逐步降低，量能递减</td>
+<td>越涨越减</td>
+</tr>
+</tbody>
+</table>
+
+<div class="card" style="margin-top:10px;">
+<div class="info-box warn" style="margin-top:0;">
+<strong>⚠️ 核心原则：</strong>任何形态、任何故事、任何利好，都可能是出货的烟雾弹。<br>
+<strong>判断唯一标准：</strong>主力在买还是在卖？——资金流向才是真相。
+</div>
+</div>
+</div>
+
+<!-- ==================== 六、盘口语言 ==================== -->
+<div class="section">
+<div class="section-title">六、盘口语言 · 读懂主力的意图</div>
+
+<div class="card-grid">
+
+<div class="card">
+<div class="label label-blue">大单托盘</div>
+<div class="quote">
+买盘挂大量买单（如几千手），但股价不涨。<br>
+<strong>含义：</strong>主力心不虚，不怕你砸，但也无意立刻拉升，告诉你"我兜底"。<br>
+<strong>陷阱：</strong>可能是假托单，一有卖盘就撤单。
+</div>
+</div>
+
+<div class="card">
+<div class="label label-blue">大单压盘</div>
+<div class="quote">
+卖盘挂大量卖单，但股价不跌。<br>
+<strong>含义：</strong>压价吸筹，不让股价涨上去，逼散户交出筹码。<br>
+<strong>识别：</strong>挂了很久突然撤掉直接拉升 = 吸够了，要启动了。
+</div>
+</div>
+
+<div class="card">
+<div class="label label-blue">脉冲式拉升</div>
+<div class="quote">
+突然一笔大单把股价拉高几个点，然后慢慢回落。<br>
+<strong>含义：</strong>测试抛压。拉升后回落幅度小 = 抛压轻，可继续持有。回落幅度大 = 抛压重，需谨慎。
+</div>
+</div>
+
+<div class="card">
+<div class="label label-blue">密集小单推升</div>
+<div class="quote">
+全是几手、几十手的小买单，但成交频率极高，股价稳步上升。<br>
+<strong>含义：</strong>庄家在碎单拉升，不想引起技术派注意。这是强庄控盘的特征。
+</div>
+</div>
+
+<div class="card">
+<div class="label label-blue">尾市异动</div>
+<div class="quote">
+尾盘最后几分钟突然拉升或打压。<br>
+<strong>拉升含义：</strong>做K线/做市值，次日可能低开。<br>
+<strong>打压含义：</strong>洗盘，次日可能高开。
+</div>
+</div>
+
+<div class="card">
+<div class="label label-blue">撤单游戏</div>
+<div class="quote">
+大单频繁挂出又撤掉，反反复复。<br>
+<strong>含义：</strong>主力在试探市场反应，或在对倒制造活跃假象。<br>
+<strong>规则：</strong>撤单超过3次还没成交的，基本是假单。
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ==================== 七、复盘方法 ==================== -->
+<div class="section">
+<div class="section-title">七、复盘方法 · 每日标准化流程</div>
+
+<div class="card">
+<div class="label label-green">复盘三步走</div>
+<div class="checklist">
+<li><strong>第一步：看涨跌榜</strong> — 今日涨幅前20的个股，分析它们的共性（板块、题材、主力类型）</li>
+<li><strong>第二步：看龙虎榜</strong> — 哪些营业部进了哪些股，他们有什么操作规律？</li>
+<li><strong>第三步：建立股票池</strong> — 将符合自己模式的个股加入观察，制定次日操作预案</li>
+</ul>
+<div class="info-box purple" style="margin-top:10px;">
+<strong>核心原则：</strong>复盘不是为了预测明天涨跌，而是为了<strong>熟悉各路主力的操作习惯</strong>。<br>
+当你看到一只异动股，能立刻识别出"这是某某游资的手法"——你就入门了。
+</div>
+<div class="tags"><span class="tag">复盘</span><span class="tag">龙虎榜</span><span class="tag">股票池</span><span class="tag">习惯识别</span></div>
+</div>
+</div>
+
+<!-- ==================== 八、心态篇精华 ==================== -->
+<div class="section">
+<div class="section-title">八、心态篇 · 修心即修行</div>
+
+<div class="card-grid">
+
+<div class="card">
+<div class="label label-gold">心态核心</div>
+<div class="quote">
+炒股，技巧、逻辑均不难学，最难学的是心态。<br>
+<strong>赚也开心，亏也开心，稳定增长，确定大逻辑。</strong><br>
+结果不以涨幅为导向，否则就变成赌博。只有持续稳定的增长，才是长期追求的。
+</div>
+</div>
+
+<div class="card">
+<div class="label label-gold">试错精神</div>
+<div class="quote">
+<strong>试错是唯一成长的方式。</strong><br>
+不敢亏、不敢交学费，一辈子不要指望在这个市场上有所得。<br>
+先学会亏钱，才入道。和学英语同理——大胆讲，不怕被人笑，最后才熟练运用。
+</div>
+</div>
+
+<div class="card">
+<div class="label label-gold">不做赌徒</div>
+<div class="quote">
+带一万去澳门赢了两万——不是好事。钱来的太快，心魔动了。<br>
+钱来的太快的个股，涨停了直接抛，管它后面还有几个涨停。<br>
+<strong>你只赚你要的这部分钱，股市永远都是这样。</strong>
+</div>
+</div>
+
+<div class="card">
+<div class="label label-gold">困境即磨炼</div>
+<div class="quote">
+现实性困境只是一时的，最怕的是心态困境。<br>
+如果你心中还有火，还有理想，还有执着，那你不会被困住。<br>
+现在的你是十年前的折射，如果现在开始改变，未来的日子将充满阳光。
+</div>
+</div>
+
+<div class="card">
+<div class="label label-gold">耐心积累</div>
+<div class="quote">
+强大的内心是由无数小成就堆积起来的。<br>
+从身边一件小事做起——做好、做专、持续做。茶可以玩极致，红酒可以玩到哪块田。<br>
+<strong>细节决定一切。</strong>
+</div>
+</div>
+
+<div class="card">
+<div class="label label-gold">关于学费</div>
+<div class="quote">
+初学的四五年里，亏得连底裤都没了。<br>
+你做任何一件事都有学费，更何况这是可以当终生事业的职业？<br>
+一旦逻辑一通，有自己的操作模式，长期稳定增长，钱才会真正来找你。
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ==================== 九、养家语录 ==================== -->
+<div class="section">
+<div class="section-title">九、狂龙金句 · 值得反复回味</div>
+
+<div class="info-box purple">
+「钱在哪，风口在哪，我们就在哪。钱走了，我们也走了。」
+</div>
+<div class="info-box" style="margin-bottom:8px;">
+「炒股90%的人最大的错误——简单的东西复杂化，分析复杂化，思考复杂化，操作方法复杂化。」
+</div>
+<div class="info-box purple" style="margin-bottom:8px;">
+「我们要利用市场的情绪来赚钱，自然也要避免自己陷入情绪的漩涡。」
+</div>
+<div class="info-box" style="margin-bottom:8px;">
+「你只赚你要的这部分钱。卖出后，这个股票再翻10倍，也与你无关。」
+</div>
+<div class="info-box purple" style="margin-bottom:8px;">
+「强者的内心是由无数的小成就堆积起来的。如果你每个事都可以玩转，都可以玩好，自然，你对自己是无比坚定的。」
+</div>
+<div class="info-box" style="margin-bottom:8px;">
+「在这个市场能够生存并做得很好的人，是情商高的一群人，而非智商高的人。盘面就是人性，只不过数字化了。」
+</div>
+<div class="info-box purple" style="margin-bottom:8px;">
+「现在你在意的5万、10万、30万……其实到你学会那一天为止，都不是钱。」
+</div>
+<div class="info-box" style="margin-bottom:8px;">
+「心里有猛虎，细嗅蔷薇。」
+</div>
+
+</div>
+
+<!-- ==================== Footer ==================== -->
+<div class="footer">
+<p>📖 基于《资金流书v2.1》289页原文整理 · 狂龙十八段 撰写</p>
+<p>仅作学习交流，不构成任何投资建议 · 市场有风险，投资需谨慎</p>
+</div>
+
+</div>
+
+</body>
+</html>

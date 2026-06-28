@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAN SLIM · 笑傲股市 — 威廉·欧奈尔投资法完全手册</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg2: #161b22;
+    --bg3: #1c2333;
+    --card-bg: #1a1f2e;
+    --border: #30363d;
+    --accent: #ff6b35;
+    --accent2: #58a6ff;
+    --green: #3fb950;
+    --red: #f85149;
+    --yellow: #d29922;
+    --purple: #bc8cff;
+    --cyan: #39d2c0;
+    --text: #e6edf3;
+    --text2: #8b949e;
+    --text3: #6e7681;
+    --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    font-family:var(--font);
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+    font-size:15px;
+  }
+  .container { max-width:960px; margin:0 auto; padding:0 20px; }
+
+  /* HEADER */
+  .hero {
+    background:linear-gradient(135deg, #0d1117 0%, #1c2333 50%, #0d1117 100%);
+    padding:80px 0 60px;
+    text-align:center;
+    border-bottom:1px solid var(--border);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before {
+    content:'';
+    position:absolute;
+    top:-50%;
+    left:-50%;
+    width:200%;
+    height:200%;
+    background:radial-gradient(circle at 30% 50%, rgba(255,107,53,0.08) 0%, transparent 50%),
+               radial-gradient(circle at 70% 50%, rgba(88,166,255,0.06) 0%, transparent 50%);
+    pointer-events:none;
+  }
+  .hero h1 {
+    font-size:3rem;
+    font-weight:800;
+    background:linear-gradient(135deg, var(--accent), var(--yellow));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    letter-spacing:-0.5px;
+    position:relative;
+  }
+  .hero .subtitle {
+    font-size:1.15rem;
+    color:var(--text2);
+    margin-top:10px;
+    position:relative;
+  }
+  .hero .tagline {
+    margin-top:8px;
+    font-size:0.95rem;
+    color:var(--text3);
+    letter-spacing:2px;
+    position:relative;
+  }
+  .hero .book-info {
+    margin-top:25px;
+    display:inline-flex;
+    gap:30px;
+    background:var(--bg2);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:14px 28px;
+    font-size:0.85rem;
+    color:var(--text2);
+    position:relative;
+  }
+  .hero .book-info span { white-space:nowrap; }
+  .hero .book-info i { color:var(--accent); margin-right:6px; }
+
+  /* NAV */
+  .nav-bar {
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(13,17,23,0.92);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+    padding:0 20px;
+    overflow-x:auto;
+    white-space:nowrap;
+    scrollbar-width:none;
+  }
+  .nav-bar::-webkit-scrollbar { display:none; }
+  .nav-bar .container { display:flex; gap:4px; padding:8px 0; }
+  .nav-bar a {
+    display:inline-block;
+    padding:6px 14px;
+    font-size:0.78rem;
+    color:var(--text2);
+    text-decoration:none;
+    border-radius:6px;
+    transition:all 0.2s;
+    font-weight:500;
+  }
+  .nav-bar a:hover { background:var(--bg3); color:var(--text); }
+
+  /* SECTION */
+  section { padding:50px 0; border-bottom:1px solid var(--border); }
+  section:last-child { border-bottom:none; }
+  .section-title {
+    font-size:1.8rem;
+    font-weight:700;
+    margin-bottom:6px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .section-title .num {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:36px; height:36px;
+    border-radius:8px;
+    font-size:0.9rem;
+    font-weight:700;
+    flex-shrink:0;
+  }
+  .section-desc { color:var(--text2); font-size:0.95rem; margin-bottom:28px; }
+
+  /* AUTHOR */
+  .author-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-top:10px;
+  }
+  .author-card {
+    background:var(--card-bg);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:24px;
+  }
+  .author-card h3 { font-size:1rem; color:var(--accent); margin-bottom:8px; }
+  .author-card p { font-size:0.88rem; color:var(--text2); line-height:1.6; }
+  .author-card.full { grid-column:1/-1; }
+
+  /* CAN SLIM CARDS */
+  .canslim-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  .canslim-card {
+    background:var(--card-bg);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:28px;
+    transition:border-color 0.3s, transform 0.2s;
+    position:relative;
+    overflow:hidden;
+  }
+  .canslim-card:hover {
+    border-color:var(--accent);
+    transform:translateY(-2px);
+  }
+  .canslim-card .letter {
+    font-size:3.5rem;
+    font-weight:800;
+    line-height:1;
+    margin-bottom:6px;
+  }
+  .canslim-card .letter.c { color:var(--accent); }
+  .canslim-card .letter.a { color:var(--green); }
+  .canslim-card .letter.n { color:var(--accent2); }
+  .canslim-card .letter.s { color:var(--yellow); }
+  .canslim-card .letter.l { color:var(--purple); }
+  .canslim-card .letter.i { color:var(--cyan); }
+  .canslim-card .letter.m { color:var(--red); }
+  .canslim-card .label {
+    font-size:0.85rem;
+    color:var(--text2);
+    font-weight:500;
+    margin-bottom:12px;
+  }
+  .canslim-card .label i { font-style:normal; }
+  .canslim-card .cn {
+    font-size:1.1rem;
+    font-weight:700;
+    margin-bottom:14px;
+    color:var(--text);
+  }
+  .canslim-card p { font-size:0.88rem; color:var(--text2); line-height:1.7; }
+  .canslim-card ul { margin-top:10px; padding-left:18px; }
+  .canslim-card li {
+    font-size:0.85rem;
+    color:var(--text2);
+    margin-bottom:6px;
+    line-height:1.6;
+  }
+  .canslim-card li::marker { color:var(--accent2); }
+  .canslim-card .example {
+    margin-top:14px;
+    padding:12px 14px;
+    background:rgba(88,166,255,0.08);
+    border-left:3px solid var(--accent2);
+    border-radius:0 6px 6px 0;
+    font-size:0.83rem;
+    color:var(--text2);
+  }
+  .canslim-card .example strong { color:var(--accent2); }
+
+  /* PRINCIPLES */
+  .principle-list { counter-reset:pr; }
+  .principle-item {
+    counter-increment:pr;
+    background:var(--card-bg);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:18px 22px;
+    margin-bottom:12px;
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    transition:border-color 0.2s;
+  }
+  .principle-item:hover { border-color:var(--accent2); }
+  .principle-item .pnum {
+    flex-shrink:0;
+    width:32px; height:32px;
+    border-radius:8px;
+    background:var(--bg3);
+    color:var(--accent2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    font-size:0.85rem;
+  }
+  .principle-item .ptext { flex:1; }
+  .principle-item .ptitle {
+    font-weight:600;
+    font-size:0.92rem;
+    margin-bottom:4px;
+  }
+  .principle-item .pdesc {
+    font-size:0.85rem;
+    color:var(--text2);
+    line-height:1.6;
+  }
+
+  /* CHART PATTERN */
+  .chart-area {
+    background:var(--card-bg);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:30px;
+    margin-top:20px;
+  }
+  .chart-area h3 {
+    font-size:1.1rem;
+    color:var(--accent2);
+    margin-bottom:16px;
+  }
+  .ascii-chart {
+    font-family:'Courier New', monospace;
+    font-size:12px;
+    line-height:1.3;
+    color:var(--text2);
+    white-space:pre;
+    overflow-x:auto;
+    padding:16px;
+    background:var(--bg);
+    border-radius:8px;
+    border:1px solid var(--border);
+  }
+  .chart-legend {
+    display:flex;
+    gap:20px;
+    margin:14px 0 20px;
+    font-size:0.82rem;
+    color:var(--text2);
+    flex-wrap:wrap;
+  }
+  .chart-legend span { display:flex; align-items:center; gap:6px; }
+  .chart-legend .dot { display:inline-block; width:10px; height:10px; border-radius:50%; }
+  .chart-phase {
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:10px;
+    margin-top:14px;
+  }
+  .chart-phase .phase {
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:12px;
+    text-align:center;
+  }
+  .chart-phase .phase .phase-num {
+    font-size:0.75rem;
+    font-weight:700;
+    color:var(--accent);
+  }
+  .chart-phase .phase .phase-text {
+    font-size:0.82rem;
+    color:var(--text2);
+    margin-top:4px;
+  }
+
+  /* STOP LOSS */
+  .stop-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  .stop-card {
+    background:var(--card-bg);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:20px;
+  }
+  .stop-card .stop-icon { font-size:2rem; margin-bottom:6px; }
+  .stop-card h4 { font-size:1rem; margin-bottom:6px; }
+  .stop-card p { font-size:0.85rem; color:var(--text2); line-height:1.6; }
+  .stop-card.warn { border-left:4px solid var(--red); }
+  .stop-card.ok { border-left:4px solid var(--green); }
+  .stop-card.info { border-left:4px solid var(--accent2); }
+
+  /* QUOTES */
+  .quotes-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  .quote-card {
+    background:var(--card-bg);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:22px;
+    position:relative;
+  }
+  .quote-card::before {
+    content:'"';
+    position:absolute;
+    top:6px; left:14px;
+    font-size:3rem;
+    color:var(--accent);
+    opacity:0.2;
+    line-height:1;
+  }
+  .quote-card q {
+    font-size:0.9rem;
+    font-style:italic;
+    color:var(--text);
+    line-height:1.6;
+    display:block;
+    margin-bottom:8px;
+  }
+  .quote-card .author {
+    font-size:0.8rem;
+    color:var(--text3);
+  }
+
+  /* A-SHARE */
+  .ashare-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  .ashare-card {
+    background:var(--card-bg);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:20px;
+  }
+  .ashare-card h4 {
+    font-size:0.95rem;
+    color:var(--yellow);
+    margin-bottom:8px;
+  }
+  .ashare-card p {
+    font-size:0.85rem;
+    color:var(--text2);
+    line-height:1.6;
+  }
+
+  /* PROGRESS */
+  .progress-section { background:var(--bg2); }
+  .progress-bar-wrapper { margin:10px 0; }
+  .progress-bar-label { display:flex; justify-content:space-between; font-size:0.8rem; color:var(--text2); margin-bottom:4px; }
+  .progress-track { height:6px; background:var(--bg); border-radius:3px; overflow:hidden; }
+  .progress-fill { height:100%; border-radius:3px; background:linear-gradient(90deg, var(--accent), var(--yellow)); }
+
+  /* MISC */
+  .flex-center { display:flex; align-items:center; gap:6px; }
+  .tag {
+    display:inline-block;
+    padding:2px 10px;
+    border-radius:4px;
+    font-size:0.72rem;
+    font-weight:600;
+  }
+  .tag-orange { background:rgba(255,107,53,0.15); color:var(--accent); }
+  .tag-blue { background:rgba(88,166,255,0.15); color:var(--accent2); }
+  .tag-green { background:rgba(63,185,80,0.15); color:var(--green); }
+  .tag-red { background:rgba(248,81,73,0.15); color:var(--red); }
+
+  .footer {
+    text-align:center;
+    padding:30px;
+    color:var(--text3);
+    font-size:0.8rem;
+  }
+
+  @media (max-width:720px) {
+    .hero h1 { font-size:2rem; }
+    .hero .book-info { flex-direction:column; gap:6px; padding:12px 18px; }
+    .canslim-grid, .author-grid, .stop-grid, .quotes-grid, .ashare-grid { grid-template-columns:1fr; }
+    .chart-phase { grid-template-columns:1fr 1fr; }
+    .nav-bar a { font-size:0.72rem; padding:5px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <h1>CAN SLIM</h1>
+    <p class="subtitle">《笑傲股市》— 威廉·欧奈尔投资法完全手册</p>
+    <p class="tagline">How to Make Money in Stocks · 基于1953年以来500+股市大赢家的研究</p>
+    <div class="book-info">
+      <span>📖 威廉·J·欧奈尔</span>
+      <span>🏆 华尔街传奇投资人</span>
+      <span>📅 首版 1988</span>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav-bar">
+  <div class="container">
+    <a href="#author">作者</a>
+    <a href="#c">C</a>
+    <a href="#a">A</a>
+    <a href="#n">N</a>
+    <a href="#s">S</a>
+    <a href="#l">L</a>
+    <a href="#i">I</a>
+    <a href="#m">M</a>
+    <a href="#principles">原则</a>
+    <a href="#tech">技术</a>
+    <a href="#stop">止损</a>
+    <a href="#quotes">语录</a>
+    <a href="#ashare">A股</a>
+  </div>
+</nav>
+
+<!-- AUTHOR -->
+<section id="author">
+  <div class="container">
+    <h2 class="section-title"><span class="num" style="background:var(--accent);color:#fff;font-size:0.7rem;">①</span> 关于作者</h2>
+    <p class="section-desc">威廉·欧奈尔——把数据变成战斧的人</p>
+    <div class="author-grid">
+      <div class="author-card">
+        <h3>🏛️ 生平</h3>
+        <p>21岁白手起家，用$500启动资金入市。30岁购得纽约证券交易所席位，成为最年轻的交易所席位持有者之一。创办《投资者商业日报》(Investor's Business Daily)，与《华尔街日报》分庭抗礼。</p>
+      </div>
+      <div class="author-card">
+        <h3>📊 方法论</h3>
+        <p>1960年代开始系统研究1953年以来每一只翻倍牛股。从500+超级牛股中提炼出七大共性特征，形成 CAN SLIM 法则。强调"基本面+技术面"双轮驱动，反对纯价值投资或纯技术分析的极端。</p>
+      </div>
+      <div class="author-card full">
+        <h3>🎯 核心信条</h3>
+        <p>"大多数人买股票是因为它看起来很便宜，但股市不会因为你买得便宜就涨。你应该买那些价格更高而不是更低的股票——强者恒强。"<br><br>欧奈尔的策略基于一个简单事实：股市的主导力量永远只有两个——<strong style="color:var(--accent);">利润</strong>和<strong style="color:var(--accent2);">成交量</strong>。当你追踪利润加速增长的股票，配合成交量确认的技术突破，你就站在了市场赢家的一方。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAN SLIM OVERVIEW -->
+<section>
+  <div class="container">
+    <h2 class="section-title"><span class="num" style="background:var(--bg3);color:var(--accent);font-weight:800;">C A N S L I M</span> 七大要素</h2>
+    <p class="section-desc">七个字母，七个维度，一套完整的选股与择时系统</p>
+
+    <div class="canslim-grid">
+
+      <!-- C -->
+      <div class="canslim-card" id="c">
+        <div class="letter c">C</div>
+        <div class="label"><i>Current Quarterly Earnings</i></div>
+        <div class="cn">当季每股收益</div>
+        <p>季度EPS同比增速至少 <strong style="color:var(--accent);">18%-20%+</strong>，越高越好。同步关注季度销售额增长至少 <strong style="color:var(--accent);">25%</strong>。增速应在近期呈<strong style="color:var(--green);">加速</strong>趋势。</p>
+        <ul>
+          <li>剔除一次性非经常性损益，关注核心利润</li>
+          <li>与上年同期比较（非上季度），避免季节性扭曲</li>
+          <li>警惕连续两个季度增速回落</li>
+          <li>销售额增速应与EPS增速匹配，否则利润质量存疑</li>
+        </ul>
+        <div class="example"><strong>📌 案例：</strong>苹果2004年推出iPod后，季度EPS增速从20%跃升至100%+，股价随后在18个月内上涨400%。</div>
+      </div>
+
+      <!-- A -->
+      <div class="canslim-card" id="a">
+        <div class="letter a">A</div>
+        <div class="label"><i>Annual Earnings Growth</i></div>
+        <div class="cn">年度收益增长</div>
+        <p>过去3年净利润持续增长，年增幅 <strong style="color:var(--green);">25%-30%+</strong>。净资产收益率(ROE) ≥ <strong style="color:var(--green);">17%</strong>（理想值25%-50%）。</p>
+        <ul>
+          <li>关注年度EPS的稳定性——稳步增长优于忽高忽低</li>
+          <li>税前利润率应在行业内领先</li>
+          <li>ROE较低时，必须有更高的税前利润率作为补偿</li>
+          <li>现收比 &gt; 20%（经营性现金流/销售收入）</li>
+        </ul>
+        <div class="example"><strong>📌 案例：</strong>微软1990年代ROE持续30%+，年度EPS增长35%+，连续十年成为市场龙头。</div>
+      </div>
+
+      <!-- N -->
+      <div class="canslim-card" id="n">
+        <div class="letter n">N</div>
+        <div class="label"><i>New Products / Management / Highs</i></div>
+        <div class="cn">新 · 创新 · 突破</div>
+        <p>寻找那些有<strong style="color:var(--accent2);">新</strong>变化的公司——新产品、新服务、新管理层、行业新突破。股价创出<strong style="color:var(--accent2);">历史新高</strong>往往不是顶，而是长牛起点。</p>
+        <ul>
+          <li>"N"也是 New High Price——买入突破新高的股票</li>
+          <li>看起来"过高"的股价，往往只是上涨的起点</li>
+          <li>行业变革（新能源、AI、医药突破）孕育超级牛股</li>
+          <li>新的管理层往往带来经营转折</li>
+        </ul>
+        <div class="example"><strong>📌 案例：</strong>亚马逊1998年推出电商平台、2006年推出AWS，每次"新"都推动股价创历史新高后继续翻倍。</div>
+      </div>
+
+      <!-- S -->
+      <div class="canslim-card" id="s">
+        <div class="letter s">S</div>
+        <div class="label"><i>Supply and Demand</i></div>
+        <div class="cn">供给与需求</div>
+        <p>流通股本规模影响股价弹性。小盘股在牛市涨幅更大，但波动也高。关注<strong style="color:var(--yellow);">成交量</strong>的变化——突破时成交量放大至少 <strong style="color:var(--yellow);">50%</strong>。</p>
+        <ul>
+          <li>流通盘较小的股票更易被拉升</li>
+          <li>避免频繁增发、配股稀释股权的公司</li>
+          <li>公司大规模回购是看涨信号</li>
+          <li>成交量是价格的"燃料"——放量上涨=真突破</li>
+        </ul>
+        <div class="example"><strong>📌 案例：</strong>英伟达2023年AI芯片需求爆发，成交量放大300%+突破杯柄形态，之后涨幅超过500%。</div>
+      </div>
+
+      <!-- L -->
+      <div class="canslim-card" id="l">
+        <div class="letter l">L</div>
+        <div class="label"><i>Leader or Laggard</i></div>
+        <div class="cn">领涨股 vs 滞涨股</div>
+        <p>始终选择<strong style="color:var(--purple);">龙头股</strong>——相对强度排行业前10%的股票。只做领先者，不做跟风者。做多最强的，做空最弱的。</p>
+        <ul>
+          <li>相对强度指标(RS)：买入RS在80以上的股票</li>
+          <li>行业前三的龙头往往吃掉行业80%的涨幅</li>
+          <li>龙头股先涨、涨幅大、持续时间长</li>
+          <li>"补涨股"从来不是好选择——等涨不动才轮到的，也跌得最快</li>
+        </ul>
+        <div class="example"><strong>📌 案例：</strong>2020年新能源行情，宁德时代（龙头）涨500%，跟风股平均涨幅不到100%，且回撤更大。</div>
+      </div>
+
+      <!-- I -->
+      <div class="canslim-card" id="i">
+        <div class="letter i">I</div>
+        <div class="label"><i>Institutional Investors</i></div>
+        <div class="cn">机构认同</div>
+        <p>有<strong style="color:var(--cyan);">机构投资者</strong>作为后盾——基金、保险、养老金持仓。但机构数量不宜过多（<strong style="color:var(--red);">避免竞相抛售</strong>）。关注优秀基金的新进或增持。</p>
+        <ul>
+          <li>至少有几家业绩优异的共同基金持有该股</li>
+          <li>本季度机构持有数量环比增加为佳</li>
+          <li>机构持仓过于集中（&gt;80%流通股）存在踩踏风险</li>
+          <li>关注顶级基金的新进仓位——他们的研究能力最强</li>
+        </ul>
+        <div class="example"><strong>📌 案例：</strong>特斯拉2020年进入ARK基金等知名机构重仓名单后，机构持股比例从30%升至55%，股价从$100涨至$900。</div>
+      </div>
+
+      <!-- M -->
+      <div class="canslim-card" id="m">
+        <div class="letter m">M</div>
+        <div class="label"><i>Market Direction</i></div>
+        <div class="cn">市场走向</div>
+        <p>通过技术分析判断<strong style="color:var(--red);">大盘趋势</strong>。顺势而为——牛市做多、熊市做空或离场。<strong style="color:var(--red);">M是CAN SLIM中最重要的一环</strong>。</p>
+        <ul>
+          <li>大盘指数（标普500/上证综指）跌破200日均线=熊市信号</li>
+          <li>关注成交量变化——放量下跌=派发日</li>
+          <li>连续派发日后应降低仓位</li>
+          <li>前4%的股票决定了市场方向，盯紧龙头</li>
+        </ul>
+        <div class="example"><strong>📌 案例：</strong>2008年金融危机，标普500跌破200日线后继续下跌57%，无视所有个股基本面。保持空仓就是最佳策略。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section id="principles">
+  <div class="container">
+    <h2 class="section-title"><span class="num" style="background:var(--bg3);color:var(--green);">✦</span> 核心交易原则</h2>
+    <p class="section-desc">欧奈尔用半个世纪验证的八条铁律</p>
+    <div class="principle-list">
+      <div class="principle-item">
+        <div class="pnum">01</div>
+        <div class="ptext">
+          <div class="ptitle">📈 在股票上涨而不是下跌时买入</div>
+          <div class="pdesc">抛弃"抄底"思维。买入正在上涨的股票，不要试图接住下跌的刀。追涨杀跌的正面理解——追逐上涨趋势，斩断下跌趋势。</div>
+        </div>
+      </div>
+      <div class="principle-item">
+        <div class="pnum">02</div>
+        <div class="ptext">
+          <div class="ptitle">💰 买入高价的绩优股，而非廉价的垃圾股</div>
+          <div class="pdesc">$100的股票可以涨到$200，$5的股票可以跌到$0。价格高低不是问题，公司质量才是。高价股通常意味着市场已认可其价值。</div>
+        </div>
+      </div>
+      <div class="principle-item">
+        <div class="pnum">03</div>
+        <div class="ptext">
+          <div class="ptitle">🚀 在股价接近一年高位时买入</div>
+          <div class="pdesc">不要在跌了很多时买入。创一年新高的股票往往还会继续走高；跌了一年的股票往往还会继续跌。新高不是终点，是新趋势的起点。</div>
+        </div>
+      </div>
+      <div class="principle-item">
+        <div class="pnum">04</div>
+        <div class="ptext">
+          <div class="ptitle">🔍 不必过于关注账面价值、股息或市盈率</div>
+          <div class="pdesc">这些静态指标对预测股价走势帮助有限。欧奈尔的研究表明，市盈率最低的股票表现并不优于市盈率合理的股票。关注利润增长和价格行为。</div>
+        </div>
+      </div>
+      <div class="principle-item">
+        <div class="pnum">05</div>
+        <div class="ptext">
+          <div class="ptitle">📊 关注利润增长率、价格和成交量</div>
+          <div class="pdesc">三大核心变量：利润增速决定方向，价格行为决定时机，成交量决定确认。其他因素仅是辅助。</div>
+        </div>
+      </div>
+      <div class="principle-item">
+        <div class="pnum">06</div>
+        <div class="ptext">
+          <div class="ptitle">🛡️ 设置7%-8%的止损位</div>
+          <div class="pdesc">这是欧奈尔体系中最铁的纪律。没有任何理由让亏损超过8%。一次大的亏损需要多次盈利来弥补。止损是在市场中生存的前提。</div>
+        </div>
+      </div>
+      <div class="principle-item">
+        <div class="pnum">07</div>
+        <div class="ptext">
+          <div class="ptitle">🎯 在最佳时机买进最好的股票</div>
+          <div class="pdesc">正确的时间 + 正确的股票 = 巨大收益。耐心等待中轴点（Pivot Point）的出现，那是风险和回报最佳平衡的买入时机。</div>
+        </div>
+      </div>
+      <div class="principle-item">
+        <div class="pnum">08</div>
+        <div class="ptext">
+          <div class="ptitle">🏁 及时出货，落袋为安</div>
+          <div class="pdesc">涨20%-25%时考虑部分止盈。永远不要因为"它还会涨"而不卖。落袋的利润才是真利润。贪婪的代价往往是把盈利还给市场。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNICAL ANALYSIS -->
+<section id="tech">
+  <div class="container">
+    <h2 class="section-title"><span class="num" style="background:var(--bg3);color:var(--accent2);">◈</span> 技术分析要点</h2>
+    <p class="section-desc">价格形态、成交量确认、移动平均线——欧奈尔的三大技术基石</p>
+
+    <!-- Cup with Handle -->
+    <div class="chart-area">
+      <h3>☕ 杯柄形态 (Cup with Handle)</h3>
+      <p style="font-size:0.85rem;color:var(--text2);margin-bottom:14px;">最经典的牛股突破形态——7-65周调整，形成"杯子"后小幅度回撤形成"手柄"，突破手柄高点时买入。</p>
+
+      <div class="ascii-chart">
+                                ╱╲  (↓ 阻力突破  → 向上突破点)
+        ╱╲              ╱    ╲     ▲
+       ╱  ╲     ╱╲    ╱      ╲    │
+      ╱    ╲   ╱  ╲  ╱        ╲   │  手柄（Handle）
+     ╱ 左沿  ╲╱  右沿 ╱  杯口    ╲  │  成交量萎缩至最低
+    ╱          ╱    ╱    左沿=右沿 ╲ │
+   ╱  杯身    ╱    ╱  (杯口水平)    ╲│
+  ╱  (圆弧底) ╱──────────────────────╲
+  ╲          ╱                        ╲
+   ╲  杯底  ╱   成交量逐渐缩小           ╲
+    ╲______╱    → 底部缩量 = 洗盘完成
+    </div>
+
+      <div class="chart-legend">
+        <span><span class="dot" style="background:var(--accent);"></span> 杯身</span>
+        <span><span class="dot" style="background:var(--accent2);"></span> 手柄</span>
+        <span><span class="dot" style="background:var(--green);"></span> 突破点</span>
+        <span>📉 底部成交量极致缩量</span>
+        <span>📈 突破需放量50%+</span>
+      </div>
+
+      <div class="chart-phase">
+        <div class="phase">
+          <div class="phase-num">阶段 ①</div>
+          <div class="phase-text">前期上涨 → 回调形成左沿<br>时间：1-8周</div>
+        </div>
+        <div class="phase">
+          <div class="phase-num">阶段 ②</div>
+          <div class="phase-text">圆弧底部整理<br>成交量极度萎缩(<strong style="color:var(--accent);">洗盘完成</strong>)</div>
+        </div>
+        <div class="phase">
+          <div class="phase-num">阶段 ③</div>
+          <div class="phase-text">手柄回撤(幅度≤12%)<br>缩量→放量突破→<strong style="color:var(--green);">买入</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Double Bottom -->
+    <div class="chart-area" style="margin-top:16px;">
+      <h3>🔻 双底形态 (Double Bottom / W底)</h3>
+      <p style="font-size:0.85rem;color:var(--text2);margin-bottom:14px;">第二次探底不破前低，形成W形底部。第二底成交量小于第一底为确认信号。</p>
+      <div class="ascii-chart">
+                  ╱╲          ╱╲
+         ╱╲    ╱  ╲   ╱╲  ╱  ╲      ▲ 突破点
+        ╱  ╲  ╱    ╲ ╱  ╲╱    ╲     │
+       ╱    ╲╱ 中轴点 ╱  第二底   ╲    │ 成交量放大
+      ╱    第一底     ╱             ╲   │ 确认买入
+      ╲              ╱               ╲  │
+       ╲            ╱                 ╲ │
+        ╲    ______╱                   ╲│
+         第一底=第二底水平
+        (第二底成交量 ⺌ 更小)
+      </div>
+    </div>
+
+    <!-- Flat Base -->
+    <div class="chart-area" style="margin-top:16px;">
+      <h3>▬ 平底形态 (Flat Base)</h3>
+      <p style="font-size:0.85rem;color:var(--text2);margin-bottom:14px;">股价横向整理5-15周，整体波动幅度小（通常10%-15%以内）。突破时往往爆发力最强。</p>
+      <div class="ascii-chart">
+                  ┌──────────────────┐ ▲ 突破
+                 ╱                    ╲│
+        ╱────────╱                     ╲
+       ╱         ╱  平底整理区(波动窄)    ╲
+      ╱         ╱    (5-15周)           ╲
+      ╲         ╲                        ╱
+       ╲         ╲                      ╱
+        ╲────────────────────────╱
+      </div>
+    </div>
+
+    <!-- Volume & MA -->
+    <div style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:18px;">
+        <h4 style="font-size:0.95rem;color:var(--accent2);margin-bottom:8px;">📊 成交量确认规则</h4>
+        <ul style="padding-left:18px;">
+          <li style="font-size:0.83rem;color:var(--text2);margin-bottom:5px;">突破日成交量 ≥ 50日均量的 <strong style="color:var(--green);">150%</strong></li>
+          <li style="font-size:0.83rem;color:var(--text2);margin-bottom:5px;">理想突破：成交量达到日均量的 <strong style="color:var(--green);">200%-500%</strong></li>
+          <li style="font-size:0.83rem;color:var(--text2);margin-bottom:5px;">缩量突破 = 假突破 ⚠️</li>
+          <li style="font-size:0.83rem;color:var(--text2);">上涨放量、下跌缩量 = 健康趋势</li>
+        </ul>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:18px;">
+        <h4 style="font-size:0.95rem;color:var(--accent2);margin-bottom:8px;">📏 移动平均线</h4>
+        <ul style="padding-left:18px;">
+          <li style="font-size:0.83rem;color:var(--text2);margin-bottom:5px;"><strong style="color:var(--accent);">50日线</strong>：短期趋势生命线，回调不破=强势</li>
+          <li style="font-size:0.83rem;color:var(--text2);margin-bottom:5px;"><strong style="color:var(--accent2);">200日线</strong>：牛熊分界线，线上做多，线下谨慎</li>
+          <li style="font-size:0.83rem;color:var(--text2);margin-bottom:5px;">50日线 &gt; 200日线 = 多头排列 = 牛</li>
+          <li style="font-size:0.83rem;color:var(--text2);">股价首次回踩50日线缩量企稳 = 加仓时机</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STOP LOSS -->
+<section id="stop">
+  <div class="container">
+    <h2 class="section-title"><span class="num" style="background:var(--bg3);color:var(--red);">✕</span> 止损策略</h2>
+    <p class="section-desc">在市场中生存的底线——没有止损就没有长期盈利</p>
+
+    <div class="stop-grid">
+      <div class="stop-card warn">
+        <div class="stop-icon">🛑</div>
+        <h4>铁律：7%-8% 无条件止损</h4>
+        <p>从买入价计算，任何亏损达到7%-8%必须果断离场。不要抱有"还会涨回来"的幻想。数据显示，跌幅超过8%的股票只有不到30%能回到买入价。亏损8%需要盈利9%才能回本；亏损50%需要盈利100%才能回本。</p>
+      </div>
+      <div class="stop-card info">
+        <div class="stop-icon">🎯</div>
+        <h4>止盈：20%-25% 锁定利润</h4>
+        <p>当股价从买入点上涨20%-25%，开始考虑部分或全部止盈。如果股票在3周内就从买入点上涨了20%，属于超级强势股，可以持有更长时间。但最终仍要设定利润保护措施。</p>
+      </div>
+      <div class="stop-card warn">
+        <div class="stop-icon">⛔</div>
+        <h4>永不摊平亏损</h4>
+        <p>不要在亏损时加仓来"降低成本"。这是最危险的交易行为。如果第一次买入就错了，说明判断有误，加仓只会放大损失。只有盈利的头寸才值得加仓。</p>
+      </div>
+      <div class="stop-card ok">
+        <div class="stop-icon">📝</div>
+        <h4>连续止损后的复盘</h4>
+        <p>连续3次止损触发后，必须暂停交易。回顾每一笔交易，找出问题所在：是市场环境变了？选股标准放松了？还是买入时机不对？在找到答案之前不要交易。</p>
+      </div>
+    </div>
+
+    <!-- Progress indicators -->
+    <div style="margin-top:28px;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:24px;">
+      <h4 style="font-size:0.95rem;margin-bottom:16px;">📈 风险收益比模型</h4>
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar-label"><span>止损线：<strong style="color:var(--red);">-8%</strong></span><span>最大亏损容忍度</span></div>
+        <div class="progress-track"><div class="progress-fill" style="width:8%;background:linear-gradient(90deg, var(--red), var(--accent));"></div></div>
+      </div>
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar-label"><span>止盈线：<strong style="color:var(--green);">+20%</strong></span><span>目标盈利</span></div>
+        <div class="progress-track"><div class="progress-fill" style="width:60%;background:linear-gradient(90deg, var(--green), var(--cyan));"></div></div>
+      </div>
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar-label"><span>盈亏比：<strong style="color:var(--yellow);">1:2.5</strong></span><span>最小可接受比例</span></div>
+        <div class="progress-track"><div class="progress-fill" style="width:40%;background:linear-gradient(90deg, var(--yellow), var(--accent));"></div></div>
+      </div>
+      <p style="font-size:0.82rem;color:var(--text3);margin-top:10px;">* 即使胜率只有50%，2.5:1的盈亏比仍能带来长期正收益。</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTES -->
+<section id="quotes">
+  <div class="container">
+    <h2 class="section-title"><span class="num" style="background:var(--bg3);color:var(--yellow);">❞</span> 经典语录</h2>
+    <p class="section-desc">欧奈尔半世纪投资智慧的浓缩</p>
+    <div class="quotes-grid">
+      <div class="quote-card"><q>止损是投资的第一要义，是最重要的原则。</q><span class="author">— 威廉·欧奈尔</span></div>
+      <div class="quote-card"><q>我们投身这个市场，不是来证明自己的正确性，而是在自己判断正确的时候赚钱；在失误的时候，及时纠正这个错误。</q><span class="author">— 威廉·欧奈尔</span></div>
+      <div class="quote-card"><q>股市赢家的法则是，不买落后股，不买平庸股，全心全意锁定领导股。</q><span class="author">— 威廉·欧奈尔</span></div>
+      <div class="quote-card"><q>逢高买入，更高卖出。</q><span class="author">— 威廉·欧奈尔</span></div>
+      <div class="quote-card"><q>看起来太高的东西通常会继续走高，看起来太低的东西通常会继续走低。</q><span class="author">— 威廉·欧奈尔</span></div>
+      <div class="quote-card"><q>在股市中大获全胜的全部秘诀不是一直正确，而是在你犯错的时候尽可能地减少损失。</q><span class="author">— 威廉·欧奈尔</span></div>
+      <div class="quote-card"><q>永远不要与市场争论。你的健康和内心的平静永远比任何股票都重要。</q><span class="author">— 威廉·欧奈尔</span></div>
+      <div class="quote-card"><q>当每个人都在到处说某只股票有多好时，所有能买的人可能都已经买了，这时股票的唯一方向就是下跌。</q><span class="author">— 威廉·欧奈尔</span></div>
+      <div class="quote-card"><q>过度分散投资是对无知的一种对冲。</q><span class="author">— 威廉·欧奈尔</span></div>
+      <div class="quote-card"><q>市场有一个简单的方法，将所有过度的骄傲和自负削减。</q><span class="author">— 威廉·欧奈尔</span></div>
+      <div class="quote-card"><q>我们应当在应该恐惧的时候恐惧，在该有希望的时候保持希望。</q><span class="author">— 威廉·欧奈尔</span></div>
+      <div class="quote-card"><q>只要下功夫去学习研究，你就会得到很多准确可行的准则、原则和计划。</q><span class="author">— 威廉·欧奈尔</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- A-SHARE APPLICATION -->
+<section id="ashare">
+  <div class="container">
+    <h2 class="section-title"><span class="num" style="background:var(--accent);color:#fff;font-size:0.7rem;">🇨🇳</span> A股实战启示</h2>
+    <p class="section-desc">CAN SLIM 法则在中国市场的本土化应用</p>
+
+    <div class="ashare-grid">
+      <div class="ashare-card">
+        <h4>📊 数据工具本土化</h4>
+        <p>使用同花顺 i问财、东方财富、通达信等工具获取EPS增速、RS强度、机构持仓数据。相对强度排名可在同花顺中用"区间涨跌幅排名"功能替代。</p>
+      </div>
+      <div class="ashare-card">
+        <h4>📈 杯柄形态在A股</h4>
+        <p>A股周线级别杯柄形态同样有效。典型案例如宁德时代2020-2021年的周线杯柄突破。注意A股波动率更大，手柄回撤可适当放宽至15%。</p>
+      </div>
+      <div class="ashare-card">
+        <h4>🏢 机构认同判断</h4>
+        <p>A股关注北向资金持仓、公募基金重仓、社保基金入市。外资（北向）增持+基金新进=最强信号。避免机构过于集中的"抱团股"。</p>
+      </div>
+      <div class="ashare-card">
+        <h4>🔄 市场方向(M)的A股版本</h4>
+        <p>上证指数/沪深300的200日均线作为牛熊分界。A股政策市特征明显——重大政策出台（如"国九条"、降准降息）会显著改变市场方向，需纳入"M"的判断。</p>
+      </div>
+      <div class="ashare-card">
+        <h4>📉 止损的A股特殊场景</h4>
+        <p>A股波动性通常大于美股，可适当放宽止损至10%。但连续跌停无法止损是A股特有风险——这也是为什么要在强势股中选股的原因，活跃股流动性更好。</p>
+      </div>
+      <div class="ashare-card">
+        <h4>🔬 实证验证</h4>
+        <p>国内研究者将CAN SLIM应用于A股，"胜券50指数"年化收益率达25.57%，显著跑赢沪深300。说明框架有效，但需结合A股高波动特性调整参数。</p>
+      </div>
+    </div>
+
+    <div style="margin-top:20px;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px;">
+      <h4 style="font-size:0.95rem;color:var(--yellow);margin-bottom:10px;">💡 CAN SLIM A股实战检查清单</h4>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div style="display:flex;align-items:center;gap:8px;font-size:0.83rem;color:var(--text2);">
+          <span style="color:var(--green);">✅</span> C：当季EPS增&gt;25%？
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:0.83rem;color:var(--text2);">
+          <span style="color:var(--green);">✅</span> A：3年ROE&gt;17%？
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:0.83rem;color:var(--text2);">
+          <span style="color:var(--green);">✅</span> N：有新催化的公司？
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:0.83rem;color:var(--text2);">
+          <span style="color:var(--green);">✅</span> S：成交量放大确认？
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:0.83rem;color:var(--text2);">
+          <span style="color:var(--green);">✅</span> L：行业前3龙头？
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:0.83rem;color:var(--text2);">
+          <span style="color:var(--green);">✅</span> I：机构/北向新进？
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:0.83rem;color:var(--text2);">
+          <span style="color:var(--green);">✅</span> M：大盘处于上升趋势？
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:0.83rem;color:var(--text2);">
+          <span style="color:var(--red);">⛔</span> 止损位已设（-8%）
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p>《笑傲股市》· How to Make Money in Stocks — 威廉·J·欧奈尔 (William J. O'Neil)</p>
+    <p style="margin-top:4px;">基于1953-2024年500+超级牛股研究 · CAN SLIM 选股体系</p>
+    <p style="margin-top:8px;color:var(--text3);font-size:0.72rem;">本手册仅供学习参考，不构成投资建议。投资有风险，入市需谨慎。</p>
+  </div>
+</footer>
+
+</body>
+</html>
