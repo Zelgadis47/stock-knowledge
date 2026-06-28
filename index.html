@@ -166,8 +166,8 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 <script src="tracker.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js" defer></script>
 <script>
 var KG = window.KG || {};
 var KG_BOOKS = [
@@ -290,6 +290,12 @@ function KG_renderTags(){
 }
 
 function KG_renderGraph(){
+  var dom=document.getElementById('kgraph');
+  if(!dom) return;
+  if(typeof echarts==='undefined'){
+    dom.innerHTML='<p style="color:var(--text2);text-align:center;padding:40px;">🕸️ 知识图谱需要加载 ECharts 库<br><small>请检查网络连接后刷新页面</small></p>';
+    return;
+  }
   var nodes=[], links=[], edgeSet=new Set();
   KG_BOOKS.forEach(function(b){
     var sz = 15+((KG.getStats?KG.getStats(b.id).visits:0)||0)*3;
@@ -303,8 +309,6 @@ function KG_renderGraph(){
       if(!edgeSet.has(key)){ edgeSet.add(key); links.push({source:b.id,target:tid,lineStyle:{color:'#30363d',width:1}}); }
     });
   });
-  var dom=document.getElementById('kgraph');
-  if(!dom) return;
   var chart=echarts.init(dom);
   chart.setOption({
     tooltip:{trigger:'item',formatter:function(p){if(p.dataType==='node') return'<b>'+p.name+'</b>';}},
