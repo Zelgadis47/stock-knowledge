@@ -55,32 +55,42 @@ check("tracker.js 存在", lambda: open(TRACKER_JS, 'rb').close() or True)
 
 # ── 2. 编码检查 ──
 print("\n=== 编码检查 ===")
-def check_encoding():
-    with open(INDEX_HTML, 'rb') as f:
+HTML_GLOB = sorted(os.path.join(ROOT, f) for f in os.listdir(ROOT) if f.endswith('.html'))
+
+def check_file_encoding(path):
+    fname = os.path.basename(path)
+    with open(path, 'rb') as f:
         raw = f.read()
-    # Try UTF-8 decode
+    # Must be valid UTF-8
     try:
         content = raw.decode('utf-8')
     except UnicodeDecodeError:
-        raise Exception("index.html 不是有效 UTF-8 编码")
-
-    # Check for garbled Chinese (double-encoded UTF-8 produces mojibake like å)
-    # Real Chinese chars are in range \u4e00-\u9fff
+        raise Exception(f"{fname} 不是有效 UTF-8 编码")
     real_cn = len(re.findall(r'[\u4e00-\u9fff]', content))
     if real_cn < 10:
-        raise Exception(f"中文字符仅 {real_cn} 个，疑似编码损坏")
-
+        raise Exception(f"{fname} 中文字符仅 {real_cn} 个，疑似编码损坏")
     # Check title
     m = re.search(r'<title>(.*?)</title>', content)
     if m:
         title = m.group(1)
         if not re.search(r'[\u4e00-\u9fff]', title):
-            raise Exception(f"标题 '{title}' 无中文字符，可能乱码")
-    
-    return real_cn
+            raise Exception(f"{fname} 标题 '{title}' 无中文字符，可能乱码")
+    return fname, real_cn
 
-cn_count = check_encoding()
-print(f"  (中文字符数: {cn_count})")
+all_ok = True
+total_cn = 0
+for html_path in HTML_GLOB:
+    try:
+        fname, cn = check_file_encoding(html_path)
+        total_cn += cn
+        print(f"  OK: {fname} ({cn} 中文字符)")
+    except Exception as e:
+        print(f"  FAIL: {e}")
+        errors.append(str(e))
+        all_ok = False
+
+if all_ok:
+    print(f"  (全部 {len(HTML_GLOB)} 个 HTML 文件, 共 {total_cn} 中文字符)")
 
 # ── 3. JS 变量冲突 ──
 print("\n=== JS 架构检查 ===")
