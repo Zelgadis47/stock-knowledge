@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-deploy-check.py — 发布前检查脚本
+deploy-check.py — 发布前检查脚本 (v2.0)
 知识库项目：桀洛 & 嘉娜的知识库
 
 检查清单：
@@ -11,6 +11,8 @@ deploy-check.py — 发布前检查脚本
 5. window.onload 入口
 6. ECharts defer + 加载顺序
 7. Git 编码配置是否正确
+8. .gitattributes 存在且覆盖 HTML/JS/CSS
+9. encoding-guard.py 存在
 
 用法：python deploy-check.py
 """
@@ -170,6 +172,32 @@ if log_enc == 'utf-8':
 else:
     print(f"  WARN: logOutputEncoding = '{log_enc}'，建议设为 utf-8")
     print(f"    运行: git config --global i18n.logOutputEncoding utf-8")
+
+# ── 8. .gitattributes 编码强制 ──
+print("\n=== .gitattributes 编码防御 ===")
+def check_gitattributes():
+    ga_path = os.path.join(ROOT, '.gitattributes')
+    if not os.path.exists(ga_path):
+        raise Exception(".gitattributes 不存在！没有编码防御层")
+    content = open(ga_path, encoding='utf-8').read()
+    if 'working-tree-encoding=UTF-8' not in content:
+        raise Exception(".gitattributes 缺少 working-tree-encoding=UTF-8")
+    return True
+
+check(".gitattributes 存在 + working-tree-encoding", check_gitattributes)
+
+# ── 9. encoding-guard.py ──
+print("\n=== Encoding Guard (运行时防火墙) ===")
+def check_encoding_guard():
+    guard_path = os.path.join(os.path.dirname(ROOT), 'scripts', 'encoding-guard.py')
+    if not os.path.exists(guard_path):
+        # Try scripts/ in project root
+        guard_path = os.path.join(ROOT, 'scripts', 'encoding-guard.py')
+    if not os.path.exists(guard_path):
+        raise Exception("encoding-guard.py 不存在")
+    return True
+
+check("encoding-guard.py 存在", check_encoding_guard)
 
 # ── 结果 ──
 print(f"\n{'='*40}")
