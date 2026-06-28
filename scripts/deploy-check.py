@@ -16,6 +16,15 @@ deploy-check.py — 发布前检查脚本
 """
 
 import os, re, sys
+import io
+
+# 强制 UTF-8 输出，绕过 Windows GBK 控制台编码问题
+if sys.platform == 'win32':
+    try:
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
+    except Exception:
+        pass
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 INDEX_HTML = os.path.join(ROOT, 'index.html')
