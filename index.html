@@ -3,115 +3,158 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>妗€娲?& 鍢夊鐨勭煡璇嗗簱 路 瀹屾暣鐗?/title>
+<title>桀洛 & 嘉娜的知识库 · 完整版</title>
 <style>
-:root{--bg:#0d1117;--bg2:#161b22;--bg3:#1c2333;--bg4:#21262d;--border:#30363d;--text:#e6edf3;--text2:#8b949e;--accent:#58a6ff;--green:#3fb950;--orange:#d29922;--red:#f85149;--purple:#bc8cff;--gold:#ffd700;--pink:#f778ba;--teal:#56d4dd}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
-a{color:var(--accent)}
-a:hover{text-decoration:underline}
-.nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--border);padding:8px 16px;z-index:100;display:flex;flex-wrap:wrap;gap:6px;align-items:center;backdrop-filter:blur(8px)}
-.nav a{padding:6px 14px;border-radius:6px;font-size:0.82rem;color:var(--text2)}
-.nav a:hover{background:var(--bg3);color:var(--text)}
-.nav .active{background:var(--accent);color:var(--bg)}
-.search{padding:8px 16px 0;display:flex;gap:8px;flex-wrap:wrap}
-.search input{flex:1;min-width:160px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:8px 12px;color:var(--text);font-size:0.82rem}
-.search input:focus{outline:none;border-color:var(--accent)}
-.panel{display:none;padding:12px}
-.panel.active{display:block}
-.section{margin:16px 0}
-.section-title{font-size:1.05rem;font-weight:700;margin:10px 0 8px;display:flex;align-items:center;gap:8px}
-.count{background:var(--bg3);color:var(--text2);font-size:0.7rem;padding:1px 8px;border-radius:10px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
-.card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:14px;cursor:pointer;transition:border-color .2s}
-.card:hover{border-color:var(--accent)}
-.card-icon{font-size:1.6rem}
-.card-title{font-size:0.95rem;font-weight:600;margin:4px 0}
-.card-tags{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0}
-.card-tag{padding:1px 7px;border-radius:8px;font-size:0.65rem;background:var(--bg3);color:var(--text2)}
-.card-desc{font-size:0.78rem;color:var(--text2);margin:4px 0}
-.card-progress{height:4px;background:var(--bg4);border-radius:2px;margin:8px 0;overflow:hidden}
-.card-progress-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .3s}
-.card-bottom{display:flex;justify-content:space-between;font-size:0.72rem;color:var(--text2)}
-.size{background:var(--bg3);padding:0 6px;border-radius:4px}
-.modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.7);z-index:1000;display:none}
-.modal-overlay.active{display:flex;align-items:center;justify-content:center}
-.modal{background:var(--bg2);border:1px solid var(--border);border-radius:10px;width:90%;max-width:600px;max-height:80vh;overflow-y:auto;padding:24px}
-.modal h3{margin-bottom:10px}
-.modal-close{float:right;cursor:pointer;color:var(--text2);font-size:1.2rem}
-.modal-data{font-size:0.82rem;color:var(--text2);white-space:pre-line;margin:12px 0}
-@media(max-width:500px){.grid{grid-template-columns:1fr}}
+  :root {
+    --bg: #0d1117; --bg2: #161b22; --bg3: #1c2333; --bg4: #21262d;
+    --border: #30363d; --text: #e6edf3; --text2: #8b949e;
+    --accent: #58a6ff; --green: #3fb950; --orange: #d29922;
+    --red: #f85149; --purple: #bc8cff; --gold: #ffd700; --pink: #f778ba; --teal: #56d4dd;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; overflow-x:hidden; }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .hero { background:linear-gradient(135deg,#0d1117 0%,#1a1a2e 40%,#0f3460 100%); padding:40px 20px 28px; text-align:center; border-bottom:1px solid var(--border); position:relative; overflow:hidden; }
+  .hero h1 { font-size:clamp(1.3rem,5vw,2rem); font-weight:800; background:linear-gradient(135deg,var(--gold),var(--accent),var(--green)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:4px; }
+  .hero p { color:var(--text2); font-size:clamp(0.78rem,2vw,0.88rem); }
+  .stats { display:flex; justify-content:center; gap:10px; margin-top:8px; font-size:0.78rem; color:var(--text2); flex-wrap:wrap; }
+  .search-wrap { max-width:320px; margin:8px auto 0; }
+  .search-wrap input { width:100%; padding:7px 12px; border-radius:20px; border:1px solid var(--border); background:var(--bg2); color:var(--text); font-size:0.8rem; outline:none; }
+  .search-wrap input:focus { border-color:var(--accent); }
+  .tabs { display:flex; gap:0; background:var(--bg2); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:50; overflow-x:auto; }
+  .tab { padding:9px 11px; cursor:pointer; font-size:0.75rem; font-weight:500; color:var(--text2); border-bottom:2px solid transparent; transition:all 0.2s; white-space:nowrap; }
+  .tab:hover { color:var(--text); background:var(--bg3); }
+  .tab.active { color:var(--accent); border-bottom-color:var(--accent); }
+  .container { max-width:960px; margin:0 auto; padding:16px; }
+  .tab-content { display:none; }
+  .tab-content.active { display:block; }
+  .section { margin-bottom:20px; }
+  .section-title { display:flex; align-items:center; gap:6px; font-size:0.9rem; font-weight:700; margin-bottom:8px; padding-bottom:4px; border-bottom:1px solid var(--border); }
+  .section-title .count { margin-left:auto; font-size:0.7rem; color:var(--text2); font-weight:400; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:6px; }
+  .card { background:var(--bg2); border:1px solid var(--border); border-radius:8px; padding:10px 12px; cursor:pointer; text-decoration:none; color:var(--text); display:flex; flex-direction:column; transition:all 0.2s; }
+  .card:hover { background:var(--bg3); border-color:var(--accent); transform:translateY(-1px); box-shadow:0 3px 12px rgba(0,0,0,0.3); }
+  .card-top { display:flex; align-items:flex-start; gap:8px; margin-bottom:4px; }
+  .card-icon { font-size:1.3rem; flex-shrink:0; width:30px; text-align:center; }
+  .card-title { font-weight:600; font-size:0.88rem; }
+  .card-tags { display:flex; gap:3px; flex-wrap:wrap; margin-bottom:4px; }
+  .card-tag { display:inline-block; padding:1px 6px; border-radius:8px; font-size:0.62rem; background:rgba(88,166,255,0.1); color:var(--accent); border:1px solid rgba(88,166,255,0.15); }
+  .card-desc { font-size:0.78rem; color:var(--text2); line-height:1.4; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; margin-bottom:4px; }
+  .card-bottom { display:flex; align-items:center; gap:6px; margin-top:auto; font-size:0.7rem; }
+  .card-progress { height:4px; background:var(--bg4); border-radius:2px; overflow:hidden; margin-top:4px; }
+  .card-progress-fill { height:100%; background:var(--green); border-radius:2px; transition:width 0.5s; }
+  .size { margin-left:auto; color:var(--text2); opacity:0.6; }
+
+  .modal-overlay { position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.7); z-index:10000; display:none; justify-content:center; align-items:center; backdrop-filter:blur(2px); }
+  .modal-overlay.active { display:flex; }
+  .modal { background:var(--bg2); border:1px solid var(--border); border-radius:14px; width:92%; max-width:680px; max-height:85vh; overflow-y:auto; padding:24px; position:relative; box-shadow:0 8px 40px rgba(0,0,0,0.5); }
+  .modal-close { position:absolute; top:12px; right:16px; background:none; border:none; color:var(--text2); font-size:1.5rem; cursor:pointer; }
+  .modal-close:hover { color:var(--text); }
+  .modal h2 { font-size:1.2rem; margin-bottom:4px; color:var(--accent); }
+  .modal .sub { color:var(--text2); font-size:0.8rem; margin-bottom:12px; }
+  .modal-content { font-size:0.85rem; color:var(--text); line-height:1.7; max-height:40vh; overflow-y:auto; padding:10px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); margin-bottom:12px; }
+  .modal-actions { display:flex; gap:6px; flex-wrap:wrap; }
+  .modal-actions button, .modal-actions a { padding:6px 14px; border-radius:8px; border:1px solid var(--border); background:var(--bg3); color:var(--text); cursor:pointer; font-size:0.78rem; text-decoration:none; }
+  .modal-actions button:hover, .modal-actions a:hover { background:var(--bg4); }
+  .modal-actions .btn-green { background:#238636; border-color:#238636; color:white; }
+  .modal-tags { display:flex; gap:4px; flex-wrap:wrap; margin-bottom:8px; }
+  .modal-tag { padding:2px 8px; border-radius:10px; font-size:0.7rem; border:1px solid rgba(88,166,255,0.2); background:rgba(88,166,255,0.08); color:var(--accent); cursor:pointer; }
+  .modal-tag:hover { background:rgba(88,166,255,0.15); }
+  #kgraph { width:100%; height:400px; background:var(--bg); border-radius:10px; border:1px solid var(--border); margin-bottom:16px; }
+  .anno-item { padding:8px 10px; margin-bottom:6px; background:var(--bg3); border-radius:6px; border-left:3px solid var(--gold); font-size:0.78rem; }
+  .anno-item .q { font-style:italic; color:var(--gold); }
+  .anno-item .meta { font-size:0.7rem; color:var(--text2); margin-top:4px; display:flex; justify-content:space-between; }
+  .prog-item { display:flex; align-items:center; gap:8px; padding:8px 0; border-bottom:1px solid var(--border); font-size:0.82rem; }
+  .prog-bar-outer { flex:1; height:6px; background:var(--bg4); border-radius:3px; overflow:hidden; }
+  .prog-bar-inner { height:100%; background:linear-gradient(90deg,var(--accent),var(--green)); border-radius:3px; transition:width 0.5s; }
+  .prog-pct { min-width:38px; text-align:right; font-size:0.78rem; color:var(--text2); }
+  .hist-item { display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--border); font-size:0.78rem; }
+  .hist-item .time { color:var(--text2); }
+  .stat-cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:8px; margin-bottom:14px; }
+  .stat-card { background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center; }
+  .stat-card .num { font-size:1.5rem; font-weight:700; color:var(--accent); }
+  .stat-card .lbl { font-size:0.72rem; color:var(--text2); margin-top:2px; }
+  .srs-bar { background:linear-gradient(135deg,#1c2333,#2d1b2e); border:1px solid var(--orange); border-radius:8px; padding:10px 14px; margin-bottom:12px; display:none; align-items:center; gap:10px; font-size:0.82rem; }
+  .srs-bar .srs-btn { padding:4px 12px; border-radius:6px; border:none; background:var(--orange); color:#0d1117; cursor:pointer; font-weight:600; font-size:0.78rem; }
+  @media (max-width:640px) {
+    .grid { grid-template-columns:1fr; }
+    .modal { width:96%; padding:16px; }
+    .stat-cards { grid-template-columns:repeat(2,1fr); }
+    .tab { padding:7px 8px; }
+  }
 </style>
 </head>
 <body>
 
 <div class="hero">
-  <h1>馃摎 妗€娲?&amp; 鍢夊鐨勭煡璇嗗簱</h1>
-  <p>浣犳垜鍏卞悓鐨勬櫤鎱х粨鏅?路 姣忎竴娆￠槄璇婚兘鍦ㄧН绱?/p>
+  <h1>📚 桀洛 &amp; 嘉娜的知识库</h1>
+  <p>你我共同的智慧结晶 · 每一次阅读都在积累</p>
   <div class="stats">
-    <span>馃摌 <span id="statBooks">-</span> 鏈墜鍐?/span>
-    <span>馃摑 <span id="statNotes">-</span> 鏉＄瑪璁?/span>
-    <span>馃敄 <span id="statAnno">-</span> 鏉℃爣娉?/span>
-    <span>鈴?<span id="statSRS">-</span> 寰呭涔?/span>
+    <span>📘 <span id="statBooks">-</span> 本手册</span>
+    <span>📝 <span id="statNotes">-</span> 条笔记</span>
+    <span>🔖 <span id="statAnno">-</span> 条标注</span>
+    <span>⏳ <span id="statSRS">-</span> 待复习</span>
   </div>
   <div class="search-wrap">
-    <input type="text" id="searchBox" placeholder="鎼滅储鐭ヨ瘑搴?.." oninput="KG_doSearch()">
+    <input type="text" id="searchBox" placeholder="搜索知识库..." oninput="KG_doSearch()">
   </div>
 </div>
 
 <div class="tabs" id="mainTabs">
-  <div class="tab active" onclick="KG_switchTab('books')">馃摌 鎶曡祫鎵嬪唽</div>
-  <div class="tab" onclick="KG_switchTab('tags')">馃彿锔?鎸夋爣绛?/div>
-  <div class="tab" onclick="KG_switchTab('graph')">馃暩锔?鐭ヨ瘑鍥捐氨</div>
-  <div class="tab" onclick="KG_switchTab('progress')">馃搳 瀛︿範杩涘害</div>
-  <div class="tab" onclick="KG_switchTab('annotations')">鉁忥笍 鏍囨敞搴?/div>
-  <div class="tab" onclick="KG_switchTab('srs')">馃攧 澶嶄範</div>
-  <div class="tab" onclick="KG_switchTab('settings')">鈿欙笍 璁剧疆</div>
+  <div class="tab active" onclick="KG_switchTab('books')">📘 投资手册</div>
+  <div class="tab" onclick="KG_switchTab('tags')">🏷️ 按标签</div>
+  <div class="tab" onclick="KG_switchTab('graph')">🕸️ 知识图谱</div>
+  <div class="tab" onclick="KG_switchTab('progress')">📊 学习进度</div>
+  <div class="tab" onclick="KG_switchTab('annotations')">✏️ 标注库</div>
+  <div class="tab" onclick="KG_switchTab('srs')">🔄 复习</div>
+  <div class="tab" onclick="KG_switchTab('settings')">⚙️ 设置</div>
 </div>
 
 <div class="container">
 
 <div id="srsReminder" class="srs-bar">
-  <span>馃攧</span>
-  <span id="srsText">鏈変功绫嶅埌鏈熼渶瑕佸涔?/span>
-  <button class="srs-btn" onclick="KG_switchTab('srs')">鍘诲涔?鈫?/button>
+  <span>🔄</span>
+  <span id="srsText">有书籍到期需要复习</span>
+  <button class="srs-btn" onclick="KG_switchTab('srs')">去复习 →</button>
 </div>
 
 <div id="tab-books" class="tab-content active"></div>
 <div id="tab-tags" class="tab-content"></div>
 <div id="tab-graph" class="tab-content">
-  <h3 style="margin-bottom:8px;">馃暩锔?鐭ヨ瘑鍥捐氨</h3>
-  <p style="color:var(--text2);font-size:0.8rem;margin-bottom:10px;">姣忎釜鑺傜偣鏄竴鏈煡璇嗘墜鍐岋紝杩炵嚎浠ｈ〃鍏变韩鏍囩銆傝妭鐐硅秺澶?闃呰娆℃暟瓒婂銆?/p>
+  <h3 style="margin-bottom:8px;">🕸️ 知识图谱</h3>
+  <p style="color:var(--text2);font-size:0.8rem;margin-bottom:10px;">每个节点是一本知识手册，连线代表共享标签。节点越大=阅读次数越多。</p>
   <div id="kgraph"></div>
 </div>
 <div id="tab-progress" class="tab-content">
-  <h3 style="margin-bottom:10px;">馃搳 瀛︿範杩涘害鎬昏</h3>
+  <h3 style="margin-bottom:10px;">📊 学习进度总览</h3>
   <div class="stat-cards" id="progressStats"></div>
   <div id="progressDetail"></div>
-  <h4 style="margin:12px 0 8px;font-size:0.9rem;">馃搵 鏈€杩戞祻瑙?/h4>
+  <h4 style="margin:12px 0 8px;font-size:0.9rem;">📋 最近浏览</h4>
   <div id="recentHistory"></div>
 </div>
 <div id="tab-annotations" class="tab-content">
-  <h3 style="margin-bottom:10px;">鉁忥笍 鎴戠殑鏍囨敞搴?/h3>
-  <p style="color:var(--text2);font-size:0.8rem;margin-bottom:10px;">闃呰鏃堕€変腑鏂囧瓧鍗冲彲鏍囨敞銆傛墍鏈夋爣娉ㄦ眹鎬诲湪姝ゃ€?/p>
+  <h3 style="margin-bottom:10px;">✏️ 我的标注库</h3>
+  <p style="color:var(--text2);font-size:0.8rem;margin-bottom:10px;">阅读时选中文字即可标注。所有标注汇总在此。</p>
   <div id="annotationsList"></div>
 </div>
 <div id="tab-srs" class="tab-content">
-  <h3 style="margin-bottom:10px;">馃攧 闂撮殧澶嶄範</h3>
-  <p style="color:var(--text2);font-size:0.8rem;margin-bottom:10px;">鏍规嵁閬楀繕鏇茬嚎鍒版湡鑷姩鎻愰啋澶嶄範銆傛瘡澶嶄範涓€娆★紝涓嬫闂撮殧缈诲€嶏紙鏈€闀?0澶╋級銆?/p>
+  <h3 style="margin-bottom:10px;">🔄 间隔复习</h3>
+  <p style="color:var(--text2);font-size:0.8rem;margin-bottom:10px;">根据遗忘曲线到期自动提醒复习。每复习一次，下次间隔翻倍（最长90天）。</p>
   <div id="srsStats"></div>
   <div id="srsList"></div>
 </div>
 <div id="tab-settings" class="tab-content">
-  <h3 style="margin-bottom:10px;">鈿欙笍 璁剧疆</h3>
+  <h3 style="margin-bottom:10px;">⚙️ 设置</h3>
   <div style="display:flex;gap:8px;flex-wrap:wrap;">
-    <button onclick="KG.downloadBackup()" style="padding:8px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg3);color:var(--text);cursor:pointer;">馃捑 瀵煎嚭澶囦唤</button>
-    <button onclick="document.getElementById('importFile').click()" style="padding:8px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg3);color:var(--text);cursor:pointer;">馃摜 瀵煎叆澶囦唤</button>
+    <button onclick="KG.downloadBackup()" style="padding:8px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg3);color:var(--text);cursor:pointer;">💾 导出备份</button>
+    <button onclick="document.getElementById('importFile').click()" style="padding:8px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg3);color:var(--text);cursor:pointer;">📥 导入备份</button>
     <input type="file" id="importFile" accept=".json" style="display:none" onchange="KG_importBackup(event)">
-    <button onclick="if(confirm('纭畾閲嶇疆鎵€鏈夋暟鎹紵涓嶅彲鎾ら攢锛?)){localStorage.clear();location.reload();}" style="padding:8px 16px;border-radius:8px;border:1px solid var(--red);background:transparent;color:var(--red);cursor:pointer;">馃棏锔?閲嶇疆鏁版嵁</button>
+    <button onclick="if(confirm('确定重置所有数据？不可撤销！')){localStorage.clear();location.reload();}" style="padding:8px 16px;border-radius:8px;border:1px solid var(--red);background:transparent;color:var(--red);cursor:pointer;">🗑️ 重置数据</button>
   </div>
   <div style="margin-top:16px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px;">
-    <p style="font-size:0.8rem;color:var(--text2);">馃搶 鎵€鏈夋暟鎹瓨鍌ㄥ湪娴忚鍣ㄦ湰鍦帮紙localStorage锛夛紝涓嶄細涓婁紶浠讳綍鏈嶅姟鍣ㄣ€?br>寤鸿瀹氭湡銆屽鍑哄浠姐€嶄繚瀛樺埌纭洏銆?/p>
+    <p style="font-size:0.8rem;color:var(--text2);">📌 所有数据存储在浏览器本地（localStorage），不会上传任何服务器。<br>建议定期「导出备份」保存到硬盘。</p>
   </div>
 </div>
 </div>
@@ -127,38 +170,36 @@ a:hover{text-decoration:underline}
 <script src="tracker.js"></script>
 <script>
 var KG = window.KG || {};
-
 var KG_BOOKS = [
-  { id:'intelligent_investor_manual', title:'聪明的投资者', icon:'📘', cat:'classic', size:'34 KB', desc:'本杰明·格雷厄姆 · 价值投资圣经 · 安全边际与市场先生', tags:['价值投资','格雷厄姆','经典','防御型'] },
+  { id:'intelligent_investor_manual', title:'聪明的投资者', icon:'📗', cat:'classic', size:'34 KB', desc:'本杰明·格雷厄姆 · 价值投资圣经 · 安全边际与市场先生', tags:['价值投资','格雷厄姆','经典','防御型'] },
   { id:'stock_operator_manual', title:'股票大作手回忆录', icon:'📘', cat:'classic', size:'37 KB', desc:'埃德温·勒菲弗/利弗莫尔 · 百年交易心理学经典', tags:['交易心理','利弗莫尔','经典','投机'] },
-  { id:'chanlun_108_manual', title:'缠中说禅108课', icon:'📘', cat:'classic', size:'44 KB', desc:'缠中说禅 · 中枢/背驰/三类买卖点 · 技术分析巅峰', tags:['缠论','技术分析','经典','A股'] },
-  { id:'lynch_one_up_manual', title:'彼得·林奇的成功投资', icon:'📘', cat:'classic', size:'43 KB', desc:'彼得·林奇 · PEG选股法 · 六类公司分类', tags:['成长股','林奇','PEG','选股'] },
-  { id:'most_important_manual', title:'投资最重要的事', icon:'📘', cat:'classic', size:'38 KB', desc:'霍华德·马克斯 · 第二层次思维 · 18个投资原则', tags:['投资哲学','马克斯','风险','周期'] },
+  { id:'chanlun_108_manual', title:'缠中说禅108课', icon:'📐', cat:'classic', size:'44 KB', desc:'缠中说禅 · 中枢/背驰/三类买卖点 · 技术分析巅峰', tags:['缠论','技术分析','经典','A股'] },
+  { id:'lynch_one_up_manual', title:'彼得·林奇的成功投资', icon:'📗', cat:'classic', size:'43 KB', desc:'彼得·林奇 · PEG选股法 · 六类公司分类', tags:['成长股','林奇','PEG','选股'] },
+  { id:'most_important_manual', title:'投资最重要的事', icon:'🧠', cat:'classic', size:'38 KB', desc:'霍华德·马克斯 · 第二层次思维 · 18个投资原则', tags:['投资哲学','马克斯','风险','周期'] },
   { id:'canslim_manual', title:'CAN SLIM选股法则', icon:'📘', cat:'tech', size:'42 KB', desc:'威廉·欧奈尔 · C-A-N S-L-I-M 七维选股体系', tags:['欧奈尔','CANSLIM','选股','技术分析','基本面'] },
-  { id:'candlestick_manual', title:'日本蜡烛图技术', icon:'📘', cat:'tech', size:'49 KB', desc:'K线形态完全手册 · 锤子线/吞没/启明星/三只乌鸦', tags:['K线','技术分析','形态','入门'] },
-  { id:'zijinliu_manual', title:'资金流书v2.1', icon:'📘', cat:'tech', size:'30 KB', desc:'资金流向分析与实战 · 主力资金/跟庄/量价关系', tags:['资金分析','跟庄','量价','A股'] },
-  { id:'gaoshou_yulu_manual', title:'游资高手语录合集', icon:'📘', cat:'youzi', size:'46 KB', desc:'Asking/职业炒手/龙飞虎/赵老哥等7位游资精粹', tags:['游资','打板','短线','语录','A股'] },
-  { id:'linghu_chong_manual', title:'令胡冲交易体系', icon:'📘', cat:'youzi', size:'49 KB', desc:'50万→800万实盘 · 打板体系 · 赚钱效应方法论', tags:['游资','打板','实盘','令胡冲','短线'] },
-  { id:'zhaolaoge_manual', title:'赵老哥交易体系', icon:'📘', cat:'youzi', size:'10 KB', desc:'八年一万倍 · 二板定龙头 · 核心心法全解', tags:['游资','赵老哥','龙头','打板','短线'] },
-  { id:'longfeihu_manual', title:'龙飞虎交易体系', icon:'📘', cat:'youzi', size:'8 KB', desc:'6倍收益交割单 · 换手决定高度 · 分仓滚动术', tags:['游资','龙飞虎','换手','分仓','短线'] },
-  { id:'linfengkuang_manual', title:'林疯狂交易体系', icon:'📘', cat:'youzi', size:'8 KB', desc:'9个月10倍 · 低吸强势股 · 极致止损执行力', tags:['游资','林疯狂','低吸','止损','短线'] },
-  { id:'yangjia_xinfa_manual', title:'炒股养家心法', icon:'📘', cat:'youzi', size:'27 KB', desc:'炒股养家 · 市场情绪周期 · 龙头战法', tags:['游资','养家','情绪周期','龙头'] },
-  { id:'ruihexian_manual', title:'瑞鹤仙雪球精华', icon:'📘', cat:'youzi', size:'32 KB', desc:'瑞鹤仙 · 游资成长之路 · 交易心得与感悟', tags:['游资','瑞鹤仙','短线','成长'] },
-  { id:'qiquan_3hour_manual', title:'3小时快学期权', icon:'📘', cat:'tool', size:'17 KB', desc:'期权基础知识 · 认购/认沽/策略组合', tags:['期权','衍生品','入门'] },
-  { id:'securities_analysis_manual', title:'证券分析', icon:'📘', cat:'classic', size:'6 KB', desc:'本杰明·格雷厄姆 · 价值投资开山之作 · 九大核心原则', tags:['价值投资','格雷厄姆','安全边际','内在价值','经典'] },
-  { id:'fisher_growth_manual', title:'怎样选择成长股', icon:'📘', cat:'classic', size:'5 KB', desc:'费雪 · 15条选股法则 · 闲聊法 · 长期持有优质公司', tags:['成长股','费雪','选股','长期投资'] },
-  { id:'munger_poor_charlie_manual', title:'穷查理宝典', icon:'📘', cat:'theory', size:'4 KB', desc:'查理·芒格 · 多元思维模型 · 人类误判心理学', tags:['芒格','思维模型','投资哲学','心理学'] },
-  { id:'buffett_letters_manual', title:'巴菲特致股东的信', icon:'📘', cat:'classic', size:'3 KB', desc:'沃伦·巴菲特 · 伯克希尔年报精粹 · 价值投资实操', tags:['巴菲特','价值投资','股东信','长期'] },
-  { id:'turtle_trading_manual', title:'海龟交易法则', icon:'📘', cat:'theory', size:'4 KB', desc:'柯蒂斯·费思 · 交易系统鼻祖 · 完整规则交易', tags:['海龟','交易系统','趋势跟踪','规则'] },
-  { id:'wisdom_of_china_stock_manual', title:'炒股的智慧', icon:'📘', cat:'theory', size:'4 KB', desc:'陈江挺 · 散户生存之道 · A股实战智慧', tags:['炒股智慧','散户','A股','心态'] },
-  { id:'trend_analysis_manual', title:'股市趋势技术分析', icon:'📘', cat:'tech', size:'5 KB', desc:'爱德华/迈吉 · 道氏理论 · 趋势线/形态/量价', tags:['趋势分析','技术分析','道氏理论','形态'] },
-  { id:'trading_zone_manual', title:'交易心理学', icon:'📘', cat:'theory', size:'3 KB', desc:'马克·道格拉斯 · 交易心态修炼 · 纪律与执行', tags:['交易心理','心理学','纪律','心态'] },
-  { id:'box_theory_manual', title:'箱体理论', icon:'📘', cat:'tech', size:'3 KB', desc:'尼可拉斯·达瓦斯 · 我在股市赚到200万 · 箱体操作法', tags:['箱体理论','技术分析','达瓦斯','波段'] },
-  { id:'random_walk_fool_manual', title:'随机漫步的傻瓜', icon:'📘', cat:'theory', size:'4 KB', desc:'纳西姆·塔勒布 · 黑天鹅/幸存者偏差 · 概率思维', tags:['塔勒布','概率','黑天鹅','思维'] },
+  { id:'candlestick_manual', title:'日本蜡烛图技术', icon:'📙', cat:'tech', size:'49 KB', desc:'K线形态完全手册 · 锤子线/吞没/启明星/三只乌鸦', tags:['K线','技术分析','形态','入门'] },
+  { id:'zijinliu_manual', title:'资金流书v2.1', icon:'💰', cat:'tech', size:'30 KB', desc:'资金流向分析与实战 · 主力资金/跟庄/量价关系', tags:['资金分析','跟庄','量价','A股'] },
+  { id:'gaoshou_yulu_manual', title:'游资高手语录合集', icon:'🔥', cat:'youzi', size:'46 KB', desc:'Asking/职业炒手/龙飞虎/赵老哥等9位游资精华', tags:['游资','打板','短线','语录','A股'] },
+  { id:'linghu_chong_manual', title:'令胡冲交易体系', icon:'⚡', cat:'youzi', size:'49 KB', desc:'50万→800万实盘 · 打板体系 · 赚钱效应方法论', tags:['游资','打板','实盘','令胡冲','短线'] },
+  { id:'zhaolaoge_manual', title:'赵老哥交易体系', icon:'🔥', cat:'youzi', size:'10 KB', desc:'八年一万倍 · 二板定龙头 · 核心心法全解', tags:['游资','赵老哥','龙头','打板','短线'] },
+  { id:'longfeihu_manual', title:'龙飞虎交易体系', icon:'🐉', cat:'youzi', size:'8 KB', desc:'6倍收益交割单 · 换手决定高度 · 分仓滚动术', tags:['游资','龙飞虎','换手','分仓','短线'] },
+  { id:'linfengkuang_manual', title:'林疯狂交易体系', icon:'🌲', cat:'youzi', size:'8 KB', desc:'9个月10倍 · 低吸强势股 · 极致止损执行力', tags:['游资','林疯狂','低吸','止损','短线'] },
+  { id:'yangjia_xinfa_manual', title:'炒股养家心法', icon:'📗', cat:'youzi', size:'27 KB', desc:'炒股养家 · 市场情绪周期 · 龙头战法', tags:['游资','养家','情绪周期','龙头'] },
+  { id:'ruihexian_manual', title:'瑞鹤仙雪球精华', icon:'📕', cat:'youzi', size:'32 KB', desc:'瑞鹤仙 · 游资成长之路 · 交易心得与感悟', tags:['游资','瑞鹤仙','短线','成长'] },
+  { id:'qiquan_3hour_manual', title:'3小时快学期权', icon:'⏳', cat:'tool', size:'17 KB', desc:'期权基础知识 · 认购/认沽/策略组合', tags:['期权','衍生品','入门'] },
+  { id:'securities_analysis_manual', title:'证券分析', icon:'📗', cat:'classic', size:'6 KB', desc:'本杰明·格雷厄姆 · 价值投资开山之作 · 九大核心原则', tags:['价值投资','格雷厄姆','安全边际','内在价值','经典'] },
+  { id:'fisher_growth_manual', title:'怎样选择成长股', icon:'🌱', cat:'classic', size:'5 KB', desc:'费雪 · 15条选股法则 · 闲聊法 · 长期持有优质公司', tags:['成长股','费雪','15条','管理层','选股'] },
+  { id:'munger_poor_charlie_manual', title:'穷查理宝典', icon:'🧠', cat:'theory', size:'4 KB', desc:'查理·芒格 · 多元思维模型 · 逆向思考 · 误判心理学', tags:['芒格','投资哲学','多元思维','逆向思考','能力圈'] },
+  { id:'buffett_letters_manual', title:'巴菲特致股东的信', icon:'💰', cat:'classic', size:'3 KB', desc:'沃伦·巴菲特 · 护城河 · 长期持有 · 集中投资 · 自由现金流', tags:['巴菲特','价值投资','护城河','长期持有','集中投资'] },
+  { id:'turtle_trading_manual', title:'海龟交易法则', icon:'🐢', cat:'theory', size:'4 KB', desc:'柯蒂斯·费思 · 完整交易系统 · N值仓位管理 · 趋势跟踪', tags:['交易系统','趋势跟踪','风险管理','仓位管理','止损'] },
+  { id:'wisdom_of_china_stock_manual', title:'炒股的智慧', icon:'📗', cat:'theory', size:'3 KB', desc:'陈江挺 · 止损/顺势/资金管理 · 华人第一入门书', tags:['入门','止损','顺势而为','交易心理','资金管理'] },
+  { id:'trend_analysis_manual', title:'股市趋势技术分析', icon:'📊', cat:'tech', size:'5 KB', desc:'爱德华兹/迈吉 · 道氏理论 · 形态识别 · 支撑与阻力', tags:['技术分析','趋势','道氏理论','支撑阻力','形态'] },
+  { id:'trading_zone_manual', title:'交易心理学', icon:'🧠', cat:'theory', size:'3 KB', desc:'马克·道格拉斯 · 概率思维 · 放下期望 · 战胜心魔', tags:['交易心理','心态','概率思维','纪律','情绪'] },
+  { id:'box_theory_manual', title:'箱体理论', icon:'📦', cat:'tech', size:'3 KB', desc:'达瓦斯 · 箱体突破 · 1万→200万 · 做T神器', tags:['箱体','突破买入','止损','做T','趋势'] },
+  { id:'random_walk_fool_manual', title:'随机漫步的傻瓜', icon:'🎲', cat:'theory', size:'4 KB', desc:'塔勒布 · 黑天鹅 · 随机性 · 幸存者偏差 · 尾部风险', tags:['随机性','塔勒布','黑天鹅','风险','概率'] },
 ];
 
-
-var KG_emojiForTag = {'浠峰€兼姇璧?:'馃搱','鏍奸浄鍘勫':'馃懘','缁忓吀':'馃摎','闃插尽鍨?:'馃洝锔?,'浜ゆ槗蹇冪悊':'馃','鍒╁紬鑾皵':'馃摉','鎶曟満':'馃幉','缂犺':'馃悕','鎶€鏈垎鏋?:'馃搳','A鑲?:'馃嚚馃嚦','鎴愰暱鑲?:'馃尡','鏋楀':'馃弮','PEG':'馃搻','閫夎偂':'馃幆','鎶曡祫鍝插':'馃','椹厠鏂?:'馃','椋庨櫓':'鈿狅笍','鍛ㄦ湡':'馃攧','娆у灏?:'馃鈥嶐煉?,'CANSLIM':'馃殌','鍩烘湰闈?:'馃搵','K绾?:'馃暞锔?,'褰㈡€?:'馃敺','鍏ラ棬':'馃尡','璧勯噾鍒嗘瀽':'馃挧','璺熷簞':'馃惎','閲忎环':'鈿栵笍','娓歌祫':'馃敟','鎵撴澘':'馃洃','鐭嚎':'鈴憋笍','璇綍':'馃挰','瀹炵洏':'馃挼','浠よ儭鍐?:'馃弴','鍏诲':'馃彔','鎯呯华鍛ㄦ湡':'馃幁','榫欏ご':'馃悏','鐟為工浠?:'馃','鎴愰暱':'馃搱','鏈熸潈':'馃搫','琛嶇敓鍝?:'馃З','璧佃€佸摜':'馃憫','榫欓铏?:'馃懁','鏋楃柉鐙?:'馃尣','鎹㈡墜':'馃攧','鍒嗕粨':'馃摝','浣庡惛':'馃帲','姝㈡崯':'鉁傦笍','瀹夊叏杈归檯':'馃洝锔?,'鍐呭湪浠峰€?:'馃拵','璐归洩':'馃帲','15鏉?:'馃敘','绠＄悊灞?:'馃憯','鑺掓牸':'馃','澶氬厓鎬濈淮':'馃寪','閫嗗悜鎬濊€?:'馃攧','鑳藉姏鍦?:'猸?,'宸磋彶鐗?:'馃挵','鎶ゅ煄娌?:'馃彴','闀挎湡鎸佹湁':'鈴?,'闆嗕腑鎶曡祫':'馃幆','浜ゆ槗绯荤粺':'鈿欙笍','瓒嬪娍璺熻釜':'馃弮','椋庨櫓绠＄悊':'馃搵','浠撲綅绠＄悊':'鈿栵笍','椤哄娍鑰屼负':'馃寠','璧勯噾绠＄悊':'馃挵','蹇冩€?:'馃拞','姒傜巼鎬濈淮':'馃幉','绾緥':'馃搹','鎯呯华':'馃槫','閬撴皬鐞嗚':'馃彌锔?,'鏀拺闃诲姏':'馃搹','绠变綋':'馃摝','绐佺牬涔板叆':'馃殌','鍋歍':'馃攧','濉斿嫆甯?:'馃摎','榛戝ぉ楣?:'馃Β','闅忔満鎬?:'馃幇'};
+var KG_emojiForTag = {'价值投资':'📈','格雷厄姆':'👴','经典':'📚','防御型':'🛡️','交易心理':'🧠','利弗莫尔':'📖','投机':'🎲','缠论':'🐍','技术分析':'📊','A股':'🇨🇳','成长股':'🌱','林奇':'🏃','PEG':'📐','选股':'🎯','投资哲学':'🤔','马克斯':'🧓','风险':'⚠️','周期':'🔄','欧奈尔':'🧑‍💼','CANSLIM':'🚀','基本面':'📋','K线':'🕯️','形态':'🔷','入门':'🌱','资金分析':'💧','跟庄':'🐯','量价':'⚖️','游资':'🔥','打板':'🛑','短线':'⏱️','语录':'💬','实盘':'💵','令胡冲':'🏇','养家':'🏠','情绪周期':'🎭','龙头':'🐉','瑞鹤仙':'🧘','成长':'📈','期权':'📄','衍生品':'🧩','赵老哥':'👑','龙飞虎':'👤','林疯狂':'🌲','换手':'🔄','分仓':'📦','低吸':'🎣','止损':'✂️','安全边际':'🛡️','内在价值':'💎','费雪':'🎣','15条':'🔢','管理层':'👔','芒格':'🧠','多元思维':'🌐','逆向思考':'🔄','能力圈':'⭕','巴菲特':'💰','护城河':'🏰','长期持有':'⏳','集中投资':'🎯','交易系统':'⚙️','趋势跟踪':'🏃','风险管理':'📋','仓位管理':'⚖️','顺势而为':'🌊','资金管理':'💰','心态':'💆','概率思维':'🎲','纪律':'📏','情绪':'😤','道氏理论':'🏛️','支撑阻力':'📏','箱体':'📦','突破买入':'🚀','做T':'🔄','塔勒布':'📚','黑天鹅':'🦢','随机性':'🎰'};
 function KG_tag(t){ return (KG_emojiForTag[t]||'#')+' '+t; }
 
 function KG_switchTab(n){
@@ -166,7 +207,7 @@ function KG_switchTab(n){
   document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
   var tc = document.getElementById('tab-'+n);
   if(tc) tc.classList.add('active');
-  var tabNames = {books:'鎵嬪唽',tags:'鏍囩',graph:'鍥捐氨',progress:'杩涘害',annotations:'鏍囨敞',srs:'澶嶄範',settings:'璁剧疆'};
+  var tabNames = {books:'手册',tags:'标签',graph:'图谱',progress:'进度',annotations:'标注',srs:'复习',settings:'设置'};
   document.querySelectorAll('.tab').forEach(function(t){
     var label = tabNames[n]||n;
     if(t.textContent.includes(label)) t.classList.add('active');
@@ -181,20 +222,20 @@ function KG_switchTab(n){
 
 function KG_renderBooks(f){
   f = (f||'').toLowerCase();
-  var cats = [{k:'classic',l:'馃摃 鎶曡祫缁忓吀'},{k:'youzi',l:'馃敟 娓歌祫瀹炴垬'},{k:'tech',l:'馃搳 閫夎偂路鎶€鏈?},{k:'theory',l:'馃 鎶曡祫鐞嗚'},{k:'tool',l:'馃敡 琛嶇敓宸ュ叿'}];
+  var cats = [{k:'classic',l:'📕 投资经典'},{k:'youzi',l:'🔥 游资实战'},{k:'tech',l:'📊 选股·技术'},{k:'theory',l:'🧠 投资理论'},{k:'tool',l:'🔧 衍生工具'}];
   var html = '';
   cats.forEach(function(c){
     var items = KG_BOOKS.filter(function(b){ return b.cat===c.k && (!f||b.title.toLowerCase().includes(f)||b.tags.some(function(t){return t.toLowerCase().includes(f);})); });
     if(!items.length) return;
-    html += '<div class="section"><div class="section-title">'+c.l+'<span class="count">'+items.length+' 鏈?/span></div><div class="grid">';
+    html += '<div class="section"><div class="section-title">'+c.l+'<span class="count">'+items.length+' 本</span></div><div class="grid">';
     items.forEach(function(b){
       var st = KG.getStatus?KG.getStatus(b.id):null;
       var pct = st==='completed'?100:(st==='reading'?50:0);
-      html += '<div class="card" onclick="KG_openModal(\''+b.id+'\')"><div class="card-top"><span class="card-icon">'+b.icon+'</span><div class="card-title">'+b.title+'</div></div><div class="card-tags">'+b.tags.map(function(t){return '<span class="card-tag">'+KG_tag(t)+'</span>';}).join('')+'</div><div class="card-desc">'+b.desc+'</div><div class="card-progress"><div class="card-progress-fill" style="width:'+pct+'%"></div></div><div class="card-bottom"><span>'+(st==='completed'?'鉁?宸插畬鎴?:st==='reading'?'馃摉 闃呰涓?:'鈿?鏈')+'</span><span class="size">'+b.size+'</span></div></div>';
+      html += '<div class="card" onclick="KG_openModal(\''+b.id+'\')"><div class="card-top"><span class="card-icon">'+b.icon+'</span><div class="card-title">'+b.title+'</div></div><div class="card-tags">'+b.tags.map(function(t){return '<span class="card-tag">'+KG_tag(t)+'</span>';}).join('')+'</div><div class="card-desc">'+b.desc+'</div><div class="card-progress"><div class="card-progress-fill" style="width:'+pct+'%"></div></div><div class="card-bottom"><span>'+(st==='completed'?'✅ 已完成':st==='reading'?'📖 阅读中':'⚪ 未读')+'</span><span class="size">'+b.size+'</span></div></div>';
     });
     html += '</div></div>';
   });
-  document.getElementById('tab-books').innerHTML = html||'<p style="color:var(--text2);text-align:center;padding:40px;">娌℃湁鍖归厤鐨勬墜鍐?/p>';
+  document.getElementById('tab-books').innerHTML = html||'<p style="color:var(--text2);text-align:center;padding:40px;">没有匹配的手册</p>';
 }
 
 var KG_modalId = null;
@@ -209,13 +250,13 @@ function KG_openModal(id){
   var tags = b.tags.map(function(t){return '<span class="modal-tag" onclick="KG_closeModal();document.getElementById(\'searchBox\').value=\''+t+'\';KG_switchTab(\'books\')">'+KG_tag(t)+'</span>';}).join('');
   var notesHtml = notes.length? notes.map(function(n){return '<div style="background:var(--bg3);padding:6px 10px;border-radius:6px;margin-bottom:4px;font-size:0.78rem;">'+KG_escapeHtml(n.content)+'<br><span style="color:var(--text2);font-size:0.7rem;">'+KG_formatDate(n.createdAt)+'</span></div>';}).join('') : '';
   document.getElementById('modalContent').innerHTML =
-    '<div class="modal-tags">'+tags+'</div><h2>'+b.icon+' '+b.title+'</h2><div class="sub">'+b.desc+' 路 '+b.size+'</div>'+
-    '<div class="modal-content"><p>馃憗锔?闃呰 '+stats.visits+' 娆?/p>'+'<p>馃晲 鎬绘椂闀?'+(stats.totalTimeMs?Math.round(stats.totalTimeMs/60000)+'鍒嗛挓':'灏氭湭璁板綍')+'</p>'+'<p>馃摑 '+(st==='completed'?'鉁?宸插畬鎴?:st==='reading'?'馃摉 闃呰涓?:'鈿?鏈')+'</p>'+notesHtml+'</div>'+
+    '<div class="modal-tags">'+tags+'</div><h2>'+b.icon+' '+b.title+'</h2><div class="sub">'+b.desc+' · '+b.size+'</div>'+
+    '<div class="modal-content"><p>👁️ 阅读 '+stats.visits+' 次</p>'+'<p>🕐 总时长 '+(stats.totalTimeMs?Math.round(stats.totalTimeMs/60000)+'分钟':'尚未记录')+'</p>'+'<p>📝 '+(st==='completed'?'✅ 已完成':st==='reading'?'📖 阅读中':'⚪ 未读')+'</p>'+notesHtml+'</div>'+
     '<div class="modal-actions">'+
-    '<a href="'+b.id+'.html" target="_blank" class="btn-green">馃摉 闃呰鍏ㄦ枃</a>'+
-    '<button onclick="KG_toggleReadModal()">'+(st==='completed'?'鈫?鏍囪鏈瀹?:'鉁?鏍囪宸插畬鎴?)+'</button>'+
-    '<button onclick="KG_showNoteDialog(\''+id+'\')">鉁忥笍 鍐欑瑪璁?/button>'+
-    '<button onclick="KG_setBmModal()">'+(isBm?'馃敄 鍙栨秷鏀惰棌':'馃彿锔?鏀惰棌')+'</button></div>';
+    '<a href="'+b.id+'.html" target="_blank" class="btn-green">📖 阅读全文</a>'+
+    '<button onclick="KG_toggleReadModal()">'+(st==='completed'?'↩ 标记未读完':'✅ 标记已完成')+'</button>'+
+    '<button onclick="KG_showNoteDialog(\''+id+'\')">✏️ 写笔记</button>'+
+    '<button onclick="KG_setBmModal()">'+(isBm?'🔖 取消收藏':'🏷️ 收藏')+'</button></div>';
   document.getElementById('modalOverlay').classList.add('active');
 }
 function KG_toggleReadModal(){
@@ -239,11 +280,11 @@ function KG_renderTags(){
   KG_BOOKS.forEach(function(b){ b.tags.forEach(function(t){set.add(t);}); });
   var all = Array.from(set).sort();
   if(KG.setTags) KG.setTags('__master__', all);
-  var html = '<div class="stat-cards"><div class="stat-card"><div class="num">'+all.length+'</div><div class="lbl">鎬绘爣绛?/div></div></div><div style="display:flex;flex-wrap:wrap;gap:6px;">';
+  var html = '<div class="stat-cards"><div class="stat-card"><div class="num">'+all.length+'</div><div class="lbl">总标签</div></div></div><div style="display:flex;flex-wrap:wrap;gap:6px;">';
   all.forEach(function(tag){
     var cnt = KG_BOOKS.filter(function(b){return b.tags.includes(tag);}).length;
     html += '<div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:10px 14px;cursor:pointer;" onclick="document.getElementById(\'searchBox\').value=\''+tag+'\';KG_switchTab(\'books\')">'+
-      '<div style="font-weight:600;font-size:0.85rem;">'+KG_tag(tag)+'</div><div style="font-size:0.7rem;color:var(--text2);">'+cnt+' 椤?/div></div>';
+      '<div style="font-weight:600;font-size:0.85rem;">'+KG_tag(tag)+'</div><div style="font-size:0.7rem;color:var(--text2);">'+cnt+' 项</div></div>';
   });
   document.getElementById('tab-tags').innerHTML = html+'</div>';
 }
@@ -286,24 +327,24 @@ function KG_renderStatsPanel(){
   var as = KG.getAllAnnotations?KG.getAllAnnotations():{count:0};
   var ss = KG.getSRSStats?KG.getSRSStats():{due:0};
   document.getElementById('progressStats').innerHTML =
-    '<div class="stat-card"><div class="num">'+KG_BOOKS.length+'</div><div class="lbl">鎬绘墜鍐?/div></div>'+
-    '<div class="stat-card"><div class="num">'+ps.done+'</div><div class="lbl">宸插畬鎴?/div></div>'+
-    '<div class="stat-card"><div class="num">'+ps.reading+'</div><div class="lbl">闃呰涓?/div></div>'+
-    '<div class="stat-card"><div class="num">'+(KG_BOOKS.length-ps.done-ps.reading)+'</div><div class="lbl">鏈紑濮?/div></div>'+
-    '<div class="stat-card"><div class="num">'+ns.count+'</div><div class="lbl">绗旇</div></div>'+
-    '<div class="stat-card"><div class="num">'+as.count+'</div><div class="lbl">鏍囨敞</div></div>'+
-    '<div class="stat-card"><div class="num">'+ss.due+'</div><div class="lbl">寰呭涔?/div></div>';
+    '<div class="stat-card"><div class="num">'+KG_BOOKS.length+'</div><div class="lbl">总手册</div></div>'+
+    '<div class="stat-card"><div class="num">'+ps.done+'</div><div class="lbl">已完成</div></div>'+
+    '<div class="stat-card"><div class="num">'+ps.reading+'</div><div class="lbl">阅读中</div></div>'+
+    '<div class="stat-card"><div class="num">'+(KG_BOOKS.length-ps.done-ps.reading)+'</div><div class="lbl">未开始</div></div>'+
+    '<div class="stat-card"><div class="num">'+ns.count+'</div><div class="lbl">笔记</div></div>'+
+    '<div class="stat-card"><div class="num">'+as.count+'</div><div class="lbl">标注</div></div>'+
+    '<div class="stat-card"><div class="num">'+ss.due+'</div><div class="lbl">待复习</div></div>';
   document.getElementById('statBooks').textContent = KG_BOOKS.length;
   document.getElementById('statNotes').textContent = ns.count;
   document.getElementById('statAnno').textContent = as.count;
   document.getElementById('statSRS').textContent = ss.due;
 }
 function KG_renderProgressDetail(){
-  var html = '<h4 style="font-size:0.9rem;margin-bottom:8px;">馃摉 鍚勬墜鍐岃繘搴?/h4>';
+  var html = '<h4 style="font-size:0.9rem;margin-bottom:8px;">📖 各手册进度</h4>';
   KG_BOOKS.forEach(function(b){
     var st = KG.getStatus?KG.getStatus(b.id):null;
     var pct = st==='completed'?100:(st==='reading'?50:0);
-    var icon = st==='completed'?'鉁?:st==='reading'?'馃摉':'鈿?;
+    var icon = st==='completed'?'✅':st==='reading'?'📖':'⚪';
     html += '<div class="prog-item"><span>'+b.icon+'</span><span style="flex:1;font-size:0.82rem;">'+b.title+'</span><div class="prog-bar-outer"><div class="prog-bar-inner" style="width:'+pct+'%"></div></div><span class="prog-pct">'+pct+'%</span><span>'+icon+'</span></div>';
   });
   document.getElementById('progressDetail').innerHTML = html;
@@ -311,7 +352,7 @@ function KG_renderProgressDetail(){
 function KG_renderHistory(){
   var h = KG.getHistory?KG.getHistory(20):[];
   var html = h.map(function(item){ return '<div class="hist-item"><span>'+KG_escapeHtml(item.title)+'</span><span class="time">'+KG_timeAgo(item.timestamp)+'</span></div>'; }).join('');
-  document.getElementById('recentHistory').innerHTML = html||'<p style="color:var(--text2);font-size:0.8rem;">杩樻病鏈夋祻瑙堣褰?/p>';
+  document.getElementById('recentHistory').innerHTML = html||'<p style="color:var(--text2);font-size:0.8rem;">还没有浏览记录</p>';
 }
 function KG_renderAnnotations(){
   var all = KG.getAllAnnotations?KG.getAllAnnotations():{items:{},count:0};
@@ -320,42 +361,42 @@ function KG_renderAnnotations(){
     var book = KG_BOOKS.find(function(b){return b.id===id;});
     var title = book?book.icon+' '+book.title:id;
     all.items[id].forEach(function(a,i){
-      html += '<div class="anno-item"><div class="q">"'+KG_escapeHtml(a.text)+'"</div><div class="meta"><span>馃摌 '+title+'</span><button onclick="KG.deleteAnnotation(\''+id+'\','+i+');KG_renderAnnotations();" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:0.7rem;">鍒犻櫎</button></div></div>';
+      html += '<div class="anno-item"><div class="q">"'+KG_escapeHtml(a.text)+'"</div><div class="meta"><span>📘 '+title+'</span><button onclick="KG.deleteAnnotation(\''+id+'\','+i+');KG_renderAnnotations();" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:0.7rem;">删除</button></div></div>';
     });
   });
-  document.getElementById('annotationsList').innerHTML = html||'<p style="color:var(--text2);text-align:center;padding:20px;">杩樻病鏈夋爣娉?/p>';
+  document.getElementById('annotationsList').innerHTML = html||'<p style="color:var(--text2);text-align:center;padding:20px;">还没有标注</p>';
 }
 function KG_renderSRS(){
   var ss = KG.getSRSStats?KG.getSRSStats():{total:0,due:0,upcoming:0};
-  document.getElementById('srsStats').innerHTML = '<div class="stat-cards"><div class="stat-card"><div class="num">'+ss.total+'</div><div class="lbl">宸插姞鍏ュ涔?/div></div><div class="stat-card"><div class="num">'+ss.due+'</div><div class="lbl">寰呭涔?馃敶</div></div></div>';
+  document.getElementById('srsStats').innerHTML = '<div class="stat-cards"><div class="stat-card"><div class="num">'+ss.total+'</div><div class="lbl">已加入复习</div></div><div class="stat-card"><div class="num">'+ss.due+'</div><div class="lbl">待复习 🔴</div></div></div>';
   var due = KG.getDueItems?KG.getDueItems():[];
   var html = '';
   if(ss.due>0){
-    html += '<h4 style="font-size:0.9rem;margin-bottom:8px;">馃敶 鍒版湡澶嶄範</h4>';
+    html += '<h4 style="font-size:0.9rem;margin-bottom:8px;">🔴 到期复习</h4>';
     due.forEach(function(id){
       var book = KG_BOOKS.find(function(b){return b.id===id;});
       if(!book) return;
-      html += '<div class="prog-item"><span>'+book.icon+'</span><span style="flex:1;">'+book.title+'</span><button onclick="KG.recordReview(\''+id+'\');KG_renderSRS();KG_checkSRS();" style="padding:4px 10px;border-radius:6px;border:none;background:#238636;color:white;cursor:pointer;font-size:0.75rem;">鉁?浠婃棩宸插涔?/button></div>';
+      html += '<div class="prog-item"><span>'+book.icon+'</span><span style="flex:1;">'+book.title+'</span><button onclick="KG.recordReview(\''+id+'\');KG_renderSRS();KG_checkSRS();" style="padding:4px 10px;border-radius:6px;border:none;background:#238636;color:white;cursor:pointer;font-size:0.75rem;">✓ 今日已复习</button></div>';
     });
   }
   var allSRS = JSON.parse(localStorage.getItem('kg_srs_v3')||'{}');
   var upcoming = Object.keys(allSRS).filter(function(id){ return !due.includes(id); });
   if(upcoming.length>0){
-    html += '<h4 style="font-size:0.9rem;margin:12px 0 8px;">馃煝 宸叉帓鏈?/h4>';
+    html += '<h4 style="font-size:0.9rem;margin:12px 0 8px;">🟢 已排期</h4>';
     upcoming.forEach(function(id){
       var book = KG_BOOKS.find(function(b){return b.id===id;});
       if(!book) return;
       var next = KG.getNextReview?KG.getNextReview(id):null;
-      html += '<div class="prog-item"><span>'+book.icon+'</span><span style="flex:1;">'+book.title+'</span><span style="font-size:0.75rem;color:var(--text2);">涓嬫: '+KG_timeAgo(next)+'</span></div>';
+      html += '<div class="prog-item"><span>'+book.icon+'</span><span style="flex:1;">'+book.title+'</span><span style="font-size:0.75rem;color:var(--text2);">下次: '+KG_timeAgo(next)+'</span></div>';
     });
   }
-  document.getElementById('srsList').innerHTML = html||'<p style="color:var(--text2);text-align:center;padding:20px;">杩樻病鏈夊姞鍏ュ涔犺鍒?/p>';
+  document.getElementById('srsList').innerHTML = html||'<p style="color:var(--text2);text-align:center;padding:20px;">还没有加入复习计划</p>';
 }
 function KG_checkSRS(){
   if(!KG.getDueItems) return;
   var due = KG.getDueItems();
   var bar = document.getElementById('srsReminder');
-  if(due.length>0){ bar.style.display='flex'; document.getElementById('srsText').textContent = '馃敶 '+due.length+' 鏈功绫嶅埌鏈熼渶瑕佸涔?; }
+  if(due.length>0){ bar.style.display='flex'; document.getElementById('srsText').textContent = '🔴 '+due.length+' 本书籍到期需要复习'; }
   else { bar.style.display='none'; }
 }
 function KG_importBackup(e){
@@ -363,8 +404,8 @@ function KG_importBackup(e){
   if(!file) return;
   var reader = new FileReader();
   reader.onload = function(ev){
-    try{ KG.importAll(JSON.parse(ev.target.result)); alert('鉁?瀵煎叆鎴愬姛锛?); KG_renderStatsPanel(); KG_checkSRS(); }
-    catch(err){ alert('鉂?瀵煎叆澶辫触锛氭枃浠舵牸寮忎笉姝ｇ‘'); }
+    try{ KG.importAll(JSON.parse(ev.target.result)); alert('✅ 导入成功！'); KG_renderStatsPanel(); KG_checkSRS(); }
+    catch(err){ alert('❌ 导入失败：文件格式不正确'); }
   };
   reader.readAsText(file);
 }
@@ -373,7 +414,7 @@ window.onload = function(){
   KG_renderBooks('');
   KG_renderStatsPanel();
   KG_checkSRS();
-  if(KG.logVisitHistory) KG.logVisitHistory('__home__', '鐭ヨ瘑搴撻椤?);
+  if(KG.logVisitHistory) KG.logVisitHistory('__home__', '知识库首页');
 };
 </script>
 </body>
